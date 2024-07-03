@@ -1,1 +1,5 @@
-./VirtualStock/VirtualStock.pro.user
+# Ignore user-specific project files
+VirtualStock/VirtualStock.pro.user
+
+# Ignore build directory
+build-VirtualStock-Desktop_Qt_6_5_3_MinGW_64_bit-Debug/
