@@ -18,11 +18,14 @@ CONFIG += c++17
 SOURCES += \
     backdb.cpp \
     backendwithdatabase2.cpp \
+    buyin.cpp \
     chartspline.cpp \
+    enroll.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
     marketnews.cpp \
+    personpage.cpp \
     portfolio.cpp \
     querywidget.cpp \
     record.cpp \
@@ -33,13 +36,17 @@ SOURCES += \
     widget.cpp
 
 HEADERS += \
+    LoginCreate.h \
     backdb.h \
     backendwithdatabase2.h \
+    buyin.h \
     chartspline.h \
+    enroll.h \
     login.h \
     mainwindow.h \
     marketnews.h \
     p2.h \
+    personpage.h \
     portfolio.h \
     querywidget.h \
     record.h \
@@ -50,9 +57,12 @@ HEADERS += \
     widget.h
 
 FORMS += \
+    buyin.ui \
     chartspline.ui \
+    enroll.ui \
     login.ui \
     mainwindow.ui \
+    personpage.ui \
     querywidget.ui \
     widget.ui
 

@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QWidget>
+#include "buyin.h"
+#include "personpage.h"
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +19,9 @@ public:
 
 private slots:
 
+    void on_buyinButton_clicked();
+
+    void on_personpage1_clicked();
 
 private:
     Ui::MainWindow *ui;

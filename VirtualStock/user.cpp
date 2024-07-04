@@ -1,5 +1,4 @@
 #include "user.h"
-#include<QString>
 
 //默认构造函数
 User::User(){

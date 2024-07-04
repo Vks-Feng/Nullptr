@@ -1,5 +1,4 @@
 #include "portfolio.h"
-#include "stock.h"
 
 //---------------------投资管理类Portfolio------------------------
 Portfolio::Portfolio()
