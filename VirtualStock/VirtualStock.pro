@@ -13,6 +13,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     marketnews.cpp \
+    personpage.cpp \
     portfolio.cpp \
     record.cpp \
     stock.cpp \
@@ -26,6 +27,7 @@ HEADERS += \
     mainwindow.h \
     marketnews.h \
     p2.h \
+    personpage.h \
     portfolio.h \
     record.h \
     stock.h \
@@ -37,6 +39,7 @@ HEADERS += \
 FORMS += \
     login.ui \
     mainwindow.ui \
+    personpage.ui \
     widget.ui
 
 # Default rules for deployment.
