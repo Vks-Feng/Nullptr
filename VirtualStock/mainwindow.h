@@ -18,6 +18,8 @@ public:
 private slots:
 
 
+    void on_personpage2_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

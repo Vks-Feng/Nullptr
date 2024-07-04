@@ -1,7 +1,8 @@
 #ifndef PERSONPAGE_H
 #define PERSONPAGE_H
+#include <QWidget>
 
-class personpage
+class personpage: public QWidget
 {
 public:
     personpage();

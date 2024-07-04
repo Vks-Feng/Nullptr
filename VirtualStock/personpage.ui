@@ -13,14 +13,301 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="Views">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>190</y>
+      <width>40</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>留言板</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>33</x>
+      <y>220</y>
+      <width>131</width>
+      <height>81</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Position_position">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>230</y>
+      <width>41</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>持仓情况</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="position_position">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>210</y>
+      <width>291</width>
+      <height>51</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="History">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>290</y>
+      <width>40</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>交易记录</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="history">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>270</y>
+      <width>291</width>
+      <height>51</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>50</y>
+      <width>142</width>
+      <height>92</height>
+     </rect>
+    </property>
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="1">
+      <widget class="QLabel" name="head">
+       <property name="text">
+        <string>个人信息</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="ID">
+       <property name="text">
+        <string>用户名</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="id"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="Number_trace">
+       <property name="text">
+        <string>被追踪次数</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="number_trace"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="Success_rate">
+       <property name="text">
+        <string>选股成功率</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="success_rate"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QSplitter" name="splitter">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>20</y>
+      <width>378</width>
+      <height>136</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+    <widget class="QLabel" name="Account">
+     <property name="text">
+      <string>资金账户</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="">
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="3" column="0">
+       <widget class="QLineEdit" name="yearrte"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="Monthrate_2">
+        <property name="text">
+         <string>本月盈利率</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="monthpal"/>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLineEdit" name="monthasset"/>
+      </item>
+      <item row="4" column="2">
+       <widget class="QLabel" name="Allasset">
+        <property name="text">
+         <string>总资产</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QLineEdit" name="yearasset"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLineEdit" name="allrate"/>
+      </item>
+      <item row="2" column="3">
+       <widget class="QLabel" name="Yearoperation">
+        <property name="text">
+         <string>今年操作数</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="Allrate">
+        <property name="text">
+         <string>总盈利率</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="Monthpal">
+        <property name="text">
+         <string>本月盈亏</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLabel" name="Allpal">
+        <property name="text">
+         <string>总盈亏</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLineEdit" name="monthrate"/>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="yearpal"/>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="Monthasset">
+        <property name="text">
+         <string>本月资产</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="Yearpal">
+        <property name="text">
+         <string>今年盈亏</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QLabel" name="Monthoperation">
+        <property name="text">
+         <string>本月操作次数</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QLabel" name="Yearasset">
+        <property name="text">
+         <string>今年资产</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="3">
+       <widget class="QLabel" name="Alloperation">
+        <property name="text">
+         <string>总操作数</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QLineEdit" name="monthoperation"/>
+      </item>
+      <item row="3" column="3">
+       <widget class="QLineEdit" name="yearoperation"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="Yearrate">
+        <property name="text">
+         <string>今年盈利率</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="allpal"/>
+      </item>
+      <item row="5" column="2">
+       <widget class="QLineEdit" name="allasset"/>
+      </item>
+      <item row="5" column="3">
+       <widget class="QLineEdit" name="alloperation"/>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <zorder>history</zorder>
+   <zorder>position_position</zorder>
+   <zorder>History</zorder>
+   <zorder>Position_position</zorder>
+   <zorder>id</zorder>
+   <zorder>head</zorder>
+   <zorder>ID</zorder>
+   <zorder>Number_trace</zorder>
+   <zorder>number_trace</zorder>
+   <zorder>Success_rate</zorder>
+   <zorder>success_rate</zorder>
+   <zorder>Views</zorder>
+   <zorder>plainTextEdit</zorder>
+   <zorder>Account</zorder>
+   <zorder>Monthrate_2</zorder>
+   <zorder>Monthpal</zorder>
+   <zorder>Monthasset</zorder>
+   <zorder>Monthoperation</zorder>
+   <zorder>Yearrate</zorder>
+   <zorder>Yearpal</zorder>
+   <zorder>Yearasset</zorder>
+   <zorder>Yearoperation</zorder>
+   <zorder>Allrate</zorder>
+   <zorder>Allpal</zorder>
+   <zorder>Allasset</zorder>
+   <zorder></zorder>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>
