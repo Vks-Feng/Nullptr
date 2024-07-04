@@ -1,6 +1,6 @@
 #include "buyin.h"
 #include "ui_buyin.h"
-
+#include "mainwindow.h"
 buyin::buyin(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::buyin)
@@ -46,5 +46,13 @@ void buyin::on_IncomeButton_clicked()
 void buyin::on_RecommendButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(5);
+}
+
+
+void buyin::on_returnbutton_clicked()
+{
+    MainWindow* mainwindow = new MainWindow();
+    mainwindow->show();
+    this->close();
 }
 

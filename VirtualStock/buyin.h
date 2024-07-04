@@ -14,6 +14,7 @@ class buyin : public QWidget
 public:
     explicit buyin(QWidget *parent = nullptr);
     ~buyin();
+    Ui::buyin *ui;
 
 private slots:
     void on_BuyInButton_clicked();
@@ -28,8 +29,10 @@ private slots:
 
     void on_RecommendButton_clicked();
 
+    void on_returnbutton_clicked();
+
 private:
-    Ui::buyin *ui;
+
 };
 
 #endif // BUYIN_H

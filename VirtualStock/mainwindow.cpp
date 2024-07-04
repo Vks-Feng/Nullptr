@@ -1,7 +1,9 @@
 #include "mainwindow.h"
+#include "ui_buyin.h"
 #include "ui_mainwindow.h"
 #include <QPushButton>
 #include<personpage.h>
+#include "login.h"
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::MainWindow)
@@ -51,5 +53,50 @@ void MainWindow::on_personpage2_clicked()
     Personpage->show();
     this->close();
 
+}
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    this->close();
+    buyin *buy = new buyin();
+    buy->show();
+    buy->ui->stackedWidget->setCurrentIndex(1);
+}
+void MainWindow::on_pushButton_3_clicked()
+{
+    this->close();
+    buyin *buy = new buyin();
+    buy->show();
+    buy->ui->stackedWidget->setCurrentIndex(2);
+}
+void MainWindow::on_pushButton_4_clicked()
+{
+    this->close();
+    buyin *buy = new buyin();
+    buy->show();
+    buy->ui->stackedWidget->setCurrentIndex(3);
+}
+void MainWindow::on_pushButton_5_clicked()
+{
+    this->close();
+    buyin *buy = new buyin();
+    buy->show();
+    buy->ui->stackedWidget->setCurrentIndex(4);
+}
+void MainWindow::on_pushButton_6_clicked()
+{
+    this->close();
+    buyin *buy = new buyin();
+    buy->show();
+    buy->ui->stackedWidget->setCurrentIndex(5);
+}
+
+
+void MainWindow::on_leavebutton1_clicked()
+{
+    Login* log =new Login();
+    log->show();
+    this->close();
 }
 
