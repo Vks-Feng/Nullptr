@@ -1,3 +1,5 @@
 #include "personpage.h"
 
-personpage::personpage() {}
+personpage::personpage(){
+
+}

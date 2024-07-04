@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     buyin.cpp \
+    enroll.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -25,6 +26,7 @@ SOURCES += \
 
 HEADERS += \
     buyin.h \
+    enroll.h \
     login.h \
     mainwindow.h \
     marketnews.h \
@@ -40,6 +42,7 @@ HEADERS += \
 
 FORMS += \
     buyin.ui \
+    enroll.ui \
     login.ui \
     mainwindow.ui \
     personpage.ui \
