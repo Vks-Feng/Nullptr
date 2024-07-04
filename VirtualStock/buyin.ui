@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>buyin</class>
+ <widget class="QWidget" name="buyin">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>465</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>50</y>
+     <width>461</width>
+     <height>391</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>5</number>
+   </property>
+   <widget class="QWidget" name="BuyinPage"/>
+   <widget class="QWidget" name="SellOutPage"/>
+   <widget class="QWidget" name="RecordPage"/>
+   <widget class="QWidget" name="PositionPage"/>
+   <widget class="QWidget" name="IncomePage"/>
+   <widget class="QWidget" name="RecommendPage">
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>130</y>
+       <width>63</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>1</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>94</width>
+     <height>431</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="BuyInButton">
+      <property name="text">
+       <string>买入</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="SellOutButton">
+      <property name="text">
+       <string>卖出</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="TradingRecordButton">
+      <property name="text">
+       <string>交易记录</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="PositionButton">
+      <property name="text">
+       <string>持仓股票</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="IncomeButton">
+      <property name="text">
+       <string>收益</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="RecommendButton">
+      <property name="text">
+       <string>优质股票推荐</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

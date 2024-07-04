@@ -9,6 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    buyin.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -22,6 +23,7 @@ SOURCES += \
     widget.cpp
 
 HEADERS += \
+    buyin.h \
     login.h \
     mainwindow.h \
     marketnews.h \
@@ -35,6 +37,7 @@ HEADERS += \
     widget.h
 
 FORMS += \
+    buyin.ui \
     login.ui \
     mainwindow.ui \
     widget.ui
