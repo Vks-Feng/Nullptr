@@ -16,19 +16,46 @@ Login::~Login()
     delete ui;
 }
 
+void Login::loginErrorNotification(QString error){
+    QMessageBox msgBox;
+    msgBox.setText(error);
+    msgBox.exec();
+}
+
 void Login::on_LoginButton_clicked()
 {
-    bool Loginsuccess = (ui->UserNameInput->text() == "vks") && (ui->UserPasswordInput->text() == "123");
-    if(Loginsuccess) {
-        MainWindow* mainwindow = new MainWindow();
-        mainwindow->show();
-        this->close();
-    } else if(ui->UserPasswordInput->text() != "123") {
-        QMessageBox msgBox;
-        msgBox.setText("密码错误");
-        msgBox.exec();
+    if (ui->UserNameInput->text().isEmpty() || ui->UserPasswordInput->text().isEmpty()) {
+        loginErrorNotification("用户名或密码不能为空");
+    } else {
+        int LoginResult = Global::instance().getGlobalUserManage()->Check(ui->UserNameInput->text(), ui->UserPasswordInput->text());
+        switch (LoginResult) {
+        case 0:
+        {
+            loginErrorNotification("vks：该用户名不存在，而且老子暂时懒得设计所以你tm必须给老子注册去");
+            enroll* en = new enroll(); // 设置父对象为当前窗口
+            this->close();
+            en->show();
+            break;
+        }
+        case 1:
+        {
+            loginErrorNotification("账号或密码错误");
+            break;
+        }
+        case 2:
+        {
+            MainWindow* mainwindow = new MainWindow(); // 设置父对象为当前窗口
+            mainwindow->show();
+            Global::instance().getGlobalUserManage()->UserAdd(User());
+            this->close();
+            break;
+        }
+        default:
+            break;
+        }
     }
 }
+
 
 void Login::keyPressEvent(QKeyEvent  *event)
 {
@@ -58,8 +85,7 @@ int Login::CheckUser(QString name, QString password)
     if(name == dataBaseName && dataBasePassword == dataBasePassword){
         return true;
     }
-    else
-    {
+    else{
         return false;
     }
 }

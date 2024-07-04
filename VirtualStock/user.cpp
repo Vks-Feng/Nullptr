@@ -5,9 +5,6 @@ User::User(){
     ID = 1;
     name = "vks";
     password = "123";
-    virtualcurrency = VirtualCurrency();
-    portfolio = Portfolio();
-    r = std::vector<Record>();
 }
 
 //Return the coresponding data member
@@ -30,6 +27,10 @@ vector<Record> User::GetRecord(){
 VirtualCurrency GetVIr(){
 
 };//Pass
+
+int User::GetBalance(){
+    return virtualcurrency.GetValue();
+}
 
 int User::GetRanking(){
     return ranking;

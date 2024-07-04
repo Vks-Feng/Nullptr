@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include <QPushButton>
+#include "global.h"
+#include "login.h"
+
 namespace Ui {
 class enroll;
 }
@@ -13,6 +16,9 @@ class enroll : public QWidget
 
 public:
     explicit enroll(QWidget *parent = nullptr);
+
+    void enrollNotification(QString error);
+
     ~enroll();
 
 private slots:

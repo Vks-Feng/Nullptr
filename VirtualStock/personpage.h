@@ -2,6 +2,7 @@
 #define PERSONPAGE_H
 
 #include <QWidget>
+#include "global.h"
 
 namespace Ui {
 class Personpage;

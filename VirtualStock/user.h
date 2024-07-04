@@ -39,6 +39,8 @@ public:
 
     VirtualCurrency GetVIr();//Pass
 
+    int GetBalance();
+
     int GetRanking();//获取排行
 
 };
