@@ -44,6 +44,7 @@ void MainWindow::on_pushButton_clicked()
     this->close();
     buyin *buy = new buyin();
     buy->show();
+    buy->ui->stackedWidget->setCurrentIndex(0);
 }
 
     

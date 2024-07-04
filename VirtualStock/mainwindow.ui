@@ -17,13 +17,13 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>80</y>
+     <y>60</y>
      <width>531</width>
      <height>301</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>4</number>
    </property>
    <widget class="QWidget" name="selectpage1"/>
    <widget class="QWidget" name="selectpage2">
@@ -120,8 +120,76 @@
     </widget>
    </widget>
    <widget class="QWidget" name="selectpage3"/>
-   <widget class="QWidget" name="selectpage4"/>
-   <widget class="QWidget" name="selectpage5"/>
+   <widget class="QWidget" name="selectpage4">
+    <widget class="QPlainTextEdit" name="plainTextEdit_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>471</width>
+       <height>261</height>
+      </rect>
+     </property>
+     <property name="plainText">
+      <string>1.数量规则：股票一手=100股。
+主板股票买入最少一手及其整数倍，100股，200股，300股，等等。
+主板股票卖出，最后一手不可低于100股的零散数量。
+2.回转交易规则：
+股票：T+1交易，即当天买入，下一交易日可卖出；
+可转债：T+0交易，即当天买入，当天可卖出，无次数限制；
+部分场内基金：大部分T+1交易，小部分T+0交易。
+3.价格规则：
+成交原则：价格优先，时间优先；
+连续竞价交易规则，价格在涨跌幅区间内有效。当天委托当天有效。
+4.涨跌幅限制：
+主板股票：上一交易日收盘价的±10%；创业板、科创板：上一交易日收盘价的±20%
+5.资金清算规则：
+按T+1原则进行资金清算。
+账户股票卖出后，资金马上到股票账户，当天可继续使用但不可转出
+下一交易日9:00后可转出至银行卡（需考虑周末、节假日因素）
+</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="selectpage5">
+    <widget class="QPlainTextEdit" name="plainTextEdit">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>451</width>
+       <height>261</height>
+      </rect>
+     </property>
+     <property name="plainText">
+      <string>1.中国海油$中国海油(SH600938)$
+
+目前股价28元左右，股票市值9665亿，年分红股息率5.8％。中国海油业务范围广泛，享有中国海洋石油，煤炭，天然气的开采权，属于大型垄断国企。
+
+中国海油从上市以来股价一路飙升，行情一路看涨，每年业务稳定增长，分红率稳定，是典型的价值投资股票。
+
+按照中国海油目前的趋势，2024年极有望走出翻倍的行情，股价不到50元，都坚决看好。大有取代中国石油成为三桶油行业的老大的趋势。
+
+问君能有几多愁，恰似未能满仓中海油！
+
+2.中国移动
+
+目前股价105元左右，股票市值22000亿，A股排名第一，年分红股息率3.7％。
+
+中国移动的行情和中国海油极为相似，业务能力和经营范围的独特性和垄断地位更胜中海油。中国移动上市以来，股价已经走出了翻倍行情，目前市值排名A股首位。
+
+鉴于其垄断的业务地位和增长行情，中国移动极有可能再次翻番，创造A股市值的神话，后续行情极为看好
+
+3.招商银行
+
+目前股价32元左右，股票市值8408亿，年分红股息率5.6％。
+
+招商银行是增长趋势最好的国内银行之一，银行零售业之首。其股价从高点54元下降到年前的低点27元，刚好实现腰斩，目前股价稳步回升，周线走出完美的U型底，招商银行在2024年市场好转的情况下，应该会再度走高，行情值得期待，但是想走出翻倍行情还有一定的难度，属于慢牛型，但会越来越好
+
+</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="QPushButton" name="personpage1">
    <property name="geometry">
