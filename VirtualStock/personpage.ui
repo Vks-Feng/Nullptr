@@ -40,8 +40,8 @@
    <widget class="QLabel" name="Position_position">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>230</y>
+      <x>260</x>
+      <y>190</y>
       <width>41</width>
       <height>20</height>
      </rect>
@@ -63,10 +63,10 @@
    <widget class="QLabel" name="History">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>290</y>
+      <x>260</x>
+      <y>281</y>
       <width>40</width>
-      <height>12</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
@@ -77,13 +77,13 @@
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>270</y>
+      <y>300</y>
       <width>291</width>
       <height>51</height>
      </rect>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>9</x>
@@ -149,7 +149,7 @@
       <string>资金账户</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <layout class="QGridLayout" name="gridLayout">
       <item row="3" column="0">
        <widget class="QLineEdit" name="yearrte"/>
@@ -274,32 +274,42 @@
      </layout>
     </widget>
    </widget>
-   <zorder>history</zorder>
+   <widget class="QPushButton" name="historybutton">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>350</y>
+      <width>151</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>点击查看交易记录详情</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>260</y>
+      <width>151</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>点击查看持仓情况详情</string>
+    </property>
+   </widget>
    <zorder>position_position</zorder>
+   <zorder>splitter</zorder>
+   <zorder>history</zorder>
    <zorder>History</zorder>
    <zorder>Position_position</zorder>
-   <zorder>id</zorder>
-   <zorder>head</zorder>
-   <zorder>ID</zorder>
-   <zorder>Number_trace</zorder>
-   <zorder>number_trace</zorder>
-   <zorder>Success_rate</zorder>
-   <zorder>success_rate</zorder>
    <zorder>Views</zorder>
    <zorder>plainTextEdit</zorder>
-   <zorder>Account</zorder>
-   <zorder>Monthrate_2</zorder>
-   <zorder>Monthpal</zorder>
-   <zorder>Monthasset</zorder>
-   <zorder>Monthoperation</zorder>
-   <zorder>Yearrate</zorder>
-   <zorder>Yearpal</zorder>
-   <zorder>Yearasset</zorder>
-   <zorder>Yearoperation</zorder>
-   <zorder>Allrate</zorder>
-   <zorder>Allpal</zorder>
-   <zorder>Allasset</zorder>
-   <zorder></zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>historybutton</zorder>
+   <zorder>pushButton_2</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
