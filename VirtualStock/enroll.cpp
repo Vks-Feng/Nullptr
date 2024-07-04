@@ -15,10 +15,23 @@ enroll::~enroll()
     delete ui;
 }
 
+void enroll::enrollNotification(QString error){
+    QMessageBox msgBox;
+    msgBox.setText(error);
+    msgBox.exec();
+}
+
 void enroll::on_LoginButton_clicked()
 {
-    Login *loh =new Login();
-    this->close();
-    loh->show();
+    if (ui->UserNameInput->text().isEmpty() || ui->UserPasswordInput->text().isEmpty()) {
+        enrollNotification("用户名和密码不能为空");
+    } else {
+        if(Global::instance().getGlobalUserManage()->Create(ui->UserNameInput->text(), ui->UserPasswordInput->text())){
+            enrollNotification("注册成功，请点击确认返回登录");
+            Login* l = new Login();
+            l->show();
+            this->close();
+        }
+    }
 }
 

@@ -9,8 +9,7 @@
 #include <QKeyEvent>
 #include <QPushButton>
 #include <QMessageBox>
-
-extern UserManage usermanage;
+#include "global.h"
 
 namespace Ui {
 class Login;
@@ -26,7 +25,10 @@ public:
     ~Login();
 
     int CheckUser(QString name, QString password);
+
     void keyPressEvent(QKeyEvent  *event) ;
+
+    void loginErrorNotification(QString error);
 
 private slots:
     void on_LoginButton_clicked();

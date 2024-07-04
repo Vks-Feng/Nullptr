@@ -5,9 +5,6 @@ User::User(){
     ID = 1;
     name = "vks";
     password = "123";
-    virtualcurrency = VirtualCurrency();
-    portfolio = Portfolio();
-    r = std::vector<Record>();
 }
 
 User::User(int _id,QString  _userName,QString _password,int _balance,int _ranking)
@@ -39,6 +36,10 @@ vector<Record> User::GetRecord(){
 VirtualCurrency GetVIr(){
 
 };//Pass
+
+int User::GetBalance(){
+    return virtualcurrency.GetValue();
+}
 
 int User::GetRanking(){
     return ranking;

@@ -21,6 +21,7 @@ SOURCES += \
     buyin.cpp \
     chartspline.cpp \
     enroll.cpp \
+    global.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -42,6 +43,7 @@ HEADERS += \
     buyin.h \
     chartspline.h \
     enroll.h \
+    global.h \
     login.h \
     mainwindow.h \
     marketnews.h \

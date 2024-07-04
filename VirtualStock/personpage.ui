@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>100</y>
+     <y>40</y>
      <width>51</width>
      <height>31</height>
     </rect>
@@ -30,7 +30,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>130</y>
+     <y>70</y>
      <width>191</width>
      <height>151</height>
     </rect>
@@ -48,14 +48,14 @@
       <item>
        <widget class="QLabel" name="trackedCountTitle">
         <property name="text">
-         <string>被追踪次数</string>
+         <string>排名（被追踪次数）</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QLabel" name="successRateTitle">
         <property name="text">
-         <string>选股成功率</string>
+         <string>资产（选股成功率）</string>
         </property>
        </widget>
       </item>
@@ -64,23 +64,44 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QLineEdit" name="userNameEdit"/>
+       <widget class="QLabel" name="userName">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="trackedCountEdit"/>
+       <widget class="QLabel" name="trackedCount">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="successRateEdit"/>
+       <widget class="QLabel" name="successRate">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
    </layout>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="introduceMessageTitle">
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>290</y>
+     <y>260</y>
      <width>54</width>
      <height>16</height>
     </rect>
@@ -89,7 +110,7 @@
     <string>留言板</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="holdingTitle">
    <property name="geometry">
     <rect>
      <x>350</x>
@@ -102,7 +123,7 @@
     <string>持仓情况</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="tradeRecordTitle">
    <property name="geometry">
     <rect>
      <x>580</x>
@@ -118,8 +139,8 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>390</y>
+     <x>300</x>
+     <y>410</y>
      <width>151</width>
      <height>24</height>
     </rect>
@@ -132,7 +153,7 @@
    <property name="geometry">
     <rect>
      <x>540</x>
-     <y>390</y>
+     <y>410</y>
      <width>141</width>
      <height>24</height>
     </rect>
@@ -144,10 +165,10 @@
   <widget class="QTextEdit" name="personalDescribeEdit">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>320</y>
-     <width>161</width>
-     <height>111</height>
+     <x>20</x>
+     <y>280</y>
+     <width>191</width>
+     <height>141</height>
     </rect>
    </property>
   </widget>
@@ -157,7 +178,7 @@
      <x>290</x>
      <y>290</y>
      <width>181</width>
-     <height>91</height>
+     <height>111</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -170,27 +191,11 @@
      <x>520</x>
      <y>290</y>
      <width>181</width>
-     <height>91</height>
+     <height>111</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="userAvatar">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>20</y>
-     <width>81</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
-   </property>
-   <property name="text">
-    <string>我是头像</string>
    </property>
   </widget>
   <widget class="QWidget" name="gridLayoutWidget">
@@ -211,7 +216,7 @@
      </widget>
     </item>
     <item row="3" column="1">
-     <widget class="QLabel" name="label_9">
+     <widget class="QLabel" name="phaseYearContent">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -221,7 +226,7 @@
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QLabel" name="label_4">
+     <widget class="QLabel" name="profitRateMonthContent">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -231,7 +236,7 @@
      </widget>
     </item>
     <item row="3" column="3">
-     <widget class="QLabel" name="label_11">
+     <widget class="QLabel" name="operateCountYearContent">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -241,7 +246,7 @@
      </widget>
     </item>
     <item row="3" column="0">
-     <widget class="QLabel" name="label_8">
+     <widget class="QLabel" name="profitRateYearContent">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -272,7 +277,7 @@
      </widget>
     </item>
     <item row="1" column="2">
-     <widget class="QLabel" name="label_6">
+     <widget class="QLabel" name="balanceMonthContent">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -303,7 +308,7 @@
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QLabel" name="label_5">
+     <widget class="QLabel" name="phaseMonthContent">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -327,7 +332,7 @@
      </widget>
     </item>
     <item row="1" column="3">
-     <widget class="QLabel" name="label_7">
+     <widget class="QLabel" name="operateCountMonthContent">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -358,7 +363,7 @@
      </widget>
     </item>
     <item row="3" column="2">
-     <widget class="QLabel" name="label_10">
+     <widget class="QLabel" name="balanceYearContent">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -368,7 +373,7 @@
      </widget>
     </item>
     <item row="5" column="0">
-     <widget class="QLabel" name="label_12">
+     <widget class="QLabel" name="profitRateTotalContent">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -378,7 +383,7 @@
      </widget>
     </item>
     <item row="5" column="1">
-     <widget class="QLabel" name="label_13">
+     <widget class="QLabel" name="phaseTotalContent">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -388,7 +393,7 @@
      </widget>
     </item>
     <item row="5" column="2">
-     <widget class="QLabel" name="label_14">
+     <widget class="QLabel" name="balanceTotalContent">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -398,7 +403,7 @@
      </widget>
     </item>
     <item row="5" column="3">
-     <widget class="QLabel" name="label_15">
+     <widget class="QLabel" name="operateCountTotalContent">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
