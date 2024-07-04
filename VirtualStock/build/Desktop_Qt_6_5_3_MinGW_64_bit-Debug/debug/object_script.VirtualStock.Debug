@@ -1,0 +1,17 @@
+debug/enroll.o
+debug/login.o
+debug/main.o
+debug/mainwindow.o
+debug/marketnews.o
+debug/personpage.o
+debug/portfolio.o
+debug/record.o
+debug/stock.o
+debug/user.o
+debug/usermanage.o
+debug/virtualcurrency.o
+debug/widget.o
+debug/moc_enroll.o
+debug/moc_login.o
+debug/moc_mainwindow.o
+debug/moc_widget.o

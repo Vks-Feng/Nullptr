@@ -17,9 +17,12 @@ public:
     ~Login();
 
     bool CheckUser(QString name, QString age);
+    void keyPressEvent(QKeyEvent  *event) ;
 
 private slots:
     void on_LoginButton_clicked();
+
+    void on_RegisterButton_clicked();
 
 private:
     Ui::Login *ui;
