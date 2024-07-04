@@ -10,6 +10,15 @@ User::User(){
     r = std::vector<Record>();
 }
 
+User::User(int _id,QString  _userName,QString _password,int _balance,int _ranking)
+{
+    ID=_id;
+    name=_userName;
+    password=_password;
+    ranking=_ranking;
+    this->virtualcurrency.SetValue(_balance);
+}
+
 //Return the coresponding data member
 int User::GetId(){
     return ID;

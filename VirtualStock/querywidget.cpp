@@ -1,6 +1,6 @@
 #include "querywidget.h"
 #include "ui_querywidget.h"
-#include "backdb.h"
+#include "backdb.h"//这个只能放在这里，无法与querywidget.h并存
 
 QueryWidget::QueryWidget(QWidget *parent)
     : QMainWindow(parent)

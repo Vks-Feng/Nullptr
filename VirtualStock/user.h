@@ -28,7 +28,11 @@ public:
         name = _name;
         password = _password;
     }
+
+    User(int id, QString userName,QString password,
+         int balance,int ranking);
     //Return the coresponding data member
+
     int GetId();
 
     QString GetName();

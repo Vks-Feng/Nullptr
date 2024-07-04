@@ -5,6 +5,11 @@ VirtualCurrency::VirtualCurrency()
     value = 64800;
 }
 
+VirtualCurrency::VirtualCurrency(int _value)
+{
+    value+_value;
+}
+
 //存款
 bool VirtualCurrency::deposit(double amount){
     if(amount > 0)
@@ -25,6 +30,11 @@ bool VirtualCurrency::withdraw(double amount){
     }else{
         return false;
     }
+}
+
+void VirtualCurrency::SetValue(int _value)
+{
+    value=_value;
 }
 
 //了解资产

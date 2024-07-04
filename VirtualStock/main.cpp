@@ -1,17 +1,19 @@
 #include "widget.h"
-#include "login.h"
-#include "usermanage.h"
-#include "querywidget.h"
+//#include "login.h"
+//#include "usermanage.h"
+//#include "querywidget.h"
+#include "backdb.h"
+
+//
 
 #include <QApplication>
 
-UserManage* um = nullptr;
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    um = new UserManage();
-    QueryWidget q;
-    q.show();
+    BackDB b;
+    b.testEnableUser();
+
     return a.exec();
 }

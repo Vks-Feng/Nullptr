@@ -87,7 +87,7 @@ MYSQL_RES* BackDB::query(QString qStr)
 {
     QByteArray byteArray = qStr.toUtf8();
     const char* query = byteArray.data();
-    this->query(query);
+    return this->query(query);
 }
 
 
@@ -130,7 +130,12 @@ QString BackDB::showQuery(const char* query)
     }
 }
 
-
+QString BackDB::showQuery(QString qStr)
+{
+    QByteArray byteArray = qStr.toUtf8();
+    const char* query = byteArray.data();
+    this->showQuery(query);
+}
 
 
 
@@ -217,10 +222,45 @@ void BackDB::addUser(User _user) {
     this->query(queryStr);
 }
 
+//根据传入参数在数据库中添加新数据
+//成功添加则返回true，否则返回false（避免用户名存在）
+bool BackDB::addUser(QString name, QString password)
+{
+       qDebug()<<"Come to here"<<Qt::endl;
+    if (isExist(name)) {
+        std::cout << "Error!!! User with name " << name.toStdString() << " already exists." << std::endl;
+        return false;
+    }
+
+   qDebug()<<"Come to here to register the user "+name<<Qt::endl;
+
+    QString queryStr = QString("INSERT INTO users (id, name, password, balance, ranking) "
+                               "VALUES (%1, '%2', '%3', %4, %5)")
+                           .arg(1)
+                           .arg(name)
+                           .arg(password)
+                           .arg(648)
+                           .arg(-1);
+
+    qDebug()<<"Come to here"<<Qt::endl;
+
+    if (this->query(queryStr) != nullptr)
+    {
+        qDebug()<<"Succeed in creating user "+name<<Qt::endl;
+        return true;
+    }
+    else
+    {
+        qDebug()<<"Fail in creating user "+name<<Qt::endl;
+        return false;
+    }
+}
+
 void BackDB::testUserAdd() {
     qDebug()<<"Test the UserAdd"<<Qt::endl;
-    User _user;
-    this->addUser(_user);
+    User u;
+//    this->addUser(u);
+    this->addUser("Helg","Hello");
 }
 
 //------------------------
@@ -282,4 +322,120 @@ void BackDB::close()
 {
     mysql_close(&mysql); // Close MySQL connection
 }
+
+bool BackDB::isExist(QString name)
+{
+    qDebug()<<"Come to isExist1"<<Qt::endl;
+    QString queryStr = QString("SELECT COUNT(*) FROM users WHERE name = '%1';")
+                           .arg(name);
+
+    qDebug()<<"Come to isExist2"<<Qt::endl;
+
+    MYSQL_RES* result = this->query(queryStr);
+
+
+     qDebug()<<"Come to isExist3"<<Qt::endl;
+
+
+
+     qDebug()<<"Come to isExist4"<<Qt::endl;
+
+    MYSQL_ROW row = mysql_fetch_row(result);
+
+     qDebug()<<"Come to isExist4.1"<<Qt::endl;
+
+
+     int count = atoi(row[0]); // Convert first column to integer
+
+    qDebug()<<"Come to isExist4.5"<<Qt::endl;
+
+
+    return count > 0;
+}
+
+
+
+//根据用户名查找对应的密码，判断密码是否正确
+//正确则返回true，错误返回false
+bool BackDB::isPasswordEqual(QString name, QString password)
+{
+    QString queryStr = QString("SELECT password FROM users WHERE name = '%1'")
+                           .arg(name);
+
+    MYSQL_RES* result = this->query(queryStr);
+    if (result == nullptr) {
+        std::cout << "Query execution failed or result is null." << std::endl;
+        return false;
+    }
+
+    MYSQL_ROW row = mysql_fetch_row(result);
+    QString storedPassword = QString(row[0]);
+
+    mysql_free_result(result);
+
+    return (storedPassword == password);
+}
+
+void BackDB::testIsPasswordEqual()
+{
+    QString name="LinFan";
+    QString password="5201314";
+    if(isPasswordEqual(name,password)==1)
+    {
+         qDebug()<<"Code right"<<Qt::endl;
+    }
+    else
+    {
+    qDebug()<<"Code wrong!!"<<Qt::endl;
+    }
+}
+
+//根据用户名查找数据，并根据数据构建User，返回一个User
+User BackDB::enableUser(QString name)
+{
+    QString queryStr = QString("SELECT * FROM users WHERE name = '%1'")
+                           .arg(name);
+
+    MYSQL_RES* result = this->query(queryStr);
+    if (result == nullptr) {
+        std::cout << "Query execution failed or result is null." << std::endl;
+        // Return a default or invalid User object
+        return User();
+    }
+
+    MYSQL_ROW row = mysql_fetch_row(result);
+    if (row == nullptr) {
+        std::cout << "No user found with name " << name.toStdString() << std::endl;
+        mysql_free_result(result);
+        // Return a default or invalid User object
+        return User();
+    }
+
+    else
+    {
+        int _id = atoi(row[0]);
+        QString _name=row[1];
+        QString _password=row[2];
+        int _balance = atoi(row[3]);
+        int _ranking = atoi(row[4]);
+        User result(_id,_name,_password,_balance,_ranking);
+        return result;
+        //Return the coresponding data member
+    }
+}
+
+void BackDB::testEnableUser()
+{
+    QString name="LinFan";
+    User u=enableUser(name);
+    qDebug()<<u.GetId()<<Qt::endl;
+    qDebug()<<u.GetName()<<Qt::endl;
+    qDebug()<<u.GetPassword()<<Qt::endl;
+    qDebug()<<u.GetRanking()<<Qt::endl;
+}
+
+
+
+
+
 
