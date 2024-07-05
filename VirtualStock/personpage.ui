@@ -17,11 +17,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-<<<<<<< HEAD
      <y>40</y>
-=======
-     <y>100</y>
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
      <width>51</width>
      <height>31</height>
     </rect>
@@ -34,11 +30,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-<<<<<<< HEAD
      <y>70</y>
-=======
-     <y>130</y>
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
      <width>191</width>
      <height>151</height>
     </rect>
@@ -56,22 +48,14 @@
       <item>
        <widget class="QLabel" name="trackedCountTitle">
         <property name="text">
-<<<<<<< HEAD
          <string>排名（被追踪次数）</string>
-=======
-         <string>被追踪次数</string>
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
         </property>
        </widget>
       </item>
       <item>
        <widget class="QLabel" name="successRateTitle">
         <property name="text">
-<<<<<<< HEAD
          <string>资产（选股成功率）</string>
-=======
-         <string>选股成功率</string>
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
         </property>
        </widget>
       </item>
@@ -80,7 +64,6 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-<<<<<<< HEAD
        <widget class="QLabel" name="userName">
         <property name="styleSheet">
          <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -109,33 +92,16 @@
          <string/>
         </property>
        </widget>
-=======
-       <widget class="QLineEdit" name="userNameEdit"/>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="trackedCountEdit"/>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="successRateEdit"/>
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
       </item>
      </layout>
     </item>
    </layout>
   </widget>
-<<<<<<< HEAD
   <widget class="QLabel" name="introduceMessageTitle">
    <property name="geometry">
     <rect>
      <x>90</x>
      <y>260</y>
-=======
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>290</y>
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
      <width>54</width>
      <height>16</height>
     </rect>
@@ -144,11 +110,7 @@
     <string>留言板</string>
    </property>
   </widget>
-<<<<<<< HEAD
   <widget class="QLabel" name="holdingTitle">
-=======
-  <widget class="QLabel" name="label_2">
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
    <property name="geometry">
     <rect>
      <x>350</x>
@@ -161,11 +123,7 @@
     <string>持仓情况</string>
    </property>
   </widget>
-<<<<<<< HEAD
   <widget class="QLabel" name="tradeRecordTitle">
-=======
-  <widget class="QLabel" name="label_3">
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
    <property name="geometry">
     <rect>
      <x>580</x>
@@ -181,13 +139,8 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-<<<<<<< HEAD
      <x>300</x>
      <y>410</y>
-=======
-     <x>310</x>
-     <y>390</y>
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
      <width>151</width>
      <height>24</height>
     </rect>
@@ -200,11 +153,7 @@
    <property name="geometry">
     <rect>
      <x>540</x>
-<<<<<<< HEAD
      <y>410</y>
-=======
-     <y>390</y>
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
      <width>141</width>
      <height>24</height>
     </rect>
@@ -216,17 +165,10 @@
   <widget class="QTextEdit" name="personalDescribeEdit">
    <property name="geometry">
     <rect>
-<<<<<<< HEAD
      <x>20</x>
      <y>280</y>
      <width>191</width>
      <height>141</height>
-=======
-     <x>30</x>
-     <y>320</y>
-     <width>161</width>
-     <height>111</height>
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
     </rect>
    </property>
   </widget>
@@ -236,11 +178,7 @@
      <x>290</x>
      <y>290</y>
      <width>181</width>
-<<<<<<< HEAD
      <height>111</height>
-=======
-     <height>91</height>
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
     </rect>
    </property>
    <property name="styleSheet">
@@ -253,36 +191,13 @@
      <x>520</x>
      <y>290</y>
      <width>181</width>
-<<<<<<< HEAD
      <height>111</height>
-=======
-     <height>91</height>
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
   </widget>
-<<<<<<< HEAD
-=======
-  <widget class="QLabel" name="userAvatar">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>20</y>
-     <width>81</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
-   </property>
-   <property name="text">
-    <string>我是头像</string>
-   </property>
-  </widget>
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
@@ -301,11 +216,7 @@
      </widget>
     </item>
     <item row="3" column="1">
-<<<<<<< HEAD
      <widget class="QLabel" name="phaseYearContent">
-=======
-     <widget class="QLabel" name="label_9">
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -315,11 +226,7 @@
      </widget>
     </item>
     <item row="1" column="0">
-<<<<<<< HEAD
      <widget class="QLabel" name="profitRateMonthContent">
-=======
-     <widget class="QLabel" name="label_4">
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -329,11 +236,7 @@
      </widget>
     </item>
     <item row="3" column="3">
-<<<<<<< HEAD
      <widget class="QLabel" name="operateCountYearContent">
-=======
-     <widget class="QLabel" name="label_11">
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -343,11 +246,7 @@
      </widget>
     </item>
     <item row="3" column="0">
-<<<<<<< HEAD
      <widget class="QLabel" name="profitRateYearContent">
-=======
-     <widget class="QLabel" name="label_8">
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -378,11 +277,7 @@
      </widget>
     </item>
     <item row="1" column="2">
-<<<<<<< HEAD
      <widget class="QLabel" name="balanceMonthContent">
-=======
-     <widget class="QLabel" name="label_6">
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -413,11 +308,7 @@
      </widget>
     </item>
     <item row="1" column="1">
-<<<<<<< HEAD
      <widget class="QLabel" name="phaseMonthContent">
-=======
-     <widget class="QLabel" name="label_5">
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -441,11 +332,7 @@
      </widget>
     </item>
     <item row="1" column="3">
-<<<<<<< HEAD
      <widget class="QLabel" name="operateCountMonthContent">
-=======
-     <widget class="QLabel" name="label_7">
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -476,11 +363,7 @@
      </widget>
     </item>
     <item row="3" column="2">
-<<<<<<< HEAD
      <widget class="QLabel" name="balanceYearContent">
-=======
-     <widget class="QLabel" name="label_10">
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -490,11 +373,7 @@
      </widget>
     </item>
     <item row="5" column="0">
-<<<<<<< HEAD
      <widget class="QLabel" name="profitRateTotalContent">
-=======
-     <widget class="QLabel" name="label_12">
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -504,11 +383,7 @@
      </widget>
     </item>
     <item row="5" column="1">
-<<<<<<< HEAD
      <widget class="QLabel" name="phaseTotalContent">
-=======
-     <widget class="QLabel" name="label_13">
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -518,11 +393,7 @@
      </widget>
     </item>
     <item row="5" column="2">
-<<<<<<< HEAD
      <widget class="QLabel" name="balanceTotalContent">
-=======
-     <widget class="QLabel" name="label_14">
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
@@ -532,11 +403,7 @@
      </widget>
     </item>
     <item row="5" column="3">
-<<<<<<< HEAD
      <widget class="QLabel" name="operateCountTotalContent">
-=======
-     <widget class="QLabel" name="label_15">
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>

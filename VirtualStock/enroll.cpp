@@ -15,7 +15,6 @@ enroll::~enroll()
     delete ui;
 }
 
-<<<<<<< HEAD
 void enroll::enrollNotification(QString error){
     QMessageBox msgBox;
     msgBox.setText(error);
@@ -34,12 +33,5 @@ void enroll::on_LoginButton_clicked()
             this->close();
         }
     }
-=======
-void enroll::on_LoginButton_clicked()
-{
-    Login *loh =new Login();
-    this->close();
-    loh->show();
->>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
 }
 
