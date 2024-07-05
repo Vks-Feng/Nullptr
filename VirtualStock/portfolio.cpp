@@ -11,30 +11,28 @@ Portfolio::Portfolio(const std::map<int,int>& initialHoldings):holdings(initialH
     //已有映射构造函数
 }
 
-void Portfolio::addStock(Stock& stock, int quantity){
+void Portfolio::addStock(int stock, int quantity){
     //功能待实现
     //用户买入该股票，并且进入用户名下
-    int companyId = stock.GetCompanyId();
 
     //查找是否已经持有该股
-    auto it = holdings.find(companyId);
+    auto it = holdings.find(stock);
     if(it != holdings.end()){
         //已有，增加数量
         it->second +=quantity;
     }else{
         //未持有，增加键值对记录
-        holdings[companyId] = quantity;
+        holdings[stock] = quantity;
     }
 
 }
 
-void Portfolio::removeStock(Stock& stock, int quantity){
+void Portfolio::removeStock(int stock, int quantity){
     //功能待实现
     //用户卖出股票，名下股票相应删去
-    int companyId = stock.GetCompanyId();
 
     //查找是否已经持有该股
-    auto it = holdings.find(companyId);
+    auto it = holdings.find(stock);
     if(it != holdings.end()){
         //持有仓；并且持有数量大于要移除的数量
         if(it->second >= quantity){

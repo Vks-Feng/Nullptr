@@ -23,17 +23,17 @@ QString Record::GetDate(){
 }
 
 Stock Record::GetStock(){
-    return Record::s;
+    return s;
 }
 
 long Record::GetVolume(){
-    return Record::volume;
+    return volume;
 }
 
-long Record::GetTradeType(){
-    return Record::tradetype;
+bool Record::GetTradeType(){
+    return tradetype;
 }
 
 long Record::GetTotalPrice(){
-    return Record::totalprice;
+    return totalprice;
 }

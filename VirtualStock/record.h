@@ -11,7 +11,7 @@ private:
     QString date;//用“YYYY-MM"形式进行存储
     Stock s;//具体到哪一只股票‘
     long volume;//该笔交易容量
-    bool tradetype;//交易类型（买入/卖出)
+    bool tradetype;//交易类型（买入1/卖出0)
     long totalprice;
 public:
     Record(QString _date, Stock _s, long _volume, bool _tradetype, long _totalprice);
@@ -25,7 +25,7 @@ public:
 
     long GetVolume();
 
-    long GetTradeType();
+    bool GetTradeType();
 
     long GetTotalPrice();
 };

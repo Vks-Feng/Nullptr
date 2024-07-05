@@ -18,9 +18,9 @@ public:
 
     Portfolio(const std::map<int,int>& initialHoldings);
 
-    void addStock(Stock& stock, int quantity);//根据key,添加指定quantity的股票到holdings
+    void addStock(int stock, int quantity);//根据key,添加指定quantity的股票到holdings
 
-    void removeStock(Stock& stock, int quantity);//移除指定quantity的股票到holdings
+    void removeStock(int stock, int quantity);//移除指定quantity的股票到holdings
 
     std::map<int, int> getHoldings();//获取当前持仓的股票及数量映射
 
