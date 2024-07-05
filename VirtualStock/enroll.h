@@ -19,7 +19,11 @@ public:
 
     void enrollNotification(QString error);
     ~enroll();
-    void on_LoginButton_clicked();
+
+
+
+private slots:
+    void on_registerButton_clicked();
 
 private:
     Ui::enroll *ui;

@@ -26,7 +26,7 @@
     <enum>QFrame::NoFrame</enum>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="BuyinPage">
     <widget class="QLabel" name="label">
@@ -42,68 +42,100 @@
       <string>1</string>
      </property>
     </widget>
-    <widget class="QFrame" name="BuyInFrame">
+    <widget class="QWidget" name="horizontalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>10</y>
-       <width>311</width>
-       <height>231</height>
+       <x>150</x>
+       <y>340</y>
+       <width>211</width>
+       <height>41</height>
       </rect>
      </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>0</height>
-      </size>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="BuyResetButton">
+        <property name="text">
+         <string>重填</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="BuyComfirmButton">
+        <property name="text">
+         <string>确定下单</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>89</y>
+       <width>281</width>
+       <height>325</height>
+      </rect>
      </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Plain</enum>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
       <item>
-       <widget class="QLabel" name="BuyStockCodeLabel">
-        <property name="text">
-         <string>证券代码</string>
+       <widget class="QFrame" name="BuyInFrame">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="BuyNameLabe">
-        <property name="text">
-         <string>股东名称</string>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="BuyPriceLabel">
-        <property name="text">
-         <string>买入价格</string>
+        <property name="frameShadow">
+         <enum>QFrame::Plain</enum>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="BuyFindLabel">
-        <property name="text">
-         <string>可用资金</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="MaxBuyLabel">
-        <property name="text">
-         <string>最大可买</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="BuyQuantityLabel">
-        <property name="text">
-         <string>买入数量</string>
-        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="BuyStockCodeLabel">
+           <property name="text">
+            <string>证券代码</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="BuyNameLabe">
+           <property name="text">
+            <string>股东名称</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="BuyPriceLabel">
+           <property name="text">
+            <string>买入价格</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="BuyFindLabel">
+           <property name="text">
+            <string>可用资金</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="MaxBuyLabel">
+           <property name="text">
+            <string>最大可买</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="BuyQuantityLabel">
+           <property name="text">
+            <string>买入数量</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
      </layout>
@@ -111,10 +143,10 @@
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>90</x>
-       <y>10</y>
-       <width>211</width>
-       <height>231</height>
+       <x>290</x>
+       <y>90</y>
+       <width>259</width>
+       <height>171</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -138,32 +170,6 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="horizontalLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>240</y>
-       <width>211</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QPushButton" name="BuyResetButton">
-        <property name="text">
-         <string>重填</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="BuyComfirmButton">
-        <property name="text">
-         <string>确定下单</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
    </widget>
    <widget class="QWidget" name="SellOutPage">
     <widget class="QLabel" name="label_2">
@@ -179,108 +185,12 @@
       <string>2</string>
      </property>
     </widget>
-    <widget class="QFrame" name="SellOutFrame">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>311</width>
-       <height>231</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>0</height>
-      </size>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Plain</enum>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_4">
-      <item>
-       <widget class="QLabel" name="SellStockCodeLabel">
-        <property name="text">
-         <string>证券代码</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="SellNameLabel">
-        <property name="text">
-         <string>股东名称</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="SellPriceLable">
-        <property name="text">
-         <string>卖出价格</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="SellFundLabel">
-        <property name="text">
-         <string>可用资金</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="MaxSellLabel">
-        <property name="text">
-         <string>最大可卖</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="SellQuantityLabel">
-        <property name="text">
-         <string>卖出数量</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="verticalLayoutWidget_2">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>10</y>
-       <width>211</width>
-       <height>231</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_6">
-      <item>
-       <widget class="QComboBox" name="StockCodeBox_2"/>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="NameLine_2"/>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="PriceLine_2"/>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="FundLine_2"/>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="MaxBuyinLine_2"/>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="QuantityLine_2"/>
-      </item>
-     </layout>
-    </widget>
     <widget class="QWidget" name="horizontalLayoutWidget_2">
      <property name="geometry">
       <rect>
-       <x>100</x>
-       <y>240</y>
-       <width>211</width>
+       <x>140</x>
+       <y>370</y>
+       <width>241</width>
        <height>41</height>
       </rect>
      </property>
@@ -298,6 +208,100 @@
          <string>卖出</string>
         </property>
        </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>30</y>
+       <width>391</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QFrame" name="SellOutFrame">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Plain</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QLabel" name="SellStockCodeLabel">
+           <property name="text">
+            <string>证券代码</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="SellNameLabel">
+           <property name="text">
+            <string>股东名称</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="SellPriceLable">
+           <property name="text">
+            <string>卖出价格</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="SellFundLabel">
+           <property name="text">
+            <string>可用资金</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="MaxSellLabel">
+           <property name="text">
+            <string>最大可卖</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="SellQuantityLabel">
+           <property name="text">
+            <string>卖出数量</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <widget class="QComboBox" name="StockCodeBox_2"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="NameLine_2"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="PriceLine_2"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="FundLine_2"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="MaxBuyinLine_2"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="QuantityLine_2"/>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>

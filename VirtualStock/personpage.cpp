@@ -7,8 +7,8 @@ Personpage::Personpage(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->userName->setText(Global::instance().getGlobalUserManage()->GetUser(0)->GetName());
-    //ui->trackedCount->setText(Global::instance().getGlobalUserManage()->GetUser(0).GetRanking().);
-    //ui->successRate->setText(Global::instance().getGlobalUserManage()->GetUser(0).);
+    ui->trackedCount->setText(QString::number(Global::instance().getGlobalUserManage()->GetUser(0)->GetRanking()));
+    ui->successRate->setText(QString::number(Global::instance().getGlobalUserManage()->GetUser(0)->GetBalance()));
 }
 
 Personpage::~Personpage()

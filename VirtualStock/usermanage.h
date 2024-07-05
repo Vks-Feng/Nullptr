@@ -29,7 +29,7 @@ public:
     bool UserAdd(User _user);
 
     //返回用户
-    User GetUser(int i);
+    User* GetUser(int i);
 
     //检查输入的用户名还有密码是否已经具有
     int Check(QString name, QString password);

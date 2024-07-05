@@ -9,6 +9,7 @@ buyin::buyin(QWidget *parent)
     r1=false;
     r2=false;
     ui->StockCodeBox->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(0);
     resetvalue();
 }
 
@@ -36,7 +37,6 @@ void buyin::on_BuyInButton_clicked()
     resetvalue();
 }
 
-
 void buyin::on_SellOutButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
@@ -46,12 +46,10 @@ void buyin::on_SellOutButton_clicked()
     resetvalue_2();
 }
 
-
 void buyin::on_TradingRecordButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
 }
-
 
 void buyin::on_PositionButton_clicked()
 {
@@ -64,12 +62,10 @@ void buyin::on_IncomeButton_clicked()
     ui->stackedWidget->setCurrentIndex(4);
 }
 
-
 void buyin::on_RecommendButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(5);
 }
-
 
 void buyin::on_returnbutton_clicked()
 {

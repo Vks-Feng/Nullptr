@@ -15,8 +15,8 @@ bool UserManage::UserAdd(User _user){
     return true;
 }
 
-User UserManage::GetUser(int i){
-    return users[i];
+User* UserManage::GetUser(int i){
+    return &users[i];
 }
 
 int UserManage::Check(QString name, QString password){
@@ -43,16 +43,12 @@ int UserManage::Check(QString name, QString password){
 }
 
 bool UserManage::Create(QString name, QString password){
-    //用户创建
-//---------真实代码--------
-//    if(Check(name, password) == 0) {
-//        //去数据库写入数据
-//        return true;
-//    }else{
-//        return false;
-//    }
-//------------------------
-    return true;
+    if(Global::instance().getClobalDataBase()->isExist(name)){
+        return false;
+    } else {
+        Global::instance().getClobalDataBase()->addUser(name, password);
+        return true;
+    }
 }
 
 int UserManage::GetSize(){
