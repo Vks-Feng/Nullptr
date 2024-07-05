@@ -14,6 +14,243 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="1">
+    <widget class="QPushButton" name="leavebutton1">
+     <property name="text">
+      <string>退出登陆</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QStackedWidget" name="selectpage">
+     <property name="currentIndex">
+      <number>3</number>
+     </property>
+     <widget class="QWidget" name="selectpage1">
+      <widget class="QWidget" name="gridLayoutWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>40</y>
+         <width>451</width>
+         <height>161</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
+         <widget class="QLabel" name="vksMarkshouye">
+          <property name="font">
+           <font>
+            <family>方正姚体</family>
+            <pointsize>24</pointsize>
+            <italic>true</italic>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>虚拟股票</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="vksMarkshouye_2">
+          <property name="font">
+           <font>
+            <family>方正姚体</family>
+            <pointsize>24</pointsize>
+            <italic>true</italic>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>交易平台</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="vksMarkshouye_3">
+          <property name="font">
+           <font>
+            <family>微软雅黑 Light</family>
+            <pointsize>10</pointsize>
+            <italic>false</italic>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>第10小组： 冯官晟 郭静怡 林帆 王子安 李卓优</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="selectpage2">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="stockLayout">
+         <item>
+          <widget class="QWidget" name="chartSplineWidget" native="true"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="ChangeStockShowBtn">
+           <property name="text">
+            <string>切换</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="1">
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="2" column="0">
+          <widget class="QPushButton" name="tradeRecordButton">
+           <property name="text">
+            <string>交易记录</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QPushButton" name="buyinButton">
+           <property name="text">
+            <string>买入</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QPushButton" name="sellOutButton">
+           <property name="text">
+            <string>卖出</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QPushButton" name="holdingStockButton">
+           <property name="text">
+            <string>持仓股票</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QPushButton" name="profitButton">
+           <property name="text">
+            <string>收益</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QPushButton" name="pushButton_6">
+           <property name="text">
+            <string>优股推荐</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="selectpage3">
+      <widget class="QLabel" name="vksMarkpaihang">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>80</y>
+         <width>291</width>
+         <height>91</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>24</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>排行榜功能敬请期待</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="selectpage4">
+      <widget class="QWidget" name="horizontalLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>9</y>
+         <width>511</width>
+         <height>231</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="RuleLayout">
+        <item>
+         <widget class="QPlainTextEdit" name="TransactionRule">
+          <property name="font">
+           <font>
+            <family>宋体</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="plainText">
+           <string>1. 订单类型
+市价单：按当前市场价格立即买入或卖出股票。
+限价单：设定一个特定的价格买入或卖出股票，只有当市场价格达到设定价格时，订单才会被执行。
+止损单：在股票价格达到预定的触发价格时，按市价卖出，以限制损失。
+止盈单：在股票价格达到预定的触发价格时，按市价卖出，以确保获利。
+2. 交易规则
+竞价交易：股票买卖通过公开竞价进行，买方出价与卖方出价匹配时交易达成。
+涨跌停板：大多数股票市场设有涨跌停板限制，单日股票价格的波动不得超过一定百分比。例如，中国A股市场的日涨跌幅限制通常为10%。
+撮合机制：订单通过撮合机制成交，撮合机制通常有连续竞价和集合竞价两种方式。
+连续竞价：在交易时段内，系统实时撮合买卖订单。
+集合竞价：在开盘和收盘时段，系统集中撮合买卖订单。
+3. 交易费用
+佣金：证券公司收取的交易手续费，通常为交易金额的一定百分比。
+印花税：政府收取的税费，通常由卖方支付。
+过户费：股票过户时收取的费用。
+4. 交易数量
+最低交易单位：通常为一手，即100股。某些市场和股票可能有不同的规定。
+大宗交易：一次性交易大数量股票的交易方式，通常需要达到一定的交易金额或数量。
+5. 清算与交割
+T+0/T+1/T+2：不同市场有不同的清算交割制度。例如，美国市场通常采用T+2制度，即交易后两个工作日完成清算交割。
+结算：股票买卖完成后，通过结算机构进行资金和股票的交割。
+6. 交易限制
+短线交易：某些市场对频繁买卖同一只股票有一定限制。
+停牌：在某些情况下，股票可能会被临时停止交易，例如重大新闻发布或市场波动过大时。
+7. 信息披露
+实时行情：交易所提供实时的股票价格和交易量信息。
+公告披露：上市公司需及时披露影响股票价格的重要信息，如财务报告、重大合同等</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="selectpage5">
+      <widget class="QLabel" name="vksMarkshequ">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>80</y>
+         <width>261</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>24</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>社区交流敬请期待</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QPushButton" name="personpage1">
+     <property name="text">
+      <string>个人主页</string>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="0" rowspan="2">
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
@@ -24,9 +261,6 @@
        <widget class="QPushButton" name="firstbutton1">
         <property name="text">
          <string>首页</string>
-        </property>
-        <property name="flat">
-         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -62,218 +296,6 @@
        </widget>
       </item>
      </layout>
-    </widget>
-   </item>
-   <item row="0" column="1">
-    <widget class="QPushButton" name="personpage1">
-     <property name="text">
-      <string>个人主页</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="1">
-    <widget class="QPushButton" name="leavebutton1">
-     <property name="text">
-      <string>退出登陆</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0" colspan="2">
-    <widget class="QStackedWidget" name="selectpage">
-     <property name="currentIndex">
-      <number>1</number>
-     </property>
-     <widget class="QWidget" name="selectpage1">
-      <widget class="QLabel" name="vksMarkshouye">
-       <property name="geometry">
-        <rect>
-         <x>153</x>
-         <y>85</y>
-         <width>201</width>
-         <height>81</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>24</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>这是首页</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QWidget" name="selectpage2">
-      <widget class="QGroupBox" name="groupBox_6">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>30</y>
-         <width>441</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="title">
-        <string/>
-       </property>
-       <widget class="QPushButton" name="buyinButton">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>61</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>买入</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="sellOutButton">
-        <property name="geometry">
-         <rect>
-          <x>100</x>
-          <y>10</y>
-          <width>61</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>卖出</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="tradeRecordButton">
-        <property name="geometry">
-         <rect>
-          <x>190</x>
-          <y>10</y>
-          <width>61</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>交易记录</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="holdingStockButton">
-        <property name="geometry">
-         <rect>
-          <x>280</x>
-          <y>10</y>
-          <width>61</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>持仓股票</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="profitButton">
-        <property name="geometry">
-         <rect>
-          <x>370</x>
-          <y>10</y>
-          <width>61</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>收益</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_6">
-        <property name="geometry">
-         <rect>
-          <x>460</x>
-          <y>10</y>
-          <width>61</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>优股推荐</string>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QLabel" name="vksMarkgupiao">
-       <property name="geometry">
-        <rect>
-         <x>180</x>
-         <y>120</y>
-         <width>201</width>
-         <height>81</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>24</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>这是股票</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QWidget" name="selectpage3">
-      <widget class="QLabel" name="vksMarkpaihang">
-       <property name="geometry">
-        <rect>
-         <x>130</x>
-         <y>80</y>
-         <width>291</width>
-         <height>91</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>24</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>排行榜功能敬请期待</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QWidget" name="selectpage4">
-      <widget class="QLabel" name="vksMarkjiaoyi">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>80</y>
-         <width>261</width>
-         <height>81</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>24</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>交易规则敬请期待</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QWidget" name="selectpage5">
-      <widget class="QLabel" name="vksMarkshequ">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>80</y>
-         <width>261</width>
-         <height>81</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>24</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>社区交流敬请期待</string>
-       </property>
-      </widget>
-     </widget>
     </widget>
    </item>
   </layout>

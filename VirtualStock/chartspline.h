@@ -5,6 +5,7 @@
 #include <QtCharts>
 #include <QChartView>
 #include <QSplineSeries>
+#include <QRandomGenerator>//获取随机数用
 
 
 namespace Ui {
@@ -18,6 +19,10 @@ class ChartSpline : public QWidget
 public:
     explicit ChartSpline(QWidget *parent = nullptr);
     ~ChartSpline();
+
+public slots:
+    void ShowRandomStock();//随机显示一支股票
+    void ChangeStock(int company_id);//更改到指定公司的股票显示
 
 private:
     Ui::ChartSpline *ui;

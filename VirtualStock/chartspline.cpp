@@ -11,10 +11,47 @@ ChartSpline::ChartSpline(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ChartSpline)
 {
-        std::cout<<"Hello , in spline "<<std::endl;
-        ui->setupUi(this);
-        this->setStyleSheet("background-color:white");
-        setWindowTitle("当前公司股票近25年起伏情况");
+    std::cout<<"Hello , in spline "<<std::endl;
+    ui->setupUi(this);
+    this->setStyleSheet("background-color:white");
+    ShowRandomStock();
+}
+
+ChartSpline::~ChartSpline()
+{
+        delete ui;
+}
+
+void ChartSpline::ShowRandomStock()
+{
+        // 获取1到9之间的随机数
+        int randomNumber = QRandomGenerator::global()->bounded(1, 10);
+        ChangeStock(randomNumber);
+}
+
+
+
+void ChartSpline::ChangeStock(int company_id)
+{
+        QStringList company_names = {
+            "AAPL", "AMZN", "GOOGL", "IBM", "INTC",
+            "JBLU", "META", "MSFT", "TSLA"
+        };
+
+        QString company_name;
+
+        if (company_id >= 1 && company_id <= company_names.size()) {
+            company_name = company_names[company_id - 1];
+        } else {
+            company_name = "Unknown";
+        }
+
+        qDebug() << "Selected company:" << company_name;
+
+//        company_name="bomb";
+
+        setWindowTitle(company_name+"公司股票近25年起伏情况");
+
 
         std::vector<double> data;
 
@@ -22,54 +59,87 @@ ChartSpline::ChartSpline(QWidget *parent) :
 
 
         BackDB test;
-        MYSQL_RES* result=test.query("SELECT YEAR(timestamp) AS year,\
+
+        QString queryStr = QString("SELECT YEAR(timestamp) AS year,\
                                     AVG((high + low) / 2) AS mean_value FROM stock_data_monthly \
-                                    WHERE CompanyName = 'IBM'AND MONTH(timestamp) = 12 \
-                                    GROUP BY YEAR(timestamp) ORDER BY year;");
+                                    WHERE CompanyName = '%1'AND MONTH(timestamp) = 1 \
+                                    GROUP BY YEAR(timestamp) ORDER BY year;")
+                               .arg(company_name);
 
-        std::cout<<"Back in Spline"<<std::endl;
+        MYSQL_RES* result=test.query(queryStr);
 
-        if (result == nullptr) {
+        //如果返回行数为空，也就是说没有查询到有效值的话
+        //那么将一个label放到原本图表的位置上
+
+        if (mysql_num_rows(result) == 0) { //此处绝对不能用==NULL进行判定
             std::cout << "Failed to get the result set in Spline" << std::endl;
+
+            QLabel* label=new QLabel;
+
+            // 设置 QLabel 的文本内容
+            label->setText("Please input the correct company_name!!!");
+
+            // 设置 QLabel 的样式
+            label->setStyleSheet("font-size: 18px; color: red;");
+
+
+            ui->horizontalLayout->addWidget(label);
+
+            this->setLayout(ui->horizontalLayout);
+//            this->resize(700,500);
+
+            return ;
+
         }
-        else {
 
-            // Process the result set if needed
-            int num_fields = mysql_num_fields(result);
-            MYSQL_ROW row;
 
-            while ((row = mysql_fetch_row(result))) {
+        // Process the result set if needed
+        int num_fields = mysql_num_fields(result);
+        MYSQL_ROW row;
 
-                QString qStr(row[1]);
-                bool ok;
-                double number = qStr.toDouble(&ok);
+        int start_year;//从哪一年开始
+        int years_num=0;// 标记是否为第二行，也就是最早年的开始
 
-                std::cout<<ok<<std::endl;
-                if (!ok) {
-                    qDebug() << "Cannot Converted number:" << number;
-                }
-                else
-                {
-                    std::cout<<number<<std::endl;
-                    data.push_back(number);
-                    std::cout<<data.size()<<std::endl;
-                }
+        while ((row = mysql_fetch_row(result))) {
 
-                std::cout << row[1]<<std::endl;
-                }
+            QString qStr(row[1]);
+            bool ok;
+            double number = qStr.toDouble(&ok);
 
+            std::cout<<ok<<std::endl;
+            if (!ok) {
+                qDebug() << "Cannot Converted number:" << number;
             }
+            else
+            {
+                std::cout<<number<<std::endl;
+                data.push_back(number);
+                std::cout<<data.size()<<std::endl;
+                years_num++;
+            }
+
+            if(years_num==1)
+            {
+                QString qStr(row[0]);
+                start_year = qStr.toInt(&ok);
+            }//将初始年份设置好
+
+            std::cout << row[1]<<std::endl;
+            //因为第一个数值是年份，dirge数值才是平均值
+            //大体结果 2010 145.5050000000
+        }
+
 
 
 //-------------------------------
 
-        connect(ui->QuitSpline,SIGNAL(clicked(bool)),this,SLOT(close()));
+//        connect(ui->QuitSpline,SIGNAL(clicked(bool)),this,SLOT(close()));
 
 
         auto lineseries = new QLineSeries;
         //lineseries->setName("总和");
 
-        for(int i=0;i<YEARS;i++)
+        for(int i=0;i<years_num;i++)
         {
             lineseries->append(QPoint(i, data[i]));
         }
@@ -77,11 +147,13 @@ ChartSpline::ChartSpline(QWidget *parent) :
         auto chart = new QChart;
 
         chart->addSeries(lineseries);
-        chart->setTitle("IBM国际商用机器公司1999-2024年股票单价行情");
+        chart->setTitle(company_name + " 公司: " + QString::number(start_year) + "-" +
+               QString::number(start_year + years_num-1) + "年股票单价行情");
+
 
         QStringList categories;
-        for(int i=0;i<YEARS;i++){
-            categories << QString::number(1999+i);
+        for(int i=0;i<years_num;i++){
+            categories << QString::number(start_year+i);
         }
 
             auto axisX = new QBarCategoryAxis;
@@ -89,9 +161,6 @@ ChartSpline::ChartSpline(QWidget *parent) :
 
         chart->addAxis(axisX, Qt::AlignBottom);
         lineseries->attachAxis(axisX);
-
-        axisX->setRange(QString("六天前"), QString("今天"));
-
 
         auto axisY = new QValueAxis;
         chart->addAxis(axisY, Qt::AlignLeft);
@@ -112,12 +181,15 @@ ChartSpline::ChartSpline(QWidget *parent) :
         chartView->setChart(chart);
         chartView->resize(QSize(500,300));              //重新设置chartView的大小
         chartView->setRenderHints(QPainter::Antialiasing);//消除边缘，看起来平滑一些
+
+        // 清空当前容器中的所有小部件
+        QLayoutItem *child;
+        while ((child = ui->horizontalLayout->takeAt(0)) != nullptr) {
+            delete child->widget();
+            delete child;
+        }
+
         ui->horizontalLayout->addWidget(chartView);    //把chartView放到水平布局中（在ui中拖一个水平布局）
         this->setLayout(ui->horizontalLayout);
         this->resize(700,500);
-}
-
-ChartSpline::~ChartSpline()
-{
-    delete ui;
 }
