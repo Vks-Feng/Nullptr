@@ -18,12 +18,20 @@ buyin::~buyin()
 }
 
 void buyin::resetvalue(){
+<<<<<<< HEAD
     int value=Global::instance().getGlobalUserManage()->GetUser(0)->GetVir().GetValue();
+=======
+    int value=user->GetVir().GetValue();
+>>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
     ui->FundLine->setText(QString::number(value));
 }
 
 void buyin::resetvalue_2(){
+<<<<<<< HEAD
     int value=Global::instance().getGlobalUserManage()->GetUser(0)->GetVir().GetValue();
+=======
+    int value=user->GetVir().GetValue();
+>>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
     ui->FundLine_2->setText(QString::number(value));
 }
 
@@ -93,7 +101,11 @@ void buyin::on_StockCodeBox_currentIndexChanged(int index)
     //Stock*stock;对应id的股票
     value=stock->GetSinglePrice();
     int numa=stock->GetVolumn();
+<<<<<<< HEAD
     double Rvalue=Global::instance().getGlobalUserManage()->GetUser(0)->GetVir().GetValue();
+=======
+    double Rvalue=user->GetVir().GetValue();
+>>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
     int numb=Rvalue/value;
     if(numa>numb){maxnum=numb;}
     else {maxnum=numa;}//计算出最大购买量
@@ -127,12 +139,21 @@ void buyin::on_BuyComfirmButton_clicked()
         return;
     }
     else{
+<<<<<<< HEAD
         Global::instance().getGlobalUserManage()->GetUser(0)->GetPortfolio().addStock(*stock,buynum);//加股票
         Global::instance().getGlobalUserManage()->GetUser(0)->GetVir().withdraw(value*buynum);//扣钱
         QString data=QString::number(stock->GetYear())+" "+QString::number(stock->GetMonth());
         //记录中存储的日期格式待定，购买量int就够了不需要long,暂定true为买入,购买量你俩一个设置的double一个long，需要统一
         Record a(data,*stock,buynum,true,value*buynum);
         Global::instance().getGlobalUserManage()->GetUser(0)->AddRecord(a);
+=======
+        user->GetPortfolio().addStock(*stock,buynum);//加股票
+        user->GetVir().withdraw(value*buynum);//扣钱
+        QString data=QString::number(stock->GetYear())+" "+QString::number(stock->GetMonth());
+        //记录中存储的日期格式待定，购买量int就够了不需要long,暂定true为买入,购买量你俩一个设置的double一个long，需要统一
+        Record a(data,*stock,buynum,true,value*buynum);
+        user->AddRecord(a);
+>>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
         r1=false;
         r2=false;
         ui->StockCodeBox->setCurrentIndex(0);
@@ -154,7 +175,11 @@ void buyin::on_StockCodeBox_2_currentIndexChanged(int index)
 
     //Stock*stock;对应id的股票
     value=stock->GetSinglePrice();
+<<<<<<< HEAD
     std::map hold=Global::instance().getGlobalUserManage()->GetUser(0)->GetPortfolio().getHoldings();
+=======
+    std::map hold=user->GetPortfolio().getHoldings();
+>>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
     maxnum=hold[id];
     //计算出最大卖出量
     ui->NameLine_2->setText(m);
@@ -188,12 +213,21 @@ void buyin::on_SellComfirmButton_clicked()
         return;
     }
     else{
+<<<<<<< HEAD
         Global::instance().getGlobalUserManage()->GetUser(0)->GetPortfolio().removeStock(*stock,buynum);//减股票
         Global::instance().getGlobalUserManage()->GetUser(0)->GetVir().deposit(value*buynum);//加钱
         QString data=QString::number(stock->GetYear())+" "+QString::number(stock->GetMonth());
         //记录中存储的日期格式待定，卖出量int就够了不需要long,暂定false为卖出,你俩一个设置的double一个long，需要统一
         Record a(data,*stock,buynum,true,value*buynum);
         Global::instance().getGlobalUserManage()->GetUser(0)->AddRecord(a);
+=======
+        user->GetPortfolio().removeStock(*stock,buynum);//减股票
+        user->GetVir().deposit(value*buynum);//加钱
+        QString data=QString::number(stock->GetYear())+" "+QString::number(stock->GetMonth());
+        //记录中存储的日期格式待定，卖出量int就够了不需要long,暂定false为卖出,你俩一个设置的double一个long，需要统一
+        Record a(data,*stock,buynum,true,value*buynum);
+        user->AddRecord(a);
+>>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
         r1=false;
         r2=false;
         ui->StockCodeBox_2->setCurrentIndex(0);

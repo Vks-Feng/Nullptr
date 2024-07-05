@@ -2,9 +2,17 @@
 #define BUYIN_H
 
 #include <QWidget>
+<<<<<<< HEAD
 #include "global.h"
 #include<QString>
 
+=======
+#include "portfolio.h"
+#include<QString>
+#include "user.h"
+#include"stock.h"
+#include"record.h"
+>>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
     namespace Ui {
     class buyin;
 }
@@ -20,7 +28,10 @@ public:
     void resetvalue();
 
     void resetvalue_2();
+<<<<<<< HEAD
 
+=======
+>>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
 private slots:
     void on_BuyInButton_clicked();
 
@@ -59,7 +70,11 @@ private:
     double value;//对应股票价格
     bool r1,r2;//用来确认用户是否填完所需内容
     Stock *stock;//对应的股票
+<<<<<<< HEAD
 
+=======
+    User* user;//用户类
+>>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
 };
 
 #endif // BUYIN_H

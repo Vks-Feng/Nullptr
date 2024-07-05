@@ -16,12 +16,17 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+<<<<<<< HEAD
     backdb.cpp \
     backendwithdatabase2.cpp \
     buyin.cpp \
     chartspline.cpp \
     enroll.cpp \
     global.cpp \
+=======
+    buyin.cpp \
+    enroll.cpp \
+>>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
     login.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -37,6 +42,7 @@ SOURCES += \
     widget.cpp
 
 HEADERS += \
+<<<<<<< HEAD
     LoginCreate.h \
     backdb.h \
     backendwithdatabase2.h \
@@ -44,6 +50,10 @@ HEADERS += \
     chartspline.h \
     enroll.h \
     global.h \
+=======
+    buyin.h \
+    enroll.h \
+>>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
     login.h \
     mainwindow.h \
     marketnews.h \
@@ -60,12 +70,18 @@ HEADERS += \
 
 FORMS += \
     buyin.ui \
+<<<<<<< HEAD
     chartspline.ui \
+=======
+>>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
     enroll.ui \
     login.ui \
     mainwindow.ui \
     personpage.ui \
+<<<<<<< HEAD
     querywidget.ui \
+=======
+>>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
     widget.ui
 
 # Default rules for deployment.

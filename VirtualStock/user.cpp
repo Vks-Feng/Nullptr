@@ -35,6 +35,7 @@ vector<Record> User::GetRecord(){
 
 VirtualCurrency User::GetVir(){
     return virtualcurrency;
+<<<<<<< HEAD
 };
 
 void User::AddRecord(Record _r){
@@ -48,7 +49,18 @@ Portfolio User::GetPortfolio(){
 int User::GetBalance(){
     return virtualcurrency.GetValue();
 }
+=======
+};//Pass
+>>>>>>> a9b89b36e241c5019cc123393d20395c9374dba1
 
 int User::GetRanking(){
     return ranking;
+}
+
+void User::AddRecord(Record _r){
+    r.push_back(_r);
+}
+
+Portfolio User::GetPortfolio(){
+    return portfolio;
 }
