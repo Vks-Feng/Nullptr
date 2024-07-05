@@ -3,7 +3,7 @@
 #include "backdb.h"
 
 #include <Qtime>
-#include <QVector>
+#include <vector>
 
 const int YEARS=25;
 
@@ -16,7 +16,7 @@ ChartSpline::ChartSpline(QWidget *parent) :
         this->setStyleSheet("background-color:white");
         setWindowTitle("当前公司股票近25年起伏情况");
 
-        QVector<double> data;
+        std::vector<double> data;
 
 //-------------------------Get the data of the IBM from database
 
@@ -51,7 +51,7 @@ ChartSpline::ChartSpline(QWidget *parent) :
                 else
                 {
                     std::cout<<number<<std::endl;
-                    data.append(number);
+                    data.push_back(number);
                     std::cout<<data.size()<<std::endl;
                 }
 

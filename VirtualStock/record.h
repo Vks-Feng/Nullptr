@@ -4,7 +4,7 @@
 #include<string>
 #include<map>
 #include"stock.h"
-using namespace std;
+//using namespace std;
 
 class Record{
 private:

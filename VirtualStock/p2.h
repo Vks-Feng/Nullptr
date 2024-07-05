@@ -3,10 +3,10 @@
 class MarketNews {
 public:
     void addNews(std::string news);
-    std::vector<std::string> getNews();
+    std::std::vector<std::string> getNews();
 
 private:
-    std::vector<std::string> newsList;
+    std::std::vector<std::string> newsList;
 };
 
 // RiskAssessment class
@@ -25,10 +25,10 @@ private:
 class SocialFeature {
 public:
     void postMessage(std::string user, std::string message);
-    std::vector<std::string> getMessages();
+    std::std::vector<std::string> getMessages();
 
 private:
-    std::vector<std::string> messages;
+    std::std::vector<std::string> messages;
 };
 
 // SimulationContest class

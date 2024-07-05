@@ -4,7 +4,7 @@
 #include<string>
 #include<map>
 #include"stock.h"
-using namespace std;
+//using namespace std;
 
 //投资管理类
 class Portfolio {

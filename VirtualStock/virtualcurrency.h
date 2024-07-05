@@ -3,7 +3,7 @@
 #include<QString>
 #include<string>
 #include<map>
-using namespace std;
+//using namespace std;
 
 //用户虚拟资产
 class VirtualCurrency{

@@ -9,7 +9,7 @@
 #include"record.h"
 #include"portfolio.h"
 
-using namespace std;
+//using namespace std;
 
 class User{
 private:
@@ -18,7 +18,7 @@ private:
     QString password;
     VirtualCurrency virtualcurrency;
     Portfolio portfolio;
-    vector<Record> r;
+    std::vector<Record> r;
     int ranking;
 
 public:
@@ -39,7 +39,7 @@ public:
 
     QString GetPassword();
 
-    vector<Record> GetRecord();
+    std::vector<Record> GetRecord();
 
     void AddRecord(Record _r);
 

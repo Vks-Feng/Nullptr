@@ -2,17 +2,17 @@
 #define MARKETNEWS_H
 
 #include<QString>
-#include<QVector>
+#include<vector>
 class MarketNews {
 public:
     void addNews(QString news);
 
-    QVector<QString> getNews();
+    std::vector<QString> getNews();
 
 private:
     MarketNews();
 
-    QVector<QString> newsList;
+    std::vector<QString> newsList;
 };
 
 #endif // MARKETNEWS_H

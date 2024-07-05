@@ -29,7 +29,7 @@ QString User::GetPassword(){
     return password;
 }
 
-vector<Record> User::GetRecord(){
+std::vector<Record> User::GetRecord(){
     return r;
 }
 

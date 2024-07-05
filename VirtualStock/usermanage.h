@@ -7,6 +7,8 @@
 
 #include "portfolio.h"
 #include"user.h"
+//#include"global.h"
+//#include "backdb.h"
 
 //用户管理类
 class UserManage{
@@ -14,7 +16,7 @@ class UserManage{
 private:
 
     //User User;//仅用于第一版仅支持单个客户端时使用
-    vector<User> users;//存储用户实例
+    std::vector<User> users;//存储用户实例
     Portfolio plan; //应该要等到后面实现，version1先不管了先
     int size;//存放用户个数
 
@@ -27,7 +29,7 @@ public:
     bool UserAdd(User _user);
 
     //返回用户
-    User* GetUser(int i);
+    User GetUser(int i);
 
     //检查输入的用户名还有密码是否已经具有
     int Check(QString name, QString password);
