@@ -37,7 +37,11 @@ public:
 
     vector<Record> GetRecord();
 
-    VirtualCurrency GetVIr();//Pass
+    void AddRecord(Record _r);
+
+    Portfolio GetPortfolio();
+
+    VirtualCurrency GetVir();//Pass
 
     int GetRanking();//获取排行
 

@@ -1,10 +1,5 @@
 #include "login.h"
-#include "mainwindow.h"
-#include "enroll.h"
-#include "ui_login.h"
-#include <QKeyEvent>
-#include <QPushButton>
-#include <QMessageBox>
+
 Login::Login(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Login)
@@ -12,7 +7,7 @@ Login::Login(QWidget *parent) :
     ui->setupUi(this);
     this->setFixedSize(this->width(),this->height());
     connect(ui->DetailButton,&QPushButton::clicked,[=](){
-        QMessageBox::information(this,"详情","不知道写啥");
+        QMessageBox::information(this,"详情","敬请期待");
     });
 }
 
@@ -29,9 +24,12 @@ void Login::on_LoginButton_clicked()
         mainwindow->show();
         this->close();
     } else if(ui->UserPasswordInput->text() != "123") {
-
+        QMessageBox msgBox;
+        msgBox.setText("密码错误");
+        msgBox.exec();
     }
 }
+
 void Login::keyPressEvent(QKeyEvent  *event)
 {
     switch(event->key()){
@@ -46,7 +44,6 @@ void Login::keyPressEvent(QKeyEvent  *event)
     }
 }
 
-
 void Login::on_RegisterButton_clicked()
 {
     enroll* en =new enroll();
@@ -54,3 +51,15 @@ void Login::on_RegisterButton_clicked()
     en->show();
 }
 
+int Login::CheckUser(QString name, QString password)
+{
+    QString dataBaseName = "vks";
+    QString dataBasePassword = "123";
+    if(name == dataBaseName && dataBasePassword == dataBasePassword){
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}

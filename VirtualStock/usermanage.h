@@ -13,6 +13,7 @@ class UserManage{
 
 private:
 
+    //User User;//仅用于第一版仅支持单个客户端时使用
     vector<User> users;//存储用户实例
     Portfolio plan; //应该要等到后面实现，version1先不管了先
     int size;//存放用户个数

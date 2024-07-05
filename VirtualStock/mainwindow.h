@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "buyin.h"
+#include "personpage.h"
 
 namespace Ui {
 class MainWindow;
@@ -18,17 +19,9 @@ public:
 
 private slots:
 
+    void on_buyinButton_clicked();
 
-    void on_pushButton_clicked();
-    void on_personpage2_clicked();
-
-    void on_pushButton_2_clicked();
-    void on_pushButton_3_clicked();
-    void on_pushButton_4_clicked();
-    void on_pushButton_5_clicked();
-    void on_pushButton_6_clicked();
-
-    void on_leavebutton1_clicked();
+    void on_personpage1_clicked();
 
 private:
     Ui::MainWindow *ui;

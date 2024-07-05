@@ -1,5 +1,14 @@
 #include "personpage.h"
+#include "ui_personpage.h"
 
-personpage::personpage(){
+Personpage::Personpage(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::Personpage)
+{
+    ui->setupUi(this);
+}
 
+Personpage::~Personpage()
+{
+    delete ui;
 }
