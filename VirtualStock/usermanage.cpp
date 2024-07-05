@@ -14,8 +14,8 @@ bool UserManage::UserAdd(User _user){
     return true;
 }
 
-User UserManage::GetUser(int i){
-    return users[i];
+User* UserManage::GetUser(int i){
+    return &users[i];
 }
 
 int UserManage::Check(QString name, QString password){

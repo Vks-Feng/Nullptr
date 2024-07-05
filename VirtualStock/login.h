@@ -24,8 +24,6 @@ public:
 
     ~Login();
 
-    int CheckUser(QString name, QString password);
-
     void keyPressEvent(QKeyEvent  *event) ;
 
     void loginErrorNotification(QString error);

@@ -33,9 +33,17 @@ vector<Record> User::GetRecord(){
     return r;
 }
 
-VirtualCurrency GetVIr(){
+VirtualCurrency User::GetVir(){
+    return virtualcurrency;
+};
 
-};//Pass
+void User::AddRecord(Record _r){
+    r.push_back(_r);
+}
+
+Portfolio User::GetPortfolio(){
+    return portfolio;
+}
 
 int User::GetBalance(){
     return virtualcurrency.GetValue();

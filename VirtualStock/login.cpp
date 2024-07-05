@@ -56,7 +56,6 @@ void Login::on_LoginButton_clicked()
     }
 }
 
-
 void Login::keyPressEvent(QKeyEvent  *event)
 {
     switch(event->key()){
@@ -78,14 +77,3 @@ void Login::on_RegisterButton_clicked()
     en->show();
 }
 
-int Login::CheckUser(QString name, QString password)
-{
-    QString dataBaseName = "vks";
-    QString dataBasePassword = "123";
-    if(name == dataBaseName && dataBasePassword == dataBasePassword){
-        return true;
-    }
-    else{
-        return false;
-    }
-}
