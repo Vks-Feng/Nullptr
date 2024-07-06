@@ -18,60 +18,96 @@ buyin::~buyin()
 }
 
 void buyin::initBuyInSellOut(){
-    int value=Global::instance().getGlobalUserManage()->GetUser(0)->GetVir().GetValue();
+    int balanceValue=Global::instance().getGlobalUserManage()->GetUser(0)->GetVir().GetValue();
     int buyInPrice = 100;//这里之后通过数据库查询数据库中股票的价格
+    int buyInMax = 99999;//这里之后通过数据库查询数据库中股票的余量
+    int sellOutPrice = 100;//这里之后通过数据库查询数据库中股票的价格
+    int sellOutNum = 999;//这里之后通过数据库查询数据库中用户持股数量
 
     ui->BuyInPriceLine->setText(QString::number(buyInPrice));
     ui->BuyInPriceLine->setDisabled(true);
-    ui->BuyInFundLine->setText(QString::number(value));
+    ui->BuyInFundLine->setText(QString::number(balanceValue));
     ui->BuyInFundLine->setDisabled(true);
+    ui->BuyInMaxLine->setText(QString::number(buyInMax));
+    ui->BuyInMaxLine->setDisabled(true);
     ui->BuyInQuantityLine->setText("");
+    ui->BuyInNameLine->setDisabled(true);
     int BuyInindex = ui->BuyInStockCodeBox->currentIndex();
     switch(BuyInindex)
     {
     case 0:
-        ui->BuyInNameLine->setText("王子安公司");
+        ui->BuyInNameLine->setText("Apple");
         break;
     case 1:
-        ui->BuyInNameLine->setText("李卓优公司");
+        ui->BuyInNameLine->setText("Amazon");
         break;
     case 2:
-        ui->BuyInNameLine->setText("林巾凡公司");
+        ui->BuyInNameLine->setText("Google");
         break;
     case 3:
-        ui->BuyInNameLine->setText("郭静怡公司");
+        ui->BuyInNameLine->setText("IBM");
         break;
     case 4:
-        ui->BuyInNameLine->setText("没有公司");
+        ui->BuyInNameLine->setText("Intel");
+        break;
+    case 5:
+        ui->BuyInNameLine->setText("JetBlue");
+        break;
+    case 6:
+        ui->BuyInNameLine->setText("Meta");
+        break;
+    case 7:
+        ui->BuyInNameLine->setText("Microsoft");
+        break;
+    case 8:
+        ui->BuyInNameLine->setText("Tesla");
         break;
     default:
         ui->BuyInNameLine->setText("Error");
+        break;
     }
 
-    ui->SellOutFundLine->setText(QString::number(value));
+    ui->SellOutFundLine->setText(QString::number(balanceValue));
     ui->SellOutFundLine->setDisabled(true);
     ui->SellOutMaxLine->setDisabled(true);
+    ui->SellOutMaxLine->setText(QString::number(sellOutNum));
     ui->SellOutQuantityLine->setText("");
+    ui->SellOutPriceLine->setText(QString::number(sellOutPrice));
+    ui->SellOutPriceLine->setDisabled(true);
+    ui->SellOutNameLine->setDisabled(true);
     int SellOutindex = ui->SellOutStockCodeBox->currentIndex();
     switch(SellOutindex)
     {
     case 0:
-        ui->SellOutNameLine->setText("王子安公司");
+        ui->SellOutNameLine->setText("Apple");
         break;
     case 1:
-        ui->SellOutNameLine->setText("李卓优公司");
+        ui->SellOutNameLine->setText("Amazon");
         break;
     case 2:
-        ui->SellOutNameLine->setText("林巾凡公司");
+        ui->SellOutNameLine->setText("Google");
         break;
     case 3:
-        ui->SellOutNameLine->setText("郭静怡公司");
+        ui->SellOutNameLine->setText("IBM");
         break;
     case 4:
-        ui->SellOutNameLine->setText("没有公司");
+        ui->SellOutNameLine->setText("Intel");
+        break;
+    case 5:
+        ui->SellOutNameLine->setText("JetBlue");
+        break;
+    case 6:
+        ui->SellOutNameLine->setText("Meta");
+        break;
+    case 7:
+        ui->SellOutNameLine->setText("Microsoft");
+        break;
+    case 8:
+        ui->SellOutNameLine->setText("Tesla");
         break;
     default:
         ui->SellOutNameLine->setText("Error");
+        break;
     }
 }
 
@@ -116,23 +152,36 @@ void buyin::on_returnbutton_clicked(){
 void buyin::on_BuyInStockCodeBox_currentIndexChanged(int index){
     switch(index)
     {
-        case 0:
-            ui->BuyInNameLine->setText("王子安公司");
-            break;
-        case 1:
-            ui->BuyInNameLine->setText("李卓优公司");
-            break;
-        case 2:
-            ui->BuyInNameLine->setText("林巾凡公司");
-            break;
-        case 3:
-            ui->BuyInNameLine->setText("郭静怡公司");
-            break;
-        case 4:
-            ui->BuyInNameLine->setText("没有公司");
-            break;
-        default:
-            ui->BuyInNameLine->setText("Error");
+    case 0:
+        ui->BuyInNameLine->setText("Apple");
+        break;
+    case 1:
+        ui->BuyInNameLine->setText("Amazon");
+        break;
+    case 2:
+        ui->BuyInNameLine->setText("Google");
+        break;
+    case 3:
+        ui->BuyInNameLine->setText("IBM");
+        break;
+    case 4:
+        ui->BuyInNameLine->setText("Intel");
+        break;
+    case 5:
+        ui->BuyInNameLine->setText("JetBlue");
+        break;
+    case 6:
+        ui->BuyInNameLine->setText("Meta");
+        break;
+    case 7:
+        ui->BuyInNameLine->setText("Microsoft");
+        break;
+    case 8:
+        ui->BuyInNameLine->setText("Tesla");
+        break;
+    default:
+        ui->BuyInNameLine->setText("Error");
+        break;
     }
     int maxBuyInNum = 999;//这里怎么设计不知道
     ui->BuyInMaxLine->setText(QString::number(maxBuyInNum));
@@ -141,23 +190,36 @@ void buyin::on_BuyInStockCodeBox_currentIndexChanged(int index){
 void buyin::on_SellOutStockCodeBox_currentIndexChanged(int index){
     switch(index)
     {
-        case 0:
-            ui->SellOutNameLine->setText("王子安公司");
-            break;
-        case 1:
-            ui->SellOutNameLine->setText("李卓优公司");
-            break;
-        case 2:
-            ui->SellOutNameLine->setText("林巾凡公司");
-            break;
-        case 3:
-            ui->SellOutNameLine->setText("郭静怡公司");
-            break;
-        case 4:
-            ui->SellOutNameLine->setText("没有公司");
-            break;
-        default:
-            ui->SellOutNameLine->setText("Error");
+    case 0:
+        ui->BuyInNameLine->setText("Apple");
+        break;
+    case 1:
+        ui->BuyInNameLine->setText("Amazon");
+        break;
+    case 2:
+        ui->BuyInNameLine->setText("Google");
+        break;
+    case 3:
+        ui->BuyInNameLine->setText("IBM");
+        break;
+    case 4:
+        ui->BuyInNameLine->setText("Intel");
+        break;
+    case 5:
+        ui->BuyInNameLine->setText("JetBlue");
+        break;
+    case 6:
+        ui->BuyInNameLine->setText("Meta");
+        break;
+    case 7:
+        ui->BuyInNameLine->setText("Microsoft");
+        break;
+    case 8:
+        ui->BuyInNameLine->setText("Tesla");
+        break;
+    default:
+        ui->BuyInNameLine->setText("Error");
+        break;
     }
     std::map hold=Global::instance().getGlobalUserManage()->GetUser(0)->GetPortfolio().getHoldings();
     ui->SellOutMaxLine->setText(QString::number(hold[index]));
