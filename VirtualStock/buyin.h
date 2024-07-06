@@ -37,13 +37,9 @@ private slots:
 
     void on_returnbutton_clicked();
 
-    void on_QuantityLine_textChanged(const QString &arg1);
-
     void on_BuyResetButton_clicked();
 
     void on_BuyComfirmButton_clicked();
-
-    void on_QuantityLine_2_textChanged(const QString &arg1);
 
     void on_SellResetButton_clicked();
 

@@ -101,9 +101,55 @@ public:
     //    //根据用户名查找数据，并根据数据构建User，返回一个User
         User enableUser(QString name);
 
-
-
-
         void testIsPasswordEqual();
         void testEnableUser();
+
+
+//----------------------------7.06-------------
+        //每当切换BuyInStockBox的时候调用查询函数，传递参数为股票的companyId,年份，月份
+        //找到对应的股票
+        //返回一个长度为2的vector数组的引用，第一个为数字为股票价格,第二个数字为股票容量
+        //（暂时方案：如果股票价格不为整数则取整）
+        std::vector<long>& getStockInfo(int id, int year, int month);
+
+        //传入id，价格totalPrice,在user表中balance上减去该数值
+        void declineBalance(int id, int totalPrice);
+
+        //传入id，价格totalPrice,在user表中balance上加去该数值
+        void inclineBalance(int id, int totalPrice);
+
+        //每当切换SellOutStockBox的时候调用查询函数，传递参数用户id，股票id
+        //在portfolios中查询id对应股票的余量
+        //看你数据库的设计我默认为用户买入的时候才会添加portfolios数据，没买就不添加
+
+        //所以：
+        //若找到,返回余量，若没找到，返回0
+        int getUserVolume(int userID, int companyID);
+
+
+        //传入用户id，股票id，购买数量，在portfolio中添加股票对应数量
+        //若该用户id有对应id的股票，则在volumn字段上添加该数量
+        //若该用户id无对应id的股票，则在新建一条数据添加到表中
+        void AddStock(int userID, int stockID, int volumn);
+
+
+
+        //----------------------------------------上述完成后仍有时间则完成下方部分-----------------------------------------
+
+        //给传入一个用户id，查询portfolio表中该用户id对应的数据，并且构建一个根据这些数据构建好的Portfolio
+        //（或者你返回一个map回来我构建也行，map是portfolio里的那种map）
+        Portfolio& getUserPortfolio(int userID);
+
+        //传入一个用户id，查询Record表中的数据，并根据这些数据构建一个Record的数组，并返回
+        std::vector<Record>& getUserRecord(int userID);
+
+
+
+        QString Id2Name(int id);
+        void testGetStockInfo();
+
+        void testBalance();
+        void testGetUserVolume();
+        void test();
+        void testAddStock();
 };

@@ -436,6 +436,221 @@ void BackDB::testEnableUser()
 
 
 
+QString BackDB::Id2Name(int company_id)
+{
+    QStringList company_names = {
+        "AAPL", "AMZN", "GOOGL", "IBM", "INTC",
+        "JBLU", "META", "MSFT", "TSLA"
+    };
+
+    QString company_name;
+
+    if (company_id >= 1 && company_id <= company_names.size()) {
+        company_name = company_names[company_id - 1];
+    } else {
+        company_name = "Unknown";
+    }
+
+    qDebug() << "Selected company:" << company_name;
+
+    return company_name;
+}
+
+//每当切换BuyInStockBox的时候调用查询函数，传递参数为股票的companyId,年份，月份
+//找到对应的股票
+//返回一个长度为2的vector数组的引用，第一个为数字为股票价格,第二个数字为股票容量
+//（暂时方案：如果股票价格不为整数则取整）
+std::vector<long> &BackDB::getStockInfo(int id, int year, int month)
+{
+    QString name= Id2Name(id);
+
+    QString queryStr = QString("SELECT CompanyName,(high + low) / 2 AS avg_price, \
+                               volume  FROM  stock_data_monthly WHERE \
+                               CompanyName = '%1' \
+                               AND YEAR(`timestamp`) = %2 \
+                                 AND MONTH(`timestamp`) = %3 \
+                                   ")
+                                       .arg(name)
+                                       .arg(year)
+                                       .arg(month);
+
+
+//    this->showQuery(queryStr);
+    std::vector<long>* ReturnVector=new std::vector<long>;
+
+    MYSQL_RES* queryResult = query(queryStr);
+
+    if (queryResult == NULL) {
+        std::cerr << "Query failed: " << mysql_error(&mysql) << std::endl;
+        return *ReturnVector;
+    }
+
+    unsigned int num_fields;
+    unsigned int i;
+    MYSQL_FIELD* fields;
+
+    num_fields = mysql_num_fields(queryResult);
+
+    MYSQL_ROW row = mysql_fetch_row(queryResult);
+
+    std::cout << "Get the stock info:"<<row[0] << " "<<row[1]<<" "<<row[2]<<std::endl;
+
+    bool ok;
+
+    QString qStr_1=row[1];
+    long value = (long)qStr_1.toDouble(&ok);
+    std::cout << value << std::endl;
+
+
+    QString qStr_2=row[2];
+    long volume = qStr_2.toLong(&ok);
+    std::cout <<  volume << std::endl;
+
+    if(ok==1)
+    {
+        ReturnVector->push_back(value);
+        ReturnVector->push_back(volume);
+    }
+    else
+    {
+        std::cout<<"Error in Get StockInfo"<<std::endl;
+    }
+
+    mysql_free_result(queryResult);
+
+    return *ReturnVector;
+}
+
+
+void BackDB::testGetStockInfo()
+{
+    std::vector<long> result=this->getStockInfo(1, 2022 , 12);
+    std::cout<<"Get testGetStockInfo"<<std::endl;
+    std::cout<<result[0]<<std::endl;
+    std::cout<<result[1]<<std::endl;
+}
+
+//-------------------
+
+void BackDB::declineBalance(int id, int totalPrice)
+{
+    QString queryStr = QString("UPDATE users SET balance = balance - %1 WHERE id = %2;")
+                           .arg(totalPrice)
+                           .arg(id);
+    this->query(queryStr);
+}
+
+void BackDB::inclineBalance(int id, int totalPrice)
+{
+    QString queryStr = QString("UPDATE users SET balance = balance + %1 WHERE id = %2;")
+                           .arg(totalPrice)
+                           .arg(id);
+    this->query(queryStr);
+}
+
+void BackDB::testBalance()
+{
+    this->declineBalance(1,100);
+}
+
+//----------------------
+
+int BackDB::getUserVolume(int userID, int companyID)
+{
+    QString queryStr = QString("SELECT volumn FROM portfolios "
+                               "WHERE  user_id= %1 AND company_id = %2;")
+                           .arg(userID)
+                           .arg(companyID);
+
+    MYSQL_RES* queryResult=this->query(queryStr);
+
+
+
+
+    if (mysql_num_rows(queryResult) == 0) { //此处绝对不能用==NULL进行判定
+        return 0;
+    }
+
+    MYSQL_ROW row = mysql_fetch_row(queryResult);
+
+    bool ok;
+    QString qStr=row[0];
+    long value = qStr.toLong(&ok);
+
+
+    if(ok==1)
+    {
+        std::cout<<"Get volume:"<<value<<std::endl;
+        return value;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+
+
+void BackDB::AddStock(int userID, int company_id, int volumn)
+{
+    long currentVolume = this->getUserVolume(userID, company_id);
+
+    std::cout<<currentVolume<<std::endl;
+
+    //1. 如果有这个股票
+    if (currentVolume > 0) {
+
+        QString updateQuery = QString("UPDATE portfolios SET volumn = %1 WHERE user_id = %2 AND company_id = %3;")
+                                  .arg(currentVolume + volumn)
+                                  .arg(userID)
+                                  .arg(company_id);
+
+        MYSQL_RES* updateResult = this->query(updateQuery);
+
+//        if (!updateResult) {
+//            std::cerr << "Update error occurred" << std::endl;
+//        } else {
+//            std::cout << "Volume updated successfully!" << std::endl;
+//        }
+    }
+    //2. 如果没有这个股票
+    else {
+        // Insert a new record
+        QString insertQuery = QString("INSERT INTO portfolios (user_id, company_id, volumn) VALUES (%1, %2, %3);")
+                                  .arg(userID)
+                                  .arg(company_id)
+                                  .arg(volumn);
+
+        MYSQL_RES* insertResult = this->query(insertQuery);
+
+        if (!insertResult) {
+            std::cerr << "Insert error occurred" << std::endl;
+        } else {
+            std::cout << "New stock added successfully!" << std::endl;
+        }
+    }
+}
+
+
+void BackDB::testGetUserVolume()
+{
+    int ret=this->getUserVolume(22,13);
+    std::cout<<"testGetUserVolume: "<<ret<<std::endl;
+}
+
+void BackDB::testAddStock()
+{
+    this->AddStock(1,1,100);
+}
+
+void BackDB::test()
+{
+    this->testAddStock();
+//    this->testGetUserVolume();
+}
+
+
+
 
 
 
