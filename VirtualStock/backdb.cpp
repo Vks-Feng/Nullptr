@@ -222,6 +222,34 @@ void BackDB::addUser(User _user) {
     this->query(queryStr);
 }
 
+int BackDB::CountUser()
+{
+    QString queryStr = QString("SELECT COUNT(*) FROM users;");
+
+    MYSQL_RES* queryResult = this->query(queryStr);
+
+
+    if (mysql_num_rows(queryResult)==0 ||!queryResult) {
+        std::cerr << "Query error occurred" << std::endl;
+        return -1;
+    }
+
+    MYSQL_ROW row = mysql_fetch_row(queryResult);
+
+    bool ok;
+    QString qStr = row[0];
+    int rowCount = qStr.toInt(&ok);
+
+    mysql_free_result(queryResult);
+
+    if (ok) {
+        return rowCount;
+    } else {
+        std::cerr << "Error converting row count to int" << std::endl;
+        return -1;
+    }
+}
+
 //根据传入参数在数据库中添加新数据
 //成功添加则返回true，否则返回false（避免用户名存在）
 bool BackDB::addUser(QString name, QString password)
@@ -234,39 +262,30 @@ bool BackDB::addUser(QString name, QString password)
 
    qDebug()<<"Come to here to register the user "+name<<Qt::endl;
 
+    int user_id=this->CountUser();
+
     QString queryStr = QString("INSERT INTO users (id, name, password, balance, ranking) "
                                "VALUES (%1, '%2', '%3', %4, %5)")
-                           .arg(1)
+                           .arg(user_id+1)
                            .arg(name)
                            .arg(password)
-                           .arg(648)
+                           .arg(64800)
                            .arg(-1);
 
     qDebug()<<"Come to here"<<Qt::endl;
-
-    if (this->query(queryStr) != nullptr)
-    {
-        qDebug()<<"Succeed in creating user "+name<<Qt::endl;
-        return true;
-    }
-    else
-    {
-        qDebug()<<"Fail in creating user "+name<<Qt::endl;
-        return false;
-    }
 }
 
 void BackDB::testUserAdd() {
     qDebug()<<"Test the UserAdd"<<Qt::endl;
     User u;
 //    this->addUser(u);
-    this->addUser("Helg","Hello");
+    this->addUser("HK","Hello");
 }
 
 //------------------------
 
 void BackDB::addPortfolios(int user_id, int company_id, int volume) {
-    QString queryStr = QString("INSERT INTO portfolios (user_id, company_id, volumn) "
+    QString queryStr = QString("INSERT INTO portfolios (user_id, company_id, volume) "
                                "VALUES (%1, %2, %3)")
                            .arg(user_id)
                            .arg(company_id)
@@ -297,7 +316,7 @@ void BackDB::addRecord(int _user_id, Record _record) {
     int _type = _record.GetTradeType();
     long _totalPrice = _record.GetTotalPrice();
 
-    QString queryStr = QString("INSERT INTO trade_record (user_id, company_id, volumn, date, trade_type, total_price) "
+    QString queryStr = QString("INSERT INTO trade_record (user_id, company_id, volume, date, trade_type, total_price) "
                                "VALUES (%1, %2, %3, '%4', %5, %6)")
                            .arg(_user_id)
                            .arg(_company_id)
@@ -557,7 +576,7 @@ void BackDB::testBalance()
 
 int BackDB::getUserVolume(int userID, int companyID)
 {
-    QString queryStr = QString("SELECT volumn FROM portfolios "
+    QString queryStr = QString("SELECT volume FROM portfolios "
                                "WHERE  user_id= %1 AND company_id = %2;")
                            .arg(userID)
                            .arg(companyID);
@@ -589,9 +608,43 @@ int BackDB::getUserVolume(int userID, int companyID)
     }
 }
 
+int BackDB::GetBalance(int user_id)
+{
+    QString StrQuery = QString("SELECT balance FROM users WHERE id = %1;")
+                              .arg(user_id);
+    MYSQL_RES* queryResult=this->query(StrQuery);
+
+    if (mysql_num_rows(queryResult) == 0) { //此处绝对不能用==NULL进行判定
+        return 0;
+    }
+
+    MYSQL_ROW row = mysql_fetch_row(queryResult);
+
+    bool ok;
+    QString qStr=row[0];
+    long value = qStr.toInt(&ok);
 
 
-void BackDB::AddStock(int userID, int company_id, int volumn)
+    if(ok==1)
+    {
+        std::cout<<"Get volume:"<<value<<std::endl;
+        return value;
+    }
+    else
+    {
+        return 0;
+    }
+
+}
+
+void BackDB::testGetBalance()
+{
+    std::cout<<this->GetBalance(0)<<std::endl;
+}
+
+
+
+void BackDB::AddStock(int userID, int company_id, int volume)
 {
     long currentVolume = this->getUserVolume(userID, company_id);
 
@@ -600,8 +653,8 @@ void BackDB::AddStock(int userID, int company_id, int volumn)
     //1. 如果有这个股票
     if (currentVolume > 0) {
 
-        QString updateQuery = QString("UPDATE portfolios SET volumn = %1 WHERE user_id = %2 AND company_id = %3;")
-                                  .arg(currentVolume + volumn)
+        QString updateQuery = QString("UPDATE portfolios SET volume = %1 WHERE user_id = %2 AND company_id = %3;")
+                                  .arg(currentVolume + volume)
                                   .arg(userID)
                                   .arg(company_id);
 
@@ -616,10 +669,10 @@ void BackDB::AddStock(int userID, int company_id, int volumn)
     //2. 如果没有这个股票
     else {
         // Insert a new record
-        QString insertQuery = QString("INSERT INTO portfolios (user_id, company_id, volumn) VALUES (%1, %2, %3);")
+        QString insertQuery = QString("INSERT INTO portfolios (user_id, company_id, volume) VALUES (%1, %2, %3);")
                                   .arg(userID)
                                   .arg(company_id)
-                                  .arg(volumn);
+                                  .arg(volume);
 
         MYSQL_RES* insertResult = this->query(insertQuery);
 
@@ -634,7 +687,7 @@ void BackDB::AddStock(int userID, int company_id, int volumn)
 
 void BackDB::testGetUserVolume()
 {
-    int ret=this->getUserVolume(22,13);
+    int ret=this->getUserVolume(22,13144);
     std::cout<<"testGetUserVolume: "<<ret<<std::endl;
 }
 
@@ -645,8 +698,12 @@ void BackDB::testAddStock()
 
 void BackDB::test()
 {
-    this->testAddStock();
-//    this->testGetUserVolume();
+//    this->testUserAdd();
+//    this->testGetBalance();
+    this->testGetUserVolume();
+    this->testPortfolios();
+
+    std::cout<<"Done in test"<<std::endl;
 }
 
 

@@ -126,6 +126,9 @@ public:
         //若找到,返回余量，若没找到，返回0
         int getUserVolume(int userID, int companyID);
 
+        //返回用户余额
+        int GetBalance(int user_id);
+
 
         //传入用户id，股票id，购买数量，在portfolio中添加股票对应数量
         //若该用户id有对应id的股票，则在volumn字段上添加该数量
@@ -152,4 +155,8 @@ public:
         void testGetUserVolume();
         void test();
         void testAddStock();
+        void testGetBalance();
+
+
+        int CountUser();
 };
