@@ -4,6 +4,7 @@ QT       += sql
 
 CONFIG += console
 CONFIG -= app_bundle
+LIBS += -lmysqlclient
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,7 +18,6 @@ CONFIG += c++17
 
 SOURCES += \
     backdb.cpp \
-    backendwithdatabase2.cpp \
     buyin.cpp \
     chartspline.cpp \
     enroll.cpp \
@@ -28,7 +28,6 @@ SOURCES += \
     marketnews.cpp \
     personpage.cpp \
     portfolio.cpp \
-    querywidget.cpp \
     record.cpp \
     stock.cpp \
     user.cpp \
@@ -39,7 +38,6 @@ SOURCES += \
 HEADERS += \
     LoginCreate.h \
     backdb.h \
-    backendwithdatabase2.h \
     buyin.h \
     chartspline.h \
     enroll.h \
@@ -50,7 +48,6 @@ HEADERS += \
     p2.h \
     personpage.h \
     portfolio.h \
-    querywidget.h \
     record.h \
     stock.h \
     user.h \
@@ -65,7 +62,6 @@ FORMS += \
     login.ui \
     mainwindow.ui \
     personpage.ui \
-    querywidget.ui \
     widget.ui
 
 # Default rules for deployment.
