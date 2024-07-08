@@ -5,7 +5,11 @@
 #include <QMessageBox>
 #include "buyin.h"
 #include "personpage.h"
+
+
 #include "date.h"
+#include "newswidget.h"
+
 
 namespace Ui {
 class MainWindow;

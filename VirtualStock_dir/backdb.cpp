@@ -254,25 +254,27 @@ int BackDB::CountUser()
 //成功添加则返回true，否则返回false（避免用户名存在）
 bool BackDB::addUser(QString name, QString password)
 {
-       qDebug()<<"Come to here"<<Qt::endl;
+    qDebug()<<"Come to here"<<Qt::endl;
     if (isExist(name)) {
         std::cout << "Error!!! User with name " << name.toStdString() << " already exists." << std::endl;
         return false;
     }
 
-   qDebug()<<"Come to here to register the user "+name<<Qt::endl;
+    qDebug()<<"Come to here to register the user "+name<<Qt::endl;
 
     int user_id=this->CountUser();
 
-    QString queryStr = QString("INSERT INTO users (id, name, password, balance, ranking) "
-                               "VALUES (%1, '%2', '%3', %4, %5)")
+    QString queryStr = QString("INSERT INTO users (id, name, password, balance, ranking,user_time,introduction) "
+                               "VALUES (%1, '%2', '%3', '%4', '%5','%6','%7')")
                            .arg(user_id+1)
                            .arg(name)
                            .arg(password)
                            .arg(64800)
-                           .arg(-1);
+                           .arg(-1)
+                           .arg(1)
+                           .arg("Introduction");
 
-    qDebug()<<"Come to here"<<Qt::endl;
+    qDebug()<<"Finish addUser"<<Qt::endl;
 }
 
 void BackDB::testUserAdd() {

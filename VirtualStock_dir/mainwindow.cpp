@@ -52,10 +52,17 @@ MainWindow::MainWindow(QWidget *parent) :
     layout->addWidget(_chartSpline);
     placeholder->setLayout(layout);
 
+
     Date currentDate(2023,1);
     QString dateString = QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth(), 2, 10, QChar('0'));
     ui->timelabel->setText(dateString);
-    ui->timelabel->
+    // ui->timelabel->
+
+    NewsWidget *news = new NewsWidget(this);
+    news->move(750,150);
+    news->show();
+
+
 }
 
 MainWindow::~MainWindow()
