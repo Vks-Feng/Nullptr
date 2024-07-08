@@ -19,10 +19,7 @@ void buyin::initBuyInSellOut(){
     ui->SellOutStockCodeBox->setCurrentIndex(0);
     ui->stackedWidget->setCurrentIndex(0);
     Global::instance().getGlobalUserManage()->updateUser(0);
-    setBuyInInfo();
-    setSellOutInfo();
-    recordTableUpdate();
-    holdingTableUpdate();
+    setBuyInInfo();   
 }
 
 void buyin::on_BuyInButton_clicked()
@@ -32,16 +29,19 @@ void buyin::on_BuyInButton_clicked()
 
 void buyin::on_SellOutButton_clicked()
 {
+    setSellOutInfo();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
 void buyin::on_TradingRecordButton_clicked()
 {
+    recordTableUpdate();
     ui->stackedWidget->setCurrentIndex(2);
 }
 
 void buyin::on_PositionButton_clicked()
 {
+    holdingTableUpdate();
     ui->stackedWidget->setCurrentIndex(3);
 }
 
@@ -296,7 +296,7 @@ void buyin::holdingTableUpdate(){
         int holdings = userHoldings->getHoldings(i+1);
         int singleValue = Global::instance().getGlobalDataBase()->getStockInfo(i+1, year, month)[0];
         int totalValue = holdings * singleValue;
-        iHolding = new QTableWidgetItem(QString::number(userHoldings->getHoldings(i)));
+        iHolding = new QTableWidgetItem(QString::number(userHoldings->getHoldings(i+1)));
         iTotalValue = new QTableWidgetItem(QString::number(totalValue));
         ui->holdingTable->setItem(i, 0, iHolding);
         ui->holdingTable->setItem(i, 1, iTotalValue);
