@@ -217,11 +217,6 @@
                <string>Microsoft</string>
               </property>
              </item>
-             <item>
-              <property name="text">
-               <string>Tesla</string>
-              </property>
-             </item>
             </widget>
            </item>
            <item>
@@ -382,11 +377,6 @@
                <string>Microsoft</string>
               </property>
              </item>
-             <item>
-              <property name="text">
-               <string>Tesla</string>
-              </property>
-             </item>
             </widget>
            </item>
            <item>
@@ -527,11 +517,6 @@
          <row>
           <property name="text">
            <string>Microsoft</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>Tesla</string>
           </property>
          </row>
          <row>

@@ -22,7 +22,7 @@ void buyin::initBuyInSellOut(){
     setBuyInInfo();
     setSellOutInfo();
     recordTableUpdate();
-//    holdingTableUpdate();
+    holdingTableUpdate();
 }
 
 void buyin::on_BuyInButton_clicked()
@@ -262,8 +262,8 @@ void buyin::setSellOutInfo(){
 }
 
 void buyin::recordTableUpdate(){
-    Global::instance().getGlobalUserManage()->updateUser(0);
-    std::vector<Record> r = Global::instance().getGlobalUserManage()->GetUser(0)->GetRecord();
+    int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
+    std::vector<Record> r = Global::instance().getGlobalDataBase()->getUserRecord(userID);
     ui->RecordTable->setRowCount(r.size());
     int row = ui->RecordTable->rowCount();
     QTableWidgetItem* iDate;
@@ -273,10 +273,10 @@ void buyin::recordTableUpdate(){
     QTableWidgetItem* iTotalValue;
     for (int i = 0; i < row; i++) {
         iDate = new QTableWidgetItem(r[i].GetDate());
-        iStockID = new QTableWidgetItem(r[i].GetCompanyId());
-        iQuantity = new QTableWidgetItem(r[i].GetVolume());
+        iStockID = new QTableWidgetItem(QString::number(r[i].GetCompanyId()));
+        iQuantity = new QTableWidgetItem(QString::number(r[i].GetVolume()));
         iTradeType = new QTableWidgetItem(r[i].GetTradeType() ? "买入" : "卖出");
-        iTotalValue = new QTableWidgetItem(r[i].GetTotalPrice());
+        iTotalValue = new QTableWidgetItem(QString::number(r[i].GetTotalPrice()));
         ui->RecordTable->setItem(i, 0, iDate);
         ui->RecordTable->setItem(i, 1, iStockID);
         ui->RecordTable->setItem(i, 2, iQuantity);
@@ -286,18 +286,18 @@ void buyin::recordTableUpdate(){
 }
 
 void buyin::holdingTableUpdate(){
-    Global::instance().getGlobalUserManage()->updateUser(0);
-    Portfolio* userHoldings = Global::instance().getGlobalUserManage()->GetUser(0)->GetPortfolio();
+    int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
+    Portfolio* userHoldings = &Global::instance().getGlobalDataBase()->getUserPortfolio(userID);
     QTableWidgetItem* iHolding;
     QTableWidgetItem* iTotalValue;
-    for(int i = 0; i < 9; i++){
+    for(int i = 0; i < 8; i++){
         int year = Global::instance().getYear();
         int month = Global::instance().getMonth();
-        int holdings = userHoldings->getHoldings(i);
+        int holdings = userHoldings->getHoldings(i+1);
         int singleValue = Global::instance().getGlobalDataBase()->getStockInfo(i+1, year, month)[0];
         int totalValue = holdings * singleValue;
-        iHolding = new QTableWidgetItem(userHoldings->getHoldings(i));
-        iTotalValue = new QTableWidgetItem(totalValue);
+        iHolding = new QTableWidgetItem(QString::number(userHoldings->getHoldings(i)));
+        iTotalValue = new QTableWidgetItem(QString::number(totalValue));
         ui->holdingTable->setItem(i, 0, iHolding);
         ui->holdingTable->setItem(i, 1, iTotalValue);
     }
