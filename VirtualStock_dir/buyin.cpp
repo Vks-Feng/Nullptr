@@ -22,7 +22,7 @@ void buyin::initBuyInSellOut(){
     setBuyInInfo();
     setSellOutInfo();
     recordTableUpdate();
-    holdingTableUpdate();
+//    holdingTableUpdate();
 }
 
 void buyin::on_BuyInButton_clicked()

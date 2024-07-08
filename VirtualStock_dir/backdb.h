@@ -138,8 +138,6 @@ public:
         //若该用户id无对应id的股票，则在新建一条数据添加到表中
         void AddStock(int userID, int stockID, int volumn);
 
-        void RemoveStock(int userID, int stockID, int volumn);
-
 
         //----------------------------------------上述完成后仍有时间则完成下方部分-----------------------------------------
 

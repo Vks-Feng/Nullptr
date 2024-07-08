@@ -687,47 +687,6 @@ void BackDB::AddStock(int userID, int company_id, int volume)
     }
 }
 
-void BackDB::RemoveStock(int userID, int company_id, int volume)
-{
-    long currentVolume = this->getUserVolume(userID, company_id);
-
-    std::cout<<currentVolume<<std::endl;
-
-    //1. 如果有这个股票
-    if (currentVolume >= volume) {
-
-        QString updateQuery = QString("UPDATE portfolios SET volume = %1 WHERE user_id = %2 AND company_id = %3;")
-                                  .arg(currentVolume - volume)
-                                  .arg(userID)
-                                  .arg(company_id);
-
-        MYSQL_RES* updateResult = this->query(updateQuery);
-
-        //        if (!updateResult) {
-        //            std::cerr << "Update error occurred" << std::endl;
-        //        } else {
-        //            std::cout << "Volume updated successfully!" << std::endl;
-        //        }
-    }
-    //2. 如果没有这个股票
-    else {
-        // Insert a new record
-        QString insertQuery = QString("INSERT INTO portfolios (user_id, company_id, volume) VALUES (%1, %2, %3);")
-                                  .arg(userID)
-                                  .arg(company_id)
-                                  .arg(volume);
-
-        MYSQL_RES* insertResult = this->query(insertQuery);
-
-        if (!insertResult) {
-            std::cerr << "Insert error occurred" << std::endl;
-        } else {
-            std::cout << "New stock added successfully!" << std::endl;
-        }
-    }
-}
-
-
 //给传入一个用户id，查询portfolio表中该用户id对应的数据，并且构建一个根据这些数据构建好的Portfolio
 //（或者你返回一个map回来我构建也行，map是portfolio里的那种map）
 //即第一个int(key)代表公司/股票id，第二个代表持有数量(键值对）
