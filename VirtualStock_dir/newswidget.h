@@ -3,7 +3,8 @@
 
 #include <QWidget>
 #include <QString>
-#include "marketnews.h"
+#include <QListWidgetItem>
+#include "news.h"
 #include "global.h"
 
 namespace Ui {
@@ -18,9 +19,11 @@ public:
     explicit NewsWidget(QWidget *parent = nullptr);
     ~NewsWidget();
 
-    // std::vector<QString> news =
+    void updateNews(int month);
+    void updateNewsList(const std::vector<News>& newList);
 private:
     Ui::NewsWidget *ui;
+    QListWidgetItem* currentItem;
 };
 
 #endif // NEWSWIDGET_H

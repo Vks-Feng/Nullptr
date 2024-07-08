@@ -52,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent) :
     layout->addWidget(_chartSpline);
     placeholder->setLayout(layout);
 
-    NewsWidget *news = new NewsWidget(this);
+    NewsWidget *news = new NewsWidget(ui->selectpage1);
     news->move(750,150);
     news->show();
 

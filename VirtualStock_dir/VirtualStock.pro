@@ -26,7 +26,7 @@ SOURCES += \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
-    marketnews.cpp \
+    news.cpp \
     personpage.cpp \
     portfolio.cpp \
     record.cpp \
@@ -48,7 +48,7 @@ HEADERS += \
     login.h \
     mainwindow.h \
     mainwindow.h \
-    marketnews.h \
+    news.h \
     p2.h \
     personpage.h \
     portfolio.h \

@@ -6,6 +6,7 @@
 #include <QString>
 
 #include <user.h>
+#include "news.h"
 #include <record.h>
 #include <portfolio.h>
 #include <QRandomGenerator>
@@ -166,4 +167,9 @@ public:
 //        void TestGetUserId();
         void TestGetUserRecord();
         void testGetUserPortfolio();
+
+//----------------------------------------7.08新闻模块实现-----------------------------------------
+//传入月份，查询从一月到传入月份为止的所有新闻；构建一个news类型的新闻数组
+//传出以月份为key,news数组的map
+        std::map<int,std::vector<News>> getNews(int month);
 };
