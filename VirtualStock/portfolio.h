@@ -22,7 +22,7 @@ public:
 
     void removeStock(int stock, int quantity);//移除指定quantity的股票到holdings
 
-    std::map<int, int> getHoldings();//获取当前持仓的股票及数量映射
+    int getHoldings(int key);//获取当前持仓的股票及数量映射
 
     double getTotalValue();//计算组合股票的总价值（根据每只股票的单价和持有量计算总值）
 

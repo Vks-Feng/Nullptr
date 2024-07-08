@@ -6,9 +6,6 @@ buyin::buyin(QWidget *parent)
     , ui(new Ui::buyin)
 {
     ui->setupUi(this);
-    ui->BuyInStockCodeBox->setCurrentIndex(0);
-    ui->SellOutStockCodeBox->setCurrentIndex(0);
-    ui->stackedWidget->setCurrentIndex(0);
     initBuyInSellOut();
 }
 
@@ -18,22 +15,53 @@ buyin::~buyin()
 }
 
 void buyin::initBuyInSellOut(){
-    int balanceValue=Global::instance().getGlobalUserManage()->GetUser(0)->GetVir().GetValue();
-    int buyInPrice = 100;//这里之后通过数据库查询数据库中股票的价格
-    int buyInMax = 99999;//这里之后通过数据库查询数据库中股票的余量
-    int sellOutPrice = 100;//这里之后通过数据库查询数据库中股票的价格
-    int sellOutNum = 999;//这里之后通过数据库查询数据库中用户持股数量
+    ui->BuyInStockCodeBox->setCurrentIndex(0);
+    ui->SellOutStockCodeBox->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(0);
+    Global::instance().getGlobalUserManage()->updateUser(0);
+    setBuyInInfo();
+    setSellOutInfo();
+}
 
-    ui->BuyInPriceLine->setText(QString::number(buyInPrice));
-    ui->BuyInPriceLine->setDisabled(true);
-    ui->BuyInFundLine->setText(QString::number(balanceValue));
-    ui->BuyInFundLine->setDisabled(true);
-    ui->BuyInMaxLine->setText(QString::number(buyInMax));
-    ui->BuyInMaxLine->setDisabled(true);
-    ui->BuyInQuantityLine->setText("");
-    ui->BuyInNameLine->setDisabled(true);
-    int BuyInindex = ui->BuyInStockCodeBox->currentIndex();
-    switch(BuyInindex)
+void buyin::on_BuyInButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void buyin::on_SellOutButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void buyin::on_TradingRecordButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+void buyin::on_PositionButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+void buyin::on_IncomeButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
+void buyin::on_RecommendButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(5);
+}
+
+void buyin::on_returnbutton_clicked(){
+    //    暂且这么设计，有问题找vks
+    //    MainWindow* mainwindow = new MainWindow();
+    //    mainwindow->show();
+    this->close();
+}
+
+void buyin::setBuyInName(int index){
+    switch(index)
     {
     case 0:
         ui->BuyInNameLine->setText("Apple");
@@ -66,17 +94,10 @@ void buyin::initBuyInSellOut(){
         ui->BuyInNameLine->setText("Error");
         break;
     }
+}
 
-    ui->SellOutFundLine->setText(QString::number(balanceValue));
-    ui->SellOutFundLine->setDisabled(true);
-    ui->SellOutMaxLine->setDisabled(true);
-    ui->SellOutMaxLine->setText(QString::number(sellOutNum));
-    ui->SellOutQuantityLine->setText("");
-    ui->SellOutPriceLine->setText(QString::number(sellOutPrice));
-    ui->SellOutPriceLine->setDisabled(true);
-    ui->SellOutNameLine->setDisabled(true);
-    int SellOutindex = ui->SellOutStockCodeBox->currentIndex();
-    switch(SellOutindex)
+void buyin::setSellOutName(int index){
+    switch(index)
     {
     case 0:
         ui->SellOutNameLine->setText("Apple");
@@ -111,120 +132,12 @@ void buyin::initBuyInSellOut(){
     }
 }
 
-void buyin::on_BuyInButton_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(0);
-}
-
-void buyin::on_SellOutButton_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(1);
-}
-
-void buyin::on_TradingRecordButton_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(2);
-}
-
-void buyin::on_PositionButton_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(3);
-}
-
-
-void buyin::on_IncomeButton_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(4);
-}
-
-void buyin::on_RecommendButton_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(5);
-}
-
-void buyin::on_returnbutton_clicked(){
-//    暂且这么设计，有问题找vks
-//    MainWindow* mainwindow = new MainWindow();
-//    mainwindow->show();
-    this->close();
-}
-
 void buyin::on_BuyInStockCodeBox_currentIndexChanged(int index){
-    switch(index)
-    {
-    case 0:
-        ui->BuyInNameLine->setText("Apple");
-        break;
-    case 1:
-        ui->BuyInNameLine->setText("Amazon");
-        break;
-    case 2:
-        ui->BuyInNameLine->setText("Google");
-        break;
-    case 3:
-        ui->BuyInNameLine->setText("IBM");
-        break;
-    case 4:
-        ui->BuyInNameLine->setText("Intel");
-        break;
-    case 5:
-        ui->BuyInNameLine->setText("JetBlue");
-        break;
-    case 6:
-        ui->BuyInNameLine->setText("Meta");
-        break;
-    case 7:
-        ui->BuyInNameLine->setText("Microsoft");
-        break;
-    case 8:
-        ui->BuyInNameLine->setText("Tesla");
-        break;
-    default:
-        ui->BuyInNameLine->setText("Error");
-        break;
-    }
-    int maxBuyInNum = 999;//这里怎么设计不知道
-    ui->BuyInMaxLine->setText(QString::number(maxBuyInNum));
+    setBuyInInfo();
 }
 
 void buyin::on_SellOutStockCodeBox_currentIndexChanged(int index){
-    switch(index)
-    {
-    case 0:
-        ui->BuyInNameLine->setText("Apple");
-        break;
-    case 1:
-        ui->BuyInNameLine->setText("Amazon");
-        break;
-    case 2:
-        ui->BuyInNameLine->setText("Google");
-        break;
-    case 3:
-        ui->BuyInNameLine->setText("IBM");
-        break;
-    case 4:
-        ui->BuyInNameLine->setText("Intel");
-        break;
-    case 5:
-        ui->BuyInNameLine->setText("JetBlue");
-        break;
-    case 6:
-        ui->BuyInNameLine->setText("Meta");
-        break;
-    case 7:
-        ui->BuyInNameLine->setText("Microsoft");
-        break;
-    case 8:
-        ui->BuyInNameLine->setText("Tesla");
-        break;
-    default:
-        ui->BuyInNameLine->setText("Error");
-        break;
-    }
-    std::map hold=Global::instance().getGlobalUserManage()->GetUser(0)->GetPortfolio().getHoldings();
-    ui->SellOutMaxLine->setText(QString::number(hold[index]));
-    int sellPrice = 999;//这里之后用index到数据库或许数据
-    ui->SellOutPriceLine->setText(QString::number(sellPrice));
+    setSellOutInfo();
 }
 
 void buyin::on_BuyResetButton_clicked()
@@ -238,20 +151,33 @@ void buyin::on_BuyComfirmButton_clicked()
         buyinNotification("请填写买入数量");
         return;
     }
-    else if(ui->BuyInQuantityLine->text().toInt()>ui->BuyInMaxLine->text().toInt()){
-        buyinNotification("资金不足，购买失败");
+    else if(ui->BuyInQuantityLine->text().toInt() > ui->BuyInMaxLine->text().toInt()){
+        buyinNotification("买入数量超限，购买失败");
         return;
     }
     else{
-        Global::instance().getGlobalUserManage()->GetUser(0)->GetPortfolio().addStock(ui->BuyInStockCodeBox->currentIndex(),ui->BuyInQuantityLine->text().toInt());//加股票
+        //读取ui中输入的买入数量，已经对应股票的单价，计算该笔交易的金额
         int totalPrice = ui->BuyInPriceLine->text().toInt() * ui->BuyInQuantityLine->text().toInt();
-        Global::instance().getGlobalUserManage()->GetUser(0)->GetVir().withdraw(totalPrice);//扣钱
-        Stock* s = new Stock(ui->BuyInPriceLine->text().toInt(), ui->BuyInStockCodeBox->currentIndex(), ui->BuyInQuantityLine->text().toInt(), 1949, 10);
-        QString date = QString::number(1949)+"-"+QString::number(10);
-        Record a(date,*s,ui->BuyInQuantityLine->text().toInt(),true,(long)totalPrice);
-        Global::instance().getGlobalUserManage()->GetUser(0)->AddRecord(a);
-        ui->BuyInStockCodeBox->setCurrentIndex(0);
-        initBuyInSellOut();
+        //获取用户id
+        int id = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
+        //判断用户的账户余额是否能够完成交易（钱够不够）
+        if(Global::instance().getGlobalDataBase()->GetBalance(id) > totalPrice){
+            //用户余额减少，更新用户
+            Global::instance().getGlobalDataBase()->declineBalance(id, totalPrice);
+            Global::instance().getGlobalUserManage()->updateUser(0);
+            //读取该笔交易的数据，构建出一条Record
+            Stock* s = new Stock(ui->BuyInPriceLine->text().toInt(), ui->BuyInStockCodeBox->currentIndex()+1, ui->BuyInQuantityLine->text().toInt(), Global::instance().getYear(), Global::instance().getMonth());
+            QString date = QString::number(Global::instance().getYear())+"-"+QString::number(Global::instance().getMonth());
+            Record a(date,*s,ui->BuyInQuantityLine->text().toInt(),true,(long)totalPrice);
+            //用户账号添加一条记录，更新用户
+            Global::instance().getGlobalDataBase()->addRecord(id, a);
+            Global::instance().getGlobalUserManage()->updateUser(0);
+            //提示购买成功并重置页面状态
+            buyinNotification("购买成功");
+            initBuyInSellOut();
+        } else {
+            buyinNotification("金额不足，购买失败");
+        }
     }
 }
 
@@ -263,26 +189,29 @@ void buyin::on_SellResetButton_clicked()
 
 
 void buyin::on_SellComfirmButton_clicked()
-{   if(ui->SellOutButton){
+{   if(ui->SellOutButton->text().isEmpty()){
         buyinNotification("请填写卖出数量");
         return;
     }
     else if(ui->SellOutQuantityLine->text().toInt() > ui->SellOutMaxLine->text().toInt()){
-        buyinNotification("持股不足，请修改");
+        buyinNotification("持股不足，卖出失败");
         return;
     }
     else{
-        Global::instance().getGlobalUserManage()->GetUser(0)->GetPortfolio().removeStock(ui->SellOutStockCodeBox->currentIndex(),ui->SellOutQuantityLine->text().toInt());//减股票
+        Global::instance().getGlobalUserManage()->updateUser(0);
+        int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
+        int stockID = ui->SellOutStockCodeBox->currentIndex();
         int totalPrice = ui->SellOutPriceLine->text().toInt() * ui->SellOutQuantityLine->text().toInt();
-        Global::instance().getGlobalUserManage()->GetUser(0)->GetVir().deposit(totalPrice);//加钱
-        QString data=QString::number(1949)+" "+QString::number(10);
-        Stock* s = new Stock(ui->BuyInPriceLine->text().toInt(), ui->SellOutStockCodeBox->currentIndex(), ui->SellOutQuantityLine->text().toInt(), 1949, 10);
-        Record a(data,*s,ui->SellOutQuantityLine->text().toInt(),false,(long)totalPrice);
-        Global::instance().getGlobalUserManage()->GetUser(0)->AddRecord(a);
-        ui->SellOutStockCodeBox->setCurrentIndex(0);
+        int year = Global::instance().getYear();
+        int month = Global::instance().getMonth();
+        QString date=QString::number(year)+" "+QString::number(month);
+        Stock* s = new Stock(ui->BuyInPriceLine->text().toInt(), ui->SellOutStockCodeBox->currentIndex()+1, ui->SellOutQuantityLine->text().toInt(), year, month);
+        Record r(date,*s,ui->SellOutQuantityLine->text().toInt(),false,(long)totalPrice);
+        Global::instance().getGlobalUserManage()->GetUser(0)->GetPortfolio().removeStock(ui->SellOutStockCodeBox->currentIndex(),ui->SellOutQuantityLine->text().toInt());//减股票
+        Global::instance().getGlobalDataBase()->inclineBalance(userID, totalPrice);//加钱
+        Global::instance().getGlobalDataBase()->addRecord(userID,r);
         initBuyInSellOut();
     }
-
 }
 
 void buyin::buyinNotification(QString msg){
@@ -290,3 +219,85 @@ void buyin::buyinNotification(QString msg){
     msgBox.setText(msg);
     msgBox.exec();
 }
+
+void buyin::setBuyInInfo(){
+    int BuyInindex = ui->BuyInStockCodeBox->currentIndex();
+    int year = Global::instance().getYear();
+    int month = Global::instance().getMonth();
+    int BuyInPrice = Global::instance().getGlobalDataBase()->getStockInfo(BuyInindex+1,year,month)[0];
+    int maxBuyInNum = Global::instance().getGlobalDataBase()->getStockInfo(BuyInindex+1,year,month)[1];
+    int balanceValue = Global::instance().getGlobalUserManage()->GetUser(0)->GetVir().GetValue();
+    setBuyInName(BuyInindex);
+    ui->BuyInNameLine->setDisabled(true);
+    ui->BuyInPriceLine->setText(QString::number(BuyInPrice));
+    ui->BuyInPriceLine->setDisabled(true);
+    ui->BuyInFundLine->setText(QString::number(balanceValue));
+    ui->BuyInFundLine->setDisabled(true);
+    ui->BuyInMaxLine->setText(QString::number(maxBuyInNum));
+    ui->BuyInMaxLine->setDisabled(true);
+    ui->BuyInQuantityLine->setText("");
+    ui->BuyInQuantityLine->setValidator(new QIntValidator(0, maxBuyInNum, ui->BuyInQuantityLine));
+}
+
+void buyin::setSellOutInfo(){
+    int SellOutindex = ui->SellOutStockCodeBox->currentIndex();
+    int year = Global::instance().getYear();
+    int month = Global::instance().getMonth();
+    int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
+    Global::instance().getGlobalUserManage()->updateUser(userID);
+    int SellOutPrice = Global::instance().getGlobalDataBase()->getStockInfo(SellOutindex+1,year,month)[0];
+    int SellOutMaxNum = Global::instance().getGlobalDataBase()->getUserPortfolio(userID).getHoldings(SellOutindex);
+    int balanceValue = Global::instance().getGlobalUserManage()->GetUser(0)->GetVir().GetValue();
+    setSellOutName(SellOutindex);
+    ui->SellOutNameLine->setDisabled(true);
+    ui->SellOutPriceLine->setText(QString::number(SellOutPrice));
+    ui->SellOutPriceLine->setDisabled(true);
+    ui->SellOutFundLine->setText(QString::number(balanceValue));
+    ui->SellOutFundLine->setDisabled(true);
+    ui->SellOutMaxLine->setText(QString::number(SellOutMaxNum));
+    ui->SellOutMaxLine->setDisabled(true);
+    ui->SellOutQuantityLine->setText("");
+    ui->SellOutQuantityLine->setValidator(new QIntValidator(0, SellOutMaxNum, ui->SellOutQuantityLine));
+}
+
+//void buyin::recordTableUpdate(){
+//    Global::instance().getGlobalUserManage()->updateUser(0);
+//    std::vector<Record> r = Global::instance().getGlobalUserManage()->GetUser(0)->GetRecord();
+//    ui->RecordTable->setRowCount(r.size());
+//    int row = ui->RecordTable->rowCount();
+//    QTableWidget* iDate;
+//    QTableWidget* iStockName;
+//    QTableWidget* iQuantity;
+//    QTableWidget* iTradeType;
+//    QTableWidget* iTotalValue;
+//    for (int i = 0; i < row; i++) {
+//        iDate = new QTableWidget(r[i].GetDate());
+//        iStockName = new QTableWidget(r[i].GetStock().GetCompanyName());
+//        iQuantity = new QTableWidget(r[i].GetVolume());
+//        iTradeType = new QTableWidget(r[i].GetTradeType() ? "买入" : "卖出");
+//        iTotalValue = new QTableWidget(r[i].GetTotalPrice());
+//        ui->RecordTable->setItem(i, 0, iDate);
+//        ui->RecordTable->setItem(i, 1, iStockName);
+//        ui->RecordTable->setItem(i, 2, iQuantity);
+//        ui->RecordTable->setItem(i, 3, iTradeType);
+//        ui->RecordTable->setItem(i, 4, iTotalValue);
+//    }
+//}
+
+//void buyin::holdingTableUpdate(){
+//    Global::instance().getGlobalUserManage()->updateUser(0);
+//    Portfolio* userHoldings = Global::instance().getGlobalUserManage()->GetUser(0)->GetPortfolio();
+//    QTableWidget* iHolding;
+//    QTableWidget* iTotalValue;
+//    for(int i = 0; i < 9; i++){
+//        int year = Global::instance().getYear();
+//        int month = Global::instance().getMonth();
+//        int holdings = userHoldings->getHoldings(i);
+//        int singleValue = Global::instance().getGlobalDataBase()->getStockInfo(i+1, year, month)[0];
+//        int totalValue = holdings * singleValue;
+//        iHolding = new QTableWidget(userHoldings->getHoldings(i));
+//        iTotalValue = new QTableWidget(totalValue);
+//        ui->holdingTable->setItem(i, 0, iHolding);
+//        ui->holdingTable->setItem(i, 1, iTotalValue);
+//    }
+//}

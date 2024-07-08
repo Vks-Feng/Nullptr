@@ -19,6 +19,7 @@ SOURCES += \
     backdb.cpp \
     backendwithdatabase2.cpp \
     buyin.cpp \
+    chargepage.cpp \
     chartspline.cpp \
     enroll.cpp \
     global.cpp \
@@ -41,6 +42,7 @@ HEADERS += \
     backdb.h \
     backendwithdatabase2.h \
     buyin.h \
+    chargepage.h \
     chartspline.h \
     enroll.h \
     global.h \
@@ -60,6 +62,7 @@ HEADERS += \
 
 FORMS += \
     buyin.ui \
+    chargepage.ui \
     chartspline.ui \
     enroll.ui \
     login.ui \

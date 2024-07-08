@@ -18,9 +18,24 @@ public:
     explicit buyin(QWidget *parent = nullptr);
     ~buyin();
     Ui::buyin *ui;
+
     void initBuyInSellOut();
 
+    void initRecordPage();
+
+    void setBuyInInfo();
+
+    void setSellOutInfo();
+
+    void setBuyInName(int index);
+
+    void setSellOutName(int index);
+
     void buyinNotification(QString msg);
+
+    void recordTableUpdate();
+
+    void holdingTableUpdate();
 
 private slots:
     void on_BuyInButton_clicked();

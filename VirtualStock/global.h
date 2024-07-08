@@ -13,8 +13,8 @@ public:
     }
 
     UserManage* getGlobalUserManage() const { return um; }
-    void setGlobalVar(UserManage* _um) { um = _um; }
-    BackDB* getClobalDataBase() const { return db; }
+    void setGlobalUserManage(UserManage* _um) { um = _um; }
+    BackDB* getGlobalDataBase() const { return db; }
     void setGlobalDataBase(BackDB* _db) { db = _db; }
     void setGlobalDate(int _year, int _month) { Year = _year; Month = _month; }
     int getYear() { return Year; }

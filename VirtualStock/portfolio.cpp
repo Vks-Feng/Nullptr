@@ -47,8 +47,8 @@ void Portfolio::removeStock(int stock, int quantity){
     }
 }
 
-std::map<int, int> Portfolio::getHoldings(){
-    return this->holdings;
+int Portfolio::getHoldings(int key){
+    return this->holdings[key];
 }
 
 double Portfolio::getTotalValue(){

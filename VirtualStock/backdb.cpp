@@ -321,7 +321,7 @@ void BackDB::addRecord(int _user_id, Record _record) {
                            .arg(_user_id)
                            .arg(_company_id)
                            .arg(_volume)
-                           .arg(_date)
+                           .arg(_date+"-01")
                            .arg(_type)
                            .arg(_totalPrice);
 
