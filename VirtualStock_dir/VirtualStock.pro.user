@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 11.0.3, 2024-07-08T13:00:19. -->
+<!-- Written by QtCreator 11.0.3, 2024-07-08T13:02:16. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -244,7 +244,6 @@
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/Roadinforest/Desktop/BackEndFile/2024SummerVirtualStokes/Version3.2/build-VirtualStock-Desktop_Qt_6_5_3_MinGW_64_bit-Debug</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>

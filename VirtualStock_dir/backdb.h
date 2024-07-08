@@ -166,4 +166,5 @@ public:
 //        void TestGetUserId();
         void TestGetUserRecord();
         void testGetUserPortfolio();
+        void RemoveStock(int userID, int company_id, int volume);
 };
