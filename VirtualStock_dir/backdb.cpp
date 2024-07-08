@@ -696,7 +696,6 @@ void BackDB::AddStock(int userID, int company_id, int volume)
     }
 }
 
-
 //给传入一个用户id，查询portfolio表中该用户id对应的数据，并且构建一个根据这些数据构建好的Portfolio
 //（或者你返回一个map回来我构建也行，map是portfolio里的那种map）
 //即第一个int(key)代表公司/股票id，第二个代表持有数量(键值对）
@@ -799,12 +798,129 @@ void BackDB::addPost(Post post)
 
 }
 
+std::vector<Post> BackDB::getforum()
+{
+
+    std::vector<Post> ReturnRecord;
+
+    QString strQuery = QString("select * from forum;");
+    MYSQL_RES* queryResult=this->query(strQuery);
+
+    if (mysql_num_rows(queryResult) == 0) { //此处绝对不能用==NULL进行判定
+        std::cerr<<"Error: No UserRecord"<<std::endl;
+        return ReturnRecord;
+    }
+
+    //获取实际数据
+    MYSQL_ROW row;
+
+    while ((row = mysql_fetch_row(queryResult))) {
+        bool ok;
+
+        QString qMonth(row[0]);
+        int _date=qMonth.toInt(&ok);
+
+        QString qUserId(row[1]);
+//        int _user_id=qUserId.toInt(&ok);
+
+        QString qComment(row[2]);
+//        long _total_price=qTotalPrice.toLong();
+
+        QString qFatherId(row[3]);
+        int _father_id=qFatherId.toInt(&ok);
+
+        QString qThisId(row[4]);
+        int _this_id=qThisId.toInt(&ok);
+
+        Post item(_date,
+                  qComment,
+                  qUserId,
+                  _father_id,_this_id); //
+
+//        Post(int _date,
+//             QString _file,
+//             QString _id,
+//             int _fatherid,
+//             int &_thisid = allnumber); //
+
+        ReturnRecord.push_back(item);
+    }
+}
+
 void BackDB::testAddPost()
 {
     Post test(12,"Hello,Mr Lin","1",1);
     this->addPost(test);
 }
 
+void BackDB::testGetForum()
+{
+    std::vector<Post> resulr=this->getforum();
+    for(int i=0;i<resulr.size();i++)
+    {
+        qDebug()<<resulr[i].getcontent()<<Qt::endl;
+    }
+}
+
+
+std::map<int, std::vector<QString>>& BackDB::getNews(int _month)
+{
+    std::map<int,std::vector<QString>>* ReturnRecord=new std::map<int,std::vector<QString>>;
+
+    QString strQuery = QString("SELECT month,content FROM news WHERE month <= %1")
+                           .arg(_month);
+
+    MYSQL_RES* queryResult=this->query(strQuery);
+//    this->showQuery(strQuery);
+
+    if (mysql_num_rows(queryResult) == 0) { //此处绝对不能用==NULL进行判定
+        std::cerr<<"Error: No UserRecord"<<std::endl;
+        return *ReturnRecord;
+    }
+
+    //获取实际数据
+    MYSQL_ROW row;
+
+
+    int i=1;
+    std::vector<QString>* each=new  std::vector<QString>;
+
+    while ((row = mysql_fetch_row(queryResult))) {
+
+        //检测是否为下一个月,如果是下一个月，进行放入，然后新建一个新项
+        bool ok;
+        QString QstrMonth=row[0];
+        int month=QstrMonth.toInt(&ok);
+
+        if(month==i+1)
+        {
+            qDebug()<<"Add month "<<i+1<<Qt::endl;
+
+            ReturnRecord->insert(std::make_pair(i, *each));
+            std::vector<QString>* each=new  std::vector<QString>;
+            i++;
+        }
+
+        QString content(row[1]);
+        each->push_back(content);
+    }
+
+    ReturnRecord->insert(std::make_pair(i, *each));
+
+    return *ReturnRecord;
+    //此处不能delete，不然就会出错
+}
+
+
+void BackDB::testGetNews()
+{
+    std::map<int, std::vector<QString>> test=this->getNews(12);
+    qDebug()<<test[11].size()<<Qt::endl;
+    for(int i=0;i<test[11].size();i++)
+    {
+        qDebug()<<test[11][i]<<Qt::endl;
+    }
+}
 
 
 
@@ -865,9 +981,6 @@ void BackDB::TestGetUserRecord()
     for(int i=0;i<RecordSet.size();i++) std::cout<<RecordSet[i].GetTotalPrice()<<std::endl;
 }
 
-//void BackDB
-
-
 
 
 void BackDB::testGetUserVolume()
@@ -883,7 +996,7 @@ void BackDB::testAddStock()
 
 void BackDB::test()
 {
-    this->testAddPost();
+    this->testGetNews();
     std::cout<<"Done in test"<<std::endl;
 }
 

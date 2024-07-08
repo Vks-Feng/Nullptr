@@ -5,7 +5,8 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    currentDate(2023, 1)
 {
     ui->setupUi(this);
     ui->selectpage4->setLayout(ui->RuleLayout);//规则介绍布局问题
@@ -53,14 +54,16 @@ MainWindow::MainWindow(QWidget *parent) :
     placeholder->setLayout(layout);
 
 
-    Date currentDate(2023,1);
     QString dateString = QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth(), 2, 10, QChar('0'));
     ui->timelabel->setText(dateString);
-    // ui->timelabel->
+    QFont font = ui->timelabel->font();
+    font.setPointSize(12);
+    ui->timelabel->setFont(font);
 
-//    NewsWidget *news = new NewsWidget(this);
-//    news->move(750,150);
-//    news->show();
+
+    NewsWidget *news = new NewsWidget(ui->selectpage1);
+    news->move(750,150);
+    news->show();
 
 
 }
@@ -86,9 +89,23 @@ void MainWindow::on_personpage1_clicked()
 
 void MainWindow::on_nextroundbutton_clicked()
 {
+
     QMessageBox msg(QMessageBox::Question,"提示","您本轮还没有进行任何操作，是否进行到下一轮操作?",QMessageBox::Yes | QMessageBox::No,this);
-    msg.exec();
+    int ret = msg.exec();
+    if(ret==QMessageBox::Yes)
+    {
+        currentDate.addMonths(1);
+        ui->timelabel->setText(QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth()));
+    }
+
 }
 
 
+
+
+void MainWindow::on_communitybutton1_clicked()
+{
+    forum* Forum=new forum();
+    Forum->show();
+}
 

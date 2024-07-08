@@ -89,7 +89,7 @@
       </widget>
      </item>
      <item row="4" column="0">
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="chargeTitle">
        <property name="text">
         <string>充值</string>
        </property>

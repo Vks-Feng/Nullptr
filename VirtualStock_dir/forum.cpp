@@ -42,7 +42,7 @@ forum::forum(std::vector<Post>_load,QWidget *parent)
     int m=number.size();
     for (int row = 0; row < m; ++row) {
         // 创建按钮
-        QPushButton *button = new QPushButton(load[row].get_userId(), this);
+        QPushButton *button = new QPushButton(load[row].getid(), this);
         buttonLayout->addWidget(button, row+1, 0);
         // 连接clicked信号到对应的槽函数
         connect(button, &QPushButton::clicked, this, &forum::onnameButtonClicked);
@@ -63,6 +63,10 @@ forum::forum(std::vector<Post>_load,QWidget *parent)
     }
     ui->setupUi(this);
 
+}
+
+forum::forum(QWidget *parent):QWidget(parent){
+        ui->setupUi(this);
 }
 
 forum::~forum()
@@ -103,6 +107,7 @@ void forum::onSubmitClicked() {
     QString temp = lineEdit->text();
     QString id = Global::instance().getGlobalUserManage()->GetUser(0)->GetName();
     Post add(time,temp,id,time,time);
+    //这里放上那个发帖链数据库的函数
     QMessageBox msgBox;
     msgBox.setText("发帖成功");
     msgBox.exec();

@@ -141,7 +141,6 @@ public:
         void AddStock(int userID, int stockID, int volumn);
 
 
-
         //----------------------------------------上述完成后仍有时间则完成下方部分-----------------------------------------
 
         //给传入一个用户id，查询portfolio表中该用户id对应的数据，并且构建一个根据这些数据构建好的Portfolio
@@ -180,4 +179,14 @@ public:
         void addPost(Post post);//写入到前端
         std::vector<Post>  getforum();//获取所有post
         void testAddPost();
+        void testGetForum();
+
+
+        //----------------------------------------7.08新闻模块实现-----------------------------------------
+        //传入月份，查询从一月到传入月份为止的所有新闻；构建一个数组
+        //传出以月份为key,news数组的map
+//        std::map<int,std::vector<QString>> getNews(int month);
+        void testGetNews();
+        std::map<int, std::vector<QString>> &getNews(int _month);
 };
+
