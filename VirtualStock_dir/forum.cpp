@@ -5,9 +5,8 @@ forum::forum(std::vector<Post>_load,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::forum)
 {   time=Global:: instance().getMonth();
-    int temp=_load.size();
-
-    for(int i=0;i<temp;i++){
+    allnumber=_load.size();
+    for(int i=0;i<allnumber;i++){
         if(_load[i].getdate()>time){continue;}
         if(_load[i].getfatherid()==0){
             load.push_back(_load[0]);
@@ -103,7 +102,7 @@ void forum::onSubmitClicked() {
     QLineEdit *lineEdit = qobject_cast<QLineEdit*>(sender()->parent()->findChild<QLineEdit*>());
     QString temp = lineEdit->text();
     QString id = Global::instance().getGlobalUserManage()->GetUser(0)->GetName();
-
+    Post add(time,temp,id,time,time);
     QMessageBox msgBox;
     msgBox.setText("发帖成功");
     msgBox.exec();

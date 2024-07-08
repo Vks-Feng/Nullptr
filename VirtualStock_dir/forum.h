@@ -39,6 +39,7 @@ private slots:
     void onSubmitClicked();
 private:
     int time;
+    int allnumber;
     Ui::forum *ui;
     std::vector<Post>load;//父帖
     std::vector<int>number;//父帖id，便于查询
