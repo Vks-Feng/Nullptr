@@ -22,6 +22,7 @@ SOURCES += \
     chargepage.cpp \
     chartspline.cpp \
     enroll.cpp \
+    forum.cpp \
     global.cpp \
     login.cpp \
     main.cpp \
@@ -29,7 +30,9 @@ SOURCES += \
     marketnews.cpp \
     personpage.cpp \
     portfolio.cpp \
+    post.cpp \
     record.cpp \
+    sonforum.cpp \
     stock.cpp \
     user.cpp \
     usermanage.cpp \
@@ -43,6 +46,7 @@ HEADERS += \
     chargepage.h \
     chartspline.h \
     enroll.h \
+    forum.h \
     global.h \
     login.h \
     mainwindow.h \
@@ -50,7 +54,9 @@ HEADERS += \
     p2.h \
     personpage.h \
     portfolio.h \
+    post.h \
     record.h \
+    sonforum.h \
     stock.h \
     user.h \
     usermanage.h \
@@ -62,9 +68,11 @@ FORMS += \
     chargepage.ui \
     chartspline.ui \
     enroll.ui \
+    forum.ui \
     login.ui \
     mainwindow.ui \
     personpage.ui \
+    sonforum.ui \
     widget.ui
 
 # Default rules for deployment.
