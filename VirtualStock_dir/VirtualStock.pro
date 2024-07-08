@@ -21,6 +21,7 @@ SOURCES += \
     buyin.cpp \
     chargepage.cpp \
     chartspline.cpp \
+    date.cpp \
     enroll.cpp \
     global.cpp \
     login.cpp \
@@ -42,6 +43,7 @@ HEADERS += \
     buyin.h \
     chargepage.h \
     chartspline.h \
+    date.h \
     enroll.h \
     global.h \
     login.h \
