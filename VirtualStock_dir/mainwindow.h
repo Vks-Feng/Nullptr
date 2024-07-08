@@ -9,7 +9,7 @@
 
 #include "date.h"
 #include "newswidget.h"
-
+#include "forum.h"
 
 namespace Ui {
 class MainWindow;
@@ -30,6 +30,8 @@ private slots:
 
     void on_nextroundbutton_clicked();
 
+
+    void on_communitybutton1_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -30,6 +30,7 @@ class forum : public QWidget
 
 public:
     explicit forum(std::vector<Post>_load,QWidget *parent = nullptr);
+    explicit forum(QWidget *parent=nullptr);
     ~forum();
     void display(int m);
 

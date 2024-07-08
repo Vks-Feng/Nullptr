@@ -65,6 +65,10 @@ forum::forum(std::vector<Post>_load,QWidget *parent)
 
 }
 
+forum::forum(QWidget *parent):QWidget(parent){
+        ui->setupUi(this);
+}
+
 forum::~forum()
 {
     delete ui;
@@ -103,6 +107,7 @@ void forum::onSubmitClicked() {
     QString temp = lineEdit->text();
     QString id = Global::instance().getGlobalUserManage()->GetUser(0)->GetName();
     Post add(time,temp,id,time,time);
+    //这里放上那个发帖链数据库的函数
     QMessageBox msgBox;
     msgBox.setText("发帖成功");
     msgBox.exec();
