@@ -42,7 +42,7 @@ forum::forum(std::vector<Post>_load,QWidget *parent)
     int m=number.size();
     for (int row = 0; row < m; ++row) {
         // 创建按钮
-        QPushButton *button = new QPushButton(load[row].getid(), this);
+        QPushButton *button = new QPushButton(load[row].get_userId(), this);
         buttonLayout->addWidget(button, row+1, 0);
         // 连接clicked信号到对应的槽函数
         connect(button, &QPushButton::clicked, this, &forum::onnameButtonClicked);

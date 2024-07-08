@@ -16,8 +16,10 @@ private:
     int ID;
     QString name;
     QString password;
+
     VirtualCurrency virtualcurrency;
     Portfolio portfolio;
+
     std::vector<Record> r;
     int ranking;
 

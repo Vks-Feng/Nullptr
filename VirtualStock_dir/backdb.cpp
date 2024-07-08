@@ -6,6 +6,7 @@
 #include "record.h"
 #include "portfolio.h"
 #include "stock.h"
+#include "post.h"
 
 
 // The implement of backEndWithDataBase Class
@@ -211,13 +212,15 @@ void BackDB::addUser(User _user) {
 //    int value = _user.GetVIr().GetValue();
     int value=-1;
 
-    QString queryStr = QString("INSERT INTO users (id, name, password, balance, ranking) "
-                               "VALUES (%1, '%2', '%3', %4, %5)")
+    QString queryStr = QString("INSERT INTO users (id, name, password, balance, ranking,user_time,introduction) "
+                               "VALUES ('%1', '%2', '%3',' %4',' %5','%6','%7')")
                            .arg(id)
                            .arg(name)
                            .arg(password)
                            .arg(value)
-                           .arg(ranking);
+                           .arg(ranking)
+                           .arg(1)
+                           .arg("NULL INTRODUCTION");
 
     this->query(queryStr);
 }
@@ -265,14 +268,16 @@ bool BackDB::addUser(QString name, QString password)
     int user_id=this->CountUser();
 
     QString queryStr = QString("INSERT INTO users (id, name, password, balance, ranking,user_time,introduction) "
-                               "VALUES (%1, '%2', '%3', '%4', '%5','%6','%7')")
+                               "VALUES ('%1', '%2', '%3', '%4', '%5','%6','%7')")
                            .arg(user_id+1)
                            .arg(name)
                            .arg(password)
                            .arg(64800)
                            .arg(-1)
                            .arg(1)
-                           .arg("Introduction");
+                           .arg(0);
+
+    this->query(queryStr);
 
     qDebug()<<"Finish addUser"<<Qt::endl;
 }
@@ -281,7 +286,7 @@ void BackDB::testUserAdd() {
     qDebug()<<"Test the UserAdd"<<Qt::endl;
     User u;
 //    this->addUser(u);
-    this->addUser("HK","Hello");
+    this->addUser("HK-1","Hello");
 }
 
 //------------------------
@@ -441,6 +446,9 @@ User BackDB::enableUser(QString name)
         int _balance = atoi(row[3]);
         int _ranking = atoi(row[4]);
         User result(_id,_name,_password,_balance,_ranking);
+
+//        result.
+
         return result;
         //Return the coresponding data member
     }
@@ -772,6 +780,33 @@ void BackDB::RemoveStock(int userID, int company_id, int volume)
     }
 }
 
+void BackDB::addPost(Post post)
+{
+    int _date=post.getdate();
+    QString _content=post.getcontent();
+    QString _id=post.getid();
+    int _father_id=post.getfatherid();
+    int _this_id=post.getthisid();
+
+    QString strQuery = QString("INSERT INTO forum(`Month`,user_id,COMMENT,father_id,this_id) \
+                                VALUES ('%1','%2','%3','%4','%5');")
+                           .arg(_date)
+                           .arg(_id)
+                           .arg(_content)
+                           .arg(_father_id)
+                           .arg(_this_id);
+    this->query(strQuery);
+
+}
+
+void BackDB::testAddPost()
+{
+    Post test(12,"Hello,Mr Lin","1",1);
+    this->addPost(test);
+}
+
+
+
 
         //传入一个用户id，查询Record表中的数据，并根据这些数据构建一个Record的数组，并返回
 std::vector<Record> &BackDB::getUserRecord(int userID)//----------------
@@ -848,7 +883,7 @@ void BackDB::testAddStock()
 
 void BackDB::test()
 {
-    this->testGetStockInfo();
+    this->testAddPost();
     std::cout<<"Done in test"<<std::endl;
 }
 

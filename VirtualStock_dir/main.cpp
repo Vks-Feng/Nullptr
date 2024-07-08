@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
    Login* l = new Login();
    l->show();
 
-    // BackDB b;
-    // b.test();
+//     BackDB b;
+//     b.test();
     return a.exec();
 }

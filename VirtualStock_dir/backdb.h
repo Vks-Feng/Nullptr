@@ -9,6 +9,7 @@
 #include <record.h>
 #include <portfolio.h>
 #include <QRandomGenerator>
+#include <post.h>
 
 class BackDB
 {
@@ -104,6 +105,7 @@ public:
     //    //根据用户名查找数据，并根据数据构建User，返回一个User
         User enableUser(QString name);
 
+
         void testIsPasswordEqual();
         void testEnableUser();
 
@@ -174,4 +176,8 @@ public:
         //若该用户id有对应id的股票，则在volumn字段上减去该数量
         //若该用户id无对应id的股票，则不操作即可
         void RemoveStock(int userID, int company_id, int volume);
+
+        void addPost(Post post);//写入到前端
+        std::vector<Post>  getforum();//获取所有post
+        void testAddPost();
 };

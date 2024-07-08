@@ -20,7 +20,7 @@ void buyin::initBuyInSellOut(){
     ui->stackedWidget->setCurrentIndex(0);
     Global::instance().getGlobalUserManage()->updateUser(0);
     setBuyInInfo();
-    //setSellOutInfo();
+    setSellOutInfo();
 }
 
 void buyin::on_BuyInButton_clicked()
@@ -166,9 +166,9 @@ void buyin::on_BuyComfirmButton_clicked()
             Global::instance().getGlobalDataBase()->declineBalance(id, totalPrice);
             Global::instance().getGlobalUserManage()->updateUser(0);
             //读取该笔交易的数据，构建出一条Record
-            int stockID = ui->BuyInStockCodeBox->currentIndex()+1;
+            Stock* s = new Stock(ui->BuyInPriceLine->text().toInt(), ui->BuyInStockCodeBox->currentIndex()+1, ui->BuyInQuantityLine->text().toInt(), Global::instance().getYear(), Global::instance().getMonth());
             QString date = QString::number(Global::instance().getYear())+"-"+QString::number(Global::instance().getMonth());
-            Record a(date,stockID,ui->BuyInQuantityLine->text().toInt(),true,(long)totalPrice);
+            Record a(date,*s,ui->BuyInQuantityLine->text().toInt(),true,(long)totalPrice);
             //用户账号添加一条记录，更新用户
             Global::instance().getGlobalDataBase()->addRecord(id, a);
             Global::instance().getGlobalUserManage()->updateUser(0);
@@ -200,13 +200,14 @@ void buyin::on_SellComfirmButton_clicked()
     else{
         Global::instance().getGlobalUserManage()->updateUser(0);
         int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
-        int stockID = ui->SellOutStockCodeBox->currentIndex() + 1;
+        int stockID = ui->SellOutStockCodeBox->currentIndex();
         int totalPrice = ui->SellOutPriceLine->text().toInt() * ui->SellOutQuantityLine->text().toInt();
         int year = Global::instance().getYear();
         int month = Global::instance().getMonth();
         QString date=QString::number(year)+" "+QString::number(month);
-        Record r(date,stockID,ui->SellOutQuantityLine->text().toInt(),false,(long)totalPrice);
-        Global::instance().getGlobalUserManage()->GetUser(0)->GetPortfolio()->removeStock(stockID,ui->SellOutQuantityLine->text().toInt());//减股票
+        Stock* s = new Stock(ui->BuyInPriceLine->text().toInt(), ui->SellOutStockCodeBox->currentIndex()+1, ui->SellOutQuantityLine->text().toInt(), year, month);
+        Record r(date,*s,ui->SellOutQuantityLine->text().toInt(),false,(long)totalPrice);
+        Global::instance().getGlobalUserManage()->GetUser(0)->GetPortfolio().removeStock(ui->SellOutStockCodeBox->currentIndex(),ui->SellOutQuantityLine->text().toInt());//减股票
         Global::instance().getGlobalDataBase()->inclineBalance(userID, totalPrice);//加钱
         Global::instance().getGlobalDataBase()->addRecord(userID,r);
         initBuyInSellOut();
@@ -238,65 +239,15 @@ void buyin::setBuyInInfo(){
     ui->BuyInQuantityLine->setValidator(new QIntValidator(0, maxBuyInNum, ui->BuyInQuantityLine));
 }
 
-//void buyin::setSellOutInfo(){
-//    int SellOutindex = ui->SellOutStockCodeBox->currentIndex();
-//    int year = Global::instance().getYear();
-//    int month = Global::instance().getMonth();
-//    int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
-//    Global::instance().getGlobalUserManage()->updateUser(userID);
-//    int SellOutPrice = Global::instance().getGlobalDataBase()->getStockInfo(SellOutindex+1,year,month)[0];
-//    int SellOutMaxNum = Global::instance().getGlobalDataBase()->getUserPortfolio(userID).getHoldings(SellOutindex);
-//    int balanceValue = Global::instance().getGlobalUserManage()->GetUser(0)->GetVir().GetValue();
-//    setSellOutName(SellOutindex);
-//    ui->SellOutNameLine->setDisabled(true);
-//    ui->SellOutPriceLine->setText(QString::number(SellOutPrice));
-//    ui->SellOutPriceLine->setDisabled(true);
-//    ui->SellOutFundLine->setText(QString::number(balanceValue));
-//    ui->SellOutFundLine->setDisabled(true);
-//    ui->SellOutMaxLine->setText(QString::number(SellOutMaxNum));
-//    ui->SellOutMaxLine->setDisabled(true);
-//    ui->SellOutQuantityLine->setText("");
-//    ui->SellOutQuantityLine->setValidator(new QIntValidator(0, SellOutMaxNum, ui->SellOutQuantityLine));
-//}
-
 void buyin::setSellOutInfo(){
     int SellOutindex = ui->SellOutStockCodeBox->currentIndex();
-    qDebug() << "SellOutindex:" << SellOutindex;
-
     int year = Global::instance().getYear();
     int month = Global::instance().getMonth();
-
-    auto user = Global::instance().getGlobalUserManage()->GetUser(0);
-    if (!user) {
-        qDebug() << "User is nullptr";
-        return;
-    } else {
-        qDebug() << "User is valid";
-    }
-    int userID = user->GetId();
+    int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
     Global::instance().getGlobalUserManage()->updateUser(userID);
-
-    auto stockInfo = Global::instance().getGlobalDataBase()->getStockInfo(SellOutindex + 1, year, month);
-    if (stockInfo.empty()) {
-        qDebug() << "Stock info is empty";
-        return;
-    } else {
-        qDebug() << "Stock info is valid";
-    }
-    int SellOutPrice = stockInfo[0];
-
-    auto portfolio = Global::instance().getGlobalDataBase()->getUserPortfolio(userID);
-    int SellOutMaxNum = portfolio.getHoldings(SellOutindex);
-
-    int balanceValue = user->GetVir().GetValue();
-
-    if (!ui->SellOutNameLine || !ui->SellOutPriceLine || !ui->SellOutFundLine || !ui->SellOutMaxLine || !ui->SellOutQuantityLine) {
-        qDebug() << "One of the UI elements is nullptr";
-        return;
-    } else {
-        qDebug() << "ui is valid";
-    }
-
+    int SellOutPrice = Global::instance().getGlobalDataBase()->getStockInfo(SellOutindex+1,year,month)[0];
+    int SellOutMaxNum = Global::instance().getGlobalDataBase()->getUserPortfolio(userID).getHoldings(SellOutindex);
+    int balanceValue = Global::instance().getGlobalUserManage()->GetUser(0)->GetVir().GetValue();
     setSellOutName(SellOutindex);
     ui->SellOutNameLine->setDisabled(true);
     ui->SellOutPriceLine->setText(QString::number(SellOutPrice));
@@ -309,45 +260,44 @@ void buyin::setSellOutInfo(){
     ui->SellOutQuantityLine->setValidator(new QIntValidator(0, SellOutMaxNum, ui->SellOutQuantityLine));
 }
 
+//void buyin::recordTableUpdate(){
+//    Global::instance().getGlobalUserManage()->updateUser(0);
+//    std::vector<Record> r = Global::instance().getGlobalUserManage()->GetUser(0)->GetRecord();
+//    ui->RecordTable->setRowCount(r.size());
+//    int row = ui->RecordTable->rowCount();
+//    QTableWidget* iDate;
+//    QTableWidget* iStockName;
+//    QTableWidget* iQuantity;
+//    QTableWidget* iTradeType;
+//    QTableWidget* iTotalValue;
+//    for (int i = 0; i < row; i++) {
+//        iDate = new QTableWidget(r[i].GetDate());
+//        iStockName = new QTableWidget(r[i].GetStock().GetCompanyName());
+//        iQuantity = new QTableWidget(r[i].GetVolume());
+//        iTradeType = new QTableWidget(r[i].GetTradeType() ? "买入" : "卖出");
+//        iTotalValue = new QTableWidget(r[i].GetTotalPrice());
+//        ui->RecordTable->setItem(i, 0, iDate);
+//        ui->RecordTable->setItem(i, 1, iStockName);
+//        ui->RecordTable->setItem(i, 2, iQuantity);
+//        ui->RecordTable->setItem(i, 3, iTradeType);
+//        ui->RecordTable->setItem(i, 4, iTotalValue);
+//    }
+//}
 
-void buyin::recordTableUpdate(){
-    Global::instance().getGlobalUserManage()->updateUser(0);
-    std::vector<Record> r = Global::instance().getGlobalUserManage()->GetUser(0)->GetRecord();
-    ui->RecordTable->setRowCount(r.size());
-    int row = ui->RecordTable->rowCount();
-    QTableWidgetItem* iDate;
-    QTableWidgetItem* iStockID;
-    QTableWidgetItem* iQuantity;
-    QTableWidgetItem* iTradeType;
-    QTableWidgetItem* iTotalValue;
-    for (int i = 0; i < row; i++) {
-        iDate = new QTableWidgetItem(r[i].GetDate());
-        iStockID = new QTableWidgetItem(r[i].GetCompanyId());
-        iQuantity = new QTableWidgetItem(r[i].GetVolume());
-        iTradeType = new QTableWidgetItem(r[i].GetTradeType() ? "买入" : "卖出");
-        iTotalValue = new QTableWidgetItem(r[i].GetTotalPrice());
-        ui->RecordTable->setItem(i, 0, iDate);
-        ui->RecordTable->setItem(i, 1, iStockID);
-        ui->RecordTable->setItem(i, 2, iQuantity);
-        ui->RecordTable->setItem(i, 3, iTradeType);
-        ui->RecordTable->setItem(i, 4, iTotalValue);
-    }
-}
-
-void buyin::holdingTableUpdate(){
-    Global::instance().getGlobalUserManage()->updateUser(0);
-    Portfolio* userHoldings = Global::instance().getGlobalUserManage()->GetUser(0)->GetPortfolio();
-    QTableWidgetItem* iHolding;
-    QTableWidgetItem* iTotalValue;
-    for(int i = 0; i < 9; i++){
-        int year = Global::instance().getYear();
-        int month = Global::instance().getMonth();
-        int holdings = userHoldings->getHoldings(i);
-        int singleValue = Global::instance().getGlobalDataBase()->getStockInfo(i+1, year, month)[0];
-        int totalValue = holdings * singleValue;
-        iHolding = new QTableWidgetItem(userHoldings->getHoldings(i));
-        iTotalValue = new QTableWidgetItem(totalValue);
-        ui->holdingTable->setItem(i, 0, iHolding);
-        ui->holdingTable->setItem(i, 1, iTotalValue);
-    }
-}
+//void buyin::holdingTableUpdate(){
+//    Global::instance().getGlobalUserManage()->updateUser(0);
+//    Portfolio* userHoldings = Global::instance().getGlobalUserManage()->GetUser(0)->GetPortfolio();
+//    QTableWidget* iHolding;
+//    QTableWidget* iTotalValue;
+//    for(int i = 0; i < 9; i++){
+//        int year = Global::instance().getYear();
+//        int month = Global::instance().getMonth();
+//        int holdings = userHoldings->getHoldings(i);
+//        int singleValue = Global::instance().getGlobalDataBase()->getStockInfo(i+1, year, month)[0];
+//        int totalValue = holdings * singleValue;
+//        iHolding = new QTableWidget(userHoldings->getHoldings(i));
+//        iTotalValue = new QTableWidget(totalValue);
+//        ui->holdingTable->setItem(i, 0, iHolding);
+//        ui->holdingTable->setItem(i, 1, iTotalValue);
+//    }
+//}

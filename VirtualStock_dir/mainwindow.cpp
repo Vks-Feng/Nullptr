@@ -58,9 +58,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->timelabel->setText(dateString);
     // ui->timelabel->
 
-    NewsWidget *news = new NewsWidget(this);
-    news->move(750,150);
-    news->show();
+//    NewsWidget *news = new NewsWidget(this);
+//    news->move(750,150);
+//    news->show();
 
 
 }
