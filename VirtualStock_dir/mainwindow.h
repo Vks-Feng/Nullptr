@@ -35,6 +35,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    Date currentDate;
 };
 
 #endif // MAINWINDOW_H

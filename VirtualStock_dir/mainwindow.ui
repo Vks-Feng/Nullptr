@@ -6,8 +6,6 @@
    <rect>
     <x>0</x>
     <y>0</y>
-
-
     <width>958</width>
     <height>502</height>
    </rect>
@@ -325,6 +323,15 @@ T+0/T+1/T+2：不同市场有不同的清算交割制度。例如，美国市场
     <widget class="QLabel" name="timelabel">
      <property name="text">
       <string/>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::AutoText</enum>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </item>

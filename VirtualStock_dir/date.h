@@ -21,15 +21,15 @@ public:
 
     // 增加月份
     void addMonths(int months) {
-        month += months;
+        month +=months;
         normalize();
     }
 
-    // 减少月份
-    void subtractMonths(int months) {
-        month -= months;
-        normalize();
-    }
+    // // 减少月份
+    // void reduceMonths(int months) {
+    //     month -= months;
+    //     normalize();
+    // }
 
     // 时间推移函数，每次调用时按指定周期推移日期
     void advance(int period) {
