@@ -736,7 +736,7 @@ Portfolio &BackDB::getUserPortfolio(int userID)//-------------
 void BackDB::testGetUserPortfolio()
 {
     Portfolio test=this->getUserPortfolio(19);
-    std::cout<<test.getHoldings()[1314]<<std::endl;
+    std::cout<<test.getHoldings(1314)<<std::endl;
 }
 
 

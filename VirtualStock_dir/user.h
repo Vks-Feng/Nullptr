@@ -43,7 +43,7 @@ public:
 
     void AddRecord(Record _r);
 
-    Portfolio GetPortfolio();
+    Portfolio* GetPortfolio();
 
     VirtualCurrency GetVir();//Pass
 
