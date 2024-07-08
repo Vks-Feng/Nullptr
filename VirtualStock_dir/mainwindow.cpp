@@ -51,6 +51,11 @@ MainWindow::MainWindow(QWidget *parent) :
     QVBoxLayout *layout = new QVBoxLayout(placeholder);
     layout->addWidget(_chartSpline);
     placeholder->setLayout(layout);
+
+    NewsWidget *news = new NewsWidget(this);
+    news->move(750,150);
+    news->show();
+
 }
 
 MainWindow::~MainWindow()

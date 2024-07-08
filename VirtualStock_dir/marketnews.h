@@ -6,13 +6,17 @@
 class MarketNews {
 public:
     void addNews(QString news);
-
     std::vector<QString> getNews();
-
 private:
     MarketNews();
+     std::vector<QString> newsList;
+//     QString Title;
+//     QString context;
+//     QString data;
+//     QString author_name;
 
-    std::vector<QString> newsList;
+// public:
+//     QString getTitle();
 };
 
 #endif // MARKETNEWS_H
