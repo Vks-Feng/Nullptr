@@ -246,9 +246,9 @@ void buyin::on_BuyComfirmButton_clicked()
         Global::instance().getGlobalUserManage()->GetUser(0)->GetPortfolio().addStock(ui->BuyInStockCodeBox->currentIndex(),ui->BuyInQuantityLine->text().toInt());//加股票
         int totalPrice = ui->BuyInPriceLine->text().toInt() * ui->BuyInQuantityLine->text().toInt();
         Global::instance().getGlobalUserManage()->GetUser(0)->GetVir().withdraw(totalPrice);//扣钱
-        Stock* s = new Stock(ui->BuyInPriceLine->text().toInt(), ui->BuyInStockCodeBox->currentIndex(), ui->BuyInQuantityLine->text().toInt(), 1949, 10);
+        int companyId  = ui->BuyInStockCodeBox->currentIndex()+1;
         QString date = QString::number(1949)+"-"+QString::number(10);
-        Record a(date,*s,ui->BuyInQuantityLine->text().toInt(),true,(long)totalPrice);
+        Record a(date,companyId,ui->BuyInQuantityLine->text().toInt(),true,(long)totalPrice);
         Global::instance().getGlobalUserManage()->GetUser(0)->AddRecord(a);
         ui->BuyInStockCodeBox->setCurrentIndex(0);
         initBuyInSellOut();
@@ -276,8 +276,8 @@ void buyin::on_SellComfirmButton_clicked()
         int totalPrice = ui->SellOutPriceLine->text().toInt() * ui->SellOutQuantityLine->text().toInt();
         Global::instance().getGlobalUserManage()->GetUser(0)->GetVir().deposit(totalPrice);//加钱
         QString data=QString::number(1949)+" "+QString::number(10);
-        Stock* s = new Stock(ui->BuyInPriceLine->text().toInt(), ui->SellOutStockCodeBox->currentIndex(), ui->SellOutQuantityLine->text().toInt(), 1949, 10);
-        Record a(data,*s,ui->SellOutQuantityLine->text().toInt(),false,(long)totalPrice);
+        int companyId  = ui->BuyInStockCodeBox->currentIndex()+1;
+        Record a(data,companyId,ui->SellOutQuantityLine->text().toInt(),false,(long)totalPrice);
         Global::instance().getGlobalUserManage()->GetUser(0)->AddRecord(a);
         ui->SellOutStockCodeBox->setCurrentIndex(0);
         initBuyInSellOut();

@@ -56,6 +56,9 @@ public:
 
     //Add a record into the trade record table;
     void addRecord(int _user_id, Record _record);
+
+
+
     void testRecord();
 
     //Get the information about the field
@@ -156,7 +159,11 @@ public:
         void test();
         void testAddStock();
         void testGetBalance();
-
+        
 
         int CountUser();
+
+//        void TestGetUserId();
+        void TestGetUserRecord();
+        void testGetUserPortfolio();
 };

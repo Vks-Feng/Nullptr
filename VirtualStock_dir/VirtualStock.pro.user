@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 11.0.3, 2024-07-07T15:58:17. -->
+<!-- Written by QtCreator 11.0.3, 2024-07-08T13:00:19. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -239,11 +239,12 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">VirtualStock2</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/BackEndFile/2024SummerVirtualStokes/ForDocker/VirtualStock_dir/VirtualStock.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/BackEndFile/2024SummerVirtualStokes/ForDocker/VirtualStock_dir/VirtualStock.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/BackEndFile/2024SummerVirtualStokes/Version3/VirtualStock_dir/VirtualStock.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/BackEndFile/2024SummerVirtualStokes/Version3/VirtualStock_dir/VirtualStock.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/Roadinforest/Desktop/BackEndFile/2024SummerVirtualStokes/Version3.2/build-VirtualStock-Desktop_Qt_6_5_3_MinGW_64_bit-Debug</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
