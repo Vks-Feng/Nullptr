@@ -1,8 +1,10 @@
 #include "record.h"
 
-Record::Record(QString _date, Stock _s, long _volume, bool _tradetype, long _totalprice){
+
+Record::Record(QString _date, int _company_id, long _volume, bool _tradetype, long _totalprice)
+{
     date = _date;
-    s = _s;
+    company_id=_company_id;
     volume = _volume;
     tradetype = _tradetype;
     totalprice = _totalprice;
@@ -10,7 +12,7 @@ Record::Record(QString _date, Stock _s, long _volume, bool _tradetype, long _tot
 
 Record::Record(){
     date = "2020-07";
-    s = Stock();
+    company_id=1;
     volume = 0;
     tradetype = true;
     totalprice = 100;
@@ -22,9 +24,11 @@ QString Record::GetDate(){
     return date;
 }
 
-Stock Record::GetStock(){
-    return s;
+int Record::GetCompanyId()
+{
+    return company_id;
 }
+
 
 long Record::GetVolume(){
     return volume;

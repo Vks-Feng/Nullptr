@@ -1,7 +1,6 @@
 #include "widget.h"
 #include "login.h"
 #include "global.h"
-#include "querywidget.h"
 #include "backdb.h"
 
 #include <QApplication>

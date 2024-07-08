@@ -2,7 +2,7 @@
 #include "ui_chartspline.h"
 #include "backdb.h"
 
-#include <Qtime>
+//#include <Qtime>
 #include <vector>
 
 const int YEARS=25;

@@ -310,8 +310,9 @@ void BackDB::testPortfolios() {
 
 void BackDB::addRecord(int _user_id, Record _record) {
     QString _date = _record.GetDate();
-    Stock _stock = _record.GetStock();
-    int _company_id = _stock.GetCompanyId();
+//    Stock _stock = _record.GetStock();
+
+    int _company_id = _record.GetCompanyId();
     long _volume = _record.GetVolume();
     int _type = _record.GetTradeType();
     long _totalPrice = _record.GetTotalPrice();
@@ -321,7 +322,7 @@ void BackDB::addRecord(int _user_id, Record _record) {
                            .arg(_user_id)
                            .arg(_company_id)
                            .arg(_volume)
-                           .arg(_date+"-01")
+                           .arg(_date+"-30")
                            .arg(_type)
                            .arg(_totalPrice);
 
@@ -685,6 +686,120 @@ void BackDB::AddStock(int userID, int company_id, int volume)
 }
 
 
+//给传入一个用户id，查询portfolio表中该用户id对应的数据，并且构建一个根据这些数据构建好的Portfolio
+//（或者你返回一个map回来我构建也行，map是portfolio里的那种map）
+//即第一个int(key)代表公司/股票id，第二个代表持有数量(键值对）
+Portfolio &BackDB::getUserPortfolio(int userID)//-------------
+{
+
+
+   std::map<int, int> myMap;
+
+    QString strQuery = QString("SELECT * FROM portfolios WHERE user_id =%1;")
+                           .arg(userID);
+
+
+
+    //    this->showQuery(queryResult);
+
+    //     Record(QString _date, int _company_id, long _volume, bool _tradetype, long _totalprice);
+
+    MYSQL_RES* queryResult = this->query(strQuery);
+
+    if (mysql_num_rows(queryResult) == 0) { //此处绝对不能用==NULL进行判定
+        std::cerr<<"Error: No UserRecord"<<std::endl;
+    }
+
+    //获取实际数据
+    MYSQL_ROW row;
+
+    while ((row = mysql_fetch_row(queryResult))) {
+        bool ok;
+
+        QString qVolume(row[2]);
+        int volume=qVolume.toInt(&ok);
+
+
+        QString qCompanyId(row[1]);
+        int _CompanyId=qCompanyId.toInt(&ok);
+
+        myMap.insert(std::make_pair(_CompanyId, volume));
+
+    }
+
+    Portfolio* p=new Portfolio(myMap);
+
+    return* p;
+}
+
+
+void BackDB::testGetUserPortfolio()
+{
+    Portfolio test=this->getUserPortfolio(19);
+    std::cout<<test.getHoldings()[1314]<<std::endl;
+}
+
+
+        //传入一个用户id，查询Record表中的数据，并根据这些数据构建一个Record的数组，并返回
+std::vector<Record> &BackDB::getUserRecord(int userID)//----------------
+{
+    std::vector<Record>* ReturnRecord=new  std::vector<Record>;
+
+    QString strQuery = QString("SELECT * FROM trade_record WHERE user_id = %1;")
+                           .arg(userID);
+
+//    this->showQuery(queryResult);
+
+//     Record(QString _date, int _company_id, long _volume, bool _tradetype, long _totalprice);
+
+    MYSQL_RES* queryResult = this->query(strQuery);
+
+    if (mysql_num_rows(queryResult) == 0) { //此处绝对不能用==NULL进行判定
+        std::cerr<<"Error: No UserRecord"<<std::endl;
+        return *ReturnRecord;
+    }
+
+    //获取实际数据
+    MYSQL_ROW row;
+
+    while ((row = mysql_fetch_row(queryResult))) {
+        bool ok;
+
+        QString qVolume(row[2]);
+        long volume=qVolume.toLong(&ok);
+
+        QString qType(row[4]);
+        int _trade_type=qType.toInt(&ok);
+
+        QString qTotalPrice(row[5]);
+        long _total_price=qTotalPrice.toLong();
+
+        QString qCompanyId(row[1]);
+        int _CompanyId=qCompanyId.toInt(&ok);
+
+        QString qDate(row[3]);
+        qDebug()<<"Date:"<<qDate<<Qt::endl;//将日期输出
+        //        double number = qStr.toDouble(&ok);
+
+        Record item(qDate, _CompanyId,volume, _trade_type, _total_price);
+
+        ReturnRecord->push_back(item);
+    }
+
+
+    return *ReturnRecord;
+}
+
+void BackDB::TestGetUserRecord()
+{
+    std::vector<Record> RecordSet=this->getUserRecord(1);
+    std::cout<<"SIZE:"<<RecordSet.size()<<std::endl;
+    for(int i=0;i<RecordSet.size();i++) std::cout<<RecordSet[i].GetTotalPrice()<<std::endl;
+}
+
+//void BackDB
+
+
 void BackDB::testGetUserVolume()
 {
     int ret=this->getUserVolume(22,13144);
@@ -698,11 +813,7 @@ void BackDB::testAddStock()
 
 void BackDB::test()
 {
-//    this->testUserAdd();
-//    this->testGetBalance();
-    this->testGetUserVolume();
-    this->testPortfolios();
-
+    this->testGetUserPortfolio();
     std::cout<<"Done in test"<<std::endl;
 }
 

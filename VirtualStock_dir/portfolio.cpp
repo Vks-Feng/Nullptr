@@ -8,6 +8,7 @@ Portfolio::Portfolio()
 
 
 Portfolio::Portfolio(const std::map<int,int>& initialHoldings):holdings(initialHoldings){
+
     //已有映射构造函数
 }
 

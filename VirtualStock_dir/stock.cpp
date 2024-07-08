@@ -1,4 +1,5 @@
 #include "stock.h"
+#include <QStringList>
 
 //---------------股票类Stock-----------------
 //构造函数和接口，接口返回private成员即可
@@ -9,7 +10,19 @@ Stock::Stock(double _price,int _companyId,long _volume, int _year, int _month){
     year = _year;
     month = _month;
 
-    // stockMap[_companyId] = _price;
+    QStringList company_names = {
+        "AAPL", "AMZN", "GOOGL", "IBM", "INTC",
+        "JBLU", "META", "MSFT", "TSLA"
+    };
+
+    QString company_name;
+
+    if (_companyId >= 1 && _companyId <= company_names.size()) {
+        companyName = company_names[_companyId - 1];
+    } else {
+        companyName = "Unknown";
+    }
+
 }
 
 Stock::Stock()
