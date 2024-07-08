@@ -92,3 +92,9 @@ void MainWindow::on_nextroundbutton_clicked()
 
 
 
+
+void MainWindow::on_communitybutton1_clicked()
+{
+
+}
+
