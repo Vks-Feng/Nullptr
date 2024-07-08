@@ -21,6 +21,7 @@ SOURCES += \
     buyin.cpp \
     chargepage.cpp \
     chartspline.cpp \
+    date.cpp \
     enroll.cpp \
     global.cpp \
     login.cpp \
@@ -34,7 +35,8 @@ SOURCES += \
     user.cpp \
     usermanage.cpp \
     virtualcurrency.cpp \
-    widget.cpp
+    widget.cpp \
+    newswidget.cpp
 
 HEADERS += \
     LoginCreate.h \
@@ -42,9 +44,11 @@ HEADERS += \
     buyin.h \
     chargepage.h \
     chartspline.h \
+    date.h \
     enroll.h \
     global.h \
     login.h \
+    mainwindow.h \
     mainwindow.h \
     marketnews.h \
     p2.h \
@@ -55,7 +59,8 @@ HEADERS += \
     user.h \
     usermanage.h \
     virtualcurrency.h \
-    widget.h
+    widget.h \
+    newswidget.h
 
 FORMS += \
     buyin.ui \
@@ -65,7 +70,8 @@ FORMS += \
     login.ui \
     mainwindow.ui \
     personpage.ui \
-    widget.ui
+    widget.ui \
+    newswidget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

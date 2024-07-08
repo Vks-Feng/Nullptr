@@ -254,25 +254,27 @@ int BackDB::CountUser()
 //成功添加则返回true，否则返回false（避免用户名存在）
 bool BackDB::addUser(QString name, QString password)
 {
-       qDebug()<<"Come to here"<<Qt::endl;
+    qDebug()<<"Come to here"<<Qt::endl;
     if (isExist(name)) {
         std::cout << "Error!!! User with name " << name.toStdString() << " already exists." << std::endl;
         return false;
     }
 
-   qDebug()<<"Come to here to register the user "+name<<Qt::endl;
+    qDebug()<<"Come to here to register the user "+name<<Qt::endl;
 
     int user_id=this->CountUser();
 
-    QString queryStr = QString("INSERT INTO users (id, name, password, balance, ranking) "
-                               "VALUES (%1, '%2', '%3', %4, %5)")
+    QString queryStr = QString("INSERT INTO users (id, name, password, balance, ranking,user_time,introduction) "
+                               "VALUES (%1, '%2', '%3', '%4', '%5','%6','%7')")
                            .arg(user_id+1)
                            .arg(name)
                            .arg(password)
                            .arg(64800)
-                           .arg(-1);
+                           .arg(-1)
+                           .arg(1)
+                           .arg("Introduction");
 
-    qDebug()<<"Come to here"<<Qt::endl;
+    qDebug()<<"Finish addUser"<<Qt::endl;
 }
 
 void BackDB::testUserAdd() {
@@ -779,6 +781,36 @@ void BackDB::testGetUserPortfolio()
     std::cout<<test.getHoldings(1314)<<std::endl;
 }
 
+void BackDB::RemoveStock(int userID, int company_id, int volume)
+{
+    long currentVolume = this->getUserVolume(userID, company_id);
+
+    std::cout<<currentVolume<<std::endl;
+
+    //1. 如果删除操作合理
+    if (currentVolume >= volume) {
+
+        QString updateQuery = QString("UPDATE portfolios SET volume = %1 WHERE user_id = %2 AND company_id = %3;")
+                                  .arg(currentVolume - volume)
+                                  .arg(userID)
+                                  .arg(company_id);
+
+        this->showQuery(updateQuery);
+
+        std::cout<<"In the remove Stock"<<std::endl;
+
+        //        if (!updateResult) {
+        //            std::cerr << "Update error occurred" << std::endl;
+        //        } else {
+        //            std::cout << "Volume updated successfully!" << std::endl;
+        //        }
+    }
+    //2. 如果股票含量不足
+    else {
+        std::cerr<<"Have no sufficient volume in Remove Stock"<<std::endl;
+    }
+}
+
 
         //传入一个用户id，查询Record表中的数据，并根据这些数据构建一个Record的数组，并返回
 std::vector<Record> &BackDB::getUserRecord(int userID)//----------------
@@ -840,6 +872,8 @@ void BackDB::TestGetUserRecord()
 //void BackDB
 
 
+
+
 void BackDB::testGetUserVolume()
 {
     int ret=this->getUserVolume(22,13144);
@@ -848,12 +882,12 @@ void BackDB::testGetUserVolume()
 
 void BackDB::testAddStock()
 {
-    this->AddStock(1,1,100);
+    this->RemoveStock(22,13144,100);
 }
 
 void BackDB::test()
 {
-    this->testGetUserPortfolio();
+    this->testAddStock();
     std::cout<<"Done in test"<<std::endl;
 }
 
