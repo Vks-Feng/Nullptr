@@ -41,8 +41,8 @@ void User::AddRecord(Record _r){
     r.push_back(_r);
 }
 
-Portfolio User::GetPortfolio(){
-    return portfolio;
+Portfolio* User::GetPortfolio(){
+    return &portfolio;
 }
 
 int User::GetBalance(){

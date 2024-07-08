@@ -16,27 +16,10 @@
   <layout class="QGridLayout" name="gridLayout_4">
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout_2">
-     <item row="3" column="1">
-      <widget class="QLabel" name="successRate">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
+     <item row="5" column="0">
+      <widget class="QLabel" name="introduceMessageTitle">
        <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="successRateTitle">
-       <property name="text">
-        <string>资产（选股成功率）</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="userNameTitle">
-       <property name="text">
-        <string>用户名</string>
+        <string>留言板</string>
        </property>
       </widget>
      </item>
@@ -50,13 +33,6 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="personalInfoTitle">
-       <property name="text">
-        <string>个人信息</string>
-       </property>
-      </widget>
-     </item>
      <item row="2" column="1">
       <widget class="QLabel" name="trackedCount">
        <property name="styleSheet">
@@ -67,24 +43,62 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="trackedCountTitle">
+     <item row="3" column="1">
+      <widget class="QLabel" name="successRate">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
        <property name="text">
-        <string>排名（被追踪次数）</string>
+        <string/>
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
+     <item row="1" column="0">
+      <widget class="QLabel" name="userNameTitle">
+       <property name="text">
+        <string>用户名</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <widget class="QTextEdit" name="personalDescribeEdit"/>
        </item>
       </layout>
      </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="introduceMessageTitle">
+     <item row="3" column="0">
+      <widget class="QLabel" name="successRateTitle">
        <property name="text">
-        <string>留言板</string>
+        <string>资产</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="personalInfoTitle">
+       <property name="text">
+        <string>个人信息</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="trackedCountTitle">
+       <property name="text">
+        <string>排名</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>充值</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QPushButton" name="ChargeButton">
+       <property name="text">
+        <string>充值</string>
        </property>
       </widget>
      </item>

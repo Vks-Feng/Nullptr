@@ -31,8 +31,8 @@ int UserManage::Check(QString name, QString password){
 //        return 1;//账号或密码错误
 //    }
 //    return 0;//用户不存在
-    if(Global::instance().getClobalDataBase()->isExist(name)){
-        if(Global::instance().getClobalDataBase()->isPasswordEqual(name, password)){
+    if(Global::instance().getGlobalDataBase()->isExist(name)){
+        if(Global::instance().getGlobalDataBase()->isPasswordEqual(name, password)){
             return 2;
         } else {
             return 1;
@@ -43,10 +43,10 @@ int UserManage::Check(QString name, QString password){
 }
 
 bool UserManage::Create(QString name, QString password){
-    if(Global::instance().getClobalDataBase()->isExist(name)){
+    if(Global::instance().getGlobalDataBase()->isExist(name)){
         return false;
     } else {
-        Global::instance().getClobalDataBase()->addUser(name, password);
+        Global::instance().getGlobalDataBase()->addUser(name, password);
         return true;
     }
 }
@@ -54,6 +54,11 @@ bool UserManage::Create(QString name, QString password){
 int UserManage::GetSize(){
     //返回size，即用户总数
     return size;
+}
+
+void UserManage::updateUser(int id){
+    QString name = users[id].GetName();
+    users[id] = Global::instance().getGlobalDataBase()->enableUser(name);
 }
 
 UserManage::~UserManage(){

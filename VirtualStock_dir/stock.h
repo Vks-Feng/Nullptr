@@ -9,6 +9,7 @@ class Stock{
 private:
     double singlePrice;     //单支价格
     int companyId;          //公司id
+    QString companyName;
     long volume;            //股票容量
     int year;               //年份
     int month;              //月份
@@ -21,6 +22,8 @@ public:
     double GetSinglePrice()const;
 
     int GetCompanyId();
+
+    QString GetCompanyName();
 
     long GetVolumn();
 

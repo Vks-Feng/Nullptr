@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "global.h"
+#include "chargepage.h"
 
 namespace Ui {
 class Personpage;
@@ -14,6 +15,9 @@ class Personpage : public QWidget
 
 public:
     explicit Personpage(QWidget *parent = nullptr);
+
+    void openChargePage();
+
     ~Personpage();
 
 private:

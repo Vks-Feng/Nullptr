@@ -8,6 +8,7 @@ Portfolio::Portfolio()
 
 
 Portfolio::Portfolio(const std::map<int,int>& initialHoldings):holdings(initialHoldings){
+
     //已有映射构造函数
 }
 
@@ -47,8 +48,8 @@ void Portfolio::removeStock(int stock, int quantity){
     }
 }
 
-std::map<int, int> Portfolio::getHoldings(){
-    return this->holdings;
+int Portfolio::getHoldings(int key){
+    return this->holdings[key];
 }
 
 double Portfolio::getTotalValue(){

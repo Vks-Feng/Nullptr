@@ -43,6 +43,8 @@ public:
     int GetSize();
     //返回size
 
+    void updateUser(int id);
+
     //销毁函数
     ~UserManage();
 };
