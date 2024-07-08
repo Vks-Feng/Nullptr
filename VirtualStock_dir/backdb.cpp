@@ -264,13 +264,15 @@ bool BackDB::addUser(QString name, QString password)
 
     int user_id=this->CountUser();
 
-    QString queryStr = QString("INSERT INTO users (id, name, password, balance, ranking) "
-                               "VALUES (%1, '%2', '%3', %4, %5)")
+    QString queryStr = QString("INSERT INTO users (id, name, password, balance, ranking,user_time,introduction) "
+                               "VALUES (%1, '%2', '%3', '%4', '%5','%6','%7')")
                            .arg(user_id+1)
                            .arg(name)
                            .arg(password)
                            .arg(64800)
-                           .arg(-1);
+                           .arg(-1)
+                           .arg(1)
+                           .arg("Introduction");
 
     qDebug()<<"Finish addUser"<<Qt::endl;
 }
