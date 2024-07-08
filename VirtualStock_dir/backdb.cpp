@@ -525,7 +525,8 @@ std::vector<long> &BackDB::getStockInfo(int id, int year, int month)
 
 
     QString qStr_2=row[2];
-    long volume = qStr_2.toLong(&ok);
+//    qDebug()<<qStr_2<<Qt::endl;
+    unsigned long long volume = qStr_2.toLongLong(&ok);
     std::cout <<  volume << std::endl;
 
     if(ok==1)
@@ -546,7 +547,7 @@ std::vector<long> &BackDB::getStockInfo(int id, int year, int month)
 
 void BackDB::testGetStockInfo()
 {
-    std::vector<long> result=this->getStockInfo(1, 2022 , 12);
+    std::vector<long> result=this->getStockInfo(8, 2023 ,2);
     std::cout<<"Get testGetStockInfo"<<std::endl;
     std::cout<<result[0]<<std::endl;
     std::cout<<result[1]<<std::endl;
@@ -847,7 +848,7 @@ void BackDB::testAddStock()
 
 void BackDB::test()
 {
-    this->testAddStock();
+    this->testGetStockInfo();
     std::cout<<"Done in test"<<std::endl;
 }
 
