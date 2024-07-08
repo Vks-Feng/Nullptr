@@ -51,6 +51,18 @@ MainWindow::MainWindow(QWidget *parent) :
     QVBoxLayout *layout = new QVBoxLayout(placeholder);
     layout->addWidget(_chartSpline);
     placeholder->setLayout(layout);
+
+
+    Date currentDate(2023,1);
+    QString dateString = QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth(), 2, 10, QChar('0'));
+    ui->timelabel->setText(dateString);
+    // ui->timelabel->
+
+    NewsWidget *news = new NewsWidget(this);
+    news->move(750,150);
+    news->show();
+
+
 }
 
 MainWindow::~MainWindow()
@@ -70,4 +82,13 @@ void MainWindow::on_personpage1_clicked()
     Personpage* person = new Personpage();
     person->show();
 }
+
+
+void MainWindow::on_nextroundbutton_clicked()
+{
+    QMessageBox msg(QMessageBox::Question,"提示","您本轮还没有进行任何操作，是否进行到下一轮操作?",QMessageBox::Yes | QMessageBox::No,this);
+    msg.exec();
+}
+
+
 

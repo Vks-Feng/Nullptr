@@ -151,6 +151,8 @@ public:
 
 
 
+
+
         QString Id2Name(int id);
         void testGetStockInfo();
 
@@ -166,5 +168,10 @@ public:
 //        void TestGetUserId();
         void TestGetUserRecord();
         void testGetUserPortfolio();
+
+
+        //传入用户id，股票id，卖出数量，在portfolio中添加股票减去数量
+        //若该用户id有对应id的股票，则在volumn字段上减去该数量
+        //若该用户id无对应id的股票，则不操作即可
         void RemoveStock(int userID, int company_id, int volume);
 };

@@ -54,6 +54,10 @@ int Stock::GetMonth(){
     return month;
 }
 
+QString Stock::GetCompanyName(){
+    return companyName;
+}
+
 // std::map<int,double> Stock::GetStockMap(){
 //     return this->stockMap;
 // }
