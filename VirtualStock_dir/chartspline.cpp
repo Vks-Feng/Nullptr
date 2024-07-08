@@ -25,7 +25,7 @@ ChartSpline::~ChartSpline()
 void ChartSpline::ShowRandomStock()
 {
         // 获取1到9之间的随机数
-        int randomNumber = QRandomGenerator::global()->bounded(1, 10);
+        int randomNumber = QRandomGenerator::global()->bounded(1, 9);
         ChangeStock(randomNumber);
 }
 
