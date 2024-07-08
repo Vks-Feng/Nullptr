@@ -64,7 +64,7 @@
    <item row="3" column="0" colspan="3">
     <widget class="QStackedWidget" name="selectpage">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="selectpage1">
       <widget class="QWidget" name="gridLayoutWidget_2">
@@ -133,9 +133,53 @@
           <widget class="QWidget" name="chartSplineWidget" native="true"/>
          </item>
          <item>
+          <widget class="QComboBox" name="ChooseWhichStock">
+           <item>
+            <property name="text">
+             <string>Apple</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Amazon</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Google</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>IBM</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Intel</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>JetBlue</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Meta</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Microsoft</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="ChangeStockShowBtn">
            <property name="text">
-            <string>切换</string>
+            <string>切换显示范围</string>
            </property>
           </widget>
          </item>

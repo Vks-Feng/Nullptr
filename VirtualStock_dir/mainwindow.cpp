@@ -15,6 +15,24 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->TransactionRule->setReadOnly(1);
 
+    //尝试将股票的信息挂载到股票界面的layout中
+    // 找到占位部件
+    ChartSpline *_chartSpline=new ChartSpline;
+    _chartSpline->ChangeStock(0);
+    connect(ui->ChangeStockShowBtn, &QPushButton::clicked, _chartSpline, &ChartSpline::ShowRandomStock);
+    // 在股票界面设置显示哪一只股票
+    connect(ui->ChooseWhichStock, QOverload<int>::of(&QComboBox::currentIndexChanged),
+            _chartSpline, &ChartSpline::ChangeStock);
+
+    QWidget *placeholder = ui->chartSplineWidget;
+
+    this->resize(1213,700);
+    // 设置 chartspline 对象到占位部件的位置
+    QVBoxLayout *layout = new QVBoxLayout(placeholder);
+    layout->addWidget(_chartSpline);
+    placeholder->setLayout(layout);
+
+
     connect(ui->firstbutton1,&QPushButton::clicked,this,[=](){
         ui->selectpage->setCurrentIndex(0);
     });
@@ -38,21 +56,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->leavebutton1,&QPushButton::clicked,this,[=](){
         this->close();
     });
-
-    //尝试将股票的信息挂载到股票界面的layout中
-    // 找到占位部件
-
-    ChartSpline *_chartSpline=new ChartSpline;
-    connect(ui->ChangeStockShowBtn, &QPushButton::clicked, _chartSpline, &ChartSpline::ShowRandomStock);
-
-    QWidget *placeholder = ui->chartSplineWidget;
-
-    this->resize(1213,700);
-    // 设置 chartspline 对象到占位部件的位置
-    QVBoxLayout *layout = new QVBoxLayout(placeholder);
-    layout->addWidget(_chartSpline);
-    placeholder->setLayout(layout);
-
 
     QString dateString = QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth(), 2, 10, QChar('0'));
     ui->timelabel->setText(dateString);

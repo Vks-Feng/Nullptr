@@ -73,7 +73,7 @@
       <enum>QFrame::NoFrame</enum>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="BuyinPage">
       <layout class="QGridLayout" name="gridLayout_2">
