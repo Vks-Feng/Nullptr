@@ -68,6 +68,10 @@ MainWindow::MainWindow(QWidget *parent) :
     news->move(750,150);
     news->show();
 
+    // int year=Global::instance().getGlobalUserManage()->GetUser(0)->GetDate()->getYear();
+    // int month=Global::instance().getGlobalDataBase().
+
+
 
 }
 
@@ -99,6 +103,10 @@ void MainWindow::on_nextroundbutton_clicked()
     {
         currentDate.addMonths(1);
         ui->timelabel->setText(QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth()));
+        int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
+        Global::instance().getGlobalDataBase()->setTime(userID,currentDate.getMonth());
+        buyin buyini;
+        buyini.setBuyInInfo();
     }
 
 }

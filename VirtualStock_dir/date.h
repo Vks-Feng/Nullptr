@@ -4,7 +4,10 @@
 
 class Date {
 public:
-    Date();
+    Date(){
+        year=2023;
+        month=12;
+    };
     Date(int year, int month) : year(year), month(month) {
         normalize();
     }

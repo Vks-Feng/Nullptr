@@ -5,6 +5,7 @@ User::User(){
     ID = 1;
     name = "vks";
     password = "123";
+    currentdate=Date(2023,12);
 }
 
 User::User(int _id,QString  _userName,QString _password,int _balance,int _ranking)
@@ -14,6 +15,7 @@ User::User(int _id,QString  _userName,QString _password,int _balance,int _rankin
     password=_password;
     ranking=_ranking;
     this->virtualcurrency.SetValue(_balance);
+    currentdate=Date(2023,12);
 }
 
 //Return the coresponding data member
@@ -51,5 +53,8 @@ int User::GetBalance(){
 
 int User::GetRanking(){
     return ranking;
+}
+Date* User::GetDate(){
+    return &currentdate;
 }
 

@@ -978,13 +978,13 @@ void BackDB::setComment(int user_id, QString _comment)
                        this->query(queryStr);
 }
 
-void BackDB::setTime(int _userId, int time)
+void BackDB::setTime(int _userId, int month)
 {
     QString queryStr=QString("UPDATE users \
                 SET user_time = %1 \
                 WHERE id = %2; \
                 ")
-                           .arg(time)
+                           .arg(month)
                            .arg(_userId);
 
     this->query(queryStr);
