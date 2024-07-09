@@ -64,11 +64,7 @@
    <item row="3" column="0" colspan="3">
     <widget class="QStackedWidget" name="selectpage">
      <property name="currentIndex">
-<<<<<<< HEAD
       <number>0</number>
-=======
-      <number>4</number>
->>>>>>> 8ae754a6621377c03cb2d82c368bf2568ca0cb50
      </property>
      <widget class="QWidget" name="selectpage1">
       <widget class="QWidget" name="horizontalLayoutWidget_2">
