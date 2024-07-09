@@ -14,14 +14,54 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="1">
-    <widget class="QPushButton" name="leavebutton1">
-     <property name="text">
-      <string>退出登陆</string>
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string/>
      </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="firstbutton1">
+        <property name="text">
+         <string>首页</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="stockbutton1">
+        <property name="text">
+         <string>股票</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="rankbutton1">
+        <property name="text">
+         <string>排行榜</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="dealbutton1">
+        <property name="text">
+         <string>交易规则</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="communitybutton1">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string>社区交流</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
-   <item row="2" column="0" colspan="2">
+   <item row="3" column="0" colspan="3">
     <widget class="QStackedWidget" name="selectpage">
      <property name="currentIndex">
       <number>0</number>
@@ -93,9 +133,53 @@
           <widget class="QWidget" name="chartSplineWidget" native="true"/>
          </item>
          <item>
+          <widget class="QComboBox" name="ChooseWhichStock">
+           <item>
+            <property name="text">
+             <string>Apple</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Amazon</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Google</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>IBM</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Intel</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>JetBlue</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Meta</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Microsoft</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="ChangeStockShowBtn">
            <property name="text">
-            <string>切换</string>
+            <string>切换显示范围</string>
            </property>
           </widget>
          </item>
@@ -258,58 +342,41 @@ T+0/T+1/T+2：不同市场有不同的清算交割制度。例如，美国市场
      </widget>
     </widget>
    </item>
-   <item row="0" column="1">
+   <item row="0" column="2">
     <widget class="QPushButton" name="personpage1">
      <property name="text">
       <string>个人主页</string>
      </property>
     </widget>
    </item>
-   <item row="0" column="0" rowspan="2">
-    <widget class="QGroupBox" name="groupBox">
-     <property name="title">
+   <item row="1" column="2">
+    <widget class="QPushButton" name="leavebutton1">
+     <property name="text">
+      <string>退出登陆</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QPushButton" name="nextroundbutton">
+     <property name="text">
+      <string>下一轮</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLabel" name="timelabel">
+     <property name="text">
       <string/>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QPushButton" name="firstbutton1">
-        <property name="text">
-         <string>首页</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="stockbutton1">
-        <property name="text">
-         <string>股票</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="rankbutton1">
-        <property name="text">
-         <string>排行榜</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="dealbutton1">
-        <property name="text">
-         <string>交易规则</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="communitybutton1">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="text">
-         <string>社区交流</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
+     <property name="textFormat">
+      <enum>Qt::AutoText</enum>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
     </widget>
    </item>
   </layout>

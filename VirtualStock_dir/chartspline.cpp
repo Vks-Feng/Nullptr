@@ -25,11 +25,9 @@ ChartSpline::~ChartSpline()
 void ChartSpline::ShowRandomStock()
 {
         // 获取1到9之间的随机数
-        int randomNumber = QRandomGenerator::global()->bounded(1, 10);
+        int randomNumber = QRandomGenerator::global()->bounded(0, 8);
         ChangeStock(randomNumber);
 }
-
-
 
 void ChartSpline::ChangeStock(int company_id)
 {
@@ -40,18 +38,13 @@ void ChartSpline::ChangeStock(int company_id)
 
         QString company_name;
 
-        if (company_id >= 1 && company_id <= company_names.size()) {
-            company_name = company_names[company_id - 1];
+        if (company_id >= 0 && company_id < company_names.size()) {
+            company_name = company_names[company_id];
         } else {
             company_name = "Unknown";
         }
 
         qDebug() << "Selected company:" << company_name;
-
-//        company_name="bomb";
-
-        setWindowTitle(company_name+"公司股票近25年起伏情况");
-
 
         std::vector<double> data;
 
@@ -93,8 +86,6 @@ void ChartSpline::ChangeStock(int company_id)
         }
 
 
-        // Process the result set if needed
-        int num_fields = mysql_num_fields(result);
         MYSQL_ROW row;
 
         int start_year;//从哪一年开始

@@ -4,7 +4,6 @@
 #include <QWidget>
 #include <QString>
 #include <QListWidgetItem>
-#include "news.h"
 #include "global.h"
 
 namespace Ui {
@@ -19,8 +18,7 @@ public:
     explicit NewsWidget(QWidget *parent = nullptr);
     ~NewsWidget();
 
-    void updateNews(int month);
-    void updateNewsList(const std::vector<News>& newList);
+    void updateNews();
 private:
     Ui::NewsWidget *ui;
     QListWidgetItem* currentItem;

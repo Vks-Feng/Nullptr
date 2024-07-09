@@ -5,7 +5,8 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    currentDate(2023, 1)
 {
     ui->setupUi(this);
     ui->selectpage4->setLayout(ui->RuleLayout);//规则介绍布局问题
@@ -13,6 +14,24 @@ MainWindow::MainWindow(QWidget *parent) :
     //将页面切换逻辑使用按钮的click进行手动转换
 
     ui->TransactionRule->setReadOnly(1);
+
+    //尝试将股票的信息挂载到股票界面的layout中
+    // 找到占位部件
+    ChartSpline *_chartSpline=new ChartSpline;
+    _chartSpline->ChangeStock(0);
+    connect(ui->ChangeStockShowBtn, &QPushButton::clicked, _chartSpline, &ChartSpline::ShowRandomStock);
+    // 在股票界面设置显示哪一只股票
+    connect(ui->ChooseWhichStock, QOverload<int>::of(&QComboBox::currentIndexChanged),
+            _chartSpline, &ChartSpline::ChangeStock);
+
+    QWidget *placeholder = ui->chartSplineWidget;
+
+    this->resize(1213,700);
+    // 设置 chartspline 对象到占位部件的位置
+    QVBoxLayout *layout = new QVBoxLayout(placeholder);
+    layout->addWidget(_chartSpline);
+    placeholder->setLayout(layout);
+
 
     connect(ui->firstbutton1,&QPushButton::clicked,this,[=](){
         ui->selectpage->setCurrentIndex(0);
@@ -38,23 +57,20 @@ MainWindow::MainWindow(QWidget *parent) :
         this->close();
     });
 
-    //尝试将股票的信息挂载到股票界面的layout中
-    // 找到占位部件
+    QString dateString = QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth(), 2, 10, QChar('0'));
+    ui->timelabel->setText(dateString);
+    QFont font = ui->timelabel->font();
+    font.setPointSize(12);
+    ui->timelabel->setFont(font);
 
-    ChartSpline *_chartSpline=new ChartSpline;
-    connect(ui->ChangeStockShowBtn, &QPushButton::clicked, _chartSpline, &ChartSpline::ShowRandomStock);
 
-    QWidget *placeholder = ui->chartSplineWidget;
 
-    this->resize(1213,700);
-    // 设置 chartspline 对象到占位部件的位置
-    QVBoxLayout *layout = new QVBoxLayout(placeholder);
-    layout->addWidget(_chartSpline);
-    placeholder->setLayout(layout);
+
 
     NewsWidget *news = new NewsWidget(ui->selectpage1);
     news->move(750,150);
     news->show();
+
 
 }
 
@@ -74,5 +90,28 @@ void MainWindow::on_personpage1_clicked()
 {
     Personpage* person = new Personpage();
     person->show();
+}
+
+
+void MainWindow::on_nextroundbutton_clicked()
+{
+
+    QMessageBox msg(QMessageBox::Question,"提示","您本轮还没有进行任何操作，是否进行到下一轮操作?",QMessageBox::Yes | QMessageBox::No,this);
+    int ret = msg.exec();
+    if(ret==QMessageBox::Yes)
+    {
+        currentDate.addMonths(1);
+        ui->timelabel->setText(QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth()));
+    }
+
+}
+
+
+
+
+void MainWindow::on_communitybutton1_clicked()
+{
+    forum* Forum=new forum();
+    Forum->show();
 }
 
