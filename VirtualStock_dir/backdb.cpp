@@ -419,6 +419,7 @@ void BackDB::testBalance()
 {
     this->declineBalance(1,100);
 }
+
 int BackDB::getUserVolume(int userID, int companyID)
 {
     QString queryStr = QString("SELECT volume FROM portfolios "
@@ -427,9 +428,6 @@ int BackDB::getUserVolume(int userID, int companyID)
                            .arg(companyID);
 
     MYSQL_RES* queryResult=this->query(queryStr);
-
-
-
 
     if (mysql_num_rows(queryResult) == 0) { //此处绝对不能用==NULL进行判定
         return 0;
@@ -440,7 +438,6 @@ int BackDB::getUserVolume(int userID, int companyID)
     bool ok;
     QString qStr=row[0];
     long value = qStr.toLong(&ok);
-
 
     if(ok==1)
     {
@@ -840,7 +837,7 @@ void BackDB::RemoveStock(int userID, int company_id, int volume)
                                   .arg(userID)
                                   .arg(company_id);
 
-        this->showQuery(updateQuery);
+        this->query(updateQuery);
 
         std::cout<<"In the remove Stock"<<std::endl;
 
@@ -1087,7 +1084,7 @@ void BackDB::testAddStock()
 void BackDB::test()
 {
 
-    this->testRecord();
+    this->testAddStock();
 //    this->getTime(1);
     std::cout<<"Done in test"<<std::endl;
 }
