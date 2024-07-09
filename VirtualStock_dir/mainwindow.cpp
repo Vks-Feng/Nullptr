@@ -63,13 +63,14 @@ MainWindow::MainWindow(QWidget *parent) :
     font.setPointSize(12);
     ui->timelabel->setFont(font);
 
+    ui->selectpage1->setLayout(ui->Page1Layout);
 
-
-
-
+    //新闻窗口
     NewsWidget *news = new NewsWidget(ui->selectpage1);
-    news->move(750,150);
+    ui->Page1Layout->addWidget(news);
+    news->move(800,100);
     news->show();
+    news->updateNews();
 
 
 }

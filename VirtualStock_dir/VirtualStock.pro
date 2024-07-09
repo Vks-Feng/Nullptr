@@ -29,6 +29,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     news.cpp \
+    newsdialog.cpp \
     personpage.cpp \
     portfolio.cpp \
     post.cpp \
@@ -55,6 +56,7 @@ HEADERS += \
     mainwindow.h \
     mainwindow.h \
     news.h \
+    newsdialog.h \
     p2.h \
     personpage.h \
     portfolio.h \
@@ -76,6 +78,7 @@ FORMS += \
     forum.ui \
     login.ui \
     mainwindow.ui \
+    newsdialog.ui \
     personpage.ui \
     sonforum.ui \
     widget.ui \
