@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include "buyin.h"
 #include "personpage.h"
+#include "buyin.h"
 
 
 #include "date.h"
@@ -35,7 +36,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    Date currentDate;
 };
 
 #endif // MAINWINDOW_H

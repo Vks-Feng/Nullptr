@@ -5,8 +5,8 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::MainWindow),
-    currentDate(2023, 1)
+    ui(new Ui::MainWindow)
+
 {
     ui->setupUi(this);
     ui->selectpage4->setLayout(ui->RuleLayout);//规则介绍布局问题
@@ -56,7 +56,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->leavebutton1,&QPushButton::clicked,this,[=](){
         this->close();
     });
-
+    int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
+    Date currentDate(2023,Global::instance().getGlobalDataBase()->getTime(userID));
     QString dateString = QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth(), 2, 10, QChar('0'));
     ui->timelabel->setText(dateString);
     QFont font = ui->timelabel->font();
@@ -97,8 +98,13 @@ void MainWindow::on_nextroundbutton_clicked()
     int ret = msg.exec();
     if(ret==QMessageBox::Yes)
     {
+        int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
+        Date currentDate(2023,Global::instance().getGlobalDataBase()->getTime(userID));
         currentDate.addMonths(1);
+        Global::instance().getGlobalDataBase()->setTime(userID,currentDate.getMonth());
         ui->timelabel->setText(QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth()));
+        buyin buyini;
+        buyini.setBuyInInfo();
     }
 
 }

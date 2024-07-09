@@ -1010,7 +1010,7 @@ int BackDB::getTime(int _userId)
                        std::cout<<"GET MONTH:"<<row[5]<<std::endl;
 
                        bool ok;
-                       QString StrMonth;
+                       QString StrMonth=row[5];
                        int _month=StrMonth.toInt(&ok);
                        if(ok)
         return _month;
