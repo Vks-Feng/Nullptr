@@ -1010,7 +1010,7 @@ int BackDB::getTime(int _userId)
                        std::cout<<"GET MONTH:"<<row[5]<<std::endl;
 
                        bool ok;
-                       QString StrMonth;
+                       QString StrMonth=row[5];
                        int _month=StrMonth.toInt(&ok);
                        if(ok)
         return _month;
@@ -1078,7 +1078,7 @@ void BackDB::testAddStock()
 void BackDB::test()
 {
 //    this->testGetNews();
-    this->getTime(99);
+    this->getTime(1);
     std::cout<<"Done in test"<<std::endl;
 }
 
