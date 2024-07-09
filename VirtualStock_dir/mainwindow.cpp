@@ -50,10 +50,8 @@ MainWindow::MainWindow(QWidget *parent) :
     });
 
     connect(ui->communitybutton1,&QPushButton::clicked,this,[=](){
-        ui->selectpage->setCurrentIndex(4);
         forum* Forum=new forum();
-        ui->CommunityLayout->addWidget(Forum);
-        ui->selectpage5->setLayout(ui->CommunityLayout);
+        Forum->show();
 
 
     });

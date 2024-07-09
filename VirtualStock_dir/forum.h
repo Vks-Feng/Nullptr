@@ -18,6 +18,7 @@
 #include <QMessageBox>
 #include"sonforum.h"
 #include"global.h"
+#include<QScrollArea>
 namespace Ui {
 class forum;
 }

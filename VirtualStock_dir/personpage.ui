@@ -19,7 +19,7 @@
      <item row="5" column="0">
       <widget class="QLabel" name="introduceMessageTitle">
        <property name="text">
-        <string>留言板</string>
+        <string>个性签名</string>
        </property>
       </widget>
      </item>
@@ -106,8 +106,8 @@
    </item>
    <item row="0" column="2">
     <layout class="QGridLayout" name="gridLayout">
-     <item row="3" column="2">
-      <widget class="QLabel" name="balanceYearContent">
+     <item row="1" column="2">
+      <widget class="QLabel" name="balanceMonthContent">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
        </property>
@@ -116,7 +116,7 @@
        </property>
       </widget>
      </item>
-     <item row="5" column="2">
+     <item row="3" column="2">
       <widget class="QLabel" name="balanceTotalContent">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -126,25 +126,8 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="3">
-      <widget class="QLabel" name="operateCountMonth">
-       <property name="text">
-        <string>本月操作次数</string>
-       </property>
-      </widget>
-     </item>
      <item row="3" column="0">
-      <widget class="QLabel" name="profitRateYearContent">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="2">
-      <widget class="QLabel" name="balanceMonthContent">
+      <widget class="QLabel" name="profitRateTotalContent">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
        </property>
@@ -163,35 +146,22 @@
        </property>
       </widget>
      </item>
-     <item row="5" column="1">
-      <widget class="QLabel" name="phaseTotalContent">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
+     <item row="0" column="1">
+      <widget class="QLabel" name="phaseMonth">
        <property name="text">
-        <string>TextLabel</string>
+        <string>本月盈亏</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="2">
+     <item row="2" column="2">
       <widget class="QLabel" name="balanceTotal">
        <property name="text">
         <string>总资产</string>
        </property>
       </widget>
      </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="profitRateTotalContent">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="3">
-      <widget class="QLabel" name="operateCountTotalContent">
+     <item row="3" column="1">
+      <widget class="QLabel" name="phaseTotalContent">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);</string>
        </property>
@@ -207,58 +177,6 @@
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="QLabel" name="phaseTotal">
-       <property name="text">
-        <string>总盈亏</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="2">
-      <widget class="QLabel" name="balanceMonth">
-       <property name="text">
-        <string>本月资产</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="profitRateYear">
-       <property name="text">
-        <string>今年盈利率</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="2">
-      <widget class="QLabel" name="balanceYear">
-       <property name="text">
-        <string>今年资产</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="phaseMonth">
-       <property name="text">
-        <string>本月盈亏</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="3">
-      <widget class="QLabel" name="operateCountMonthContent">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="3">
-      <widget class="QLabel" name="operateCountTotal">
-       <property name="text">
-        <string>总操作数</string>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="0">
       <widget class="QLabel" name="profitRateMonthContent">
        <property name="styleSheet">
@@ -269,44 +187,24 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
-      <widget class="QLabel" name="phaseYearContent">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
+     <item row="0" column="2">
+      <widget class="QLabel" name="balanceMonth">
        <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="3">
-      <widget class="QLabel" name="operateCountYear">
-       <property name="text">
-        <string>今年操作数</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="profitRateTotal">
-       <property name="text">
-        <string>总盈利率</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="3">
-      <widget class="QLabel" name="operateCountYearContent">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
+        <string>本月资产</string>
        </property>
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLabel" name="phaseYear">
+      <widget class="QLabel" name="phaseTotal">
        <property name="text">
-        <string>今年盈亏</string>
+        <string>总盈亏</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="profitRateTotal">
+       <property name="text">
+        <string>总盈利率</string>
        </property>
       </widget>
      </item>
