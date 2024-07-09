@@ -18,6 +18,8 @@
 #include <QIntValidator>
 #include <QObject>
 #include <QMessageBox>
+#include"global.h"
+#include"post.h"
 namespace Ui {
 class sonforum;
 }
@@ -33,8 +35,12 @@ public:
 private slots:
     void onnameButtonClicked() ;
     void onSubmitClicked();
+    void refreash();
 
 private:
+    int time;
+    int allnumber;
+    std::vector<Post>load;
     Ui::sonforum *ui;
     QGridLayout *buttonLayout;
 };

@@ -3,15 +3,13 @@
 
 #include <QWidget>
 #include <QMainWindow>
-#include <QWidget>
 #include <QPushButton>
 #include <QGridLayout>
 #include <vector>
 #include "post.h"
 #include <QMainWindow>
-#include <QWidget>
 #include <QPushButton>
-#include <QTextEdit>>
+#include <QTextEdit>
 #include <QApplication>
 #include <QLineEdit>
 #include <QVBoxLayout>
@@ -38,6 +36,7 @@ private slots:
     void onnameButtonClicked() ;
     void detail();
     void onSubmitClicked();
+    void refreash();
 private:
     int time;
     int allnumber;
