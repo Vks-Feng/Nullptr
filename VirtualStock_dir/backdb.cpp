@@ -846,6 +846,7 @@ void BackDB::RemoveStock(int userID, int company_id, int volume)
     else {
         std::cerr<<"Have no sufficient volume in Remove Stock"<<std::endl;
     }
+    std::cout<<"vks:ready return"<<std::endl;
 }
 
 std::vector<Post> BackDB::getforum()
