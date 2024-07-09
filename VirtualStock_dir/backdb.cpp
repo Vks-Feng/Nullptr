@@ -987,7 +987,35 @@ void BackDB::setTime(int _userId, int month)
                            .arg(month)
                            .arg(_userId);
 
-    this->query(queryStr);
+                       this->query(queryStr);
+}
+
+int BackDB::getTime(int _userId)
+{
+                       QString queryStr=QString("SELECT * FROM users WHERE id=%1;")
+                                              .arg(_userId);
+
+                       MYSQL_RES* queryResult=this->query(queryStr);
+                       //    this->showQuery(strQuery);
+
+                       if (mysql_num_rows(queryResult) == 0) { //此处绝对不能用==NULL进行判定
+        std::cerr<<"Error: No UserRecord"<<std::endl;
+        return -1;
+                       }
+
+                       //获取实际数据
+                       MYSQL_ROW row;
+                       row=mysql_fetch_row(queryResult);
+
+                       std::cout<<"GET MONTH:"<<row[5]<<std::endl;
+
+                       bool ok;
+                       QString StrMonth;
+                       int _month=StrMonth.toInt(&ok);
+                       if(ok)
+        return _month;
+                       else return -1;
+
 }
 
 void BackDB::setIntroduction(int _userId, QString _content)
@@ -1050,7 +1078,7 @@ void BackDB::testAddStock()
 void BackDB::test()
 {
 //    this->testGetNews();
-    this->setComment(1,"Are you ikun???");
+    this->getTime(99);
     std::cout<<"Done in test"<<std::endl;
 }
 
