@@ -97,17 +97,15 @@ void MainWindow::on_personpage1_clicked()
 
 void MainWindow::on_nextroundbutton_clicked()
 {
-
+    int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
+    Date currentDate(2023,Global::instance().getGlobalDataBase()->getTime(userID));
     QMessageBox msg(QMessageBox::Question,"提示","您本轮还没有进行任何操作，是否进行到下一轮操作?",QMessageBox::Yes | QMessageBox::No,this);
     int ret = msg.exec();
     if(ret==QMessageBox::Yes)
     {
-        int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
-        Date currentDate(2023,Global::instance().getGlobalDataBase()->getTime(userID));
         currentDate.addMonths(1);
         Global::instance().getGlobalDataBase()->setTime(userID,currentDate.getMonth());
         ui->timelabel->setText(QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth()));
-
         buyin buyini;
         buyini.setBuyInInfo();
     }
