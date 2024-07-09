@@ -1,6 +1,7 @@
 #include "buyin.h"
 #include "ui_buyin.h"
 #include "mainwindow.h"
+
 buyin::buyin(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::buyin)

@@ -14,7 +14,7 @@ Record::Record(){
     date = "2020-07";
     company_id=1;
     volume = 0;
-    tradetype = true;
+    tradetype = 1;
     totalprice = 100;
 }
 

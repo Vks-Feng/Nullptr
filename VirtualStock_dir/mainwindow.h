@@ -29,14 +29,14 @@ public:
     std::vector<int> extractMonthsFromRecords(const std::vector<Record>& records);
 private slots:
 
-    void on_buyinButton_clicked();
-
     void on_personpage1_clicked();
 
     void on_nextroundbutton_clicked();
 
 
     void on_communitybutton1_clicked();
+
+    void on_TransactionButton_clicked();
 
 private:
     Ui::MainWindow *ui;

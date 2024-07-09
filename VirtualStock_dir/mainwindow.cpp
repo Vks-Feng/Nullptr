@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // 找到占位部件
     ChartSpline *_chartSpline=new ChartSpline;
     _chartSpline->ChangeStock(0);
-    connect(ui->ChangeStockShowBtn, &QPushButton::clicked, _chartSpline, &ChartSpline::ShowRandomStock);
+//    connect(ui->ChangeStockShowBtn, &QPushButton::clicked, _chartSpline, &ChartSpline::ShowRandomStock);
     // 在股票界面设置显示哪一只股票
     connect(ui->ChooseWhichStock, QOverload<int>::of(&QComboBox::currentIndexChanged),
             _chartSpline, &ChartSpline::ChangeStock);
@@ -93,7 +93,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_buyinButton_clicked()
+void MainWindow::on_TransactionButton_clicked()
 {
     buyin *buy = new buyin();
     buy->show();
@@ -169,3 +169,6 @@ void MainWindow::on_communitybutton1_clicked()
 {
 
 }
+
+
+
