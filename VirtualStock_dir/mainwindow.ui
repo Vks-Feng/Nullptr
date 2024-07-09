@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>958</width>
-    <height>502</height>
+    <width>833</width>
+    <height>477</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -64,63 +64,74 @@
    <item row="3" column="0" colspan="3">
     <widget class="QStackedWidget" name="selectpage">
      <property name="currentIndex">
+<<<<<<< HEAD
+      <number>0</number>
+=======
       <number>4</number>
+>>>>>>> 8ae754a6621377c03cb2d82c368bf2568ca0cb50
      </property>
      <widget class="QWidget" name="selectpage1">
-      <widget class="QWidget" name="gridLayoutWidget_2">
+      <widget class="QWidget" name="horizontalLayoutWidget_2">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>40</y>
-         <width>473</width>
-         <height>121</height>
+         <x>170</x>
+         <y>80</y>
+         <width>581</width>
+         <height>161</height>
         </rect>
        </property>
-       <layout class="QGridLayout" name="gridLayout_4">
-        <item row="0" column="0">
-         <widget class="QLabel" name="vksMarkshouye">
-          <property name="font">
-           <font>
-            <family>方正姚体</family>
-            <pointsize>24</pointsize>
-            <italic>true</italic>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>虚拟股票</string>
-          </property>
-         </widget>
+       <layout class="QHBoxLayout" name="Page1Layout">
+        <item>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="1" column="1">
+           <widget class="QLabel" name="vksMarkshouye_2">
+            <property name="font">
+             <font>
+              <family>方正姚体</family>
+              <pointsize>24</pointsize>
+              <italic>true</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>交易平台</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="vksMarkshouye_3">
+            <property name="font">
+             <font>
+              <family>微软雅黑 Light</family>
+              <pointsize>10</pointsize>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>第10小组： 冯官晟 郭静怡 林帆 王子安 李卓优</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="vksMarkshouye">
+            <property name="font">
+             <font>
+              <family>方正姚体</family>
+              <pointsize>24</pointsize>
+              <italic>true</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>虚拟股票</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="vksMarkshouye_2">
-          <property name="font">
-           <font>
-            <family>方正姚体</family>
-            <pointsize>24</pointsize>
-            <italic>true</italic>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>交易平台</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="vksMarkshouye_3">
-          <property name="font">
-           <font>
-            <family>微软雅黑 Light</family>
-            <pointsize>10</pointsize>
-            <italic>false</italic>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>第10小组： 冯官晟 郭静怡 林帆 王子安 李卓优</string>
-          </property>
-         </widget>
+        <item>
+         <layout class="QVBoxLayout" name="ForNews"/>
         </item>
        </layout>
       </widget>

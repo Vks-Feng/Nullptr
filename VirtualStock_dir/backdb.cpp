@@ -922,6 +922,7 @@ void BackDB::testGetForum()
 
 std::map<int, std::vector<QString>>& BackDB::getNews(int _month)
 {
+
     std::map<int,std::vector<QString>>* ReturnRecord=new std::map<int,std::vector<QString>>;
 
     QString strQuery = QString("SELECT month,content FROM news WHERE month <= %1")
@@ -939,8 +940,8 @@ std::map<int, std::vector<QString>>& BackDB::getNews(int _month)
     MYSQL_ROW row;
 
 
-    int i=1;
-    std::vector<QString>* each=new  std::vector<QString>;
+    int i=0;
+    std::vector<QString>each;
 
     while ((row = mysql_fetch_row(queryResult))) {
 
@@ -953,20 +954,21 @@ std::map<int, std::vector<QString>>& BackDB::getNews(int _month)
         {
             qDebug()<<"Add month "<<i+1<<Qt::endl;
 
-            ReturnRecord->insert(std::make_pair(i, *each));
-            std::vector<QString>* each=new  std::vector<QString>;
+            ReturnRecord->insert(std::make_pair(i+1, each));
+            each.clear();
             i++;
         }
 
         QString content(row[1]);
-        each->push_back(content);
+        each.push_back(content);
     }
 
-    ReturnRecord->insert(std::make_pair(i, *each));
+    ReturnRecord->insert(std::make_pair(i, each));
 
     return *ReturnRecord;
     //此处不能delete，不然就会出错
 }
+
 
 void BackDB::setComment(int user_id, QString _comment)
 {
@@ -1010,10 +1012,7 @@ int BackDB::getTime(int _userId)
                        std::cout<<"GET MONTH:"<<row[5]<<std::endl;
 
                        bool ok;
-
                        QString StrMonth=row[5];
-
-
                        int _month=StrMonth.toInt(&ok);
                        if(ok)
         return _month;
@@ -1049,10 +1048,11 @@ void BackDB::setRanking(int _userId, int _ranking)
 void BackDB::testGetNews()
 {
     std::map<int, std::vector<QString>> test=this->getNews(12);
-    qDebug()<<test[11].size()<<Qt::endl;
-    for(int i=0;i<test[11].size();i++)
+
+    qDebug()<<test[12].size()<<Qt::endl;
+    for(int i=0;i<test[12].size();i++)
     {
-        qDebug()<<test[11][i]<<Qt::endl;
+        qDebug()<<test[12][i]<<Qt::endl;
     }
 }
 
@@ -1080,6 +1080,10 @@ void BackDB::testAddStock()
 
 void BackDB::test()
 {
+
+   this->testGetNews();
+    // this->getTime(99);
+
 //    this->testGetNews();
     this->getTime(1);
     std::cout<<"Done in test"<<std::endl;

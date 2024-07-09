@@ -28,7 +28,8 @@ SOURCES += \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
-    marketnews.cpp \
+    news.cpp \
+    newsdialog.cpp \
     personpage.cpp \
     portfolio.cpp \
     post.cpp \
@@ -54,7 +55,8 @@ HEADERS += \
     login.h \
     mainwindow.h \
     mainwindow.h \
-    marketnews.h \
+    news.h \
+    newsdialog.h \
     p2.h \
     personpage.h \
     portfolio.h \
@@ -76,6 +78,7 @@ FORMS += \
     forum.ui \
     login.ui \
     mainwindow.ui \
+    newsdialog.ui \
     personpage.ui \
     sonforum.ui \
     widget.ui \
