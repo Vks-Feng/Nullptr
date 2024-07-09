@@ -57,9 +57,6 @@ void buyin::on_RecommendButton_clicked()
 }
 
 void buyin::on_returnbutton_clicked(){
-    //    暂且这么设计，有问题找vks
-    //    MainWindow* mainwindow = new MainWindow();
-    //    mainwindow->show();
     this->close();
 }
 
