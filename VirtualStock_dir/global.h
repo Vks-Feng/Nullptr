@@ -3,6 +3,7 @@
 
 #include "usermanage.h"
 #include "backdb.h"
+#include "clientsocket.h"
 
 class Global
 {
@@ -16,16 +17,17 @@ public:
     void setGlobalUserManage(UserManage* _um) { um = _um; }
     BackDB* getGlobalDataBase() const { return db; }
     void setGlobalDataBase(BackDB* _db) { db = _db; }
-    void setGlobalDate(int _year, int _month) { Year = _year; Month = _month; }
+    ClientSocket* getGlobalClient() { return client; }
+    void setGlobalClient(ClientSocket* _client) { client = _client; }
+    void setGlobalYear(int _year) { Year = _year; }
     int getYear() { return Year; }
-    int getMonth() { return Month; }
 
 private:
     Global() : um(nullptr) {}
     UserManage* um;
     BackDB* db;
+    ClientSocket* client;
     int Year = 2023;
-    int Month = 12;
 };
 
 #endif // GLOBAL_H

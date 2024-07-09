@@ -1,6 +1,7 @@
 QT       += core gui
 QT       += charts
 QT       += sql
+QT       += network
 
 CONFIG += console
 CONFIG -= app_bundle
@@ -21,6 +22,7 @@ SOURCES += \
     buyin.cpp \
     chargepage.cpp \
     chartspline.cpp \
+    clientsocket.cpp \
     date.cpp \
     enroll.cpp \
     forum.cpp \
@@ -48,6 +50,7 @@ HEADERS += \
     buyin.h \
     chargepage.h \
     chartspline.h \
+    clientsocket.h \
     date.h \
     enroll.h \
     forum.h \

@@ -1,7 +1,7 @@
 #include "widget.h"
 #include "login.h"
 #include "global.h"
-#include "backdb.h"
+
 
 #include <QApplication>
 
@@ -15,6 +15,8 @@ int main(int argc, char *argv[])
     Global::instance().setGlobalUserManage(um);
     BackDB* db = new BackDB;
     Global::instance().setGlobalDataBase(db);
+    ClientSocket* client = new ClientSocket();
+    Global::instance().setGlobalClient(client);
     Login* l = new Login();
     l->show();
 
