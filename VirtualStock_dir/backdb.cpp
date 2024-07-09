@@ -39,7 +39,7 @@ BackDB::BackDB()
 {
     const char* host = "rm-n4a8f71b4zhg4w616co.mysql.cn-wuhan-lr.rds.aliyuncs.com"; // MySQL server host
     const char* user = "visitor_1"; // MySQL username
-    const char* password = "VirtualStocks123"; // MySQL password
+    const char* password = "Lin123456"; // MySQL password
     const char* database = "stocks"; // MySQL database name
     unsigned int port = 3306; // MySQL port (default is 3306)
     const char* unix_socket = nullptr; // Unix socket (can be nullptr for TCP/IP)
@@ -978,13 +978,13 @@ void BackDB::setComment(int user_id, QString _comment)
                        this->query(queryStr);
 }
 
-void BackDB::setTime(int _userId, int time)
+void BackDB::setTime(int _userId, int month)
 {
     QString queryStr=QString("UPDATE users \
                 SET user_time = %1 \
                 WHERE id = %2; \
                 ")
-                           .arg(time)
+                           .arg(month)
                            .arg(_userId);
 
                        this->query(queryStr);
@@ -1010,7 +1010,10 @@ int BackDB::getTime(int _userId)
                        std::cout<<"GET MONTH:"<<row[5]<<std::endl;
 
                        bool ok;
+
                        QString StrMonth=row[5];
+
+
                        int _month=StrMonth.toInt(&ok);
                        if(ok)
         return _month;
@@ -1078,7 +1081,7 @@ void BackDB::testAddStock()
 void BackDB::test()
 {
 //    this->testGetNews();
-    this->getTime(99);
+    this->getTime(1);
     std::cout<<"Done in test"<<std::endl;
 }
 

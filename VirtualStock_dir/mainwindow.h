@@ -11,6 +11,7 @@
 #include "date.h"
 #include "newswidget.h"
 #include "forum.h"
+#include "backdb.h"
 
 namespace Ui {
 class MainWindow;
