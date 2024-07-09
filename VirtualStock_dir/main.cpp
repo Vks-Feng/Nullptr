@@ -21,11 +21,8 @@ int main(int argc, char *argv[])
     l->show();
 
 
-     // BackDB b;
-     // b.test();
-
-
-
+//      BackDB b;
+//      b.test();
 
     return a.exec();
 }

@@ -64,7 +64,7 @@
    <item row="3" column="0" colspan="3">
     <widget class="QStackedWidget" name="selectpage">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="selectpage1">
       <widget class="QWidget" name="horizontalLayoutWidget_2">
@@ -140,6 +140,13 @@
           <widget class="QWidget" name="chartSplineWidget" native="true"/>
          </item>
          <item>
+          <widget class="QPushButton" name="TransactionButton">
+           <property name="text">
+            <string>进行股票交易</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QComboBox" name="ChooseWhichStock">
            <item>
             <property name="text">
@@ -181,59 +188,6 @@
              <string>Microsoft</string>
             </property>
            </item>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="ChangeStockShowBtn">
-           <property name="text">
-            <string>切换显示范围</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="0" column="1">
-        <layout class="QGridLayout" name="gridLayout_3">
-         <item row="2" column="0">
-          <widget class="QPushButton" name="tradeRecordButton">
-           <property name="text">
-            <string>交易记录</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QPushButton" name="buyinButton">
-           <property name="text">
-            <string>买入</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QPushButton" name="sellOutButton">
-           <property name="text">
-            <string>卖出</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QPushButton" name="holdingStockButton">
-           <property name="text">
-            <string>持仓股票</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QPushButton" name="profitButton">
-           <property name="text">
-            <string>收益</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="QPushButton" name="pushButton_6">
-           <property name="text">
-            <string>优股推荐</string>
-           </property>
           </widget>
          </item>
         </layout>

@@ -120,6 +120,8 @@ void ChartSpline::ChangeStock(int company_id)
             //大体结果 2010 145.5050000000
         }
 
+        years_num-=2; //因为是从2023年开始，所以往回退两年
+
 
 
 //-------------------------------
@@ -144,7 +146,7 @@ void ChartSpline::ChangeStock(int company_id)
 
         QStringList categories;
         for(int i=0;i<years_num;i++){
-            categories << QString::number(start_year+i);
+            categories << QString::number(start_year+i-2000);
         }
 
             auto axisX = new QBarCategoryAxis;
@@ -164,7 +166,19 @@ void ChartSpline::ChangeStock(int company_id)
         chart->legend()->setVisible(true);
         chart->legend()->setAlignment(Qt::AlignBottom);
 
-        QPen pen(QColor(255, 165, 0));  // 使用橙色
+
+        QColor selectedColor;
+        std::vector<QColor> colors;
+
+        // 随机给出颜色
+        colors = { QColor(Qt::red), QColor(Qt::green), QColor(Qt::blue), QColor(255,165,0) };
+
+        // Select a random color using QRandomGenerator
+        int randomIndex = QRandomGenerator::global()->bounded(static_cast<int>(colors.size()));
+        selectedColor = colors[randomIndex];
+
+        // QPen pen(QColor(255, 165, 0));  // 使用橙色
+        QPen pen(selectedColor);
         pen.setWidth(3);
         lineseries->setPen(pen);
 

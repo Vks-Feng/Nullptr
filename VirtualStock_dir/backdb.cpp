@@ -543,7 +543,8 @@ void BackDB::addRecord(int _user_id, Record _record) {
 }
 
 void BackDB::testRecord() {
-    Record _record;
+     Record _record("2023-3",1,10,0,100);
+//     Record(QString _date, int _company_id, long _volume, bool _tradetype, long _totalprice);
     int user_id = 1; // Provide a valid user_id
     this->addRecord(user_id, _record);
 }
@@ -843,11 +844,6 @@ void BackDB::RemoveStock(int userID, int company_id, int volume)
 
         std::cout<<"In the remove Stock"<<std::endl;
 
-        //        if (!updateResult) {
-        //            std::cerr << "Update error occurred" << std::endl;
-        //        } else {
-        //            std::cout << "Volume updated successfully!" << std::endl;
-        //        }
     }
     //2. 如果股票含量不足
     else {
@@ -925,6 +921,21 @@ std::map<int, std::vector<QString>>& BackDB::getNews(int _month)
 
     std::map<int,std::vector<QString>>* ReturnRecord=new std::map<int,std::vector<QString>>;
 
+    //单独为12月份进行处理
+    QString strQuery_12 = QString("SELECT month,content FROM news WHERE month = 12");
+    MYSQL_RES* queryResult_12=this->query(strQuery_12);
+    //获取实际数据
+    MYSQL_ROW row;
+    std::vector<QString>each;
+
+    qDebug()<<"Add month 12(last year)"<<Qt::endl;
+    while ((row = mysql_fetch_row(queryResult_12))) {
+        QString content(row[1]);
+        each.push_back(content);
+    }
+    ReturnRecord->insert(std::make_pair(1, each));
+    each.clear();
+
     QString strQuery = QString("SELECT month,content FROM news WHERE month <= %1")
                            .arg(_month);
 
@@ -936,12 +947,7 @@ std::map<int, std::vector<QString>>& BackDB::getNews(int _month)
         return *ReturnRecord;
     }
 
-    //获取实际数据
-    MYSQL_ROW row;
-
-
     int i=0;
-    std::vector<QString>each;
 
     while ((row = mysql_fetch_row(queryResult))) {
 
@@ -1081,11 +1087,8 @@ void BackDB::testAddStock()
 void BackDB::test()
 {
 
-   this->testGetNews();
-    // this->getTime(99);
-
-//    this->testGetNews();
-    this->getTime(1);
+    this->testRecord();
+//    this->getTime(1);
     std::cout<<"Done in test"<<std::endl;
 }
 
