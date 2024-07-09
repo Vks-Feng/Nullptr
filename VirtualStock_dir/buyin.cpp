@@ -221,13 +221,17 @@ void buyin::buyinNotification(QString msg){
 }
 
 void buyin::setBuyInInfo(){
+
     int BuyInindex = ui->BuyInStockCodeBox->currentIndex() + 1;
     int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
     int year = Global::instance().getYear();
-    int month = Global::instance().getMonth();
+    int month = Global::instance().getGlobalDataBase()->getTime(userID);
+    // int month=3;
+
     long BuyInPrice = Global::instance().getGlobalDataBase()->getStockInfo(BuyInindex,year,month)[0];
     long maxBuyInNum = Global::instance().getGlobalDataBase()->getStockInfo(BuyInindex,year,month)[1];
     int balanceValue = Global::instance().getGlobalDataBase()->GetBalance(userID);
+
     setBuyInName(BuyInindex);
     ui->BuyInNameLine->setDisabled(true);
     ui->BuyInPriceLine->setText(QString::number(BuyInPrice));

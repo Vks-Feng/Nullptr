@@ -5,8 +5,8 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::MainWindow),
-    currentDate(2023, 1)
+    ui(new Ui::MainWindow)
+
 {
     ui->setupUi(this);
     ui->selectpage4->setLayout(ui->RuleLayout);//规则介绍布局问题
@@ -51,12 +51,18 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->communitybutton1,&QPushButton::clicked,this,[=](){
         ui->selectpage->setCurrentIndex(4);
+        forum* Forum=new forum();
+        ui->CommunityLayout->addWidget(Forum);
+        ui->selectpage5->setLayout(ui->CommunityLayout);
+
+
     });
 
     connect(ui->leavebutton1,&QPushButton::clicked,this,[=](){
         this->close();
     });
-
+    int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
+    Date currentDate(2023,Global::instance().getGlobalDataBase()->getTime(userID));
     QString dateString = QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth(), 2, 10, QChar('0'));
     ui->timelabel->setText(dateString);
     QFont font = ui->timelabel->font();
@@ -71,6 +77,10 @@ MainWindow::MainWindow(QWidget *parent) :
     news->move(800,100);
     news->show();
     news->updateNews();
+
+    // int year=Global::instance().getGlobalUserManage()->GetUser(0)->GetDate()->getYear();
+    // int month=Global::instance().getGlobalDataBase().
+
 
 
 }
@@ -96,13 +106,17 @@ void MainWindow::on_personpage1_clicked()
 
 void MainWindow::on_nextroundbutton_clicked()
 {
-
+    int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
+    Date currentDate(2023,Global::instance().getGlobalDataBase()->getTime(userID));
     QMessageBox msg(QMessageBox::Question,"提示","您本轮还没有进行任何操作，是否进行到下一轮操作?",QMessageBox::Yes | QMessageBox::No,this);
     int ret = msg.exec();
     if(ret==QMessageBox::Yes)
     {
         currentDate.addMonths(1);
+        Global::instance().getGlobalDataBase()->setTime(userID,currentDate.getMonth());
         ui->timelabel->setText(QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth()));
+        buyin buyini;
+        buyini.setBuyInInfo();
     }
 
 }
@@ -112,7 +126,6 @@ void MainWindow::on_nextroundbutton_clicked()
 
 void MainWindow::on_communitybutton1_clicked()
 {
-    forum* Forum=new forum();
-    Forum->show();
+
 }
 

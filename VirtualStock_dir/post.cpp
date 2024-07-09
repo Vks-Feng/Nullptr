@@ -1,12 +1,11 @@
 #include "post.h"
 
-Post::Post(int _date, QString _file, QString _id, int _fatherid, int &_thisid)
+Post::Post(int _date, QString _file, QString _id, int _fatherid, int _thisid)
 {
     date = _date;
     content = _file;
     id = _id;
-    thisid = _thisid + 1;
-    _thisid++;
+    thisid = _thisid;
     fatherid = _fatherid;
 }
 

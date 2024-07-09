@@ -980,13 +980,13 @@ void BackDB::setComment(int user_id, QString _comment)
                        this->query(queryStr);
 }
 
-void BackDB::setTime(int _userId, int time)
+void BackDB::setTime(int _userId, int month)
 {
     QString queryStr=QString("UPDATE users \
                 SET user_time = %1 \
                 WHERE id = %2; \
                 ")
-                           .arg(time)
+                           .arg(month)
                            .arg(_userId);
 
                        this->query(queryStr);
@@ -1080,8 +1080,12 @@ void BackDB::testAddStock()
 
 void BackDB::test()
 {
+
    this->testGetNews();
     // this->getTime(99);
+
+//    this->testGetNews();
+    this->getTime(1);
     std::cout<<"Done in test"<<std::endl;
 }
 

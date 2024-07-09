@@ -1,10 +1,12 @@
 #include "sonforum.h"
 #include "ui_sonforum.h"
 
-sonforum::sonforum(std::vector<Post>load,QWidget *parent)
+sonforum::sonforum(std::vector<Post>_load,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::sonforum)
-{
+{   time=Global:: instance().getGlobalDataBase()->getTime(Global::instance().getGlobalUserManage()->GetUser(0)->GetId());
+    allnumber=_load.size();
+    load=_load;
     // 创建一个QGridLayout来管理按钮布局
     buttonLayout = new QGridLayout(this);
 
@@ -19,6 +21,10 @@ sonforum::sonforum(std::vector<Post>load,QWidget *parent)
     // 连接提交按钮的clicked信号到槽函数
     connect(submitButton, &QPushButton::clicked, this, &sonforum::onSubmitClicked);
 
+    QPushButton *refreashButton = new QPushButton("刷新");
+    buttonLayout->addWidget(refreashButton, 0, 2); // 将提交按钮添加到第一行第三列
+    connect(refreashButton, &QPushButton::clicked, this, &sonforum::refreash);
+
     // 动态创建按钮并添加到布局中
     int m=load.size();
     for (int row = 0; row < m; ++row) {
@@ -31,10 +37,11 @@ sonforum::sonforum(std::vector<Post>load,QWidget *parent)
         // 创建文本显示框
         QTextEdit *textEdit = new QTextEdit(this);
         textEdit->setReadOnly(true); // 设置为只读
-        buttonLayout->addWidget(textEdit, row+1, 2);
+        buttonLayout->addWidget(textEdit, row+1, 1);
 
         // 可以在这里设置文本显示框的内容
-        textEdit->setHtml(load[row].getcontent());
+        QString temp="本帖发布时间为2023年"+QString::number(load[row].getdate())+"月";
+        textEdit->setHtml(load[row].getcontent()+"<p>"+temp);
     }
     ui->setupUi(this);
 }
@@ -56,9 +63,45 @@ void sonforum::onSubmitClicked() {
     // 读取文本框中的内容
     QLineEdit *lineEdit = qobject_cast<QLineEdit*>(sender()->parent()->findChild<QLineEdit*>());
     QString temp = lineEdit->text();
+    QString id = Global::instance().getGlobalUserManage()->GetUser(0)->GetName();
+    int fatherid=load[0].getthisid();
 
-
+    time=Global:: instance().getGlobalDataBase()->getTime(Global::instance().getGlobalUserManage()->GetUser(0)->GetId());
+    std::vector<Post>_load;//这里应当重新获取数据库中的表格
+    _load=Global::instance().getGlobalDataBase()->getforum();
+    allnumber=_load.size();
+    int labal=load[0].getthisid();
+    load.clear();
+    for(int i =0;i<allnumber;i++){
+        if(_load[i].getfatherid()==labal&&_load[i].getdate()<=time){
+            load.push_back(_load[i]);
+        }
+    }
+    //防止此人没刷新期间有人发帖导致编号错乱
+    Post add(time,temp,id,fatherid,allnumber);
+    Global::instance().getGlobalDataBase()->addPost(add);
+    //这里放上那个发帖链数据库的函数
     QMessageBox msgBox;
     msgBox.setText("发帖成功");
     msgBox.exec();
+    refreash();
+}
+
+void sonforum::refreash(){
+    time=Global:: instance().getGlobalDataBase()->getTime(Global::instance().getGlobalUserManage()->GetUser(0)->GetId());
+    std::vector<Post>_load;//这里应当重新获取数据库中的表格
+    _load=Global::instance().getGlobalDataBase()->getforum();
+    allnumber=_load.size();
+    int labal=load[0].getthisid();
+    load.clear();
+    for(int i =0;i<allnumber;i++){
+        if(_load[i].getfatherid()==labal&&_load[i].getdate()<=time){
+            load.push_back(_load[i]);
+        }
+    }
+
+    sonforum* newson=new sonforum(load);
+    newson->show();
+    this->close();
+
 }

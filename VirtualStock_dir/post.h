@@ -18,7 +18,7 @@ public:
          QString _file,
          QString _id,
          int _fatherid,
-         int &_thisid = allnumber); //在留言板就可以把这个_thisid设置为用户自己的那个值
+         int _thisid = allnumber); //在留言板就可以把这个_thisid设置为用户自己的那个值
     //也可以在函数里加一个对thisid的数量限制来实现单个用户的留言板的总留言数不能超过40条等等，但其实这个最好加在user里面
     int getdate();
     QString getcontent();

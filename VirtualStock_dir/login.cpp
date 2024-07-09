@@ -47,7 +47,6 @@ void Login::on_LoginButton_clicked()
             Global::instance().getGlobalUserManage()->UserAdd(Global::instance().getGlobalDataBase()->enableUser(ui->UserNameInput->text()));
             MainWindow* mainwindow = new MainWindow(); // 设置父对象为当前窗口
             mainwindow->show();
-
             this->close();
             break;
         }
