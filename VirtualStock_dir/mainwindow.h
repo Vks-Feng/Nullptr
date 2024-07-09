@@ -5,11 +5,13 @@
 #include <QMessageBox>
 #include "buyin.h"
 #include "personpage.h"
+#include "buyin.h"
 
 
 #include "date.h"
 #include "newswidget.h"
 #include "forum.h"
+#include "backdb.h"
 
 namespace Ui {
 class MainWindow;
@@ -35,7 +37,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    Date currentDate;
 };
 
 #endif // MAINWINDOW_H

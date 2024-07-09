@@ -8,7 +8,7 @@
 #include"virtualcurrency.h"
 #include"record.h"
 #include"portfolio.h"
-
+#include"date.h"
 //using namespace std;
 
 class User{
@@ -22,6 +22,8 @@ private:
 
     std::vector<Record> r;
     int ranking;
+    Date currentdate;
+
 
 public:
     //构造函数
@@ -52,6 +54,7 @@ public:
     int GetBalance();
 
     int GetRanking();//获取排行
+    Date* GetDate();
 
 };
 

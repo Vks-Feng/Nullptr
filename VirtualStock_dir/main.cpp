@@ -18,8 +18,13 @@ int main(int argc, char *argv[])
    Login* l = new Login();
    l->show();
 
+<<<<<<< HEAD
      // BackDB b;
      // b.test();
+=======
+    //  BackDB b;
+    // b.test();
+>>>>>>> 0a9832cafe567b3547e892bf60e7b50d94323ff5
 
     return a.exec();
 }
