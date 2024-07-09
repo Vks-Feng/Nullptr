@@ -96,6 +96,7 @@ forum::forum(QWidget *parent):QWidget(parent){
         }
     }
 
+
     // 创建一个QGridLayout来管理按钮布局
     buttonLayout = new QGridLayout(this);
 

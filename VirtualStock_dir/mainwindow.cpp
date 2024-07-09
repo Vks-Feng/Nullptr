@@ -51,6 +51,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->communitybutton1,&QPushButton::clicked,this,[=](){
         ui->selectpage->setCurrentIndex(4);
+        forum* Forum=new forum();
+        ui->CommunityLayout->addWidget(Forum);
+        ui->selectpage5->setLayout(ui->CommunityLayout);
+
+
     });
 
     connect(ui->leavebutton1,&QPushButton::clicked,this,[=](){
@@ -117,7 +122,6 @@ void MainWindow::on_nextroundbutton_clicked()
 
 void MainWindow::on_communitybutton1_clicked()
 {
-    forum* Forum=new forum();
-    Forum->show();
+
 }
 

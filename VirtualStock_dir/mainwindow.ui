@@ -64,7 +64,7 @@
    <item row="3" column="0" colspan="3">
     <widget class="QStackedWidget" name="selectpage">
      <property name="currentIndex">
-      <number>1</number>
+      <number>4</number>
      </property>
      <widget class="QWidget" name="selectpage1">
       <widget class="QWidget" name="gridLayoutWidget_2">
@@ -321,23 +321,16 @@ T+0/T+1/T+2：不同市场有不同的清算交割制度。例如，美国市场
       </widget>
      </widget>
      <widget class="QWidget" name="selectpage5">
-      <widget class="QLabel" name="vksMarkshequ">
+      <widget class="QWidget" name="verticalLayoutWidget">
        <property name="geometry">
         <rect>
          <x>140</x>
-         <y>80</y>
-         <width>261</width>
-         <height>81</height>
+         <y>70</y>
+         <width>160</width>
+         <height>80</height>
         </rect>
        </property>
-       <property name="font">
-        <font>
-         <pointsize>24</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>社区交流敬请期待</string>
-       </property>
+       <layout class="QVBoxLayout" name="CommunityLayout"/>
       </widget>
      </widget>
     </widget>
