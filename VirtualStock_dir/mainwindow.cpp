@@ -59,6 +59,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->leavebutton1,&QPushButton::clicked,this,[=](){
         this->close();
     });
+    //时间初始化
     int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
     Date currentDate(2023,Global::instance().getGlobalDataBase()->getTime(userID));
     QString dateString = QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth(), 2, 10, QChar('0'));
@@ -69,7 +70,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->selectpage1->setLayout(ui->Page1Layout);
 
+
     //新闻窗口
+
+
+
     NewsWidget *news = new NewsWidget(ui->selectpage1);
     ui->Page1Layout->addWidget(news);
     news->move(800,100);
@@ -105,17 +110,55 @@ void MainWindow::on_personpage1_clicked()
 void MainWindow::on_nextroundbutton_clicked()
 {
     int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
-    Date currentDate(2023,Global::instance().getGlobalDataBase()->getTime(userID));
-    QMessageBox msg(QMessageBox::Question,"提示","您本轮还没有进行任何操作，是否进行到下一轮操作?",QMessageBox::Yes | QMessageBox::No,this);
-    int ret = msg.exec();
-    if(ret==QMessageBox::Yes)
-    {
-        currentDate.addMonths(1);
-        Global::instance().getGlobalDataBase()->setTime(userID,currentDate.getMonth());
-        ui->timelabel->setText(QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth()));
-        buyin buyini;
-        buyini.setBuyInInfo();
+    int months=Global::instance().getGlobalDataBase()->getTime(userID);
+    Date currentDate(2023,months);
+
+    std::vector<Record> records = Global::instance().getGlobalDataBase()->getUserRecord(userID);
+    bool found = false;
+   for (Record record : records) {
+
+        QString fromPosition = record.GetDate().mid(5,2);
+
+        bool ok;
+        int month = fromPosition.toInt(&ok);
+
+            if (month ==currentDate.getMonth() ) {
+                found = true;
+                qDebug()<<month<<"lzy";
+                break; // 如果找到，可以立即退出循环
+            }
+
     }
+   if(months==12){
+       QMessageBox msg(QMessageBox::Question,"提示","本次模拟已结束",QMessageBox::Yes | QMessageBox::No,this);
+       msg.exec();
+   }
+   else{
+       if (found) {QMessageBox msg(QMessageBox::Question,"提示","是否进行到下一轮操作?",QMessageBox::Yes | QMessageBox::No,this);
+        int ret = msg.exec();
+        if(ret==QMessageBox::Yes)
+        {
+            currentDate.addMonths(1);
+            Global::instance().getGlobalDataBase()->setTime(userID,currentDate.getMonth());
+            ui->timelabel->setText(QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth()));
+            buyin buyini;
+            buyini.setBuyInInfo();
+            buyini.setSellOutInfo();
+        }}
+    else{QMessageBox msg(QMessageBox::Question,"提示","您本轮还没有进行任何操作，是否进行到下一轮操作?",QMessageBox::Yes | QMessageBox::No,this);
+        int ret = msg.exec();
+        if(ret==QMessageBox::Yes)
+        {
+            currentDate.addMonths(1);
+            Global::instance().getGlobalDataBase()->setTime(userID,currentDate.getMonth());
+            ui->timelabel->setText(QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth()));
+            buyin buyini;
+            buyini.setBuyInInfo();
+            buyini.setSellOutInfo();
+
+        }}}
+
+
 
 }
 
@@ -126,4 +169,3 @@ void MainWindow::on_communitybutton1_clicked()
 {
 
 }
-

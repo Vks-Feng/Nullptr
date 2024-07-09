@@ -25,6 +25,8 @@ class MainWindow : public QWidget
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    int extractMonthFromDate(const std::string& dateStr);
+    std::vector<int> extractMonthsFromRecords(const std::vector<Record>& records);
 private slots:
 
     void on_buyinButton_clicked();

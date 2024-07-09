@@ -168,7 +168,7 @@ void buyin::on_BuyComfirmButton_clicked()
             Global::instance().getGlobalDataBase()->declineBalance(userID, totalPrice);
             //读取该笔交易的数据，构建出一条Record
             int stockID = ui->BuyInStockCodeBox->currentIndex()+1;
-            QString date = QString::number(Global::instance().getYear())+"-"+QString::number(Global::instance().getMonth());
+            QString date = QString::number(Global::instance().getYear())+"-"+QString::number(Global::instance().getGlobalDataBase()->getTime(userID));
             Record a(date,stockID,ui->BuyInQuantityLine->text().toInt(),true,(long)totalPrice);
             //用户账号添加一条记录，更新用户
             Global::instance().getGlobalDataBase()->addRecord(userID, a);
@@ -204,7 +204,7 @@ void buyin::on_SellComfirmButton_clicked()
         int stockID = ui->SellOutStockCodeBox->currentIndex() + 1;
         int totalPrice = ui->SellOutPriceLine->text().toInt() * ui->SellOutQuantityLine->text().toInt();
         int year = Global::instance().getYear();
-        int month = Global::instance().getMonth();
+        int month = Global::instance().getGlobalDataBase()->getTime(userID);
         QString date=QString::number(year)+" "+QString::number(month);
         Record r(date,stockID,ui->SellOutQuantityLine->text().toInt(),false,(long)totalPrice);
         Global::instance().getGlobalDataBase()->RemoveStock(userID, stockID, ui->SellOutQuantityLine->text().toInt());//减股票
@@ -249,7 +249,7 @@ void buyin::setSellOutInfo(){
     qDebug() << "SellOutindex:" << SellOutindex;
     int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
     int year = Global::instance().getYear();
-    int month = Global::instance().getMonth();
+    int month = Global::instance().getGlobalDataBase()->getTime(userID);
     long SellOutPrice = Global::instance().getGlobalDataBase()->getStockInfo(SellOutindex,year,month)[0];
     int SellOutMaxNum = Global::instance().getGlobalDataBase()->getUserPortfolio(userID).getHoldings(SellOutindex);
     int balanceValue = Global::instance().getGlobalDataBase()->GetBalance(userID);
@@ -296,7 +296,7 @@ void buyin::holdingTableUpdate(){
     QTableWidgetItem* iTotalValue;
     for(int i = 0; i < 8; i++){
         int year = Global::instance().getYear();
-        int month = Global::instance().getMonth();
+        int month = Global::instance().getGlobalDataBase()->getTime(userID);
         int holdings = userHoldings->getHoldings(i+1);
         int singleValue = Global::instance().getGlobalDataBase()->getStockInfo(i+1, year, month)[0];
         int totalValue = holdings * singleValue;
