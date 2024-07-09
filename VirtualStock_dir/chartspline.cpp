@@ -174,7 +174,7 @@ void ChartSpline::ChangeStock(int company_id)
         colors = { QColor(Qt::red), QColor(Qt::green), QColor(Qt::blue), QColor(255,165,0) };
 
         // Select a random color using QRandomGenerator
-        int randomIndex = QRandomGenerator::global()->bounded(colors.size());
+        int randomIndex = QRandomGenerator::global()->bounded(static_cast<int>(colors.size()));
         selectedColor = colors[randomIndex];
 
         // QPen pen(QColor(255, 165, 0));  // 使用橙色
