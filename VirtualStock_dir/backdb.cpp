@@ -39,7 +39,7 @@ BackDB::BackDB()
 {
     const char* host = "rm-n4a8f71b4zhg4w616co.mysql.cn-wuhan-lr.rds.aliyuncs.com"; // MySQL server host
     const char* user = "visitor_1"; // MySQL username
-    const char* password = "VirtualStocks123"; // MySQL password
+    const char* password = "Lin123456"; // MySQL password
     const char* database = "stocks"; // MySQL database name
     unsigned int port = 3306; // MySQL port (default is 3306)
     const char* unix_socket = nullptr; // Unix socket (can be nullptr for TCP/IP)
