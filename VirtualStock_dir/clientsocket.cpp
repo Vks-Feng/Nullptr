@@ -31,8 +31,12 @@ void ClientSocket::onReadyRead()
 void ClientSocket::processMessage(const QByteArray &data)
 {
     QString message = QString::fromUtf8(data);
-    qDebug() << message;
-//    emit messageReceived(message);
+    qDebug() << "server: " << message;
+//    handleServerCommand(message);
+//    emit messageReceived(message);   
 }
 
+void ClientSocket::handleServerCommand(const QString &command){
+
+}
 

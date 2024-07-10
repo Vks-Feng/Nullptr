@@ -531,7 +531,7 @@ void BackDB::addRecord(int _user_id, Record _record) {
                            .arg(_type)
                            .arg(_totalPrice);
 
-     this->query(queryStr);
+    this->query(queryStr);
 }
 
 void BackDB::testRecord() {

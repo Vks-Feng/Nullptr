@@ -67,6 +67,11 @@ MainWindow::MainWindow(QWidget *parent) :
     QFont font = ui->timelabel->font();
     font.setPointSize(12);
     ui->timelabel->setFont(font);
+    int monthss=currentDate.getMonth()+1;
+    if(monthss>12){
+        ui->TransactionButton->setDisabled(true);
+    }
+
 
     ui->selectpage1->setLayout(ui->Page1Layout);
 
@@ -97,6 +102,7 @@ void MainWindow::on_TransactionButton_clicked()
 {
     buyin *buy = new buyin();
     buy->show();
+    this->close();
 }
 
 
@@ -112,6 +118,8 @@ void MainWindow::on_nextroundbutton_clicked()
     int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
     int months=Global::instance().getGlobalDataBase()->getTime(userID);
     Date currentDate(2023,months);
+
+
 
     std::vector<Record> records = Global::instance().getGlobalDataBase()->getUserRecord(userID);
     bool found = false;
@@ -130,7 +138,7 @@ void MainWindow::on_nextroundbutton_clicked()
 
     }
    if(months==12){
-       QMessageBox msg(QMessageBox::Question,"提示","本次模拟已结束",QMessageBox::Yes | QMessageBox::No,this);
+       QMessageBox msg(QMessageBox::Question,"结束","本次模拟已结束,感谢您的参与",QMessageBox::Yes | QMessageBox::No,this);
        msg.exec();
    }
    else{
@@ -144,6 +152,11 @@ void MainWindow::on_nextroundbutton_clicked()
             buyin buyini;
             buyini.setBuyInInfo();
             buyini.setSellOutInfo();
+            NewsWidget news2;
+            MainWindow* main= new MainWindow();
+            this->close();
+            news2.updateNews();
+            main->show();
         }}
     else{QMessageBox msg(QMessageBox::Question,"提示","您本轮还没有进行任何操作，是否进行到下一轮操作?",QMessageBox::Yes | QMessageBox::No,this);
         int ret = msg.exec();
@@ -155,15 +168,13 @@ void MainWindow::on_nextroundbutton_clicked()
             buyin buyini;
             buyini.setBuyInInfo();
             buyini.setSellOutInfo();
-
+            NewsWidget news2;
+            MainWindow* main= new MainWindow();
+            this->close();
+            news2.updateNews();
+            main->show();
         }}}
-
-
-
 }
-
-
-
 
 void MainWindow::on_communitybutton1_clicked()
 {

@@ -14,6 +14,8 @@ public:
 
     void sendMessage(const QString &message);
 
+    void handleServerCommand(const QString &command);
+
 signals:
     void messageReceived(QString message);
 
