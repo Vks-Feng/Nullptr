@@ -64,7 +64,7 @@
    <item row="3" column="0" colspan="3">
     <widget class="QStackedWidget" name="selectpage">
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="selectpage1">
       <widget class="QWidget" name="horizontalLayoutWidget_2">
@@ -198,12 +198,42 @@
       <widget class="QTableWidget" name="tableWidget">
        <property name="geometry">
         <rect>
-         <x>110</x>
-         <y>60</y>
-         <width>256</width>
-         <height>192</height>
+         <x>60</x>
+         <y>40</y>
+         <width>551</width>
+         <height>271</height>
         </rect>
        </property>
+       <row>
+        <property name="text">
+         <string>新建行</string>
+        </property>
+       </row>
+       <column>
+        <property name="text">
+         <string>排名</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>用户名</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>当前月份</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>当月盈利</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>总盈利</string>
+        </property>
+       </column>
       </widget>
      </widget>
      <widget class="QWidget" name="selectpage4">
