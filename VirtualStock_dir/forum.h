@@ -33,7 +33,6 @@ public:
     void display(int m);
 
 private slots:
-    void onnameButtonClicked() ;
     void detail();
     void onSubmitClicked();
     void refresh();

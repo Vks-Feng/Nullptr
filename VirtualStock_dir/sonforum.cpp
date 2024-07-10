@@ -25,23 +25,24 @@ sonforum::sonforum(std::vector<Post>_load,QWidget *parent)
     buttonLayout->addWidget(refreashButton, 0, 2); // 将提交按钮添加到第一行第三列
     connect(refreashButton, &QPushButton::clicked, this, &sonforum::refreash);
 
+
     // 动态创建按钮并添加到布局中
     int m=load.size();
     for (int row = 0; row < m; ++row) {
-        // 创建按钮
-        QPushButton *button = new QPushButton(load[row].getid(), this);
-        buttonLayout->addWidget(button, row+1, 0);
-        // 连接clicked信号到对应的槽函数
-        connect(button, &QPushButton::clicked, this, &sonforum::onnameButtonClicked);
-
         // 创建文本显示框
         QTextEdit *textEdit = new QTextEdit(this);
         textEdit->setReadOnly(true); // 设置为只读
-        buttonLayout->addWidget(textEdit, row+1, 1);
-
+        buttonLayout->addWidget(textEdit, row+1,0);
         // 可以在这里设置文本显示框的内容
-        QString temp="本帖发布时间为2023年"+QString::number(load[row].getdate())+"月";
-        textEdit->setHtml(load[row].getcontent()+"<p>"+temp);
+        QString temp;
+        int num=load[row].getdate();
+        if(num!=13){
+            temp="本帖发布时间为2023年"+QString::number(num)+"月";
+            textEdit->setHtml("发帖人："+load[row].getid()+"<p>"+load[row].getcontent()+"<p>"+temp);}
+        else{
+            temp="本帖发布时间为用户模拟结束后";
+            textEdit->setHtml("发帖人："+load[row].getid()+"<p>"+load[row].getcontent()+"<p>"+temp);
+        }
     }
     ui->setupUi(this);
 }
@@ -103,5 +104,4 @@ void sonforum::refreash(){
     sonforum* newson=new sonforum(load);
     newson->show();
     this->close();
-
 }

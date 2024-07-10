@@ -31,7 +31,6 @@ BackDB::BackDB(const char* _host, const  char* _user, const  char* _password, co
     else {
         std::cerr << "Connection error: " << mysql_error(&mysql) << std::endl;
     }
-
 }
 
 //Usually you use these function instead of using the constructor directorly
@@ -56,7 +55,6 @@ BackDB::BackDB()
     else {
         std::cerr << "Connection error: " << mysql_error(&mysql) << std::endl;
     }
-
 }
 
 //----------Constructor----------
@@ -98,8 +96,7 @@ MYSQL_RES* BackDB::query(QString qStr)
 }
 
 //Show the origin information of the table,
-//return -1 if fails,else return the number of the rows
-QString BackDB::showQuery(const char* query)
+void BackDB::showQuery(const char* query)
 {
     // Assuming 'mysql' is already initialized and connected properly
     QString StringReturn;
@@ -108,34 +105,32 @@ QString BackDB::showQuery(const char* query)
     if (ret != 0) {
         std::cerr << "Query execution failed: " << mysql_error(&mysql) << std::endl;
         StringReturn = "Query execution failed:";
-        return StringReturn;
     }
     else {
         // Query executed successfully, handle results
         MYSQL_RES* result = mysql_store_result(&mysql);
 
         if (result == nullptr) {
-            std::cerr << "Failed to get the result set" << std::endl;
+            std::cout << "Don't have the result set(not necessary) " << std::endl;
         }
         else {
             // Process the result set if needed
             int num_fields = mysql_num_fields(result);
             MYSQL_ROW row;
+
             while ((row = mysql_fetch_row(result))) {
-               for (int i = 0; i < num_fields; i++) {
-                   std::cout << row[i] << " ";
-                   StringReturn.append(row[i]);
-                   StringReturn.append(" ");
-               }
-                   StringReturn.append("\n");
-                   std::cout << std::endl;
+                for (int i = 0; i < num_fields; i++)
+                {
+                    std::cout << row[i] << " ";
+                }
+                std::cout << std::endl;
             }
         }
-        return StringReturn;
+
     }
 }
 
-QString BackDB::showQuery(QString qStr)
+void BackDB::showQuery(QString qStr)
 {
     QByteArray byteArray = qStr.toUtf8();
     const char* query = byteArray.data();
@@ -301,6 +296,23 @@ bool BackDB::isExist(QString name)
     qDebug()<<"Come to isExist Function"<<Qt::endl;
     QString queryStr = QString("SELECT COUNT(*) FROM users WHERE name = '%1';")
                            .arg(name);
+
+    MYSQL_RES* result = this->query(queryStr);
+
+    MYSQL_ROW row = mysql_fetch_row(result);
+
+    int count = atoi(row[0]); // Convert first column to integer
+
+    qDebug()<<"Come to end of isExist Function"<<Qt::endl;
+
+    return count > 0;
+}
+
+bool BackDB::TotalValueIsExist(int User_id)
+{
+    qDebug()<<"Come to isExist Function"<<Qt::endl;
+    QString queryStr = QString("SELECT COUNT(*) FROM total_value WHERE id = '%1';")
+                           .arg(User_id);
 
     MYSQL_RES* result = this->query(queryStr);
 
@@ -524,7 +536,7 @@ void BackDB::addRecord(int _user_id, Record _record) {
 
     int _company_id = _record.GetCompanyId();
     long _volume = _record.GetVolume();
-    int _type = _record.GetTradeType();
+    bool _type = _record.GetTradeType();
     long _totalPrice = _record.GetTotalPrice();
 
     QString queryStr = QString("INSERT INTO trade_record (user_id, company_id, volume, date, trade_type, total_price) "
@@ -1048,6 +1060,80 @@ void BackDB::setRanking(int _userId, int _ranking)
     this->query(queryStr);
 }
 
+QString BackDB::getIntroduction(int _userId)
+{
+    QString StrQuery = QString("SELECT introduction FROM users WHERE id = %1;")
+                           .arg(_userId);
+    MYSQL_RES* queryResult=this->query(StrQuery);
+
+    if (mysql_num_rows(queryResult) == 0) { //此处绝对不能用==NULL进行判定
+        return 0;
+    }
+
+    MYSQL_ROW row = mysql_fetch_row(queryResult);
+
+    QString qStr=row[0];
+
+    return qStr;
+}
+
+void BackDB::setTotalvalue(int user_ID, int value)
+{
+    bool is_exist=this->TotalValueIsExist(user_ID);
+    QString queryStr;
+    if(is_exist==1)
+    {
+        std::cout<<"UPDATE"<<std::endl;
+    queryStr=QString("UPDATE total_value \
+                               SET total_value = %1 \
+                                 WHERE id = %2; \
+                                      ")
+                                          .arg(value)
+                                          .arg(user_ID);
+    }
+    else
+    {
+    std::cout<<"INSERT"<<std::endl;
+    queryStr=QString("INSERT INTO total_value \
+                             (id, total_value) VALUES ('%1','%2'); \
+                                      ")
+                                          .arg(user_ID)
+                                          .arg(value);
+    }
+
+    this->query(queryStr);
+}
+
+int BackDB::getTotalvalue(int userid)
+{
+    QString StrQuery = QString("SELECT total_value FROM total_value WHERE id = %1;")
+                           .arg(userid);
+    MYSQL_RES* queryResult=this->query(StrQuery);
+
+    if (mysql_num_rows(queryResult) == 0) { //此处绝对不能用==NULL进行判定
+        return 0;
+    }
+
+    MYSQL_ROW row = mysql_fetch_row(queryResult);
+
+    bool ok;
+    QString qStr=row[0];
+    int value = qStr.toInt(&ok);
+
+    if(ok==1)
+    {
+        std::cout<<"Get volume:"<<value<<std::endl;
+        return value;
+    }
+    else
+    {
+        return 0;
+    }
+
+}
+
+
+
 
 void BackDB::testGetNews()
 {
@@ -1085,8 +1171,8 @@ void BackDB::testAddStock()
 void BackDB::test()
 {
 
-    this->testAddStock();
-//    this->getTime(1);
+//    std::cout<<this->getTotalvalue(12)<<std::endl;
+    this->setTotalvalue(999,9009);
     std::cout<<"Done in test"<<std::endl;
 }
 

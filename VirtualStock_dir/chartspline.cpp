@@ -97,15 +97,15 @@ void ChartSpline::ChangeStock(int company_id)
             bool ok;
             double number = qStr.toDouble(&ok);
 
-            std::cout<<ok<<std::endl;
+//            std::cout<<ok<<std::endl;
             if (!ok) {
                 qDebug() << "Cannot Converted number:" << number;
             }
             else
             {
-                std::cout<<number<<std::endl;
+//                std::cout<<number<<std::endl;
                 data.push_back(number);
-                std::cout<<data.size()<<std::endl;
+//                std::cout<<data.size()<<std::endl;
                 years_num++;
             }
 
@@ -115,7 +115,7 @@ void ChartSpline::ChangeStock(int company_id)
                 start_year = qStr.toInt(&ok);
             }//将初始年份设置好
 
-            std::cout << row[1]<<std::endl;
+//            std::cout << row[1]<<std::endl;
             //因为第一个数值是年份，dirge数值才是平均值
             //大体结果 2010 145.5050000000
         }

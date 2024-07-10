@@ -64,7 +64,7 @@
    <item row="3" column="0" colspan="3">
     <widget class="QStackedWidget" name="selectpage">
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="selectpage1">
       <widget class="QWidget" name="horizontalLayoutWidget_2">
@@ -195,23 +195,45 @@
       </layout>
      </widget>
      <widget class="QWidget" name="selectpage3">
-      <widget class="QLabel" name="vksMarkpaihang">
+      <widget class="QTableWidget" name="tableWidget">
        <property name="geometry">
         <rect>
-         <x>130</x>
-         <y>80</y>
-         <width>291</width>
-         <height>91</height>
+         <x>60</x>
+         <y>40</y>
+         <width>551</width>
+         <height>271</height>
         </rect>
        </property>
-       <property name="font">
-        <font>
-         <pointsize>24</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>排行榜功能敬请期待</string>
-       </property>
+       <row>
+        <property name="text">
+         <string>新建行</string>
+        </property>
+       </row>
+       <column>
+        <property name="text">
+         <string>排名</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>用户名</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>当前月份</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>当月盈利</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>总盈利</string>
+        </property>
+       </column>
       </widget>
      </widget>
      <widget class="QWidget" name="selectpage4">

@@ -49,14 +49,10 @@ forum::forum(QWidget *parent):QWidget(parent){
     int m=number.size();
     for (int row = 0; row < m; ++row) {
         // 创建按钮
-        QPushButton *button = new QPushButton(load[row].getid(), this);
-        buttonLayout->addWidget(button, row+1, 0);
-        // 连接clicked信号到对应的槽函数
-        connect(button, &QPushButton::clicked, this, &forum::onnameButtonClicked);
-
+        QPushButton *button ;
         QString temp="显示"+QString::number(row+1)+"号帖子详情";
         button = new QPushButton(temp, this);
-        buttonLayout->addWidget(button, row+1, 1);
+        buttonLayout->addWidget(button, row+1, 0);
         // 连接clicked信号到对应的槽函数
         connect(button, &QPushButton::clicked, this, &forum::detail);
 
@@ -66,8 +62,14 @@ forum::forum(QWidget *parent):QWidget(parent){
         buttonLayout->addWidget(textEdit, row+1, 2);
 
         // 可以在这里设置文本显示框的内容
-        temp="本帖发布时间为2023年"+QString::number(load[row].getdate())+"月";
-        textEdit->setHtml(load[row].getcontent()+"<p>"+temp);
+        int num=load[row].getdate();
+        if(num!=13){
+            temp="本帖发布时间为2023年"+QString::number(num)+"月";
+            textEdit->setHtml("发帖人："+load[row].getid()+"<p>"+load[row].getcontent()+"<p>"+temp);}
+        else{
+            temp="本帖发布时间为用户模拟结束后";
+            textEdit->setHtml("发帖人："+load[row].getid()+"<p>"+load[row].getcontent()+"<p>"+temp);
+        }
     }
 
     //vks
@@ -80,15 +82,6 @@ forum::forum(QWidget *parent):QWidget(parent){
 forum::~forum()
 {
     delete ui;
-}
-
-void forum::onnameButtonClicked() {
-    // sender()方法返回信号发送者对象的指针，这里就是被点击的按钮
-    QPushButton *button = qobject_cast<QPushButton*>(sender());
-    if (button) {
-        // 在这里处理点击事件
-    }
-
 }
 
 void forum::detail(){
@@ -210,14 +203,11 @@ void forum::refresh(){
     int m=number.size();
     for (int row = 0; row < m; ++row) {
         // 创建按钮
-        QPushButton *button = new QPushButton(load[row].getid(), this);
-        buttonLayout->addWidget(button, row+1, 0);
-        // 连接clicked信号到对应的槽函数
-        connect(button, &QPushButton::clicked, this, &forum::onnameButtonClicked);
+        QPushButton *button ;
 
         QString temp="显示"+QString::number(row+1)+"号帖子详情";
         button = new QPushButton(temp, this);
-        buttonLayout->addWidget(button, row+1, 1);
+        buttonLayout->addWidget(button, row+1, 0);
         // 连接clicked信号到对应的槽函数
         connect(button, &QPushButton::clicked, this, &forum::detail);
 
@@ -227,8 +217,14 @@ void forum::refresh(){
         buttonLayout->addWidget(textEdit, row+1, 2);
 
         // 可以在这里设置文本显示框的内容
-        temp="本帖发布时间为2023年"+QString::number(load[row].getdate())+"月";
-        textEdit->setHtml(load[row].getcontent()+"<p>"+temp);
+        int num=load[row].getdate();
+        if(num!=13){
+            temp="本帖发布时间为2023年"+QString::number(num)+"月";
+            textEdit->setHtml("发帖人："+load[row].getid()+"<p>"+load[row].getcontent()+"<p>"+temp);}
+        else{
+            temp="本帖发布时间为用户模拟结束后";
+            textEdit->setHtml("发帖人："+load[row].getid()+"<p>"+load[row].getcontent()+"<p>"+temp);
+        }
     }
     forum*newforum=new forum();
     newforum->show();
