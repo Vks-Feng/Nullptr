@@ -58,8 +58,6 @@ void buyin::on_RecommendButton_clicked()
 
 void buyin::on_returnbutton_clicked(){
     this->close();
-    MainWindow* main=new MainWindow();
-    main->show();
 }
 
 void buyin::setBuyInName(int index){

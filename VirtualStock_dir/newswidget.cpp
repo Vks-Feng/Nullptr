@@ -43,7 +43,6 @@ void NewsWidget::updateNews(){
         QVariant monthVariant(month);
         item->setData(Qt::UserRole, monthVariant);
         ui->NewsList->addItem(item);
-        qDebug()<<month;
     }
 
 }

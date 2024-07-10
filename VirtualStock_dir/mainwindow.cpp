@@ -173,8 +173,6 @@ void MainWindow::on_nextroundbutton_clicked()
             this->close();
             news2.updateNews();
             main->show();
-
-
         }}}
 }
 
