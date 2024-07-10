@@ -217,16 +217,14 @@ void buyin::buyinNotification(QString msg){
 }
 
 void buyin::setBuyInInfo(){
-
     int BuyInindex = ui->BuyInStockCodeBox->currentIndex() + 1;
     int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
     int year = Global::instance().getYear();
     int month = Global::instance().getGlobalDataBase()->getTime(userID);
-    // int month=3;
 
     long BuyInPrice = Global::instance().getGlobalDataBase()->getStockInfo(BuyInindex,year,month)[0];
-    long maxBuyInNum = Global::instance().getGlobalDataBase()->getStockInfo(BuyInindex,year,month)[1];
     int balanceValue = Global::instance().getGlobalDataBase()->GetBalance(userID);
+    long maxBuyInNum =  balanceValue / BuyInPrice;
 
     setBuyInName(BuyInindex);
     ui->BuyInNameLine->setDisabled(true);
@@ -273,7 +271,7 @@ void buyin::recordTableUpdate(){
     QTableWidgetItem* iTotalValue;
     for (int i = 0; i < row; i++) {
         iDate = new QTableWidgetItem(r[i].GetDate());
-        iStockID = new QTableWidgetItem(QString::number(r[i].GetCompanyId()));
+        iStockID = new QTableWidgetItem(Global::instance().getGlobalDataBase()->Id2Name(r[i].GetCompanyId()));
         iQuantity = new QTableWidgetItem(QString::number(r[i].GetVolume()));
         iTradeType = new QTableWidgetItem(r[i].GetTradeType() ? "买入" : "卖出");
         iTotalValue = new QTableWidgetItem(QString::number(r[i].GetTotalPrice()));

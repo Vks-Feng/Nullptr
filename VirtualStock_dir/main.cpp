@@ -1,8 +1,6 @@
 #include "widget.h"
 #include "login.h"
 #include "global.h"
-
-
 #include <QApplication>
 
 UserManage* um = nullptr;
@@ -19,7 +17,6 @@ int main(int argc, char *argv[])
     Global::instance().setGlobalClient(client);
     Login* l = new Login();
     l->show();
-
 
 //      BackDB b;
 //      b.test();
