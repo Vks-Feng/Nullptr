@@ -1132,6 +1132,24 @@ int BackDB::getTotalvalue(int userid)
 
 }
 
+std::vector<QString> BackDB::getAllUserName()
+{
+    QString StrQuery = QString("SELECT * FROM users;");
+
+    MYSQL_RES* queryResult=this->query(StrQuery);
+
+    std::vector<QString> userNames;
+
+    MYSQL_ROW row;
+    while ((row = mysql_fetch_row(queryResult))) {
+        std::cout << row[1] << " ";
+        userNames.push_back(row[1]);
+    }
+    return userNames;
+
+}
+
+
 
 
 
@@ -1172,7 +1190,12 @@ void BackDB::test()
 {
 
 //    std::cout<<this->getTotalvalue(12)<<std::endl;
-    this->setTotalvalue(999,9009);
+//    this->setTotalvalue(999,9009);
+    std::vector<QString> result=getAllUserName();
+    for(int i=0;i<result.size();i++)
+    {
+        qDebug()<<result[i]<<Qt::endl;
+    }
     std::cout<<"Done in test"<<std::endl;
 }
 
