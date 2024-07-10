@@ -41,7 +41,7 @@ forum::forum(QWidget *parent):QWidget(parent){
 
     QPushButton *refreashButton = new QPushButton("刷新");
     buttonLayout->addWidget(refreashButton, 0, 2); // 将提交按钮添加到第一行第二列
-    connect(refreashButton, &QPushButton::clicked, this, &forum::refreash);
+    connect(refreashButton, &QPushButton::clicked, this, &forum::refresh);
 
     // 动态创建按钮并添加到布局中
 
@@ -69,6 +69,11 @@ forum::forum(QWidget *parent):QWidget(parent){
         temp="本帖发布时间为2023年"+QString::number(load[row].getdate())+"月";
         textEdit->setHtml(load[row].getcontent()+"<p>"+temp);
     }
+
+    //vks
+    connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &forum::refresh);
+    //vks
+
     ui->setupUi(this);
 }
 
@@ -144,10 +149,10 @@ void forum::onSubmitClicked() {
     Post add(time,temp,id,allnumber,allnumber);
     Global::instance().getGlobalDataBase()->addPost(add);
     //这里放上那个发帖链数据库的函数
+
     QMessageBox msgBox;
     msgBox.setText("发帖成功");
     msgBox.exec();
-    refreash();
 }
 
 void forum::display(int m){
@@ -158,7 +163,7 @@ void forum::display(int m){
     Sonforum->show();
 }
 
-void forum::refreash(){
+void forum::refresh(){
     time=Global:: instance().getGlobalDataBase()->getTime(Global::instance().getGlobalUserManage()->GetUser(0)->GetId());
     std::vector<Post>_load;//这里应当重新获取数据库中的表格
     _load=Global::instance().getGlobalDataBase()->getforum();
@@ -197,7 +202,7 @@ void forum::refreash(){
 
     QPushButton *refreashButton = new QPushButton("刷新");
     buttonLayout->addWidget(refreashButton, 0, 2); // 将提交按钮添加到第一行第二列
-    connect(refreashButton, &QPushButton::clicked, this, &forum::refreash);
+    connect(refreashButton, &QPushButton::clicked, this, &forum::refresh);
 
     // 动态创建按钮并添加到布局中
 
@@ -228,4 +233,5 @@ void forum::refreash(){
     forum*newforum=new forum();
     newforum->show();
     this->close();
+    qDebug() << "vks-server: refresh success";
 }
