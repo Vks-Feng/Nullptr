@@ -23,7 +23,7 @@ Personpage::Personpage(QWidget *parent) :
     QString ranking=QString::number(Global::instance().getGlobalUserManage()->GetUser(0)->GetRanking());
     ui->trackedCount->setText(ranking);
     //当月资产计算
-    int all=0;
+    int thisal=0;
 
 }
 
