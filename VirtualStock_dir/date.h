@@ -74,7 +74,7 @@ private:
 
     // 规范化日期
     void normalize() {
-        while (month > 12) {
+        while (month > 20) {
             month -= 12;
             ++year;
         }

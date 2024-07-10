@@ -25,6 +25,7 @@ class MainWindow : public QWidget
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
+    int totalcurrency();
     ~MainWindow();
 
 private slots:
