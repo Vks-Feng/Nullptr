@@ -2,7 +2,16 @@
 #include "ui_mainwindow.h"
 #include "chartspline.h"
 #include <QPlainTextEdit>
-
+struct UserData {
+    QString userName;
+    double totalAssets;
+    int month;
+    UserData(const QString& userName, double totalAssets , int month )
+        : userName(userName), totalAssets(totalAssets), month(month) {}
+};
+bool compareByAssets(const UserData &a, const UserData &b) {
+    return a.totalAssets > b.totalAssets; // 降序排序
+}
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::MainWindow)
@@ -76,7 +85,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
 
-
     if(monthss>12){
         ui->TransactionButton->setDisabled(true);
         ui->nextroundbutton->setDisabled(true);
@@ -84,6 +92,37 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     ui->selectpage1->setLayout(ui->Page1Layout);
+    // Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,currentDate.getMonth()));
+
+    //排行榜
+    std::vector<QString> userNames=Global::instance().getGlobalDataBase()->getAllUserName();
+    std::vector<UserData> userData ;
+    for (const QString& userName : userNames) {
+        int userID=Global::instance().getGlobalDataBase()->getUserId(userName);
+        int totalcurrency=Global::instance().getGlobalDataBase()->getTotalvalue(userID);
+        int month=Global::instance().getGlobalDataBase()->getTime(userID);
+        if(month>12){month--;}
+        userData.emplace_back(userName,totalcurrency,month);
+    }
+
+
+    // 根据总资产排序
+    std::sort(userData.begin(), userData.end(), compareByAssets);
+
+    // // 创建表格
+    // QTableWidget table(userData.size(), 3);
+    // table.setHorizontalHeaderLabels(QStringList() << "User ID" << "Total Assets" << "Month");
+
+    // 填充表格
+    for (int i = 0; i < userData.size(); ++i) {
+        ui->tableWidget->insertRow(i);
+        QTableWidgetItem *idItem = new QTableWidgetItem(QString (userData[i].userName));
+        QTableWidgetItem *assetsItem = new QTableWidgetItem(QString::number(userData[i].totalAssets));
+        QTableWidgetItem *monthItem = new QTableWidgetItem(QString::number(userData[i].month));
+        ui->tableWidget->setItem(i, 0, idItem);
+        ui->tableWidget->setItem(i, 2, assetsItem);
+        ui->tableWidget->setItem(i, 1, monthItem);
+    }
 
 
     //新闻窗口
@@ -112,7 +151,6 @@ void MainWindow::on_TransactionButton_clicked()
 {
     buyin *buy = new buyin();
     buy->show();
-    this->close();
 }
 
 
@@ -164,9 +202,13 @@ void MainWindow::on_nextroundbutton_clicked()
             currentDate.addMonths(1);
             Global::instance().getGlobalDataBase()->setTime(userID,currentDate.getMonth());
             ui->timelabel->setText(QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth()));
+
             buyin buyini;
             buyini.setBuyInInfo();
             buyini.setSellOutInfo();
+
+            Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,months));
+
             NewsWidget news2;
             MainWindow* main= new MainWindow();
             this->close();
@@ -180,9 +222,13 @@ void MainWindow::on_nextroundbutton_clicked()
             currentDate.addMonths(1);
             Global::instance().getGlobalDataBase()->setTime(userID,currentDate.getMonth());
             ui->timelabel->setText(QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth()));
+
             buyin buyini;
             buyini.setBuyInInfo();
             buyini.setSellOutInfo();
+
+            Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,months));
+
             NewsWidget news2;
             MainWindow* main= new MainWindow();
             this->close();
@@ -191,9 +237,9 @@ void MainWindow::on_nextroundbutton_clicked()
         }}}
 }
 
-int MainWindow::totalcurrency(){
-    int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
-    int months=Global::instance().getGlobalDataBase()->getTime(userID);
+int MainWindow::totalcurrency(int userID,int months){
+    // int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
+    // int months=Global::instance().getGlobalDataBase()->getTime(userID);
     Date currentDate(2023,months);
 
     int activecurrency=Global::instance().getGlobalDataBase()->GetBalance(userID);

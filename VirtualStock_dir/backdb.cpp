@@ -1227,9 +1227,3 @@ void BackDB::test()
     qDebug()<<this->getUserId("NULL")<<Qt::endl;
     std::cout<<"Done in test"<<std::endl;
 }
-
-
-
-
-
-

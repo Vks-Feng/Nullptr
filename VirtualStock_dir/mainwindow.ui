@@ -204,16 +204,6 @@
          <height>271</height>
         </rect>
        </property>
-       <row>
-        <property name="text">
-         <string>新建行</string>
-        </property>
-       </row>
-       <column>
-        <property name="text">
-         <string>排名</string>
-        </property>
-       </column>
        <column>
         <property name="text">
          <string>用户名</string>
@@ -226,12 +216,12 @@
        </column>
        <column>
         <property name="text">
-         <string>当月盈利</string>
+         <string>总盈利</string>
         </property>
        </column>
        <column>
         <property name="text">
-         <string>总盈利</string>
+         <string>盈利率</string>
         </property>
        </column>
       </widget>
