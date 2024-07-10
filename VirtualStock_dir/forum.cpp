@@ -62,8 +62,14 @@ forum::forum(QWidget *parent):QWidget(parent){
         buttonLayout->addWidget(textEdit, row+1, 2);
 
         // 可以在这里设置文本显示框的内容
-        temp="本帖发布时间为2023年"+QString::number(load[row].getdate())+"月";
-        textEdit->setHtml("发帖人："+load[row].getid()+"<p>"+load[row].getcontent()+"<p>"+temp);
+        int num=load[row].getdate();
+        if(num!=13){
+            temp="本帖发布时间为2023年"+QString::number(num)+"月";
+            textEdit->setHtml("发帖人："+load[row].getid()+"<p>"+load[row].getcontent()+"<p>"+temp);}
+        else{
+            temp="本帖发布时间为用户模拟结束后";
+            textEdit->setHtml("发帖人："+load[row].getid()+"<p>"+load[row].getcontent()+"<p>"+temp);
+        }
     }
     ui->setupUi(this);
 }
@@ -206,8 +212,14 @@ void forum::refreash(){
         buttonLayout->addWidget(textEdit, row+1, 2);
 
         // 可以在这里设置文本显示框的内容
-        temp="本帖发布时间为2023年"+QString::number(load[row].getdate())+"月";
-        textEdit->setHtml("发帖人："+load[row].getid()+"<p>"+load[row].getcontent()+"<p>"+temp);
+        int num=load[row].getdate();
+        if(num!=13){
+            temp="本帖发布时间为2023年"+QString::number(num)+"月";
+            textEdit->setHtml("发帖人："+load[row].getid()+"<p>"+load[row].getcontent()+"<p>"+temp);}
+        else{
+            temp="本帖发布时间为用户模拟结束后";
+            textEdit->setHtml("发帖人："+load[row].getid()+"<p>"+load[row].getcontent()+"<p>"+temp);
+        }
     }
     forum*newforum=new forum();
     newforum->show();

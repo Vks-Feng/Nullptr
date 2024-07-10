@@ -6,6 +6,9 @@
 #include "chargepage.h"
 #include "backdb.h"
 #include <QString>
+#include <vector>
+#include "record.h"
+#include<qdebug.h>
 namespace Ui {
 class Personpage;
 }
@@ -22,12 +25,12 @@ public:
     ~Personpage();
 
 private slots:
-    void on_pushButton_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_changeintroduction_clicked();
 
 private:
     Ui::Personpage *ui;
+    QString temp;
 };
 
 #endif // PERSONPAGE_H

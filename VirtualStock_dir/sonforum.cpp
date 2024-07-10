@@ -34,8 +34,15 @@ sonforum::sonforum(std::vector<Post>_load,QWidget *parent)
         textEdit->setReadOnly(true); // 设置为只读
         buttonLayout->addWidget(textEdit, row+1,0);
         // 可以在这里设置文本显示框的内容
-        QString temp="本帖发布时间为2023年"+QString::number(load[row].getdate())+"月";
-        textEdit->setHtml("发帖人："+load[row].getid()+"<p>"+load[row].getcontent()+"<p>"+temp);
+        QString temp;
+        int num=load[row].getdate();
+        if(num!=13){
+            temp="本帖发布时间为2023年"+QString::number(num)+"月";
+            textEdit->setHtml("发帖人："+load[row].getid()+"<p>"+load[row].getcontent()+"<p>"+temp);}
+        else{
+            temp="本帖发布时间为用户模拟结束后";
+            textEdit->setHtml("发帖人："+load[row].getid()+"<p>"+load[row].getcontent()+"<p>"+temp);
+        }
     }
     ui->setupUi(this);
 }
