@@ -11,12 +11,11 @@ Compression=lzma
 SolidCompression=yes
 
 [Files]
-Source: "D:\2024SummerProject\OutPut\VirtualStock.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\build-test3-Desktop_Qt_5_14_2_MinGW_64_bit-Release\release\VirtualStock.exe"; DestDir: "{app}"; Flags: ignoreversion
+
 Source: "D:\2024SummerProject\OutPut\*.dll"; DestDir: "{app}"; Flags: ignoreversion
 
-[Icons]
-Name: "{group}\VirtualStock"; Filename: "{app}\VirtualStock.exe"
-Name: "{group}\Uninstall VirtualStock"; Filename: "{uninstallexe}"
+Source: "C:\Qt\6.5.3\mingw_64\bin\*.dll"; DestDir: "{app}"; Flags: ignoreversion
 
-[Run]
-Filename: "{app}\VirtualStock.exe"; Description: "{cm:LaunchProgram,VirtualStock}"; Flags: nowait postinstall skipifsilent
+Source: "C:\Qt\6.5.3\mingw_64\plugins\platforms\*.dll"; DestDir: "{app}"; Flags: ignoreversion
+
