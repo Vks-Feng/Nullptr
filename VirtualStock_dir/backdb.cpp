@@ -308,6 +308,23 @@ bool BackDB::isExist(QString name)
     return count > 0;
 }
 
+bool BackDB::TotalValueIsExist(int User_id)
+{
+    qDebug()<<"Come to isExist Function"<<Qt::endl;
+    QString queryStr = QString("SELECT COUNT(*) FROM total_value WHERE id = '%1';")
+                           .arg(User_id);
+
+    MYSQL_RES* result = this->query(queryStr);
+
+    MYSQL_ROW row = mysql_fetch_row(result);
+
+    int count = atoi(row[0]); // Convert first column to integer
+
+    qDebug()<<"Come to end of isExist Function"<<Qt::endl;
+
+    return count > 0;
+}
+
 //根据用户名查找对应的密码，判断密码是否正确
 //正确则返回true，错误返回false
 bool BackDB::isPasswordEqual(QString name, QString password)
@@ -1062,12 +1079,27 @@ QString BackDB::getIntroduction(int _userId)
 
 void BackDB::setTotalvalue(int user_ID, int value)
 {
-    QString queryStr=QString("UPDATE total_value \
+    bool is_exist=this->TotalValueIsExist(user_ID);
+    QString queryStr;
+    if(is_exist==1)
+    {
+        std::cout<<"UPDATE"<<std::endl;
+    queryStr=QString("UPDATE total_value \
                                SET total_value = %1 \
                                  WHERE id = %2; \
                                       ")
                                           .arg(value)
                                           .arg(user_ID);
+    }
+    else
+    {
+    std::cout<<"INSERT"<<std::endl;
+    queryStr=QString("INSERT INTO total_value \
+                             (id, total_value) VALUES ('%1','%2'); \
+                                      ")
+                                          .arg(user_ID)
+                                          .arg(value);
+    }
 
     this->query(queryStr);
 }
@@ -1139,8 +1171,8 @@ void BackDB::testAddStock()
 void BackDB::test()
 {
 
-    std::cout<<this->getTotalvalue(12)<<std::endl;
-//    this->setTotalvalue(12,999);
+//    std::cout<<this->getTotalvalue(12)<<std::endl;
+    this->setTotalvalue(999,9009);
     std::cout<<"Done in test"<<std::endl;
 }
 
