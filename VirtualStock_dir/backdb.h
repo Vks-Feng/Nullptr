@@ -65,8 +65,8 @@ public:
 
     //----------User---------
 
-    //成功添加则返回true，否则返回false（避免用户名存在）
-    bool addUser(QString name, QString password);
+    //vks--将返回值修改为int，创建失败返回-1，创建成功返回userID
+    int addUser(QString name, QString password);
 
     //查找用户名为name的数据
     //查找到的数据条数不为0则返回true，表示存在
