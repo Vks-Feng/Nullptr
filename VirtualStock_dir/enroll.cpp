@@ -56,4 +56,17 @@ void enroll::on_registerButton_clicked()
         }
     }
 }
+void enroll::keyPressEvent(QKeyEvent  *event)
+{
+    switch(event->key()){
+    case Qt::Key_Return:
+        on_registerButton_clicked();
+        break;
+    case Qt::Key_Enter:
+         on_registerButton_clicked();
+        break;
+    default:
+        break;
+    }
+}
 

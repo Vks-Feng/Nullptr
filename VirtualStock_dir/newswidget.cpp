@@ -42,8 +42,8 @@ void NewsWidget::updateNews(){
         // 使用 QVariant 存储月份信息，方便后续获取
         QVariant monthVariant(month);
         item->setData(Qt::UserRole, monthVariant);
-
         ui->NewsList->addItem(item);
+        qDebug()<<month;
     }
 
 }
