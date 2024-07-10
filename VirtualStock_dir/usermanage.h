@@ -37,8 +37,9 @@ public:
     //0时询问是否创建，调用Create()
 
     //用户创建
-    bool Create(QString name, QString password);
+    int Create(QString name, QString password);
     //调用Check，如果返回是0，直接创建用户；其他情况进行提示
+    //vks--返回值改为userID，错误创建则返回-1
 
     int GetSize();
     //返回size

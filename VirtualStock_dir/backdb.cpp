@@ -258,19 +258,20 @@ int BackDB::CountUser()
 
 //根据传入参数在数据库中添加新数据
 //成功添加则返回true，否则返回false（避免用户名存在）
-bool BackDB::addUser(QString name, QString password)
+//vks--将返回值修改为int，创建失败返回-1，创建成功返回userID
+int BackDB::addUser(QString name, QString password)
 {
     qDebug()<<"Come to addUser"<<Qt::endl;
     if (isExist(name)) {
         std::cerr << "Error!!! User with name " << name.toStdString() << " already exists." << std::endl;
-        return false;
+        return -1;
     }
 
-    int user_id=this->CountUser();
+    int user_id=this->CountUser()+1;
 
     QString queryStr = QString("INSERT INTO users (id, name, password, balance, ranking,user_time,introduction) "
                                "VALUES ('%1', '%2', '%3', '%4', '%5','%6','%7')")
-                           .arg(user_id+1)
+                           .arg(user_id)
                            .arg(name)
                            .arg(password)
                            .arg(64800)
@@ -282,7 +283,7 @@ bool BackDB::addUser(QString name, QString password)
 
     qDebug()<<"Come to end of addUser"<<Qt::endl;
 
-    return true;
+    return user_id;
 }
 
 void BackDB::testUserAdd() {

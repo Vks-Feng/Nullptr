@@ -35,7 +35,7 @@ public:
 private slots:
     void detail();
     void onSubmitClicked();
-    void refreash();
+    void refresh();
 private:
     int time;
     int allnumber;

@@ -42,12 +42,12 @@ int UserManage::Check(QString name, QString password){
     }
 }
 
-bool UserManage::Create(QString name, QString password){
+int UserManage::Create(QString name, QString password){
     if(Global::instance().getGlobalDataBase()->isExist(name)){
-        return false;
+        return -1;
     } else {
-        Global::instance().getGlobalDataBase()->addUser(name, password);
-        return true;
+        int userID = Global::instance().getGlobalDataBase()->addUser(name, password);
+        return userID;
     }
 }
 
