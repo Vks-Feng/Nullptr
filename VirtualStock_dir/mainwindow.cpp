@@ -59,6 +59,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->leavebutton1,&QPushButton::clicked,this,[=](){
         this->close();
     });
+
+
     //时间初始化
     int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
     Date currentDate(2023,Global::instance().getGlobalDataBase()->getTime(userID));

@@ -106,4 +106,8 @@ win32: LIBS += -L$$PWD/../lib/ -lmysqlclient
 INCLUDEPATH += $$PWD/../_include
 DEPENDPATH += $$PWD/../_include
 
+RESOURCES += \
+    loginButton.qrc \
+    loginPic.qrc
+
 
