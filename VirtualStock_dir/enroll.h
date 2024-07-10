@@ -18,6 +18,7 @@ public:
     explicit enroll(QWidget *parent = nullptr);
 
     void enrollNotification(QString error);
+    void keyPressEvent(QKeyEvent  *event) ;
     ~enroll();
 
 

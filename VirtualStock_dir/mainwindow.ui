@@ -195,22 +195,14 @@
       </layout>
      </widget>
      <widget class="QWidget" name="selectpage3">
-      <widget class="QLabel" name="vksMarkpaihang">
+      <widget class="QTableWidget" name="tableWidget">
        <property name="geometry">
         <rect>
-         <x>130</x>
-         <y>80</y>
-         <width>291</width>
-         <height>91</height>
+         <x>110</x>
+         <y>60</y>
+         <width>256</width>
+         <height>192</height>
         </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>24</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>排行榜功能敬请期待</string>
        </property>
       </widget>
      </widget>
