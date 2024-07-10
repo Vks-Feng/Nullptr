@@ -52,17 +52,8 @@ int Portfolio::getHoldings(int key){
     return this->holdings[key];
 }
 
-double Portfolio::getTotalValue(){
-    // double totalValue = 0.0;
-    // //功能待实现
-    // //已声明变量可调整
-    // //计算出用户当前持有股票总价？股票具体内涵交给你们来，大概这个意思。
-    // //遍历持有股票计算总值
-    // for(auto& item : holdings){
-    //     int companyId = item.first;
-    //     int _quantity = item.second;
+std::map<int,int> Portfolio::getTotalValue(){
+    //为了避免重复包含，这里直接把map，也就是存储companyID和对应持有量return,计算去外面算
+    return holdings;
 
-    //     //？?要通过companyId查询每只股票的单价
-    //     auto it =
-    // }
 }

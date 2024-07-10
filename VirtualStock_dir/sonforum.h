@@ -11,7 +11,7 @@
 #include <QMainWindow>
 #include <QWidget>
 #include <QPushButton>
-#include <QTextEdit>>
+#include <QTextEdit>
 #include <QApplication>
 #include <QLineEdit>
 #include <QVBoxLayout>

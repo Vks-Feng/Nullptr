@@ -24,7 +24,7 @@ public:
 
     int getHoldings(int key);//获取当前持仓的股票及数量映射
 
-    double getTotalValue();//计算组合股票的总价值（根据每只股票的单价和持有量计算总值）
+    std::map<int, int> getTotalValue();//为了避免重复包含，这里直接把map，也就是存储companyID和对应持有量return,计算去外面算
 
 };
 
