@@ -1,0 +1,47 @@
+:: 清空打包目标文件夹中的文件（如果存在）
+set packagedDir=D:\2024SummerProject\2024SummerVirtualStokes\OutPut\packageFile
+if exist %packagedDir% (
+rmdir /s /q %packagedDir%
+)
+
+::进入到D盘
+D:  
+
+:: 进入项目文件夹
+cd D:\2024SummerProject\2024SummerVirtualStokes\Version3\VirtualStock_dir
+
+:: 创建构建输出文件夹，使用 release 版本和 mingw-64 编译器
+if exist .\Build (
+rmdir /s /q .\Build
+)
+mkdir .\Build
+
+  
+:: 进入构建输出文件夹
+cd .\Build
+
+:: 以下 3 条编译命令对照 Qt 内编译结果得到，选择 release 版本，使用 mingw-64 编译器
+
+"C:\Qt\6.5.3\mingw_64\bin\qmake.exe" D:\2024SummerProject\2024SummerVirtualStokes\Version3\VirtualStock_dir\VirtualStock.pro -spec win32-g++ "CONFIG+=qtquickcompiler"
+
+"C:\Qt\Tools\mingw1120_64\bin\mingw32-make.exe" -f D:/2024SummerProject/2024SummerVirtualStokes/Version3/VirtualStock_dir/Build/Makefile qmake_all
+
+"C:\Qt\Tools\mingw1120_64\bin\mingw32-make.exe" -j16  
+
+:: 创建输出目录（如果不存在）
+set outputDir="D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder"
+if not exist %outputDir% (
+mkdir %outputDir%
+)
+
+:: 复制生成的可执行文件到最终输出路径
+copy .\release\VirtualStock.exe %outputDir%
+
+:: 进入该路径
+cd %outputDir%
+
+:: 获取项目依赖
+"C:\Qt\6.5.3\mingw_64\bin\windeployqt6.exe" VirtualStock.exe
+
+:: 打包 VirtualStock.exe 和 dll 文件等生成安装文件
+"D:\Application\Inno Setup 6\ISCC.exe" "D:\2024SummerProject\2024SummerVirtualStokes\Version3\whu_virtual_stock.iss"

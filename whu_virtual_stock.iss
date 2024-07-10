@@ -2,6 +2,10 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 [Setup]
+; NOTE: The value of AppId uniquely identifies this application.
+; Do not use the same AppId value in installers for other applications.
+; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
+AppId={{your-app-guid}}
 AppName=VirtualStock
 AppVersion=1.0
 DefaultDirName={pf}\VirtualStock
@@ -10,12 +14,28 @@ OutputBaseFilename=VirtualStockSetup
 Compression=lzma
 SolidCompression=yes
 
+[Languages]
+Name: "english"; MessagesFile: "compiler:Default.isl"
+
+[Tasks]
+Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
+
 [Files]
-Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\build-test3-Desktop_Qt_5_14_2_MinGW_64_bit-Release\release\VirtualStock.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\VirtualStock.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\*.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\generic\*"; DestDir: "{app}\generic"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\iconengines\*"; DestDir: "{app}\iconengines"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\imageformats\*"; DestDir: "{app}\imageformats"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\networkinformation\*"; DestDir: "{app}\networkinformation"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\platforms\*"; DestDir: "{app}\platforms"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\styles\*"; DestDir: "{app}\styles"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\tls\*"; DestDir: "{app}\tls"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\translations\*"; DestDir: "{app}\translations"; Flags: ignoreversion recursesubdirs createallsubdirs
 
-Source: "D:\2024SummerProject\OutPut\*.dll"; DestDir: "{app}"; Flags: ignoreversion
+[Icons]
+Name: "{group}\VirtualStock"; Filename: "{app}\VirtualStock.exe"
+Name: "{group}\{cm:UninstallProgram,VirtualStock}"; Filename: "{uninstallexe}"
+Name: "{commondesktop}\VirtualStock"; Filename: "{app}\VirtualStock.exe"; Tasks: desktopicon
 
-Source: "C:\Qt\6.5.3\mingw_64\bin\*.dll"; DestDir: "{app}"; Flags: ignoreversion
-
-Source: "C:\Qt\6.5.3\mingw_64\plugins\platforms\*.dll"; DestDir: "{app}"; Flags: ignoreversion
-
+[Run]
+Filename: "{app}\VirtualStock.exe"; Description: "{cm:LaunchProgram,VirtualStock}"; Flags: nowait postinstall skipifsilent
