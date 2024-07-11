@@ -6,6 +6,7 @@ Personpage::Personpage(QWidget *parent) :
     ui(new Ui::Personpage)
 {
     ui->setupUi(this);
+    ui->userPicLabel->setScaledContents(true);
     Global::instance().getGlobalUserManage()->updateUser(0);
     ui->userName->setText(Global::instance().getGlobalUserManage()->GetUser(0)->GetName());
     ui->userName->setDisabled(true);
@@ -13,7 +14,7 @@ Personpage::Personpage(QWidget *parent) :
     ui->trackedCount->setDisabled(true);
     ui->personalDescribeEdit->setText(Global::instance().getGlobalDataBase()->getIntroduction(Global::instance().getGlobalUserManage()->GetUser(0)->GetId()));
     ui->personalDescribeEdit->setDisabled(true);
-    connect(ui->ChargeButton, &QPushButton::clicked, this, &Personpage::openChargePage);
+    // connect(ui->ChargeButton, &QPushButton::clicked, this, &Personpage::openChargePage);
 
 
 

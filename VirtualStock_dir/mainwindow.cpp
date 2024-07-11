@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "chartspline.h"
 #include <QPlainTextEdit>
+
 struct UserData {
     QString userName;
     double totalAssets;
@@ -9,6 +10,7 @@ struct UserData {
     UserData(const QString& userName, double totalAssets , int month )
         : userName(userName), totalAssets(totalAssets), month(month) {}
 };
+
 bool compareByAssets(const UserData &a, const UserData &b) {
     return a.totalAssets > b.totalAssets; // 降序排序
 }
@@ -23,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->logo->setScaledContents(true);//logo自适应大小
 
 
+
     ui->selectpage4->setLayout(ui->RuleLayout);//规则介绍布局问题
     ui->selectpage->setCurrentIndex(0);
     //将页面切换逻辑使用按钮的click进行手动转换
@@ -31,20 +34,26 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //尝试将股票的信息挂载到股票界面的layout中
     // 找到占位部件
-    ChartSpline *_chartSpline=new ChartSpline;
-    _chartSpline->ChangeStock(0);
+    ChartSpline *_chartSpline_1=new ChartSpline;
+    ChartSpline *_chartSpline_2=new ChartSpline;
+
+    _chartSpline_1->ChangeStock(0);
 //    connect(ui->ChangeStockShowBtn, &QPushButton::clicked, _chartSpline, &ChartSpline::ShowRandomStock);
     // 在股票界面设置显示哪一只股票
     connect(ui->ChooseWhichStock, QOverload<int>::of(&QComboBox::currentIndexChanged),
-            _chartSpline, &ChartSpline::ChangeStock);
+            _chartSpline_1, &ChartSpline::ChangeStock);
 
     QWidget *placeholder = ui->chartSplineWidget;
+
+    ui->selectpage3->setLayout(ui->RankingLayout);
+    //
 
     //固定大小
     this->setFixedSize(this->width(),this->height());
     // 设置 chartspline 对象到占位部件的位置
     QVBoxLayout *layout = new QVBoxLayout(placeholder);
-    layout->addWidget(_chartSpline);
+    layout->addWidget(_chartSpline_1);
+    layout->addWidget(_chartSpline_2);
     placeholder->setLayout(layout);
 
     //设置具体阴影
@@ -79,7 +88,7 @@ MainWindow::MainWindow(QWidget *parent) :
     shadow_effect4->setColor(QColor(38, 78, 119, 127));
     //阴影半径
     shadow_effect4->setBlurRadius(30);
-    ui->Chatsframe->setGraphicsEffect(shadow_effect4);
+    // ui->Chartsframe->setGraphicsEffect(shadow_effect4);
 
 
     connect(ui->firstbutton1,&QPushButton::clicked,this,[=](){
@@ -115,6 +124,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
 
+    Personpage* person = new Personpage();
+    connect(ui->ChargeButton, &QPushButton::clicked, person, &Personpage::openChargePage);
+    connect(ui->personpageBtn,&QPushButton::clicked,[=](){person->show();});
+
+
+
     //时间初始化
     int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
     Date currentDate(2023,Global::instance().getGlobalDataBase()->getTime(userID));
@@ -136,6 +151,19 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->TransactionButton->setDisabled(true);
         ui->nextroundbutton->setDisabled(true);
     }
+
+
+    //首页添加折线图
+    // QVBoxLayout *layout_1 = new QVBoxLayout(ui->Chartsframe);
+    ChartSpline* ch=new ChartSpline;
+    // ui->Chartsframe->setLayout(layout_1);
+    ui->MainChartsLayout->addWidget(ch);
+    // ChartSpline* ch_2=new ChartSpline;
+
+    // QVBoxLayout *layout_1 = new QVBoxLayout(ui->Chartsframe);
+    // ChartSpline* ch=new ChartSpline;
+    // ui->Chartsframe->setLayout(layout_1);
+    // ui->MainChartsLayout->addWidget(ch);
 
 
     ui->selectpage1->setLayout(ui->Page1Layout);
@@ -162,6 +190,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // 填充表格
     for (int i = 0; i < userData.size(); ++i) {
+
         ui->tableWidget->insertRow(i);
         QTableWidgetItem *idItem = new QTableWidgetItem(QString (userData[i].userName));
         QTableWidgetItem *assetsItem = new QTableWidgetItem(QString::number(userData[i].totalAssets));
@@ -170,7 +199,11 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->tableWidget->setItem(i, 2, assetsItem);
         ui->tableWidget->setItem(i, 1, monthItem);
     }
-
+// ui->tableWidget->resizeColumnToContents(4);
+    // for(int i=0;i<4;i++)
+    // {
+        ui->tableWidget->resizeColumnsToContents();
+    // }
 
     //新闻窗口
 
@@ -201,13 +234,6 @@ void MainWindow::on_TransactionButton_clicked()
 {
     buyin *buy = new buyin();
     buy->show();
-}
-
-
-void MainWindow::on_personpage1_clicked()
-{
-    Personpage* person = new Personpage();
-    person->show();
 }
 
 

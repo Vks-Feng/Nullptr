@@ -14,21 +14,23 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">border-radius:10px</string>
+   <string notr="true">border-radius:10px;
+backgroud-color:white;
+</string>
   </property>
   <widget class="QLabel" name="NewsLable">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>50</y>
-     <width>101</width>
-     <height>31</height>
+     <x>10</x>
+     <y>160</y>
+     <width>221</width>
+     <height>111</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Forte</family>
-     <pointsize>14</pointsize>
+     <pointsize>18</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -42,16 +44,16 @@
   <widget class="QListWidget" name="NewsList">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>360</x>
      <y>10</y>
-     <width>81</width>
+     <width>41</width>
      <height>331</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>华文楷体</family>
-     <pointsize>9</pointsize>
+     <family>Algerian</family>
+     <pointsize>14</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -132,10 +134,30 @@ border:1px rgb(231, 231, 231);
     <pixmap resource="newsPic2.qrc">:/new/news/photos/f6.jpg</pixmap>
    </property>
   </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>10</y>
+     <width>31</width>
+     <height>331</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
   <zorder>NewsPic2</zorder>
   <zorder>NewsPicLabel</zorder>
   <zorder>NewsLable</zorder>
   <zorder>NewsList</zorder>
+  <zorder>frame</zorder>
  </widget>
  <resources>
   <include location="newsPic2.qrc"/>

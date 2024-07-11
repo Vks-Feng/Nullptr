@@ -7,7 +7,7 @@ NewsDialog::NewsDialog(QWidget *parent)
 {
     ui->setupUi(this);
     setWindowTitle("News Details");
-    setFixedSize(500,500);
+    setFixedSize(this->size());
 
     QVBoxLayout *layout = new QVBoxLayout(this);
     newsLabel = new QLabel(this);

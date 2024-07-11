@@ -112,6 +112,7 @@ RESOURCES += \
     loginButton.qrc \
     loginPic.qrc \
     newsPic.qrc \
-    newsPic2.qrc
+    newsPic2.qrc \
+    page1.qrc
 
 
