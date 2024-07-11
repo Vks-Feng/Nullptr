@@ -79,7 +79,8 @@ forum::forum(QWidget *parent):QWidget(parent){
         else{
             ttemp="本帖发布时间为用户模拟结束后";}
         button = new QPushButton(temp+"\n"+"发帖人："+load[m-row-1].getid()+"\n"+load[m-row-1].getcontent()+"\n"+ttemp, this);
-        button->setFixedHeight(300);
+        // button->setFixedHeight(300);
+        button->setFixedWidth(600);
         button->setStyleSheet("QPushButton { font-size:32px }");
         buttonLayout->addWidget(button, row+1, 0,1,3);
         // 连接clicked信号到对应的槽函数

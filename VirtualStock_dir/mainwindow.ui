@@ -51,6 +51,17 @@ border-bottom-right-radius:10px;}</string>
       </item>
      </layout>
     </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>349</y>
+       <width>411</width>
+       <height>311</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="MainChartsLayout"/>
+    </widget>
     <widget class="QWidget" name="">
      <property name="geometry">
       <rect>
@@ -106,30 +117,6 @@ box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
       </item>
      </layout>
     </widget>
-    <widget class="QFrame" name="Chatsframe">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>350</y>
-       <width>411</width>
-       <height>311</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QFrame
-{
-background-color: rgb(255, 255, 255);
-border-radius:5px;
-border:1px rgb(231, 231, 231);
-}</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-    </widget>
     <widget class="QFrame" name="personageFrame">
      <property name="geometry">
       <rect>
@@ -167,18 +154,6 @@ border:1px rgb(231, 231, 231);
      </property>
      <layout class="QHBoxLayout" name="stockTotalLayout">
       <item>
-       <widget class="QWidget" name="chartSplineWidget" native="true">
-        <property name="styleSheet">
-         <string notr="true">QWidget{
-color:transparent;
-border-radius:10px;
-backgroud-color:white;
-box-shadow: 5px 5px 5px #888888;
-}</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <layout class="QFormLayout" name="formLayout">
         <item row="1" column="1">
          <widget class="QFrame" name="TradeFrame">
@@ -197,19 +172,6 @@ border:1px rgb(231, 231, 231);
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QPushButton" name="TransactionButton">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>10</y>
-             <width>92</width>
-             <height>26</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>进行股票交易</string>
-           </property>
-          </widget>
          </widget>
         </item>
         <item row="0" column="1">
@@ -236,93 +198,117 @@ QFrame#siderBarFrame {
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QComboBox" name="ChooseWhichStock">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>93</width>
-             <height>26</height>
-            </rect>
-           </property>
-           <item>
-            <property name="text">
-             <string>Apple</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Amazon</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Google</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>IBM</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Intel</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>JetBlue</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Meta</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Microsoft</string>
-            </property>
-           </item>
-          </widget>
          </widget>
         </item>
        </layout>
       </item>
+      <item>
+       <widget class="QWidget" name="chartSplineWidget" native="true">
+        <property name="styleSheet">
+         <string notr="true">QWidget{
+color:transparent;
+border-radius:10px;
+backgroud-color:white;
+box-shadow: 5px 5px 5px #888888;
+}</string>
+        </property>
+       </widget>
+      </item>
      </layout>
+    </widget>
+    <widget class="QComboBox" name="ChooseWhichStock">
+     <property name="geometry">
+      <rect>
+       <x>770</x>
+       <y>10</y>
+       <width>93</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>Apple</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Amazon</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Google</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>IBM</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Intel</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>JetBlue</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Meta</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Microsoft</string>
+      </property>
+     </item>
     </widget>
    </widget>
    <widget class="QWidget" name="selectpage3">
-    <widget class="QTableWidget" name="tableWidget">
+    <widget class="QWidget" name="verticalLayoutWidget_4">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>40</y>
-       <width>551</width>
-       <height>271</height>
+       <x>30</x>
+       <y>30</y>
+       <width>831</width>
+       <height>521</height>
       </rect>
      </property>
-     <column>
-      <property name="text">
-       <string>用户名</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>当前月份</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>当月盈利</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>总盈利</string>
-      </property>
-     </column>
+     <layout class="QVBoxLayout" name="RankingLayout">
+      <item>
+       <widget class="QTableWidget" name="tableWidget">
+        <property name="minimumSize">
+         <size>
+          <width>579</width>
+          <height>0</height>
+         </size>
+        </property>
+        <column>
+         <property name="text">
+          <string>用户名</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>当前月份</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>当月盈利</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>总盈利</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QWidget" name="selectpage4">
@@ -488,6 +474,10 @@ border:1px rgb(231, 231, 231);
        <property name="text">
         <string>首页</string>
        </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>photos/page1.png</normaloff>photos/page1.png</iconset>
+       </property>
       </widget>
      </item>
      <item>
@@ -497,7 +487,14 @@ border:1px rgb(231, 231, 231);
 </string>
        </property>
        <property name="text">
-        <string>股票</string>
+        <string>股票走势</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="TransactionButton">
+       <property name="text">
+        <string>股票交易</string>
        </property>
       </widget>
      </item>
@@ -565,8 +562,8 @@ border:1px rgb(231, 231, 231);
    <widget class="QWidget" name="horizontalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>10</y>
+      <x>310</x>
+      <y>20</y>
       <width>671</width>
       <height>51</height>
      </rect>
@@ -586,7 +583,14 @@ border:1px rgb(231, 231, 231);
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="personpage1">
+      <widget class="QPushButton" name="ChargeButton">
+       <property name="text">
+        <string>充值</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="personpageBtn">
        <property name="styleSheet">
         <string notr="true">background-color:transparent;
 </string>

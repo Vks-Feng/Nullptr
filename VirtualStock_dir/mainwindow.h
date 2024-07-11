@@ -23,6 +23,10 @@ class MainWindow : public QWidget
 {
     Q_OBJECT
 
+
+private:
+
+
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     int totalcurrency(int userID,int months);
@@ -36,7 +40,7 @@ protected:
 
 private slots:
 
-    void on_personpage1_clicked();
+    // void on_personpage1_clicked();
 
     void on_nextroundbutton_clicked();
 
