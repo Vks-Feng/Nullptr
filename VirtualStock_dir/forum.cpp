@@ -102,6 +102,7 @@ forum::forum(QWidget *parent):QWidget(parent){
 
 forum::~forum()
 {
+    disconnect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &forum::refresh);
     delete ui;
 }
 
@@ -183,8 +184,9 @@ void forum::display(int m){
 }
 
 void forum::refresh(){
+    disconnect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &forum::refresh);
+    this->close();
     forum*newforum=new forum();
     newforum->show();
-    this->close();
 }
 

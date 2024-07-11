@@ -216,7 +216,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // this->resize(1213,700);
     // this->resize(1700,700);
 
-        ui->selectpage2->setLayout(ui->stockTotalLayout);
+    ui->selectpage2->setLayout(ui->stockTotalLayout);
 
 }
 
