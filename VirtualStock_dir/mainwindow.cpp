@@ -122,7 +122,6 @@ MainWindow::MainWindow(QWidget *parent) :
     int monthss=currentDate.getMonth();
 
 
-
     if(monthss>12){
         ui->TransactionButton->setDisabled(true);
         ui->nextroundbutton->setDisabled(true);
@@ -219,8 +218,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //新闻窗口
 
-
-
     NewsWidget *news = new NewsWidget(ui->selectpage1);
     ui->Page1Layout->addWidget(news);
     news->move(800,100);
@@ -231,8 +228,10 @@ MainWindow::MainWindow(QWidget *parent) :
     // int month=Global::instance().getGlobalDataBase().
 
     // this->resize(1213,700);
-    // this->resize(1700,700);        
 
+    // this->resize(1700,700);
+
+    forumOpen = false;
 }
 
 MainWindow::~MainWindow()
@@ -436,8 +435,6 @@ int MainWindow::totalcurrency(int userID,int months){
     qDebug()<<"totalcurrency"<<totalcurrency;
     return totalcurrency;
 }
-
-
 
 
 void MainWindow::on_communitybutton1_clicked()

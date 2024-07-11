@@ -25,10 +25,12 @@ private:
     unsigned long client_flag = 0; // Connection flags (usually 0)
 
     //Constructor , the basic information is host+user+password+database
-    BackDB(const char* _host, const  char* _user, const  char* _password, const  char* _database,
-           unsigned int _port = 3306, const char* _unix_socket = nullptr, unsigned long _client_flag = 0);
+//    BackDB(const char* _host, const  char* _user, const  char* _password, const  char* _database,
+//           unsigned int _port = 3306, const char* _unix_socket = nullptr, unsigned long _client_flag = 0);
 
 public:
+    BackDB(const char* _host, const  char* _user, const  char* _password, const  char* _database,
+           unsigned int _port = 3306, const char* _unix_socket = nullptr, unsigned long _client_flag = 0);
 
     //----------Tools---------
     //输入公司id，返回公司名

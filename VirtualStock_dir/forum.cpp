@@ -86,13 +86,11 @@ forum::forum(QWidget *parent):QWidget(parent){
         buttonLayout->addWidget(button, row+1, 0,1,3);
         // 连接clicked信号到对应的槽函数
         connect(button, &QPushButton::clicked, this, &forum::detail);
-
-
     }
 
-    //vks
+    //--vks--
     connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &forum::refresh);
-    //vks
+    //--vks--
 
     ui->setupUi(this);
     showMaximized();
@@ -100,6 +98,7 @@ forum::forum(QWidget *parent):QWidget(parent){
 
 forum::~forum()
 {
+    disconnect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &forum::refresh);
     delete ui;
 }
 
@@ -163,9 +162,13 @@ void forum::onSubmitClicked() {
     Global::instance().getGlobalDataBase()->addPost(add);
     //这里放上那个发帖链数据库的函数
 
-    QMessageBox msgBox;
-    msgBox.setText("发帖成功");
-    msgBox.exec();
+    //vks
+    Global::instance().getGlobalClient()->write("Refresh:");
+    //vks
+
+//    QMessageBox msgBox;
+//    msgBox.setText("发帖成功");
+//    msgBox.exec();
 }
 
 void forum::display(int m){
@@ -180,6 +183,7 @@ void forum::refresh(){
     forum*newforum=new forum();
     newforum->show();
     this->close();
-    qDebug() << "vks-server: refresh success";
 }
+
+
 
