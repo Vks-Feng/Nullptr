@@ -1150,6 +1150,33 @@ std::vector<QString> BackDB::getAllUserName()
 
 }
 
+//根据用户名返回用户id
+int BackDB::getUserId(QString name)
+{
+    QString StrQuery_0 = QString("SELECT COUNT(*) AS count FROM users WHERE name = '%1';").arg(name);
+
+    MYSQL_RES* queryResult_0=this->query(StrQuery_0);
+    MYSQL_ROW row_0;
+    row_0 = mysql_fetch_row(queryResult_0);
+    QString qnumber=row_0[0];
+    int number=qnumber.toInt();
+    if(number==0)return -1;
+    else std::cout<<"get "<<row_0[0]<<" users"<<std::endl;
+
+
+    QString StrQuery_1 = QString("SELECT * FROM users where name = '%1';").arg(name);
+
+    MYSQL_RES* queryResult=this->query(StrQuery_1);
+    MYSQL_ROW row;
+    row = mysql_fetch_row(queryResult);
+
+    QString str=row[0];
+    int result=str.toInt();
+
+    return result;
+
+}
+
 
 
 
@@ -1192,16 +1219,11 @@ void BackDB::test()
 
 //    std::cout<<this->getTotalvalue(12)<<std::endl;
 //    this->setTotalvalue(999,9009);
-    std::vector<QString> result=getAllUserName();
-    for(int i=0;i<result.size();i++)
-    {
-        qDebug()<<result[i]<<Qt::endl;
-    }
+//    std::vector<QString> result=getAllUserName();
+//    for(int i=0;i<result.size();i++)
+//    {
+//        qDebug()<<result[i]<<Qt::endl;
+//    }
+    qDebug()<<this->getUserId("NULL")<<Qt::endl;
     std::cout<<"Done in test"<<std::endl;
 }
-
-
-
-
-
-

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1081</width>
-    <height>715</height>
+    <width>1008</width>
+    <height>732</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,10 +23,10 @@ border-bottom-right-radius:10px;}</string>
   <widget class="QStackedWidget" name="selectpage">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>70</y>
+     <x>120</x>
+     <y>60</y>
      <width>891</width>
-     <height>611</height>
+     <height>671</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -36,20 +36,35 @@ border-bottom-right-radius:10px;}</string>
     <number>0</number>
    </property>
    <widget class="QWidget" name="selectpage1">
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <layout class="QVBoxLayout" name="ForNews">
-       <item>
-        <layout class="QHBoxLayout" name="Page1Layout"/>
-       </item>
-      </layout>
-     </item>
-     <item row="0" column="1">
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <widget class="QFrame" name="frame">
-         <property name="styleSheet">
-          <string notr="true">QFrame
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>411</width>
+       <height>311</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="ForNews">
+      <item>
+       <layout class="QHBoxLayout" name="Page1Layout"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>10</y>
+       <width>421</width>
+       <height>321</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QFrame" name="frame">
+        <property name="styleSheet">
+         <string notr="true">QFrame
 {
 background-color: rgb(255, 255, 255);
 border-radius:20px;
@@ -57,19 +72,19 @@ border:1px rgb(231, 231, 231);
 box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
 }
 </string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="RuleFrame">
-         <property name="styleSheet">
-          <string notr="true">QFrame {
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="RuleFrame">
+        <property name="styleSheet">
+         <string notr="true">QFrame {
     border-radius: 20px;
     background-color: rgb(255, 255, 255);
     /* 设置阴影 */
@@ -80,72 +95,127 @@ box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
     border-right: 5px solid qlineargradient(x0:0, x1:1,stop:  0 white, stop: 1 #ececef);
 }
 </string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="1" column="0" colspan="2">
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QFrame" name="Chatsframe">
-         <property name="styleSheet">
-          <string notr="true">QFrame {
-    border-radius: 20px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5) !important;
-}
-</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="personageFrame">
-         <property name="styleSheet">
-          <string notr="true">QFrame
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QFrame" name="Chatsframe">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>350</y>
+       <width>411</width>
+       <height>311</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame
+{
+background-color: rgb(255, 255, 255);
+border-radius:5px;
+border:1px rgb(231, 231, 231);
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QFrame" name="personageFrame">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>350</y>
+       <width>411</width>
+       <height>311</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame
+{
+background-color: rgb(255, 255, 255);
+border-radius:5px;
+border:1px rgb(231, 231, 231);
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="selectpage2">
+    <widget class="QWidget" name="horizontalLayoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>721</width>
+       <height>491</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="stockTotalLayout">
+      <item>
+       <widget class="QWidget" name="chartSplineWidget" native="true">
+        <property name="styleSheet">
+         <string notr="true">QWidget{
+color:transparent;
+border-radius:10px;
+backgroud-color:white;
+box-shadow: 5px 5px 5px #888888;
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QFormLayout" name="formLayout">
+        <item row="1" column="1">
+         <widget class="QFrame" name="TradeFrame">
+          <property name="styleSheet">
+           <string notr="true">QFrame
 {
 background-color: rgb(255, 255, 255);
 border-radius:20px;
 border:1px rgb(231, 231, 231);
 }
 </string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="selectpage2">
-    <widget class="QFrame" name="companyIntroduce">
-     <property name="geometry">
-      <rect>
-       <x>580</x>
-       <y>10</y>
-       <width>201</width>
-       <height>271</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QFrame
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QPushButton" name="TransactionButton">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>92</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>进行股票交易</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QFrame" name="companyIntroduce">
+          <property name="styleSheet">
+           <string notr="true">QFrame
 {
 background-color: rgb(255, 255, 255);
 border-radius:20px;
@@ -159,119 +229,68 @@ QFrame#siderBarFrame {
                       /* 设置阴影 */
                        box-shadow: 0 0 30px rgba(38, 78, 119, 0.5);
                     }</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QComboBox" name="ChooseWhichStock">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>93</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>Apple</string>
-       </property>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QComboBox" name="ChooseWhichStock">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>93</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <item>
+            <property name="text">
+             <string>Apple</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Amazon</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Google</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>IBM</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Intel</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>JetBlue</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Meta</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Microsoft</string>
+            </property>
+           </item>
+          </widget>
+         </widget>
+        </item>
+       </layout>
       </item>
-      <item>
-       <property name="text">
-        <string>Amazon</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Google</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>IBM</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Intel</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>JetBlue</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Meta</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Microsoft</string>
-       </property>
-      </item>
-     </widget>
-    </widget>
-    <widget class="QFrame" name="TradeFrame">
-     <property name="geometry">
-      <rect>
-       <x>580</x>
-       <y>310</y>
-       <width>201</width>
-       <height>301</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QFrame
-{
-background-color: rgb(255, 255, 255);
-border-radius:20px;
-border:1px rgb(231, 231, 231);
-}
-</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QPushButton" name="TransactionButton">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>92</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>进行股票交易</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="chartSplineWidget" native="true">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>551</width>
-       <height>601</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QWidget{
-color:transparent;
-border-radius:10px;
-backgroud-color:white;
-box-shadow: 5px 5px 5px #888888;
-}</string>
-     </property>
+     </layout>
     </widget>
    </widget>
    <widget class="QWidget" name="selectpage3">
@@ -284,16 +303,6 @@ box-shadow: 5px 5px 5px #888888;
        <height>271</height>
       </rect>
      </property>
-     <row>
-      <property name="text">
-       <string>新建行</string>
-      </property>
-     </row>
-     <column>
-      <property name="text">
-       <string>排名</string>
-      </property>
-     </column>
      <column>
       <property name="text">
        <string>用户名</string>
@@ -450,7 +459,7 @@ border:1px rgb(231, 231, 231);
    <widget class="QPushButton" name="nextroundbutton">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>30</x>
       <y>590</y>
       <width>80</width>
       <height>26</height>
@@ -463,10 +472,10 @@ border:1px rgb(231, 231, 231);
    <widget class="QWidget" name="verticalLayoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>10</y>
       <width>101</width>
-      <height>271</height>
+      <height>391</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -556,7 +565,7 @@ border:1px rgb(231, 231, 231);
    <widget class="QWidget" name="horizontalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>320</x>
       <y>10</y>
       <width>671</width>
       <height>51</height>
@@ -600,23 +609,6 @@ border:1px rgb(231, 231, 231);
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="MainCloseButton">
-    <property name="geometry">
-     <rect>
-      <x>1050</x>
-      <y>0</y>
-      <width>31</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:transparent;
-</string>
-    </property>
-    <property name="text">
-     <string>X</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="logo">
     <property name="geometry">
      <rect>
@@ -650,6 +642,19 @@ border:1px rgb(231, 231, 231);
     </property>
     <property name="text">
      <string>StockStimulator</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="MainCloseButton">
+    <property name="geometry">
+     <rect>
+      <x>990</x>
+      <y>0</y>
+      <width>10</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>X</string>
     </property>
    </widget>
   </widget>

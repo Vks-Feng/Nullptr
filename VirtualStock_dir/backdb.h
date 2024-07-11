@@ -110,6 +110,9 @@ public:
 //        需要在本机获取所有用户的用户名
     std::vector<QString> getAllUserName();//返回一个数组存储所有的用户名
 
+    //根据用户名把id返回出来,如果未找到，返回-1
+    int getUserId(QString name);
+
 
     //----------User---------
 
@@ -202,9 +205,7 @@ public:
     void testAddStock();
     void testGetBalance();
     void testGetUserRecord();
-
     void testGetUserPortfolio();
-
     void testAddPost();
     void testGetForum();
     void testGetNews();

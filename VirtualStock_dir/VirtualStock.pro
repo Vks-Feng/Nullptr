@@ -109,6 +109,8 @@ DEPENDPATH += $$PWD/../_include
 RESOURCES += \
     GroupLogo.qrc \
     loginButton.qrc \
-    loginPic.qrc
+    loginPic.qrc \
+    newsPic.qrc \
+    newsPic2.qrc
 
 

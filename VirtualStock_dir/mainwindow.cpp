@@ -2,7 +2,16 @@
 #include "ui_mainwindow.h"
 #include "chartspline.h"
 #include <QPlainTextEdit>
-
+struct UserData {
+    QString userName;
+    double totalAssets;
+    int month;
+    UserData(const QString& userName, double totalAssets , int month )
+        : userName(userName), totalAssets(totalAssets), month(month) {}
+};
+bool compareByAssets(const UserData &a, const UserData &b) {
+    return a.totalAssets > b.totalAssets; // 降序排序
+}
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::MainWindow)
@@ -11,7 +20,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     this->setWindowFlags(Qt::FramelessWindowHint);//无边框
-    ui->logo->setScaledContents(true);
+    ui->logo->setScaledContents(true);//logo自适应大小
+
 
     ui->selectpage4->setLayout(ui->RuleLayout);//规则介绍布局问题
     ui->selectpage->setCurrentIndex(0);
@@ -30,6 +40,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QWidget *placeholder = ui->chartSplineWidget;
 
+    //固定大小
     this->setFixedSize(this->width(),this->height());
     // 设置 chartspline 对象到占位部件的位置
     QVBoxLayout *layout = new QVBoxLayout(placeholder);
@@ -53,6 +64,22 @@ MainWindow::MainWindow(QWidget *parent) :
     //阴影半径
     shadow_effect2->setBlurRadius(30);
     ui->siderBarFrame->setGraphicsEffect(shadow_effect2);
+
+    QGraphicsDropShadowEffect *shadow_effect3 = new QGraphicsDropShadowEffect(this);
+    shadow_effect3->setOffset(0, 0);
+    //阴影颜色
+    shadow_effect3->setColor(QColor(38, 78, 119, 127));
+    //阴影半径
+    shadow_effect3->setBlurRadius(30);
+    ui->personageFrame->setGraphicsEffect(shadow_effect3);
+
+    QGraphicsDropShadowEffect *shadow_effect4 = new QGraphicsDropShadowEffect(this);
+    shadow_effect4->setOffset(0, 0);
+    //阴影颜色
+    shadow_effect4->setColor(QColor(38, 78, 119, 127));
+    //阴影半径
+    shadow_effect4->setBlurRadius(30);
+    ui->Chatsframe->setGraphicsEffect(shadow_effect4);
 
 
     connect(ui->firstbutton1,&QPushButton::clicked,this,[=](){
@@ -105,7 +132,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
 
-
     if(monthss>12){
         ui->TransactionButton->setDisabled(true);
         ui->nextroundbutton->setDisabled(true);
@@ -113,6 +139,37 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     ui->selectpage1->setLayout(ui->Page1Layout);
+    // Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,currentDate.getMonth()));
+
+    //排行榜
+    std::vector<QString> userNames=Global::instance().getGlobalDataBase()->getAllUserName();
+    std::vector<UserData> userData ;
+    for (const QString& userName : userNames) {
+        int userID=Global::instance().getGlobalDataBase()->getUserId(userName);
+        int totalcurrency=Global::instance().getGlobalDataBase()->getTotalvalue(userID);
+        int month=Global::instance().getGlobalDataBase()->getTime(userID);
+        if(month>12){month--;}
+        userData.emplace_back(userName,totalcurrency,month);
+    }
+
+
+    // 根据总资产排序
+    std::sort(userData.begin(), userData.end(), compareByAssets);
+
+    // // 创建表格
+    // QTableWidget table(userData.size(), 3);
+    // table.setHorizontalHeaderLabels(QStringList() << "User ID" << "Total Assets" << "Month");
+
+    // 填充表格
+    for (int i = 0; i < userData.size(); ++i) {
+        ui->tableWidget->insertRow(i);
+        QTableWidgetItem *idItem = new QTableWidgetItem(QString (userData[i].userName));
+        QTableWidgetItem *assetsItem = new QTableWidgetItem(QString::number(userData[i].totalAssets));
+        QTableWidgetItem *monthItem = new QTableWidgetItem(QString::number(userData[i].month));
+        ui->tableWidget->setItem(i, 0, idItem);
+        ui->tableWidget->setItem(i, 2, assetsItem);
+        ui->tableWidget->setItem(i, 1, monthItem);
+    }
 
 
     //新闻窗口
@@ -128,7 +185,10 @@ MainWindow::MainWindow(QWidget *parent) :
     // int year=Global::instance().getGlobalUserManage()->GetUser(0)->GetDate()->getYear();
     // int month=Global::instance().getGlobalDataBase().
 
+    // this->resize(1213,700);
+    // this->resize(1700,700);
 
+        ui->selectpage2->setLayout(ui->stockTotalLayout);
 
 }
 
@@ -141,7 +201,6 @@ void MainWindow::on_TransactionButton_clicked()
 {
     buyin *buy = new buyin();
     buy->show();
-    this->close();
 }
 
 
@@ -193,9 +252,13 @@ void MainWindow::on_nextroundbutton_clicked()
             currentDate.addMonths(1);
             Global::instance().getGlobalDataBase()->setTime(userID,currentDate.getMonth());
             ui->timelabel->setText(QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth()));
+
             buyin buyini;
             buyini.setBuyInInfo();
             buyini.setSellOutInfo();
+
+            Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,months));
+
             NewsWidget news2;
             MainWindow* main= new MainWindow();
             this->close();
@@ -209,9 +272,13 @@ void MainWindow::on_nextroundbutton_clicked()
             currentDate.addMonths(1);
             Global::instance().getGlobalDataBase()->setTime(userID,currentDate.getMonth());
             ui->timelabel->setText(QString("%1年%2月").arg(currentDate.getYear()).arg(currentDate.getMonth()));
+
             buyin buyini;
             buyini.setBuyInInfo();
             buyini.setSellOutInfo();
+
+            Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,months));
+
             NewsWidget news2;
             MainWindow* main= new MainWindow();
             this->close();
@@ -220,9 +287,9 @@ void MainWindow::on_nextroundbutton_clicked()
         }}}
 }
 
-int MainWindow::totalcurrency(){
-    int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
-    int months=Global::instance().getGlobalDataBase()->getTime(userID);
+int MainWindow::totalcurrency(int userID,int months){
+    // int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
+    // int months=Global::instance().getGlobalDataBase()->getTime(userID);
     Date currentDate(2023,months);
 
     int activecurrency=Global::instance().getGlobalDataBase()->GetBalance(userID);

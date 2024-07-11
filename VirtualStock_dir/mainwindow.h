@@ -8,9 +8,6 @@
 #include <QMouseEvent>
 #include "buyin.h"
 #include "personpage.h"
-#include "buyin.h"
-
-
 #include "date.h"
 #include "newswidget.h"
 #include "forum.h"
@@ -28,7 +25,7 @@ class MainWindow : public QWidget
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
-    int totalcurrency();
+    int totalcurrency(int userID,int months);
     ~MainWindow();
 
 protected:
