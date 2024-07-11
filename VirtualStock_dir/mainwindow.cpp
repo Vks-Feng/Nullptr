@@ -9,6 +9,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
 {
     ui->setupUi(this);
+
+    this->setWindowFlags(Qt::FramelessWindowHint);//无边框
+    ui->logo->setScaledContents(true);
+
     ui->selectpage4->setLayout(ui->RuleLayout);//规则介绍布局问题
     ui->selectpage->setCurrentIndex(0);
     //将页面切换逻辑使用按钮的click进行手动转换
@@ -26,15 +30,37 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QWidget *placeholder = ui->chartSplineWidget;
 
-    this->resize(1213,700);
+    this->setFixedSize(this->width(),this->height());
     // 设置 chartspline 对象到占位部件的位置
     QVBoxLayout *layout = new QVBoxLayout(placeholder);
     layout->addWidget(_chartSpline);
     placeholder->setLayout(layout);
 
+    //设置具体阴影
+    QGraphicsDropShadowEffect *shadow_effect1 = new QGraphicsDropShadowEffect(this);
+    shadow_effect1->setOffset(0, 0);
+    //阴影颜色
+    shadow_effect1->setColor(QColor(38, 78, 119, 127));
+    //阴影半径
+    shadow_effect1->setBlurRadius(30);
+    ui->headNevagationFrame->setGraphicsEffect(shadow_effect1);
+
+    //设置具体阴影
+    QGraphicsDropShadowEffect *shadow_effect2 = new QGraphicsDropShadowEffect(this);
+    shadow_effect2->setOffset(0, 0);
+    //阴影颜色
+    shadow_effect2->setColor(QColor(38, 78, 119, 127));
+    //阴影半径
+    shadow_effect2->setBlurRadius(30);
+    ui->siderBarFrame->setGraphicsEffect(shadow_effect2);
+
 
     connect(ui->firstbutton1,&QPushButton::clicked,this,[=](){
         ui->selectpage->setCurrentIndex(0);
+    });
+
+    connect(ui->MainCloseButton,&QPushButton::clicked,this,[=](){
+        this->close();
     });
 
     connect(ui->stockbutton1,&QPushButton::clicked,this,[=](){
@@ -59,6 +85,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->leavebutton1,&QPushButton::clicked,this,[=](){
         this->close();
     });
+
 
 
     //时间初始化
@@ -252,11 +279,39 @@ int MainWindow::totalcurrency(){
     qDebug()<<"totalcurrency"<<totalcurrency;
     return totalcurrency;
 }
+
+
+
+
 void MainWindow::on_communitybutton1_clicked()
 {
 
+}
+
+void MainWindow::mousePressEvent(QMouseEvent *event){
+
+    if( (event->button() == Qt::LeftButton) ){
+        mouse_press = true;
+        mousePoint = event->globalPos() - this->pos();
+        //        event->accept();
+    }
+    else if(event->button() == Qt::RightButton){
+        //如果是右键
+        this->close();
+
+    }
 
 }
 
+void MainWindow::mouseMoveEvent(QMouseEvent* event)
+{
+    if(mouse_press){
+        move(event->globalPos() - mousePoint);
 
+    }
+}
 
+void MainWindow::mouseReleaseEvent(QMouseEvent *event)
+{
+    mouse_press = false;
+}

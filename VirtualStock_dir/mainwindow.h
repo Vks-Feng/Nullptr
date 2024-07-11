@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include <QMessageBox>
+#include <QGraphicsDropShadowEffect>
+#include <QColor>
+#include <QMouseEvent>
 #include "buyin.h"
 #include "personpage.h"
 #include "buyin.h"
@@ -28,6 +31,12 @@ public:
     int totalcurrency();
     ~MainWindow();
 
+protected:
+    void mouseMoveEvent(QMouseEvent *event);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
+
+
 private slots:
 
     void on_personpage1_clicked();
@@ -39,8 +48,11 @@ private slots:
 
     void on_TransactionButton_clicked();
 
+
 private:
     Ui::MainWindow *ui;
+    QPoint mousePoint;
+    bool mouse_press;
 };
 
 #endif // MAINWINDOW_H

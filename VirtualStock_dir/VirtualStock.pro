@@ -107,6 +107,7 @@ INCLUDEPATH += $$PWD/../_include
 DEPENDPATH += $$PWD/../_include
 
 RESOURCES += \
+    GroupLogo.qrc \
     loginButton.qrc \
     loginPic.qrc
 
