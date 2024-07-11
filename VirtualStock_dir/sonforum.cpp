@@ -10,6 +10,22 @@ sonforum::sonforum(std::vector<Post>_load,QWidget *parent)
     // 创建一个QGridLayout来管理按钮布局
     buttonLayout = new QGridLayout(this);
 
+    //创建滚动
+    QScrollArea *scrollArea = new QScrollArea();
+    scrollArea->setWidgetResizable(true); // 设置滚动区域可以调整大小
+
+    // 创建一个QWidget作为滚动区域的子窗口
+    QWidget *scrollAreaWidgetContents = new QWidget();
+    scrollAreaWidgetContents->setLayout(buttonLayout); // 将网格布局设置到这个QWidget上
+
+    // 将QWidget设置到滚动区域中
+    scrollArea->setWidget(scrollAreaWidgetContents);
+
+    // 创建一个布局并将滚动区域添加到主窗口中
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->addWidget(scrollArea);
+
+
     // 创建输入文本框
     QLineEdit *lineEdit = new QLineEdit();
     buttonLayout->addWidget(lineEdit, 0, 0); // 将文本框添加到第一行第一列
@@ -32,6 +48,7 @@ sonforum::sonforum(std::vector<Post>_load,QWidget *parent)
         // 创建文本显示框
         QTextEdit *textEdit = new QTextEdit(this);
         textEdit->setReadOnly(true); // 设置为只读
+        textEdit->setFixedHeight(300);
         buttonLayout->addWidget(textEdit, row+1,0);
         // 可以在这里设置文本显示框的内容
         QString temp;
@@ -43,6 +60,7 @@ sonforum::sonforum(std::vector<Post>_load,QWidget *parent)
             temp="本帖发布时间为用户模拟结束后";
             textEdit->setHtml("发帖人："+load[row].getid()+"<p>"+load[row].getcontent()+"<p>"+temp);
         }
+        textEdit->setStyleSheet("QTextEdit { font-size:20px }");
     }
     ui->setupUi(this);
 }
