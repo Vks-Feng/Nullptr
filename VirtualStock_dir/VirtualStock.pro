@@ -8,9 +8,12 @@ CONFIG -= app_bundle
 
 LIBS += -lmysqlclient
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++17
+
+QMAKE_CXXFLAGS += -Wa,-mbig-obj
+# 允许编译更大的文件
 
 #win32:QMAKE_LFLAGS += -shared
 

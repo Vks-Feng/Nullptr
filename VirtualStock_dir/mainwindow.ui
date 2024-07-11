@@ -33,10 +33,10 @@ border-bottom-right-radius:10px;}</string>
     <enum>QFrame::Panel</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="selectpage1">
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -62,7 +62,7 @@ border-bottom-right-radius:10px;}</string>
      </property>
      <layout class="QVBoxLayout" name="MainChartsLayout"/>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>460</x>
@@ -143,128 +143,149 @@ border:1px rgb(231, 231, 231);
     </widget>
    </widget>
    <widget class="QWidget" name="selectpage2">
-    <widget class="QWidget" name="horizontalLayoutWidget_3">
+    <widget class="QWidget" name="verticalLayoutWidget_7">
      <property name="geometry">
       <rect>
        <x>20</x>
        <y>30</y>
-       <width>721</width>
-       <height>491</height>
+       <width>861</width>
+       <height>551</height>
       </rect>
      </property>
-     <layout class="QHBoxLayout" name="stockTotalLayout">
+     <layout class="QVBoxLayout" name="stock_total_layout">
       <item>
-       <layout class="QFormLayout" name="formLayout">
-        <item row="1" column="1">
-         <widget class="QFrame" name="TradeFrame">
-          <property name="styleSheet">
-           <string notr="true">QFrame
-{
-background-color: rgb(255, 255, 255);
-border-radius:20px;
-border:1px rgb(231, 231, 231);
-}
-</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-         </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QWidget" name="StockWidget_1" native="true"/>
+          </item>
+          <item>
+           <widget class="QComboBox" name="ChooseWhichStock_1">
+            <item>
+             <property name="text">
+              <string>Apple</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Amazon</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Google</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>IBM</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Intel</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>JetBlue</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Meta</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Microsoft</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
         </item>
-        <item row="0" column="1">
-         <widget class="QFrame" name="companyIntroduce">
-          <property name="styleSheet">
-           <string notr="true">QFrame
-{
-background-color: rgb(255, 255, 255);
-border-radius:20px;
-border:1px rgb(231, 231, 231);
-}
-QFrame#siderBarFrame {
-                      background-color: white;
-                      border: 1px solid #ccc;
-                      border-radius: 5px;
-                      padding: 10px;
-                      /* 设置阴影 */
-                       box-shadow: 0 0 30px rgba(38, 78, 119, 0.5);
-                    }</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
+        <item>
+         <widget class="QPlainTextEdit" name="stockIntro_1">
+          <property name="font">
+           <font>
+            <family>Microsoft YaHei UI</family>
+            <pointsize>16</pointsize>
+            <bold>false</bold>
+           </font>
           </property>
          </widget>
         </item>
        </layout>
       </item>
       <item>
-       <widget class="QWidget" name="chartSplineWidget" native="true">
-        <property name="styleSheet">
-         <string notr="true">QWidget{
-color:transparent;
-border-radius:10px;
-backgroud-color:white;
-box-shadow: 5px 5px 5px #888888;
-}</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QWidget" name="StockWidget_2" native="true"/>
+          </item>
+          <item>
+           <widget class="QComboBox" name="ChooseWhichStock_2">
+            <item>
+             <property name="text">
+              <string>Apple</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Amazon</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Google</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>IBM</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Intel</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>JetBlue</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Meta</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Microsoft</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPlainTextEdit" name="stockIntro_2">
+          <property name="font">
+           <font>
+            <family>Microsoft YaHei UI</family>
+            <pointsize>16</pointsize>
+            <bold>false</bold>
+           </font>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
-    </widget>
-    <widget class="QComboBox" name="ChooseWhichStock">
-     <property name="geometry">
-      <rect>
-       <x>770</x>
-       <y>10</y>
-       <width>93</width>
-       <height>26</height>
-      </rect>
-     </property>
-     <item>
-      <property name="text">
-       <string>Apple</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Amazon</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Google</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>IBM</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Intel</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>JetBlue</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Meta</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Microsoft</string>
-      </property>
-     </item>
     </widget>
    </widget>
    <widget class="QWidget" name="selectpage3">

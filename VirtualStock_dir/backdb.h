@@ -128,7 +128,7 @@ public:
     //看你数据库的设计我默认为用户买入的时候才会添加portfolios数据，没买就不添加
 
     //所以：
-    //若找到,返回余量，若没找到，返回0
+    //若找到,返回余量，若没找到，返回-1(这里有一个bug，如果是0会新建，这里解决了)
     int getUserVolume(int userID, int companyID);
 
 

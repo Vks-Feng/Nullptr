@@ -442,7 +442,7 @@ int BackDB::getUserVolume(int userID, int companyID)
     MYSQL_RES* queryResult=this->query(queryStr);
 
     if (mysql_num_rows(queryResult) == 0) { //此处绝对不能用==NULL进行判定
-        return 0;
+        return -1;
     }
 
     MYSQL_ROW row = mysql_fetch_row(queryResult);
@@ -451,15 +451,7 @@ int BackDB::getUserVolume(int userID, int companyID)
     QString qStr=row[0];
     long value = qStr.toLong(&ok);
 
-    if(ok==1)
-    {
-        std::cout<<"Get volume:"<<value<<std::endl;
-        return value;
-    }
-    else
-    {
-        return 0;
-    }
+    return value;
 }
 
 int BackDB::GetBalance(int user_id)
@@ -481,7 +473,7 @@ int BackDB::GetBalance(int user_id)
 
     if(ok==1)
     {
-        std::cout<<"Get volume:"<<value<<std::endl;
+//        std::cout<<"Get volume:"<<value<<std::endl;
         return value;
     }
     else
@@ -619,15 +611,9 @@ std::vector<long> &BackDB::getStockInfo(int id, int year, int month)
         return *ReturnVector;
     }
 
-    unsigned int num_fields;
-    unsigned int i;
-    MYSQL_FIELD* fields;
-
-    num_fields = mysql_num_fields(queryResult);
-
     MYSQL_ROW row = mysql_fetch_row(queryResult);
 
-    std::cout << "Get the stock info:"<<row[0] << " "<<row[1]<<" "<<row[2]<<std::endl;
+//    std::cout << "Get the stock info:"<<row[0] << " "<<row[1]<<" "<<row[2]<<std::endl;
 
     bool ok;
 
@@ -639,7 +625,7 @@ std::vector<long> &BackDB::getStockInfo(int id, int year, int month)
     QString qStr_2=row[2];
 //    qDebug()<<qStr_2<<Qt::endl;
     unsigned long long volume = qStr_2.toLongLong(&ok);
-    std::cout <<  volume << std::endl;
+//    std::cout <<  volume << std::endl;
 
     if(ok==1)
     {
@@ -670,23 +656,17 @@ void BackDB::AddStock(int userID, int company_id, int volume)
 {
     long currentVolume = this->getUserVolume(userID, company_id);
 
-    std::cout<<currentVolume<<std::endl;
+//    std::cout<<currentVolume<<std::endl;
 
     //1. 如果有这个股票
-    if (currentVolume > 0) {
+    if (currentVolume >= 0) {
 
         QString updateQuery = QString("UPDATE portfolios SET volume = %1 WHERE user_id = %2 AND company_id = %3;")
                                   .arg(currentVolume + volume)
                                   .arg(userID)
                                   .arg(company_id);
 
-        MYSQL_RES* updateResult = this->query(updateQuery);
-
-        //        if (!updateResult) {
-        //            std::cerr << "Update error occurred" << std::endl;
-        //        } else {
-        //            std::cout << "Volume updated successfully!" << std::endl;
-        //        }
+        this->query(updateQuery);
     }
     //2. 如果没有这个股票
     else {
@@ -839,7 +819,7 @@ void BackDB::RemoveStock(int userID, int company_id, int volume)
 {
     long currentVolume = this->getUserVolume(userID, company_id);
 
-    std::cout<<currentVolume<<std::endl;
+//    std::cout<<currentVolume<<std::endl;
 
     //1. 如果删除操作合理
     if (currentVolume >= volume) {
@@ -908,6 +888,8 @@ std::vector<Post> BackDB::getforum()
 
         ReturnRecord.push_back(item);
     }
+
+    return ReturnRecord;
 }
 
 void BackDB::testAddPost()
@@ -1025,7 +1007,7 @@ int BackDB::getTime(int _userId)
                        MYSQL_ROW row;
                        row=mysql_fetch_row(queryResult);
 
-                       std::cout<<"GET MONTH:"<<row[5]<<std::endl;
+//                       std::cout<<"GET MONTH:"<<row[5]<<std::endl;
 
                        bool ok;
                        QString StrMonth=row[5];
@@ -1083,7 +1065,7 @@ void BackDB::setTotalvalue(int user_ID, int value)
     QString queryStr;
     if(is_exist==1)
     {
-        std::cout<<"UPDATE"<<std::endl;
+//        std::cout<<"UPDATE"<<std::endl;
     queryStr=QString("UPDATE total_value \
                                SET total_value = %1 \
                                  WHERE id = %2; \
@@ -1093,7 +1075,7 @@ void BackDB::setTotalvalue(int user_ID, int value)
     }
     else
     {
-    std::cout<<"INSERT"<<std::endl;
+//    std::cout<<"INSERT"<<std::endl;
     queryStr=QString("INSERT INTO total_value \
                              (id, total_value) VALUES ('%1','%2'); \
                                       ")
@@ -1122,7 +1104,7 @@ int BackDB::getTotalvalue(int userid)
 
     if(ok==1)
     {
-        std::cout<<"Get volume:"<<value<<std::endl;
+//        std::cout<<"Get volume:"<<value<<std::endl;
         return value;
     }
     else
@@ -1142,7 +1124,7 @@ std::vector<QString> BackDB::getAllUserName()
 
     MYSQL_ROW row;
     while ((row = mysql_fetch_row(queryResult))) {
-        std::cout << row[1] << " ";
+//        std::cout << row[1] << " ";
         userNames.push_back(row[1]);
     }
     return userNames;
@@ -1160,7 +1142,7 @@ int BackDB::getUserId(QString name)
     QString qnumber=row_0[0];
     int number=qnumber.toInt();
     if(number==0)return -1;
-    else std::cout<<"get "<<row_0[0]<<" users"<<std::endl;
+//    else std::cout<<"get "<<row_0[0]<<" users"<<std::endl;
 
 
     QString StrQuery_1 = QString("SELECT * FROM users where name = '%1';").arg(name);
@@ -1194,7 +1176,7 @@ void BackDB::testGetNews()
 void BackDB::testGetUserRecord()
 {
     std::vector<Record> RecordSet=this->getUserRecord(1);
-    std::cout<<"SIZE:"<<RecordSet.size()<<std::endl;
+//    std::cout<<"SIZE:"<<RecordSet.size()<<std::endl;
     for(int i=0;i<RecordSet.size();i++) std::cout<<RecordSet[i].GetTotalPrice()<<std::endl;
 }
 
@@ -1215,14 +1197,6 @@ void BackDB::testAddStock()
 
 void BackDB::test()
 {
-
-//    std::cout<<this->getTotalvalue(12)<<std::endl;
-//    this->setTotalvalue(999,9009);
-//    std::vector<QString> result=getAllUserName();
-//    for(int i=0;i<result.size();i++)
-//    {
-//        qDebug()<<result[i]<<Qt::endl;
-//    }
     qDebug()<<this->getUserId("NULL")<<Qt::endl;
     std::cout<<"Done in test"<<std::endl;
 }

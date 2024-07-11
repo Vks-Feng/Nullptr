@@ -44,10 +44,17 @@ private slots:
 
     void on_nextroundbutton_clicked();
 
-
     void on_communitybutton1_clicked();
 
     void on_TransactionButton_clicked();
+
+    QString CompanyIntro(int index);
+
+    void PutCompanyName_1(int index);
+
+    void PutCompanyName_2(int index);
+
+
 
 
 private:
