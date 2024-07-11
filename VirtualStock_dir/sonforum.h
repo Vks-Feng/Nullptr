@@ -20,6 +20,7 @@
 #include <QMessageBox>
 #include"global.h"
 #include"post.h"
+#include<QScrollArea>
 namespace Ui {
 class sonforum;
 }

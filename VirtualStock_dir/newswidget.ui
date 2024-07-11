@@ -7,26 +7,35 @@
     <x>0</x>
     <y>0</y>
     <width>409</width>
-    <height>484</height>
+    <height>351</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">border-radius:10px;
+backgroud-color:white;
+</string>
+  </property>
   <widget class="QLabel" name="NewsLable">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>0</y>
-     <width>101</width>
-     <height>31</height>
+     <y>160</y>
+     <width>221</width>
+     <height>111</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Forte</family>
-     <pointsize>14</pointsize>
+     <pointsize>18</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:white
+</string>
    </property>
    <property name="text">
     <string>Hot News!</string>
@@ -35,17 +44,51 @@
   <widget class="QListWidget" name="NewsList">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>30</y>
-     <width>411</width>
-     <height>451</height>
+     <x>360</x>
+     <y>10</y>
+     <width>41</width>
+     <height>331</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>华文楷体</family>
-     <pointsize>9</pointsize>
+     <family>Algerian</family>
+     <pointsize>14</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QListWidget::item:selected{
+	background-color:rgba(33, 84, 118, 100);
+}
+QListWidget::item:hover { background-color: rgb(255, 221, 233); }
+ // 设置垂直滚动条基本样式
+QScrollBar:vertical
+{
+    width:8px;
+    background:rgba(0,0,0,0%);
+    margin:0px,0px,0px,0px;
+    padding-top:9px;   // 留出9px给上面和下面的箭头
+    padding-bottom:9px;
+}
+QScrollBar::handle:vertical
+{
+    width:8px;
+    background:rgba(0,0,0,25%);
+    border-radius:4px;   // 滚动条两端变成椭圆
+    min-height:20;
+}
+QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   // 当滚动条滚动的时候，上面的部分和下面的部分
+{
+    background:rgba(0,0,0,10%);
+    border-radius:4px;
+}
+QListWidget
+{
+background-color: rgb(255, 255, 255);
+border-radius:20px;
+border:1px rgb(231, 231, 231);
+}
+</string>
    </property>
    <item>
     <property name="text">
@@ -59,7 +102,66 @@
     </property>
    </item>
   </widget>
+  <widget class="QLabel" name="NewsPicLabel">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>200</y>
+     <width>311</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="newsPic.qrc">:/new/news/photos/news.jpg</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="NewsPic2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>10</y>
+     <width>311</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="newsPic2.qrc">:/new/news/photos/f6.jpg</pixmap>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>10</y>
+     <width>31</width>
+     <height>331</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
+  <zorder>NewsPic2</zorder>
+  <zorder>NewsPicLabel</zorder>
+  <zorder>NewsLable</zorder>
+  <zorder>NewsList</zorder>
+  <zorder>frame</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="newsPic2.qrc"/>
+  <include location="newsPic.qrc"/>
+ </resources>
  <connections/>
 </ui>

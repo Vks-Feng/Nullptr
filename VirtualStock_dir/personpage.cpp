@@ -6,6 +6,7 @@ Personpage::Personpage(QWidget *parent) :
     ui(new Ui::Personpage)
 {
     ui->setupUi(this);
+    ui->userPicLabel->setScaledContents(true);
     Global::instance().getGlobalUserManage()->updateUser(0);
     ui->userName->setText(Global::instance().getGlobalUserManage()->GetUser(0)->GetName());
     ui->userName->setDisabled(true);
@@ -13,7 +14,7 @@ Personpage::Personpage(QWidget *parent) :
     ui->trackedCount->setDisabled(true);
     ui->personalDescribeEdit->setText(Global::instance().getGlobalDataBase()->getIntroduction(Global::instance().getGlobalUserManage()->GetUser(0)->GetId()));
     ui->personalDescribeEdit->setDisabled(true);
-    connect(ui->ChargeButton, &QPushButton::clicked, this, &Personpage::openChargePage);
+    // connect(ui->ChargeButton, &QPushButton::clicked, this, &Personpage::openChargePage);
 
 
 
@@ -22,38 +23,62 @@ Personpage::Personpage(QWidget *parent) :
     int thisall=Global::instance().getGlobalDataBase()->getTotalvalue(Global::instance().getGlobalUserManage()->GetUser(0)->GetId());//本月总资产
     int lastvalue = 0;//lastvalue是盈利钱数
     int time=Global::instance().getGlobalDataBase()->getTime(Global::instance().getGlobalUserManage()->GetUser(0)->GetId());
-    if(time==1){lastvalue=thisall-lastvalue;}
+    if(time==1){lastvalue=thisall-64800;}
     else{
     std::vector<Record>load=Global::instance().getGlobalDataBase()->getUserRecord(Global::instance().getGlobalUserManage()->GetUser(0)->GetId());
     int number=load.size();
+
+    //获取所有当月股票的交易记录
+    int havestock[9]={0};
     QString thismonth;
     for(int i=0;i<number;i++){
         thismonth+=load[i].GetDate()[5];
         thismonth+=load[i].GetDate()[6];
-        qDebug()<<thismonth;
         int thistime=QString(thismonth).toInt();
-        if(thistime<time-1){qDebug()<<"continue";continue;}
-        else if(thistime>time-1){qDebug()<<"end";break;}
+        if(thistime<time){qDebug()<<"continue";continue;}
+        else if(thistime>time){qDebug()<<"end";break;}
         else{
             qDebug()<<"开始添加";
             if(load[i].GetTradeType()){
-                lastvalue-=load[i].GetVolume();
+                qDebug()<<"添加";
+                havestock[load[i].GetCompanyId()]+=load[i].GetVolume();
+
             }
             else{
-                lastvalue+=load[i].GetVolume();
+                qDebug()<<"减少";
+                havestock[load[i].GetCompanyId()]-=load[i].GetVolume();
             }
         }
+        thismonth.clear();
     }
+
+
+    //
+    int stockcurrency[9];//所有股票价格
+    //
+    for(int i=1;i<9;i++){
+    std::vector<long>& stockInfo1 = Global::instance().getGlobalDataBase()->getStockInfo(i, 2023, time-1);
+    long stockPrice1 = stockInfo1[0]; // 获取股票价格
+    int number1=Global::instance().getGlobalDataBase()->getUserVolume(Global::instance().getGlobalUserManage()->GetUser(0)->GetId(),i);
+    std::vector<long>& stockInfo2 = Global::instance().getGlobalDataBase()->getStockInfo(i, 2023, time);
+    long stockPrice2 = stockInfo2[0]; // 获取股票价格
+
+    stockcurrency[i]=(stockPrice2-stockPrice1)*(number1-havestock[i]);
+    lastvalue+=stockcurrency[i];
     }
-    float lo=lastvalue/thisall;
-    ui->profitRateMonthContent->setText(QString::number(lo));
-    lo=(thisall-64800)/64800;
+    //
+
+
+    }
+    float lo=lastvalue*10000/thisall;
+    ui->profitRateMonthContent->setText(QString::number(lo)+"%%");
+    lo=(thisall-64800)*10000/64800;
     ui->profitRateMonthContent->setDisabled(true);
     ui->phaseMonthContent->setText(QString::number(lastvalue));
     ui->phaseMonthContent->setDisabled(true);
     ui->balanceMonthContent->setText(QString::number(Global::instance().getGlobalUserManage()->GetUser(0)->GetBalance()));
     ui->balanceMonthContent->setDisabled(true);
-    ui->profitRateTotalContent->setText(QString::number(lo));
+    ui->profitRateTotalContent->setText(QString::number(lo)+"%%");
     ui->profitRateTotalContent->setDisabled(true);
     ui->phaseTotalContent->setText(QString::number(thisall-64800));
     ui->phaseTotalContent->setDisabled(true);

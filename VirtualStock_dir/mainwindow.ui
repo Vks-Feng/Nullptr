@@ -6,257 +6,332 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>833</width>
-    <height>477</height>
+    <width>1008</width>
+    <height>732</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QGroupBox" name="groupBox">
-     <property name="title">
-      <string/>
+  <property name="styleSheet">
+   <string notr="true">
+QWidget{border-top-left-radius : 10px;
+border-top-right-radius: 10px;
+border-bottom-left-radius :10px;
+border-bottom-right-radius:10px;}</string>
+  </property>
+  <widget class="QStackedWidget" name="selectpage">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>60</y>
+     <width>891</width>
+     <height>671</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Panel</enum>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="selectpage1">
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>411</width>
+       <height>311</height>
+      </rect>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QVBoxLayout" name="ForNews">
       <item>
-       <widget class="QPushButton" name="firstbutton1">
-        <property name="text">
-         <string>首页</string>
+       <layout class="QHBoxLayout" name="Page1Layout"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>349</y>
+       <width>411</width>
+       <height>311</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="MainChartsLayout"/>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>10</y>
+       <width>421</width>
+       <height>321</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QFrame" name="frame">
+        <property name="styleSheet">
+         <string notr="true">QFrame
+{
+background-color: rgb(255, 255, 255);
+border-radius:20px;
+border:1px rgb(231, 231, 231);
+box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
+}
+</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="stockbutton1">
-        <property name="text">
-         <string>股票</string>
+       <widget class="QFrame" name="RuleFrame">
+        <property name="styleSheet">
+         <string notr="true">QFrame {
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    /* 设置阴影 */
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5); /* 水平偏移，垂直偏移，模糊半径，阴影扩散 */
+    border-top: 5px solid qlineargradient(y0:0, y1:1,stop: 0 #ececef, stop: 1 white);
+    border-left: 5px solid qlineargradient(x0:0, x1:1,stop: 0 #ececef, stop: 1 white);
+    border-bottom: 5px solid qlineargradient(y0:0, y1:1,stop: 0 white, stop: 1  #ececef);
+    border-right: 5px solid qlineargradient(x0:0, x1:1,stop:  0 white, stop: 1 #ececef);
+}
+</string>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="rankbutton1">
-        <property name="text">
-         <string>排行榜</string>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="dealbutton1">
-        <property name="text">
-         <string>交易规则</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="communitybutton1">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="text">
-         <string>社区交流</string>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
         </property>
        </widget>
       </item>
      </layout>
     </widget>
-   </item>
-   <item row="3" column="0" colspan="3">
-    <widget class="QStackedWidget" name="selectpage">
-     <property name="currentIndex">
-      <number>2</number>
+    <widget class="QFrame" name="personageFrame">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>350</y>
+       <width>411</width>
+       <height>311</height>
+      </rect>
      </property>
-     <widget class="QWidget" name="selectpage1">
-      <widget class="QWidget" name="horizontalLayoutWidget_2">
-       <property name="geometry">
-        <rect>
-         <x>170</x>
-         <y>80</y>
-         <width>581</width>
-         <height>161</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="Page1Layout">
-        <item>
-         <layout class="QGridLayout" name="gridLayout_4">
-          <item row="1" column="1">
-           <widget class="QLabel" name="vksMarkshouye_2">
-            <property name="font">
-             <font>
-              <family>方正姚体</family>
-              <pointsize>24</pointsize>
-              <italic>true</italic>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>交易平台</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="vksMarkshouye_3">
-            <property name="font">
-             <font>
-              <family>微软雅黑 Light</family>
-              <pointsize>10</pointsize>
-              <italic>false</italic>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>第10小组： 冯官晟 郭静怡 林帆 王子安 李卓优</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="vksMarkshouye">
-            <property name="font">
-             <font>
-              <family>方正姚体</family>
-              <pointsize>24</pointsize>
-              <italic>true</italic>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>虚拟股票</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
+     <property name="styleSheet">
+      <string notr="true">QFrame
+{
+background-color: rgb(255, 255, 255);
+border-radius:5px;
+border:1px rgb(231, 231, 231);
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="selectpage2">
+    <widget class="QWidget" name="horizontalLayoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>721</width>
+       <height>491</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="stockTotalLayout">
+      <item>
+       <layout class="QFormLayout" name="formLayout">
+        <item row="1" column="1">
+         <widget class="QFrame" name="TradeFrame">
+          <property name="styleSheet">
+           <string notr="true">QFrame
+{
+background-color: rgb(255, 255, 255);
+border-radius:20px;
+border:1px rgb(231, 231, 231);
+}
+</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+         </widget>
         </item>
-        <item>
-         <layout class="QVBoxLayout" name="ForNews"/>
+        <item row="0" column="1">
+         <widget class="QFrame" name="companyIntroduce">
+          <property name="styleSheet">
+           <string notr="true">QFrame
+{
+background-color: rgb(255, 255, 255);
+border-radius:20px;
+border:1px rgb(231, 231, 231);
+}
+QFrame#siderBarFrame {
+                      background-color: white;
+                      border: 1px solid #ccc;
+                      border-radius: 5px;
+                      padding: 10px;
+                      /* 设置阴影 */
+                       box-shadow: 0 0 30px rgba(38, 78, 119, 0.5);
+                    }</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+         </widget>
         </item>
        </layout>
-      </widget>
-     </widget>
-     <widget class="QWidget" name="selectpage2">
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
-        <layout class="QVBoxLayout" name="stockLayout">
-         <item>
-          <widget class="QWidget" name="chartSplineWidget" native="true"/>
-         </item>
-         <item>
-          <widget class="QPushButton" name="TransactionButton">
-           <property name="text">
-            <string>进行股票交易</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="ChooseWhichStock">
-           <item>
-            <property name="text">
-             <string>Apple</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Amazon</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Google</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>IBM</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Intel</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>JetBlue</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Meta</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Microsoft</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="selectpage3">
-      <widget class="QTableWidget" name="tableWidget">
-       <property name="geometry">
-        <rect>
-         <x>60</x>
-         <y>40</y>
-         <width>551</width>
-         <height>271</height>
-        </rect>
-       </property>
-       <row>
-        <property name="text">
-         <string>新建行</string>
+      </item>
+      <item>
+       <widget class="QWidget" name="chartSplineWidget" native="true">
+        <property name="styleSheet">
+         <string notr="true">QWidget{
+color:transparent;
+border-radius:10px;
+backgroud-color:white;
+box-shadow: 5px 5px 5px #888888;
+}</string>
         </property>
-       </row>
-       <column>
-        <property name="text">
-         <string>排名</string>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QComboBox" name="ChooseWhichStock">
+     <property name="geometry">
+      <rect>
+       <x>770</x>
+       <y>10</y>
+       <width>93</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>Apple</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Amazon</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Google</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>IBM</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Intel</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>JetBlue</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Meta</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Microsoft</string>
+      </property>
+     </item>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="selectpage3">
+    <widget class="QWidget" name="verticalLayoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>30</y>
+       <width>831</width>
+       <height>521</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="RankingLayout">
+      <item>
+       <widget class="QTableWidget" name="tableWidget">
+        <property name="minimumSize">
+         <size>
+          <width>579</width>
+          <height>0</height>
+         </size>
         </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>用户名</string>
+        <column>
+         <property name="text">
+          <string>用户名</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>当前月份</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>当月盈利</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>总盈利</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="selectpage4">
+    <widget class="QWidget" name="horizontalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>9</y>
+       <width>511</width>
+       <height>231</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="RuleLayout">
+      <item>
+       <widget class="QPlainTextEdit" name="TransactionRule">
+        <property name="font">
+         <font>
+          <family>宋体</family>
+          <pointsize>11</pointsize>
+         </font>
         </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>当前月份</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>当月盈利</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>总盈利</string>
-        </property>
-       </column>
-      </widget>
-     </widget>
-     <widget class="QWidget" name="selectpage4">
-      <widget class="QWidget" name="horizontalLayoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>9</x>
-         <y>9</y>
-         <width>511</width>
-         <height>231</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="RuleLayout">
-        <item>
-         <widget class="QPlainTextEdit" name="TransactionRule">
-          <property name="font">
-           <font>
-            <family>宋体</family>
-            <pointsize>11</pointsize>
-           </font>
-          </property>
-          <property name="plainText">
-           <string>1. 订单类型
+        <property name="plainText">
+         <string>1. 订单类型
 市价单：按当前市场价格立即买入或卖出股票。
 限价单：设定一个特定的价格买入或卖出股票，只有当市场价格达到设定价格时，订单才会被执行。
 止损单：在股票价格达到预定的触发价格时，按市价卖出，以限制损失。
@@ -297,66 +372,299 @@ T+0/T+1/T+2：不同市场有不同的清算交割制度。例如，美国市场
 8. 了解股息：作为股东，您有权获得公司分配的利润，即股息。了解不同类型的股息（如现金股息、股票股息、特别股息）及其支付时间对于投资决策至关重要。
     请记住，炒股不仅是一场金钱游戏，更是一种人生的修行。只要您始终保持谦虚、谨慎和耐心的态度，相信您会在股市中找到属于自己的成功之路。
 最后，炒股有风险，入市需谨慎，请永远谨记这一点。</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </widget>
-     <widget class="QWidget" name="selectpage5">
-      <widget class="QWidget" name="verticalLayoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>70</y>
-         <width>160</width>
-         <height>80</height>
-        </rect>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="selectpage5">
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>70</y>
+       <width>160</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="CommunityLayout"/>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="siderBarFrame">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>70</y>
+     <width>131</width>
+     <height>691</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame
+{
+background-color: rgb(255, 255, 255);
+border-radius:5px;
+border:1px rgb(231, 231, 231);
+}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="timelabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>540</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>6</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="nextroundbutton">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>590</y>
+      <width>80</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>下一轮</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>101</width>
+      <height>391</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QPushButton" name="firstbutton1">
+       <property name="styleSheet">
+        <string notr="true">background-color:transparent;
+</string>
        </property>
-       <layout class="QVBoxLayout" name="CommunityLayout"/>
+       <property name="text">
+        <string>首页</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>photos/page1.png</normaloff>photos/page1.png</iconset>
+       </property>
       </widget>
-     </widget>
-    </widget>
-   </item>
-   <item row="0" column="2">
-    <widget class="QPushButton" name="personpage1">
-     <property name="text">
-      <string>个人主页</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="2">
-    <widget class="QPushButton" name="leavebutton1">
-     <property name="text">
-      <string>退出登陆</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1">
-    <widget class="QPushButton" name="nextroundbutton">
-     <property name="text">
-      <string>下一轮</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="1">
-    <widget class="QLabel" name="timelabel">
-     <property name="text">
-      <string/>
-     </property>
-     <property name="textFormat">
-      <enum>Qt::AutoText</enum>
-     </property>
-     <property name="scaledContents">
-      <bool>false</bool>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-  </layout>
+     </item>
+     <item>
+      <widget class="QPushButton" name="stockbutton1">
+       <property name="styleSheet">
+        <string notr="true">background-color:transparent;
+</string>
+       </property>
+       <property name="text">
+        <string>股票走势</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="TransactionButton">
+       <property name="text">
+        <string>股票交易</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="rankbutton1">
+       <property name="styleSheet">
+        <string notr="true">background-color:transparent;
+</string>
+       </property>
+       <property name="text">
+        <string>排行榜</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="dealbutton1">
+       <property name="styleSheet">
+        <string notr="true">background-color:transparent;
+</string>
+       </property>
+       <property name="text">
+        <string>交易规则</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="communitybutton1">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:transparent;
+</string>
+       </property>
+       <property name="text">
+        <string>社区交流</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="headNevagationFrame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1091</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame
+{
+background-color: rgb(255, 255, 255);
+border:1px rgb(231, 231, 231);
+}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QWidget" name="horizontalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>20</y>
+      <width>671</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="ChargeButton">
+       <property name="text">
+        <string>充值</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="personpageBtn">
+       <property name="styleSheet">
+        <string notr="true">background-color:transparent;
+</string>
+       </property>
+       <property name="text">
+        <string>个人主页</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="leavebutton1">
+       <property name="styleSheet">
+        <string notr="true">background-color:transparent;
+</string>
+       </property>
+       <property name="text">
+        <string>退出登陆</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="logo">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="GroupLogo.qrc">:/new/logo/photos/logo.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>20</y>
+      <width>191</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Forte</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>StockStimulator</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="MainCloseButton">
+    <property name="geometry">
+     <rect>
+      <x>990</x>
+      <y>0</y>
+      <width>10</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>X</string>
+    </property>
+   </widget>
+  </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="GroupLogo.qrc"/>
+ </resources>
  <connections/>
 </ui>

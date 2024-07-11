@@ -6,6 +6,7 @@ Login::Login(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setFixedSize(this->width(),this->height());
+    this->setWindowFlags(Qt::FramelessWindowHint);
     connect(ui->DetailButton,&QPushButton::clicked,[=](){
         QMessageBox::information(this,"详情","敬请期待");
     });
@@ -19,6 +20,9 @@ Login::Login(QWidget *parent) :
     });
 
 
+    connect(ui->loginCloseButton,&QPushButton::clicked,[=](){
+        this->close();
+    });
 }
 
 Login::~Login()

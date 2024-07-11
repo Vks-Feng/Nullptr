@@ -8,6 +8,8 @@ NewsWidget::NewsWidget(QWidget *parent)
 {
     //内嵌子窗口
     ui->setupUi(this);
+    ui->NewsPicLabel->setScaledContents(true);
+    ui->NewsPic2->setScaledContents(true);//自适应大小
     setWindowFlags(Qt::CustomizeWindowHint | Qt::FramelessWindowHint);
 
     currentItem = nullptr;
