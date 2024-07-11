@@ -213,13 +213,6 @@ MainWindow::MainWindow(QWidget *parent) :
     // int year=Global::instance().getGlobalUserManage()->GetUser(0)->GetDate()->getYear();
     // int month=Global::instance().getGlobalDataBase().
 
-    //--vks--
-    connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, [=](){
-        qDebug() << "vksssssssssss";
-        forum* Forum=new forum();
-        Forum->show();
-    });
-    //--vks--
     // this->resize(1213,700);
     // this->resize(1700,700);
 

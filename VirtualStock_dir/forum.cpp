@@ -92,6 +92,9 @@ forum::forum(QWidget *parent):QWidget(parent){
 
     }
 
+    //--vks--
+    connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &forum::refresh);
+    //--vks--
 
     ui->setupUi(this);
     showMaximized();
@@ -164,8 +167,6 @@ void forum::onSubmitClicked() {
 
     //vks
     Global::instance().getGlobalClient()->write("Refresh:");
-    this->close();
-    this->deleteLater();
     //vks
 
 //    QMessageBox msgBox;
