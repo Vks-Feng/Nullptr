@@ -8,7 +8,6 @@
 #include "stock.h"
 #include "post.h"
 
-
 // The implement of backEndWithDataBase Class
 
 //----------Constructor----------
