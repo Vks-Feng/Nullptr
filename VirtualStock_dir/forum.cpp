@@ -72,9 +72,6 @@ forum::forum(QWidget *parent):QWidget(parent){
         }
     }
 
-    //vks
-    connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &forum::refresh);
-    //vks
 
     ui->setupUi(this);
 }
@@ -143,9 +140,15 @@ void forum::onSubmitClicked() {
     Global::instance().getGlobalDataBase()->addPost(add);
     //这里放上那个发帖链数据库的函数
 
-    QMessageBox msgBox;
-    msgBox.setText("发帖成功");
-    msgBox.exec();
+    //vks
+    Global::instance().getGlobalClient()->write("Refresh:");
+    this->close();
+    this->deleteLater();
+    //vks
+
+//    QMessageBox msgBox;
+//    msgBox.setText("发帖成功");
+//    msgBox.exec();
 }
 
 void forum::display(int m){
@@ -229,5 +232,4 @@ void forum::refresh(){
     forum*newforum=new forum();
     newforum->show();
     this->close();
-    qDebug() << "vks-server: refresh success";
 }

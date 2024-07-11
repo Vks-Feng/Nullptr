@@ -52,8 +52,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->communitybutton1,&QPushButton::clicked,this,[=](){
         forum* Forum=new forum();
         Forum->show();
-
-
     });
 
     connect(ui->leavebutton1,&QPushButton::clicked,this,[=](){
@@ -75,8 +73,6 @@ MainWindow::MainWindow(QWidget *parent) :
     int monthss=currentDate.getMonth();
 
 
-
-
     if(monthss>12){
         ui->TransactionButton->setDisabled(true);
         ui->nextroundbutton->setDisabled(true);
@@ -88,8 +84,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //新闻窗口
 
-
-
     NewsWidget *news = new NewsWidget(ui->selectpage1);
     ui->Page1Layout->addWidget(news);
     news->move(800,100);
@@ -99,8 +93,13 @@ MainWindow::MainWindow(QWidget *parent) :
     // int year=Global::instance().getGlobalUserManage()->GetUser(0)->GetDate()->getYear();
     // int month=Global::instance().getGlobalDataBase().
 
-
-
+    //--vks--
+    connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, [=](){
+        qDebug() << "vksssssssssss";
+        forum* Forum=new forum();
+        Forum->show();
+    });
+    //--vks--
 }
 
 MainWindow::~MainWindow()

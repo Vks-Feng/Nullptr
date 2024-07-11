@@ -9,6 +9,16 @@ Login::Login(QWidget *parent) :
     connect(ui->DetailButton,&QPushButton::clicked,[=](){
         QMessageBox::information(this,"详情","敬请期待");
     });
+
+    connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_connectToDataBase, this, &Login::connectToDataBase);
+
+    connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Login, this, &Login::readyToLogin);
+
+    connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Relogin, [=](){
+        loginErrorNotification("已在其他设备上登录");
+    });
+
+
 }
 
 Login::~Login()
@@ -24,6 +34,7 @@ void Login::loginErrorNotification(QString error){
 
 void Login::on_LoginButton_clicked()
 {
+    qDebug() << "0";
     if (ui->UserNameInput->text().isEmpty() || ui->UserPasswordInput->text().isEmpty()) {
         loginErrorNotification("用户名或密码不能为空");
     } else {
@@ -44,11 +55,15 @@ void Login::on_LoginButton_clicked()
         }
         case 2:
         {
-            Global::instance().getGlobalUserManage()->UserAdd(Global::instance().getGlobalDataBase()->enableUser(ui->UserNameInput->text()));
-            MainWindow* mainwindow = new MainWindow(); // 设置父对象为当前窗口
-            Global::instance().getGlobalClient()->connectToHost("127.0.0.1", 12345);
-            mainwindow->show();
-            this->close();
+            qDebug() << "vks1";
+            User test = Global::instance().getGlobalDataBase()->enableUser(ui->UserNameInput->text());
+            qDebug() << "vks2";
+            int userID = test.GetId();
+            qDebug() << "vks3";
+            QString msg = QString("Login:%1").arg(userID);
+            Global::instance().getGlobalClient()->write(msg.toUtf8());
+            Global::instance().getGlobalClient()->waitForBytesWritten();
+            qDebug() << "vks4";
             break;
         }
         default:
@@ -71,12 +86,30 @@ void Login::keyPressEvent(QKeyEvent  *event)
     }
 }
 
-void Login::on_RegisterButton_clicked()
-{
+void Login::on_RegisterButton_clicked(){
     enroll* en =new enroll();
     this->close();
     en->show();
 }
 
+void Login::connectToDataBase(QString ip, QString _password){
+    const char* host = ip.toUtf8().constData(); // MySQL server host
+    const char* user = "visitor_1"; // MySQL username
+    const char* password = _password.toUtf8().constData(); // MySQL password
+    const char* database = "stocks"; // MySQL database name
+    unsigned int port = 3306; // MySQL port (default is 3306)
+    const char* unix_socket = nullptr; // Unix socket (can be nullptr for TCP/IP)
+    unsigned long client_flag = 0; // Connection flags (usually 0)
+    BackDB* db = new BackDB(host, user, password, database, port, unix_socket, client_flag);
+    Global::instance().setGlobalDataBase(db);
+    qDebug() << "vks database";
+}
+
+void Login::readyToLogin(){
+    Global::instance().getGlobalUserManage()->UserAdd(Global::instance().getGlobalDataBase()->enableUser(ui->UserNameInput->text()));
+    MainWindow* main = new MainWindow;
+    main->show();
+    this->close();
+}
 
 
