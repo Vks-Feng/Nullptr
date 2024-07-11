@@ -78,9 +78,15 @@ forum::forum(QWidget *parent):QWidget(parent){
             ttemp="本帖发布时间为2023年"+QString::number(num)+"月";}
         else{
             ttemp="本帖发布时间为用户模拟结束后";}
-        button = new QPushButton(temp+"\n"+"发帖人："+load[m-row-1].getid()+"\n"+load[m-row-1].getcontent()+"\n"+ttemp, this);
+        QString fix;
+        int l=load[m-row-1].getcontent().size();
+        for(int i=0;i<l;i+=40){
+            fix+=load[m-row-1].getcontent().mid(i,40);
+            fix+="\n";
+        }
+        button = new QPushButton(temp+"\n"+"发帖人："+load[m-row-1].getid()+"\n"+fix+"\n"+ttemp, this);
         button->setFixedHeight(300);
-        button->setStyleSheet("QPushButton { font-size:32px }");
+        button->setStyleSheet("QPushButton { font-size:32px}");
         buttonLayout->addWidget(button, row+1, 0,1,3);
         // 连接clicked信号到对应的槽函数
         connect(button, &QPushButton::clicked, this, &forum::detail);
@@ -244,7 +250,13 @@ void forum::refresh(){
             ttemp="本帖发布时间为2023年"+QString::number(num)+"月";}
         else{
             ttemp="本帖发布时间为用户模拟结束后";}
-        button = new QPushButton(temp+"\n"+"发帖人："+load[m-row-1].getid()+"\n"+load[m-row-1].getcontent()+"\n"+ttemp, this);
+        QString fix;
+        int l=load[m-row-1].getcontent().size();
+        for(int i=0;i<l;i+=40){
+            fix+=load[m-row-1].getcontent().mid(i,40);
+            fix+="\n";
+        }
+        button = new QPushButton(temp+"\n"+"发帖人："+load[m-row-1].getid()+"\n"+fix+"\n"+ttemp, this);
         button->setFixedHeight(300);
         buttonLayout->addWidget(button, row+1, 0,1,3);
         // 连接clicked信号到对应的槽函数
