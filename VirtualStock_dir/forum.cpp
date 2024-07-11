@@ -83,13 +83,9 @@ forum::forum(QWidget *parent):QWidget(parent){
         button->setFixedHeight(300);
         button->setStyleSheet("QPushButton { font-size:32px}");
 
-
-
         buttonLayout->addWidget(button, row+1, 0,1,3);
         // 连接clicked信号到对应的槽函数
         connect(button, &QPushButton::clicked, this, &forum::detail);
-
-
     }
 
     //--vks--
@@ -184,9 +180,10 @@ void forum::display(int m){
 }
 
 void forum::refresh(){
-    disconnect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &forum::refresh);
-    this->close();
     forum*newforum=new forum();
     newforum->show();
+    this->close();
 }
+
+
 

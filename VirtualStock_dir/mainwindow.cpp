@@ -218,6 +218,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->selectpage2->setLayout(ui->stockTotalLayout);
 
+    forumOpen = false;
 }
 
 MainWindow::~MainWindow()
@@ -367,8 +368,6 @@ int MainWindow::totalcurrency(int userID,int months){
     qDebug()<<"totalcurrency"<<totalcurrency;
     return totalcurrency;
 }
-
-
 
 
 void MainWindow::on_communitybutton1_clicked()

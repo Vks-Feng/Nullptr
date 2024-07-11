@@ -54,6 +54,8 @@ private:
     Ui::MainWindow *ui;
     QPoint mousePoint;
     bool mouse_press;
+
+    bool forumOpen;
 };
 
 #endif // MAINWINDOW_H

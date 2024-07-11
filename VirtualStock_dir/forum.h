@@ -36,6 +36,14 @@ private slots:
     void detail();
     void onSubmitClicked();
     void refresh();
+
+protected:
+
+void closeEvent(QCloseEvent *event) override {
+    disconnect(Global::instance().getGlobalClient(),&ClientSocket::signal_Receive_Refresh , this, &forum::refresh);
+    QWidget::closeEvent(event);
+}
+
 private:
     int time;
     int allnumber;
