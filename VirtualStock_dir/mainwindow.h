@@ -14,6 +14,7 @@
 #include "backdb.h"
 #include "record.h"
 #include "newswidget.h"
+#include "forum.h"
 
 namespace Ui {
 class MainWindow;
@@ -44,9 +45,7 @@ private slots:
 
     void on_nextroundbutton_clicked();
 
-    void on_communitybutton1_clicked();
-
-    void on_TransactionButton_clicked();
+//    void on_TransactionButton_clicked();
 
     QString CompanyIntro(int index);
 

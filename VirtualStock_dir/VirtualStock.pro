@@ -114,13 +114,13 @@ RESOURCES += \
     GroupLogo.qrc \
     Icon.qrc \
     backPerson1.qrc \
-    buyin.qrc \
     communityIcon.qrc \
     homeIcon.qrc \
     loginButton.qrc \
     loginPic.qrc \
     newsPic.qrc \
     newsPic2.qrc \
+    newsPic3.qrc \
     page1.qrc \
     peresonIcon.qrc \
     rankIcon.qrc \

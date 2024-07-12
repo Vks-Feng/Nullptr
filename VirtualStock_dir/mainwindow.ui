@@ -26,7 +26,7 @@ border-bottom-right-radius:10px;}</string>
      <x>130</x>
      <y>100</y>
      <width>881</width>
-     <height>611</height>
+     <height>621</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -40,9 +40,9 @@ border-bottom-right-radius:10px;}</string>
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>10</y>
-       <width>411</width>
-       <height>321</height>
+       <y>0</y>
+       <width>851</width>
+       <height>331</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="ForNews">
@@ -114,56 +114,68 @@ border:1px rgb(231, 231, 231);
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-    </widget>
-    <widget class="QFrame" name="Homeframe1">
-     <property name="geometry">
-      <rect>
-       <x>450</x>
-       <y>10</y>
-       <width>241</width>
-       <height>321</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QFrame
+     <widget class="QPlainTextEdit" name="RulesText">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>361</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>10</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame
 {
 background-color: rgb(255, 255, 255);
 border-radius:20px;
 border:1px rgb(231, 231, 231);
 }
 </string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-    </widget>
-    <widget class="QFrame" name="RuleFrame">
-     <property name="geometry">
-      <rect>
-       <x>720</x>
-       <y>20</y>
-       <width>141</width>
-       <height>311</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QFrame
-{
-background-color: rgb(255, 255, 255);
-border-radius:20px;
-border:1px rgb(231, 231, 231);
-}
-</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="plainText">
+       <string>首先，炒股有风险，入市需谨慎, 炒股有风险，入市需谨慎,炒股有风险，入市需谨慎,重要的事情说三遍。
+对于股市新手来说，入门并掌握基本知识是非常重要的。以下是一些关键的步骤和注意事项，帮助您开始股市投资之旅：
+1. 学习基础知识：首先，您需要了解基本的股票知识，例如K线图、股票类型、交易规则等。这些知识将为您在股市中的操作打下坚实的基础。
+2. 开户：要购买股票，您需要一个股票账户。现在开户很方便，可以通过网络进行。选择大型券商通常更安全，它们提供全面的业务和理财产品，以及用户友好的交易软件。
+3. 了解手续费：买卖股票需要支付手续费，包括印花税、佣金和过户费。虽然佣金占比较小，但选择合适的券商对于资金安全很重要。
+4. 选择股票和基金：选股和选基金是一项复杂的任务，需要您进行研究和分析。您可以学习如何分析财务报表，了解公司的业务运营和财务状况。
+5. 使用股票软件：股票软件分为看盘软件和交易软件。看盘软件用于分析市场动态，而交易软件用于实际买卖操作。电脑版本的软件通常提供更全面的信息和更好的交易体验。
+6. 掌握交易技巧：学习技术分析、基本面分析等实用技巧，将帮助您更好地把握市场动态，提高投资成功率。
+7. 心态管理：保持谨慎和耐心非常重要。股市充满不确定性，因此不要盲目跟风，要有自己的判断和决策。
+8. 了解股息：作为股东，您有权获得公司分配的利润，即股息。了解不同类型的股息（如现金股息、股票股息、特别股息）及其支付时间对于投资决策至关重要。
+    请记住，炒股不仅是一场金钱游戏，更是一种人生的修行。只要您始终保持谦虚、谨慎和耐心的态度，相信您会在股市中找到属于自己的成功之路。
+最后，炒股有风险，入市需谨慎，请永远谨记这一点。</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>54</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>温馨提醒</string>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QWidget" name="selectpage2">
@@ -340,6 +352,19 @@ border:1px rgb(231, 231, 231);
      </property>
     </widget>
    </widget>
+   <widget class="QWidget" name="selectpage6_trade">
+    <widget class="QWidget" name="verticalLayoutWidget_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>851</width>
+       <height>431</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="Trade_layout"/>
+    </widget>
+   </widget>
    <widget class="QWidget" name="selectpage3">
     <widget class="QWidget" name="verticalLayoutWidget_4">
      <property name="geometry">
@@ -435,23 +460,24 @@ T+0/T+1/T+2：不同市场有不同的清算交割制度。例如，美国市场
 实时行情：交易所提供实时的股票价格和交易量信息。
 公告披露：上市公司需及时披露影响股票价格的重要信息，如财务报告、重大合同等
 
-
-首先，炒股有风险，入市需谨慎, 炒股有风险，入市需谨慎,炒股有风险，入市需谨慎,重要的事情说三遍。
-对于股市新手来说，入门并掌握基本知识是非常重要的。以下是一些关键的步骤和注意事项，帮助您开始股市投资之旅：
-1. 学习基础知识：首先，您需要了解基本的股票知识，例如K线图、股票类型、交易规则等。这些知识将为您在股市中的操作打下坚实的基础。
-2. 开户：要购买股票，您需要一个股票账户。现在开户很方便，可以通过网络进行。选择大型券商通常更安全，它们提供全面的业务和理财产品，以及用户友好的交易软件。
-3. 了解手续费：买卖股票需要支付手续费，包括印花税、佣金和过户费。虽然佣金占比较小，但选择合适的券商对于资金安全很重要。
-4. 选择股票和基金：选股和选基金是一项复杂的任务，需要您进行研究和分析。您可以学习如何分析财务报表，了解公司的业务运营和财务状况。
-5. 使用股票软件：股票软件分为看盘软件和交易软件。看盘软件用于分析市场动态，而交易软件用于实际买卖操作。电脑版本的软件通常提供更全面的信息和更好的交易体验。
-6. 掌握交易技巧：学习技术分析、基本面分析等实用技巧，将帮助您更好地把握市场动态，提高投资成功率。
-7. 心态管理：保持谨慎和耐心非常重要。股市充满不确定性，因此不要盲目跟风，要有自己的判断和决策。
-8. 了解股息：作为股东，您有权获得公司分配的利润，即股息。了解不同类型的股息（如现金股息、股票股息、特别股息）及其支付时间对于投资决策至关重要。
-    请记住，炒股不仅是一场金钱游戏，更是一种人生的修行。只要您始终保持谦虚、谨慎和耐心的态度，相信您会在股市中找到属于自己的成功之路。
-最后，炒股有风险，入市需谨慎，请永远谨记这一点。</string>
+</string>
         </property>
        </widget>
       </item>
      </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="selectpage5_forum">
+    <widget class="QWidget" name="verticalLayoutWidget_6">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>50</y>
+       <width>501</width>
+       <height>361</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="Forum_layout"/>
     </widget>
    </widget>
    <widget class="QWidget" name="selectpage5">
@@ -592,7 +618,7 @@ QPushButton:checked
     <property name="geometry">
      <rect>
       <x>-10</x>
-      <y>130</y>
+      <y>110</y>
       <width>151</width>
       <height>61</height>
      </rect>
@@ -643,7 +669,7 @@ QPushButton:checked
     <property name="geometry">
      <rect>
       <x>-10</x>
-      <y>200</y>
+      <y>180</y>
       <width>151</width>
       <height>61</height>
      </rect>
@@ -671,6 +697,7 @@ QPushButton:checked
     border-image: url(:/new/login/photos/button.png);
 	color: rgb(255, 255, 255);
 }
+
 </string>
     </property>
     <property name="text">
@@ -691,7 +718,7 @@ QPushButton:checked
     <property name="geometry">
      <rect>
       <x>-40</x>
-      <y>270</y>
+      <y>250</y>
       <width>201</width>
       <height>61</height>
      </rect>
@@ -739,7 +766,7 @@ QPushButton:checked
     <property name="geometry">
      <rect>
       <x>-10</x>
-      <y>340</y>
+      <y>320</y>
       <width>151</width>
       <height>61</height>
      </rect>
@@ -790,7 +817,7 @@ QPushButton:checked
     <property name="geometry">
      <rect>
       <x>-20</x>
-      <y>410</y>
+      <y>390</y>
       <width>161</width>
       <height>61</height>
      </rect>
@@ -873,7 +900,7 @@ border:1px rgb(231, 231, 231);
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="GroupLogo.qrc">:/new/logo/photos/logo.jpg</pixmap>
+     <pixmap>:/new/logo/photos/logo.jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -1024,14 +1051,13 @@ QPushButton:hover
  </widget>
  <resources>
   <include location="homeIcon.qrc"/>
-  <include location="communityIcon.qrc"/>
-  <include location="ruleIcon.qrc"/>
-  <include location="rankIcon.qrc"/>
-  <include location="GroupLogo.qrc"/>
   <include location="rechargeIcon.qrc"/>
+  <include location="trendIcon.qrc"/>
+  <include location="communityIcon.qrc"/>
   <include location="peresonIcon.qrc"/>
   <include location="Icon.qrc"/>
-  <include location="trendIcon.qrc"/>
+  <include location="ruleIcon.qrc"/>
+  <include location="rankIcon.qrc"/>
  </resources>
  <connections/>
 </ui>
