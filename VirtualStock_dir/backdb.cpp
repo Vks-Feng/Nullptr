@@ -25,37 +25,11 @@ BackDB::BackDB(const char* _host, const  char* _user, const  char* _password, co
     {
         std::cout << "Connected to MySQL database successfully!" << std::endl;
         std::cout << "Database Name:" << database << std::endl;
-
     }
     else {
         std::cerr << "Connection error: " << mysql_error(&mysql) << std::endl;
     }
 }
-
-//Usually you use these function instead of using the constructor directorly
-//BackDB::BackDB()
-//{
-//    const char* host = "rm-n4a8f71b4zhg4w616co.mysql.cn-wuhan-lr.rds.aliyuncs.com"; // MySQL server host
-//    const char* user = "visitor_1"; // MySQL username
-//    const char* password = "Lin123456"; // MySQL password
-//    const char* database = "stocks"; // MySQL database name
-//    unsigned int port = 3306; // MySQL port (default is 3306)
-//    const char* unix_socket = nullptr; // Unix socket (can be nullptr for TCP/IP)
-//    unsigned long client_flag = 0; // Connection flags (usually 0)
-
-//    mysql_init(&mysql);
-
-//    // Connect to MySQL database using mysql_real_connect
-//    if (mysql_real_connect(&mysql, host, user, password, database, port, unix_socket, client_flag)) {
-//        std::cout << "Connected to MySQL database successfully!" << std::endl;
-//        std::cout << "Database Name:" << database << std::endl;
-
-//    }
-//    else {
-//        std::cerr << "Connection error: " << mysql_error(&mysql) << std::endl;
-//    }
-//}
-
 //----------Constructor----------
 
 
@@ -67,20 +41,20 @@ MYSQL_RES* BackDB::query(const char* query)
 {
     int ret = mysql_query(&mysql, query);
 
-    //If the query cannot perform well
+    //查询不佳
     if (ret != 0) {
         std::cerr << "Query execution failed: " << mysql_error(&mysql) << std::endl;
         return nullptr;
     }
 
-    //If perform well
+    //表现良好
     else {
-        // Query executed successfully, handle results
+        // 承载返回结果集
         MYSQL_RES* result = mysql_store_result(&mysql);
 
-        //If the result set is NULL
+        //没有接收到结果集合
          if (result == nullptr) {
-            std::cout << "Don't have the result set(not necessary) " << std::endl;
+            std::cout << "Haven't received the result set(not necessary) " << std::endl;
          }
         return result;
     }
@@ -97,7 +71,6 @@ MYSQL_RES* BackDB::query(QString qStr)
 //Show the origin information of the table,
 void BackDB::showQuery(const char* query)
 {
-    // Assuming 'mysql' is already initialized and connected properly
     QString StringReturn;
     int ret = mysql_query(&mysql, query);
 
@@ -106,14 +79,13 @@ void BackDB::showQuery(const char* query)
         StringReturn = "Query execution failed:";
     }
     else {
-        // Query executed successfully, handle results
         MYSQL_RES* result = mysql_store_result(&mysql);
 
         if (result == nullptr) {
-            std::cout << "Don't have the result set(not necessary) " << std::endl;
+            std::cout << "Haven't received the result set(not necessary) " << std::endl;
         }
         else {
-            // Process the result set if needed
+            // 用num_field得到查询结果集的列数
             int num_fields = mysql_num_fields(result);
             MYSQL_ROW row;
 
@@ -125,7 +97,6 @@ void BackDB::showQuery(const char* query)
                 std::cout << std::endl;
             }
         }
-
     }
 }
 
@@ -171,7 +142,6 @@ const char* field_type_to_string(enum_field_types type) {
 }
 
 void BackDB::tableDesc(const char* tableName) {
-    // Using std::string to concatenate
     std::string result = "SELECT * FROM " + std::string(tableName) + " LIMIT 1";
     const char* _query = result.c_str();
 
@@ -181,13 +151,10 @@ void BackDB::tableDesc(const char* tableName) {
         return;
     }
 
-    unsigned int num_fields;
-    unsigned int i;
-    MYSQL_FIELD* fields;
+    unsigned int num_fields = mysql_num_fields(queryResult);
+    MYSQL_FIELD* fields= mysql_fetch_fields(queryResult);
 
-    num_fields = mysql_num_fields(queryResult);
-    fields = mysql_fetch_fields(queryResult);
-    for (i = 0; i < num_fields; i++)
+    for (unsigned int i = 0; i < num_fields; i++)
     {
         printf("Field %u is %s\n", i, fields[i].name);
         std::cout << "Field name: " << fields[i].name << std::endl;
@@ -255,8 +222,7 @@ int BackDB::CountUser()
 //    this->query(queryStr);
 //}
 
-//根据传入参数在数据库中添加新数据
-//成功添加则返回true，否则返回false（避免用户名存在）
+//根据传入参数在user表格中添加新用户
 //vks--将返回值修改为int，创建失败返回-1，创建成功返回userID
 int BackDB::addUser(QString name, QString password)
 {
@@ -1197,6 +1163,7 @@ void BackDB::testAddStock()
 
 void BackDB::test()
 {
-    qDebug()<<this->getUserId("NULL")<<Qt::endl;
+//    qDebug()<<this->ta<<Qt::endl;
+    this->tableDesc("users");
     std::cout<<"Done in test"<<std::endl;
 }

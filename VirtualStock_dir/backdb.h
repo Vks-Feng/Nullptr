@@ -16,24 +16,24 @@ class BackDB
 private:
     MYSQL mysql;//The MySql object
 
-    const char* host = "10.128.11.30"; // MySQL server host ("Under XiaoMi13 is 192.168.237.55") Don't change it!!!
-    const char* user = "visitor"; // MySQL username
-    const char* password = "VirtualStokes"; // MySQL password
-    const char* database = "stokes"; // MySQL database name
+    const char* host; // MySQL server host 地址（阿里云中为公网地址）
+    const char* user; // MySQL username
+    const char* password; // MySQL password
+    const char* database; // MySQL database name
     unsigned int port = 3306; // MySQL port (default is 3306)
     const char* unix_socket = nullptr; // Unix socket (can be nullptr for TCP/IP)
     unsigned long client_flag = 0; // Connection flags (usually 0)
 
-    //Constructor , the basic information is host+user+password+database
-//    BackDB(const char* _host, const  char* _user, const  char* _password, const  char* _database,
-//           unsigned int _port = 3306, const char* _unix_socket = nullptr, unsigned long _client_flag = 0);
-
 public:
+    //----------Consturctor----------
     BackDB(const char* _host, const  char* _user, const  char* _password, const  char* _database,
            unsigned int _port = 3306, const char* _unix_socket = nullptr, unsigned long _client_flag = 0);
+    //----------Consturctor----------
+
+
 
     //----------Tools---------
-    //输入公司id，返回公司名
+    //输入公司id，返回公司名(对应数据表中的公司名称缩写)
      QString Id2Name(int id);
     //----------Tools---------
 
@@ -41,24 +41,18 @@ public:
 
     //----------Basic Operations---------
 
-    //Usually you use this default constructor instead of using the constructor directorly
-//    BackDB();
-
-    //Input the formal query lines that can be used in MySql
-    //and return a MYSQL_RES object
-    //Won't show the result of the query
+    //执行查询操作，返回结果集
     MYSQL_RES* query(const char* query);
     MYSQL_RES* query(QString query);
 
-    //Show the query result of the query
-    //And return the result as QStirng
+    //展示从数据库查询返回的结果
     void showQuery(const char* query);
     void showQuery(QString qStr);
 
-    //获取某个表格的成员描述
+    //获取某个表格的列描述
     void tableDesc(const char* tableName);
 
-    //Close the Mysql
+    //关闭数据库
     void close();
 
     //----------Basic Operations---------
