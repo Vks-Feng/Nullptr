@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>股票交易</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -73,7 +73,7 @@
       <enum>QFrame::NoFrame</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="BuyinPage">
       <layout class="QGridLayout" name="gridLayout_2">
@@ -210,6 +210,9 @@
           <widget class="QPushButton" name="BuyResetButton">
            <property name="text">
             <string>重填</string>
+           </property>
+           <property name="flat">
+            <bool>false</bool>
            </property>
           </widget>
          </item>
@@ -404,7 +407,7 @@
        <item row="1" column="0">
         <layout class="QHBoxLayout" name="horizontalLayout_6">
          <item>
-          <widget class="QLabel" name="selloutBroadIcon">
+          <widget class="QLabel" name="selloutBrandIcon">
            <property name="text">
             <string>BroadIcon</string>
            </property>

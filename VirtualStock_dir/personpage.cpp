@@ -89,6 +89,7 @@ Personpage::Personpage(QWidget *parent) :
     ui->phaseTotalContent->setDisabled(true);
     ui->balanceTotalContent->setText(QString::number(thisall));
     ui->balanceTotalContent->setDisabled(true);
+    this->setAttribute(Qt::WA_DeleteOnClose, true);
 }
 
 void Personpage::openChargePage(){

@@ -122,6 +122,7 @@ RESOURCES += \
     loginPic.qrc \
     newsPic.qrc \
     newsPic2.qrc \
+    newsPic3.qrc \
     page1.qrc \
     peresonIcon.qrc \
     rankIcon.qrc \

@@ -23,6 +23,9 @@ Login::Login(QWidget *parent) :
     connect(ui->loginCloseButton,&QPushButton::clicked,[=](){
         this->close();
     });
+    connect(ui->loginMinimumButton,&QPushButton::clicked,[=](){
+        this->showMinimized();
+    });
 }
 
 Login::~Login()
@@ -59,15 +62,11 @@ void Login::on_LoginButton_clicked()
         }
         case 2:
         {
-            qDebug() << "vks1";
             User test = Global::instance().getGlobalDataBase()->enableUser(ui->UserNameInput->text());
-            qDebug() << "vks2";
             int userID = test.GetId();
-            qDebug() << "vks3";
             QString msg = QString("Login:%1").arg(userID);
             Global::instance().getGlobalClient()->write(msg.toUtf8());
             Global::instance().getGlobalClient()->waitForBytesWritten();
-            qDebug() << "vks4";
             break;
         }
         default:

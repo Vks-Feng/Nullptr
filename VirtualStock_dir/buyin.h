@@ -27,6 +27,8 @@ public:
 
     void setSellOutInfo();
 
+    void setPicResource(int index);
+
     void setBuyInName(int index);
 
     void setSellOutName(int index);
@@ -36,6 +38,8 @@ public:
     void recordTableUpdate();
 
     void holdingTableUpdate();
+
+    void incomePageUpdate();
 
 private slots:
     void on_BuyInButton_clicked();

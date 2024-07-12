@@ -100,7 +100,11 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <widget class="QLineEdit" name="UserNameInput"/>
+     <widget class="QLineEdit" name="UserNameInput">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QLineEdit" name="UserPasswordInput"/>

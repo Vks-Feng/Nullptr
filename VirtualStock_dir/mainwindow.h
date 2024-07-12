@@ -15,6 +15,8 @@
 #include "record.h"
 #include "newswidget.h"
 #include "dialog.h"
+#include "forum.h"
+
 
 namespace Ui {
 class MainWindow;
@@ -37,7 +39,7 @@ protected:
     void mouseMoveEvent(QMouseEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
-
+    // void paintEvent(QPaintEvent *event) override;
 
 private slots:
 
@@ -45,9 +47,7 @@ private slots:
 
     void on_nextroundbutton_clicked();
 
-    void on_communitybutton1_clicked();
-
-    void on_TransactionButton_clicked();
+//    void on_TransactionButton_clicked();
 
     QString CompanyIntro(int index);
 
@@ -55,6 +55,7 @@ private slots:
 
     void PutCompanyName_2(int index);
     void showCustomDialog();
+
 
 
 
