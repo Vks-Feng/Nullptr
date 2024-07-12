@@ -6,6 +6,7 @@
 #include <QChartView>
 #include <QSplineSeries>
 #include <QRandomGenerator>//获取随机数用
+#include <backdb.h>
 
 
 namespace Ui {
@@ -22,7 +23,8 @@ public:
 
 public slots:
     void ShowRandomStock();//随机显示一支股票
-    void ChangeStock(int company_id);//更改到指定公司的股票显示
+    void ChangeStock(int company_id);//更改到指定公司的股票显示(0~7)
+//    QString CompanyIntroduction(int company_id);//返回对应公司的简介(0~7)
 
 private:
     Ui::ChartSpline *ui;
