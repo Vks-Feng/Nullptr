@@ -36,9 +36,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->Trade_layout->addWidget(buyin_widget);
 
     //添加forum
-    forum* forum_widget=new forum;
-    ui->selectpage5_forum->setLayout(ui->Forum_layout);
-    ui->Forum_layout->addWidget(forum_widget);
+    // forum* forum_widget=new forum;
+    // ui->selectpage5_forum->setLayout(ui->Forum_layout);
+    // ui->Forum_layout->addWidget(forum_widget);
 
 //    // 遍历所有子对象
 //    foreach (QObject *child, forum_widget->children()) {
@@ -140,6 +140,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->communitybutton1,&QPushButton::clicked,this,[=](){
         ui->selectpage->setCurrentIndex(5);
+
+        forum *a=new forum();
+        a->show();
     });//点击跳转到交易界面
 
 

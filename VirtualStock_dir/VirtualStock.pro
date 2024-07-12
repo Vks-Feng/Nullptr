@@ -115,6 +115,7 @@ RESOURCES += \
     Icon.qrc \
     backPerson1.qrc \
     communityIcon.qrc \
+    forums.qrc \
     homeIcon.qrc \
     loginButton.qrc \
     loginPic.qrc \
