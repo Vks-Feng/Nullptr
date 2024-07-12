@@ -55,15 +55,6 @@ void buyin::on_IncomeButton_clicked()
     ui->stackedWidget->setCurrentIndex(4);
 }
 
-void buyin::on_RecommendButton_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(5);
-}
-
-void buyin::on_returnbutton_clicked(){
-    this->close();
-}
-
 void buyin::setBuyInName(int index){
     switch(index)
     {
@@ -335,46 +326,46 @@ void buyin::setPicResource(int index){
     switch(index)
     {
     case 1:
-        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Apple.png);");
-        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Apple.png);");
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Apple.png);background-position:center;background-repeat:no-repeat;");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Apple.png);background-position:center;background-repeat:no-repeat;");
         break;
     case 2:
-        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Amazon.png);");
-        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Amazon.png);");
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Amazon.png);background-position:center;background-repeat:no-repeat;");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Amazon.png);background-position:center;background-repeat:no-repeat;");
         break;
     case 3:
-        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Google.png);");
-        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Google.png);");
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Google.png);background-position:center;background-repeat:no-repeat;");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Google.png);background-position:center;background-repeat:no-repeat;");
         break;
     case 4:
-        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/IBM.png);");
-        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/IBM.png);");
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/IBM.png);background-position:center;background-repeat:no-repeat;");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/IBM.png);background-position:center;background-repeat:no-repeat;");
         break;
     case 5:
-        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Intel.png);");
-        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Intel.png);");
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Intel.png);background-position:center;background-repeat:no-repeat;");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Intel.png);background-position:center;background-repeat:no-repeat;");
 
         break;
     case 6:
-        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/JetBlue.png);");
-        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/JetBlue.png);");
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/JetBlue.png);background-position:center;background-repeat:no-repeat;");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/JetBlue.png);background-position:center;background-repeat:no-repeat;");
 
         break;
     case 7:
-        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Meta.png);");
-        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Meta.png);");
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Meta.png);background-position:center;background-repeat:no-repeat;");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Meta.png);background-position:center;background-repeat:no-repeat;");
         break;
     case 8:
-        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Microsoft.png);");
-        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Microsoft.png);");
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Microsoft.png);background-position:center;background-repeat:no-repeat;");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Microsoft.png);background-position:center;background-repeat:no-repeat;");
         break;
     case 9:
-        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Apple.png);");
-        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Apple.png);");
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Apple.png);background-position:center;background-repeat:no-repeat;");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Apple.png);background-position:center;background-repeat:no-repeat;");
         break;
     default:
-        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Apple.png);");
-        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Apple.png);");
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Apple.png);background-position:center;background-repeat:no-repeat;");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Apple.png);background-position:center;background-repeat:no-repeat;");
         break;
     }
 }

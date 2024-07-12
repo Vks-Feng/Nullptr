@@ -484,10 +484,10 @@ T+0/T+1/T+2：不同市场有不同的清算交割制度。例如，美国市场
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>70</y>
-       <width>160</width>
-       <height>80</height>
+       <x>19</x>
+       <y>39</y>
+       <width>831</width>
+       <height>571</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="CommunityLayout"/>

@@ -53,6 +53,8 @@ private slots:
     void PutCompanyName_1(int index);
 
     void PutCompanyName_2(int index);
+
+    void refreshForum();
     void showCustomDialog();
 
 
@@ -60,8 +62,7 @@ private:
     Ui::MainWindow *ui;
     QPoint mousePoint;
     bool mouse_press;
-
-    bool forumOpen;
+    forum* forum_widget;
 };
 
 #endif // MAINWINDOW_H
