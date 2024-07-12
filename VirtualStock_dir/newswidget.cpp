@@ -16,6 +16,21 @@ NewsWidget::NewsWidget(QWidget *parent)
     connect(ui->NewsList, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(onNewsItemClicked(QListWidgetItem*)));
 
     newsDialog = new NewsDialog(this);
+
+    //设置图片阴影
+    QGraphicsDropShadowEffect *newsshadow1 = new QGraphicsDropShadowEffect;
+    QGraphicsDropShadowEffect *newsshadow2 = new QGraphicsDropShadowEffect;
+    newsshadow1->setBlurRadius(10); // 设置阴影的模糊半径
+    newsshadow1->setColor(QColor(0, 0, 0, 150)); // 设置阴影颜色和透明度
+    newsshadow1->setOffset(4, 4); // 设置阴影的偏移量
+    newsshadow2->setBlurRadius(10); // 设置阴影的模糊半径
+    newsshadow2->setColor(QColor(0, 0, 0, 150)); // 设置阴影颜色和透明度
+    newsshadow2->setOffset(4, 4); // 设置阴影的偏移量
+    ui->NewsPic2->setGraphicsEffect(newsshadow1);
+    ui->NewsPicLabel->setGraphicsEffect(newsshadow2);
+    // newsPic->setGraphicsEffect(newsshadow1);
+    // // newsPic2.setGraphicsEffect(newsshadow1);
+
 }
 
 NewsWidget::~NewsWidget()
@@ -66,6 +81,8 @@ void NewsWidget::onNewsItemClicked(QListWidgetItem *item){
     newsDialog->adjustSize();
     newsDialog->exec(); // Show dialog
 }
+
+
 
 
 

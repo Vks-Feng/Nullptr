@@ -56,39 +56,41 @@ MainWindow::MainWindow(QWidget *parent) :
     layout->addWidget(_chartSpline_2);
     placeholder->setLayout(layout);
 
-    //设置具体阴影
+    //设置Frame具体阴影
     QGraphicsDropShadowEffect *shadow_effect1 = new QGraphicsDropShadowEffect(this);
     shadow_effect1->setOffset(0, 0);
-    //阴影颜色
-    shadow_effect1->setColor(QColor(38, 78, 119, 127));
-    //阴影半径
-    shadow_effect1->setBlurRadius(30);
+    shadow_effect1->setColor(QColor(38, 78, 119, 127)); //阴影颜色
+    shadow_effect1->setBlurRadius(30);//阴影半径
     ui->headNevagationFrame->setGraphicsEffect(shadow_effect1);
-
-    //设置具体阴影
+    //侧导航栏阴影
     QGraphicsDropShadowEffect *shadow_effect2 = new QGraphicsDropShadowEffect(this);
     shadow_effect2->setOffset(0, 0);
-    //阴影颜色
     shadow_effect2->setColor(QColor(38, 78, 119, 127));
-    //阴影半径
     shadow_effect2->setBlurRadius(30);
     ui->siderBarFrame->setGraphicsEffect(shadow_effect2);
-
+    //首页个人模块阴影
     QGraphicsDropShadowEffect *shadow_effect3 = new QGraphicsDropShadowEffect(this);
     shadow_effect3->setOffset(0, 0);
-    //阴影颜色
     shadow_effect3->setColor(QColor(38, 78, 119, 127));
-    //阴影半径
     shadow_effect3->setBlurRadius(30);
     ui->personageFrame->setGraphicsEffect(shadow_effect3);
-
+    //首页表格模块阴影
     QGraphicsDropShadowEffect *shadow_effect4 = new QGraphicsDropShadowEffect(this);
     shadow_effect4->setOffset(0, 0);
-    //阴影颜色
     shadow_effect4->setColor(QColor(38, 78, 119, 127));
-    //阴影半径
     shadow_effect4->setBlurRadius(30);
-    // ui->Chartsframe->setGraphicsEffect(shadow_effect4);
+    ui->chartsFrame->setGraphicsEffect(shadow_effect4);
+    //另外两个frame
+    QGraphicsDropShadowEffect *shadow_effect5 = new QGraphicsDropShadowEffect(this);
+    shadow_effect5->setOffset(0, 0);
+    shadow_effect5->setColor(QColor(38, 78, 119, 127));
+    shadow_effect5->setBlurRadius(30);
+    ui->Homeframe1->setGraphicsEffect(shadow_effect5);
+    QGraphicsDropShadowEffect *shadow_effect6 = new QGraphicsDropShadowEffect(this);
+    shadow_effect6->setOffset(0, 0);
+    shadow_effect6->setColor(QColor(38, 78, 119, 127));
+    shadow_effect6->setBlurRadius(30);
+    ui->RuleFrame->setGraphicsEffect(shadow_effect6);
 
 
     connect(ui->firstbutton1,&QPushButton::clicked,this,[=](){

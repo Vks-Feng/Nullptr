@@ -24,9 +24,9 @@ border-bottom-right-radius:10px;}</string>
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>60</y>
+     <y>90</y>
      <width>891</width>
-     <height>671</height>
+     <height>641</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -36,84 +36,18 @@ border-bottom-right-radius:10px;}</string>
     <number>0</number>
    </property>
    <widget class="QWidget" name="selectpage1">
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>20</y>
+       <y>10</y>
        <width>411</width>
-       <height>311</height>
+       <height>321</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="ForNews">
       <item>
        <layout class="QHBoxLayout" name="Page1Layout"/>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="verticalLayoutWidget_2">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>349</y>
-       <width>411</width>
-       <height>311</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="MainChartsLayout"/>
-    </widget>
-    <widget class="QWidget" name="">
-     <property name="geometry">
-      <rect>
-       <x>460</x>
-       <y>10</y>
-       <width>421</width>
-       <height>321</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <widget class="QFrame" name="frame">
-        <property name="styleSheet">
-         <string notr="true">QFrame
-{
-background-color: rgb(255, 255, 255);
-border-radius:20px;
-border:1px rgb(231, 231, 231);
-box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
-}
-</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QFrame" name="RuleFrame">
-        <property name="styleSheet">
-         <string notr="true">QFrame {
-    border-radius: 20px;
-    background-color: rgb(255, 255, 255);
-    /* 设置阴影 */
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5); /* 水平偏移，垂直偏移，模糊半径，阴影扩散 */
-    border-top: 5px solid qlineargradient(y0:0, y1:1,stop: 0 #ececef, stop: 1 white);
-    border-left: 5px solid qlineargradient(x0:0, x1:1,stop: 0 #ececef, stop: 1 white);
-    border-bottom: 5px solid qlineargradient(y0:0, y1:1,stop: 0 white, stop: 1  #ececef);
-    border-right: 5px solid qlineargradient(x0:0, x1:1,stop:  0 white, stop: 1 #ececef);
-}
-</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-       </widget>
       </item>
      </layout>
     </widget>
@@ -123,6 +57,89 @@ box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
        <x>460</x>
        <y>350</y>
        <width>411</width>
+       <height>281</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame
+{
+background-color: rgb(255, 255, 255);
+border-radius:10px;
+border:1px rgb(231, 231, 231);
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QFrame" name="chartsFrame">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>340</y>
+       <width>431</width>
+       <height>301</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame
+{
+border-radius:5px;
+border:1px rgb(231, 231, 231);
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QWidget" name="verticalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>411</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="MainChartsLayout"/>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="Homeframe1">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>10</y>
+       <width>241</width>
+       <height>321</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame
+{
+background-color: rgb(255, 255, 255);
+border-radius:20px;
+border:1px rgb(231, 231, 231);
+}
+</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QFrame" name="RuleFrame">
+     <property name="geometry">
+      <rect>
+       <x>720</x>
+       <y>20</y>
+       <width>141</width>
        <height>311</height>
       </rect>
      </property>
@@ -130,9 +147,10 @@ box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
       <string notr="true">QFrame
 {
 background-color: rgb(255, 255, 255);
-border-radius:5px;
+border-radius:20px;
 border:1px rgb(231, 231, 231);
-}</string>
+}
+</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -219,8 +237,8 @@ box-shadow: 5px 5px 5px #888888;
     <widget class="QComboBox" name="ChooseWhichStock">
      <property name="geometry">
       <rect>
-       <x>770</x>
-       <y>10</y>
+       <x>10</x>
+       <y>0</y>
        <width>93</width>
        <height>26</height>
       </rect>
@@ -396,9 +414,9 @@ T+0/T+1/T+2：不同市场有不同的清算交割制度。例如，美国市场
    <property name="geometry">
     <rect>
      <x>-10</x>
-     <y>70</y>
+     <y>100</y>
      <width>131</width>
-     <height>691</height>
+     <height>661</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -418,8 +436,8 @@ border:1px rgb(231, 231, 231);
    <widget class="QLabel" name="timelabel">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>540</y>
+      <x>20</x>
+      <y>560</y>
       <width>101</width>
       <height>20</height>
      </rect>
@@ -458,30 +476,61 @@ border:1px rgb(231, 231, 231);
    <widget class="QWidget" name="verticalLayoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>10</y>
-      <width>101</width>
-      <height>391</height>
+      <x>-100</x>
+      <y>-10</y>
+      <width>331</width>
+      <height>491</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
       <widget class="QPushButton" name="firstbutton1">
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
        <property name="styleSheet">
-        <string notr="true">background-color:transparent;
+        <string notr="true">QPushButton
+{  
+	color: rgb(255, 255, 255);
+    background:transparent; 
+}
+QPushButton:hover
+{
+    border-image: url(:/new/login/photos/button.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/new/login/photos/button.png);
+}
 </string>
        </property>
        <property name="text">
         <string>首页</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>photos/page1.png</normaloff>photos/page1.png</iconset>
+        <iconset resource="homeIcon.qrc">
+         <normaloff>:/new/icon/photos/homePage.png</normaloff>:/new/icon/photos/homePage.png</iconset>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="stockbutton1">
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color:transparent;
 </string>
@@ -489,17 +538,37 @@ border:1px rgb(231, 231, 231);
        <property name="text">
         <string>股票走势</string>
        </property>
+       <property name="icon">
+        <iconset resource="trendIcon.qrc">
+         <normaloff>:/new/icon/photos/stockTrend.png</normaloff>:/new/icon/photos/stockTrend.png</iconset>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="TransactionButton">
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string>股票交易</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Icon.qrc">
+         <normaloff>:/new/stock/photos/stockIcon.png</normaloff>:/new/stock/photos/stockIcon.png</iconset>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="rankbutton1">
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color:transparent;
 </string>
@@ -507,16 +576,30 @@ border:1px rgb(231, 231, 231);
        <property name="text">
         <string>排行榜</string>
        </property>
+       <property name="icon">
+        <iconset resource="rankIcon.qrc">
+         <normaloff>:/new/icon/photos/rank2.png</normaloff>:/new/icon/photos/rank2.png</iconset>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="dealbutton1">
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color:transparent;
 </string>
        </property>
        <property name="text">
         <string>交易规则</string>
+       </property>
+       <property name="icon">
+        <iconset resource="ruleIcon.qrc">
+         <normaloff>:/new/icon/photos/rule.png</normaloff>:/new/icon/photos/rule.png</iconset>
        </property>
       </widget>
      </item>
@@ -525,12 +608,22 @@ border:1px rgb(231, 231, 231);
        <property name="enabled">
         <bool>true</bool>
        </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color:transparent;
 </string>
        </property>
        <property name="text">
         <string>社区交流</string>
+       </property>
+       <property name="icon">
+        <iconset resource="communityIcon.qrc">
+         <normaloff>:/new/icon/photos/community.png</normaloff>:/new/icon/photos/community.png</iconset>
        </property>
       </widget>
      </item>
@@ -540,10 +633,10 @@ border:1px rgb(231, 231, 231);
   <widget class="QFrame" name="headNevagationFrame">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-20</x>
      <y>0</y>
      <width>1091</width>
-     <height>61</height>
+     <height>81</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -562,7 +655,7 @@ border:1px rgb(231, 231, 231);
    <widget class="QWidget" name="horizontalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>330</x>
       <y>20</y>
       <width>671</width>
       <height>51</height>
@@ -584,8 +677,18 @@ border:1px rgb(231, 231, 231);
      </item>
      <item>
       <widget class="QPushButton" name="ChargeButton">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>充值</string>
+       </property>
+       <property name="icon">
+        <iconset resource="rechargeIcon.qrc">
+         <normaloff>:/new/icon/photos/recharge.png</normaloff>:/new/icon/photos/recharge.png</iconset>
        </property>
       </widget>
      </item>
@@ -597,6 +700,10 @@ border:1px rgb(231, 231, 231);
        </property>
        <property name="text">
         <string>个人主页</string>
+       </property>
+       <property name="icon">
+        <iconset resource="peresonIcon.qrc">
+         <normaloff>:/new/icon/photos/personage3.png</normaloff>:/new/icon/photos/personage3.png</iconset>
        </property>
       </widget>
      </item>
@@ -616,10 +723,10 @@ border:1px rgb(231, 231, 231);
    <widget class="QLabel" name="logo">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>61</width>
-      <height>61</height>
+      <x>30</x>
+      <y>10</y>
+      <width>71</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="text">
@@ -632,16 +739,16 @@ border:1px rgb(231, 231, 231);
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>20</y>
-      <width>191</width>
+      <x>120</x>
+      <y>30</y>
+      <width>231</width>
       <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Forte</family>
-      <pointsize>16</pointsize>
+      <pointsize>20</pointsize>
      </font>
     </property>
     <property name="text">
@@ -651,11 +758,19 @@ border:1px rgb(231, 231, 231);
    <widget class="QPushButton" name="MainCloseButton">
     <property name="geometry">
      <rect>
-      <x>990</x>
+      <x>1010</x>
       <y>0</y>
-      <width>10</width>
-      <height>18</height>
+      <width>20</width>
+      <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 173, 226)</string>
     </property>
     <property name="text">
      <string>X</string>
@@ -664,7 +779,15 @@ border:1px rgb(231, 231, 231);
   </widget>
  </widget>
  <resources>
+  <include location="peresonIcon.qrc"/>
+  <include location="homeIcon.qrc"/>
+  <include location="communityIcon.qrc"/>
+  <include location="ruleIcon.qrc"/>
+  <include location="Icon.qrc"/>
+  <include location="trendIcon.qrc"/>
   <include location="GroupLogo.qrc"/>
+  <include location="rankIcon.qrc"/>
+  <include location="rechargeIcon.qrc"/>
  </resources>
  <connections/>
 </ui>

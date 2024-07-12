@@ -6,22 +6,22 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>724</width>
-    <height>628</height>
+    <width>553</width>
+    <height>559</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">bacgroud-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(33, 84, 118, 255), stop:1 rgba(255, 255, 255, 255))
+   <string notr="true">bacgroud-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(33, 84, 118, 255), stop:1 rgba(255, 255, 255, 255));
 </string>
   </property>
   <widget class="QPushButton" name="changeintroduction">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>210</y>
+     <x>110</x>
+     <y>130</y>
      <width>80</width>
      <height>18</height>
     </rect>
@@ -33,8 +33,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>200</y>
+     <x>130</x>
+     <y>100</y>
      <width>61</width>
      <height>31</height>
     </rect>
@@ -46,134 +46,39 @@
   <widget class="QTextEdit" name="personalDescribeEdit">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>210</y>
+     <x>200</x>
+     <y>110</y>
      <width>281</width>
      <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color:rgb(255, 255, 255);
+    <string notr="true">background-color:transparent;
+color: rgb(255, 255, 255);
 </string>
    </property>
   </widget>
-  <widget class="QFrame" name="frame">
-   <property name="geometry">
-    <rect>
-     <x>-10</x>
-     <y>0</y>
-     <width>861</width>
-     <height>191</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QFrame
-{
-background-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(50, 148, 234, 155), stop:0.306122 rgba(40, 101, 142, 69), stop:0.397959 rgba(33, 84, 118, 145), stop:0.438776 rgba(33, 84, 118, 208), stop:0.469388 rgba(66, 168, 236, 130), stop:0.540816 rgba(58, 134, 186, 255), stop:0.576531 rgba(33, 84, 118, 130), stop:0.625 rgba(33, 84, 118, 69), stop:0.714286 rgba(59, 149, 210, 130), stop:1 rgba(33, 84, 118, 69));
-border-radius:5px;
-border:1px rgb(231, 231, 231);
-}</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QLabel" name="personalInfoTitle">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>10</y>
-      <width>56</width>
-      <height>18</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>个人信息</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="userPicLabel">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>70</y>
-      <width>91</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="GroupLogo.qrc">:/new/logo/photos/logo.jpg</pixmap>
-    </property>
-   </widget>
-   <widget class="QLabel" name="userNameTitle">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>160</y>
-      <width>42</width>
-      <height>18</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>用户名</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="userName">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>160</y>
-      <width>61</width>
-      <height>18</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:transparent;
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="trackedCountTitle">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>160</y>
-      <width>28</width>
-      <height>18</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>排名</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QFrame" name="frame_3">
+  <widget class="QFrame" name="personage_frame1">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>330</y>
-     <width>241</width>
-     <height>231</height>
+     <y>200</y>
+     <width>191</width>
+     <height>131</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QFrame
-{
-background-color: rgb(255, 255, 255);
-border-radius:20px;
-border:1px rgb(231, 231, 231);
-box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
-}
+    <string notr="true">
+ QFrame {
+                background-color: rgba(255, 255, 255, 100);
+                border-radius: 10px;
+                border: 2px solid rgba(0, 0, 0, 50);
+                backdrop-filter: blur(10px);
+            }
 </string>
    </property>
    <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+    <enum>QFrame::NoFrame</enum>
    </property>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
@@ -181,10 +86,10 @@ box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
    <widget class="QLabel" name="profitRateMonth">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>10</x>
       <y>10</y>
-      <width>70</width>
-      <height>18</height>
+      <width>61</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
@@ -194,9 +99,9 @@ box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
    <widget class="QLabel" name="profitRateMonthContent">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>100</x>
       <y>10</y>
-      <width>63</width>
+      <width>81</width>
       <height>18</height>
      </rect>
     </property>
@@ -210,10 +115,10 @@ box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
    <widget class="QLabel" name="profitRateTotal">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>120</y>
-      <width>56</width>
-      <height>18</height>
+      <x>10</x>
+      <y>50</y>
+      <width>61</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
@@ -223,9 +128,9 @@ box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
    <widget class="QLabel" name="profitRateTotalContent">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>100</x>
       <y>50</y>
-      <width>63</width>
+      <width>81</width>
       <height>18</height>
      </rect>
     </property>
@@ -237,23 +142,23 @@ box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frame_4">
+  <widget class="QFrame" name="personage_Frame2">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>330</y>
-     <width>381</width>
-     <height>101</height>
+     <x>260</x>
+     <y>200</y>
+     <width>241</width>
+     <height>131</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QFrame
-{
-background-color: rgb(255, 255, 255);
-border-radius:20px;
-border:1px rgb(231, 231, 231);
-box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
-}
+    <string notr="true">
+ QFrame {
+                background-color: rgba(255, 255, 255, 100);
+                border-radius: 10px;
+                border: 2px solid rgba(0, 0, 0, 50);
+                backdrop-filter: blur(10px);
+            }
 </string>
    </property>
    <property name="frameShape">
@@ -265,9 +170,9 @@ box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
    <widget class="QLabel" name="phaseMonth">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>20</x>
       <y>10</y>
-      <width>56</width>
+      <width>61</width>
       <height>18</height>
      </rect>
     </property>
@@ -278,9 +183,9 @@ box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
    <widget class="QLabel" name="phaseMonthContent">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>100</x>
       <y>10</y>
-      <width>63</width>
+      <width>101</width>
       <height>18</height>
      </rect>
     </property>
@@ -294,9 +199,9 @@ box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
    <widget class="QLabel" name="phaseTotal">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>30</x>
       <y>50</y>
-      <width>42</width>
+      <width>51</width>
       <height>18</height>
      </rect>
     </property>
@@ -307,9 +212,9 @@ box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
    <widget class="QLabel" name="phaseTotalContent">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>100</x>
       <y>50</y>
-      <width>63</width>
+      <width>101</width>
       <height>18</height>
      </rect>
     </property>
@@ -321,12 +226,12 @@ box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frame_5">
+  <widget class="QFrame" name="personage_frame3">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>470</y>
-     <width>381</width>
+     <x>20</x>
+     <y>360</y>
+     <width>471</width>
      <height>101</height>
     </rect>
    </property>
@@ -336,8 +241,15 @@ box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
 background-color:rgb(255, 255, 255);
 border-radius:20px;
 border:1px rgb(231, 231, 231);
-box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
+
 }
+
+ QFrame {
+                background-color: rgba(255, 255, 255, 100);
+                border-radius: 10px;
+                border: 2px solid rgba(0, 0, 0, 50);
+                backdrop-filter: blur(10px);
+            }
 </string>
    </property>
    <property name="frameShape">
@@ -362,9 +274,9 @@ box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
    <widget class="QLabel" name="balanceMonthContent">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>130</x>
       <y>10</y>
-      <width>63</width>
+      <width>101</width>
       <height>18</height>
      </rect>
     </property>
@@ -378,7 +290,7 @@ box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
    <widget class="QLabel" name="balanceTotal">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>30</x>
       <y>50</y>
       <width>70</width>
       <height>18</height>
@@ -391,9 +303,9 @@ box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
    <widget class="QLabel" name="balanceTotalContent">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>130</x>
       <y>50</y>
-      <width>63</width>
+      <width>91</width>
       <height>18</height>
      </rect>
     </property>
@@ -408,23 +320,154 @@ box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
   <widget class="QLabel" name="trackedCount">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>250</y>
+     <x>200</x>
+     <y>70</y>
      <width>41</width>
      <height>18</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: transparent;
+color:white;
+
 </string>
    </property>
    <property name="text">
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="userNameTitle">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>30</y>
+     <width>42</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>用户名</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="userName">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>30</y>
+     <width>61</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:transparent;
+color:white;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="trackedCountTitle">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>70</y>
+     <width>28</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>排名</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="userPicLabel">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>30</y>
+     <width>91</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="GroupLogo.qrc">:/new/logo/photos/logo.jpg</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="personBaclabel">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-100</y>
+     <width>771</width>
+     <height>761</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget {
+              background-image: url(:/new/personback/photos/backg.jpg);
+              background-color: transparent;
+               opacity: 0.8;
+ // 设置透明度，值范围为 0（完全透明）到 1（不透明）
+              };
+
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="page1.qrc">:/photos/back2.jpg</pixmap>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>50</y>
+     <width>118</width>
+     <height>3</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(33, 84, 118);</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_2">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>90</y>
+     <width>118</width>
+     <height>3</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <zorder>personBaclabel</zorder>
+  <zorder>changeintroduction</zorder>
+  <zorder>label</zorder>
+  <zorder>personalDescribeEdit</zorder>
+  <zorder>personage_frame1</zorder>
+  <zorder>personage_Frame2</zorder>
+  <zorder>personage_frame3</zorder>
+  <zorder>userNameTitle</zorder>
+  <zorder>userName</zorder>
+  <zorder>trackedCountTitle</zorder>
+  <zorder>userPicLabel</zorder>
+  <zorder>trackedCount</zorder>
+  <zorder>line</zorder>
+  <zorder>line_2</zorder>
  </widget>
  <resources>
   <include location="GroupLogo.qrc"/>
+  <include location="page1.qrc"/>
  </resources>
  <connections/>
 </ui>
