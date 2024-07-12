@@ -133,7 +133,8 @@ MainWindow::MainWindow(QWidget *parent) :
     //需要解决个人主页点击不初始化的问题
     connect(ui->ChargeButton, &QPushButton::clicked, person, &Personpage::openChargePage);
     connect(ui->personpageBtn,&QPushButton::clicked,[=](){
-        person->show();
+        Personpage* aperson = new Personpage();
+        aperson->show();
     });
 
 
