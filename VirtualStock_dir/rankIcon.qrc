@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/new/icon">
+        <file>photos/rank2.png</file>
+    </qresource>
+</RCC>

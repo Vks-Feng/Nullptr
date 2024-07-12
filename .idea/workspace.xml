@@ -7,20 +7,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fec55ca3-026e-4905-bf02-cdc37bbfc9c2" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/backdb.h.170EA7A171DFCAC4.idx" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/backdb.h.170EA7A171DFCAC4.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/clientsocket.h.52BBBE2FED49329C.idx" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/clientsocket.h.52BBBE2FED49329C.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/date.h.3B1455F90AA11D6A.idx" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/date.h.3B1455F90AA11D6A.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/forum.h.FA6A1DFA945A86C3.idx" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/forum.h.FA6A1DFA945A86C3.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/personpage.cpp.4A40E13A8929DF78.idx" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/personpage.cpp.4A40E13A8929DF78.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/personpage.h.A08F005197F2983A.idx" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/personpage.h.A08F005197F2983A.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/portfolio.h.65D8BFD09522669A.idx" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/portfolio.h.65D8BFD09522669A.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/sonforum.h.26AB837E0B2D8EB4.idx" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/sonforum.h.26AB837E0B2D8EB4.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/ui_forum.h.6F3EDAE034B83309.idx" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/ui_forum.h.6F3EDAE034B83309.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/ui_mainwindow.h.00EC5CBFA4E66249.idx" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/ui_mainwindow.h.00EC5CBFA4E66249.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/ui_personpage.h.A7CDF21A5B12A1E0.idx" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/ui_personpage.h.A7CDF21A5B12A1E0.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/ui_sonforum.h.783ADE7A8E35DBC8.idx" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/ui_sonforum.h.783ADE7A8E35DBC8.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/usermanage.h.2877D5686A9A84DE.idx" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/build/Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/usermanage.h.2877D5686A9A84DE.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/VirtualStock.pro" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/VirtualStock.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/backdb.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/backdb.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/backdb.h" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/backdb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/buyin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/buyin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/buyin.ui" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/buyin.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/chartspline.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/chartspline.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/chartspline.h" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/chartspline.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/clientsocket.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/clientsocket.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/clientsocket.h" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/clientsocket.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/forum.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/forum.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/forum.h" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/forum.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/login.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/login.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/login.h" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/login.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/mainwindow.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/mainwindow.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/mainwindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/mainwindow.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VirtualStock_dir/mainwindow.ui" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/mainwindow.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualStock_dir/usermanage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualStock_dir/usermanage.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +54,8 @@
     "WebServerToolWindowFactoryState": "false",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "正在合并 master",
+    "last_opened_file_path": "D:/24Summer/VirtualStock_dir/mainwindow.ui",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -62,6 +68,9 @@
       <option name="presentableId" value="Default" />
       <updated>1720599991262</updated>
       <workItem from="1720599993756" duration="15000" />
+      <workItem from="1720744022345" duration="18000" />
+      <workItem from="1720744052564" duration="13000" />
+      <workItem from="1720744089198" duration="109000" />
     </task>
     <servers />
   </component>

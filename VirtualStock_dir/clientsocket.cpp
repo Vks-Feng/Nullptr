@@ -2,6 +2,10 @@
 
 ClientSocket::ClientSocket(QObject *parent) : QTcpSocket(parent)
 {
+    // 设置心跳包定时器
+    QTimer *heartbeatTimer = new QTimer;
+    connect(heartbeatTimer, &QTimer::timeout, this, &ClientSocket::sendHeartbeat);
+    heartbeatTimer->start(10000); // 每10秒发送一次心跳包
     connect(this, &QTcpSocket::readyRead, this, &ClientSocket::onReadyRead);
 }
 
@@ -12,6 +16,14 @@ void ClientSocket::connectToServer(const QString &host, int port)
         waitForDisconnected();
     }
     connectToHost(host, port);
+}
+
+void ClientSocket::sendHeartbeat() {
+    if (state() == QAbstractSocket::ConnectedState) {
+        QByteArray heartbeat = "HEARTBEAT";
+        write(heartbeat);
+        flush();
+    }
 }
 
 void ClientSocket::onReadyRead()

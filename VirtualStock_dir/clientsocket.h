@@ -3,6 +3,7 @@
 
 #include <QTcpSocket>
 #include <QObject>
+#include <QTimer>
 
 class ClientSocket : public QTcpSocket
 {
@@ -70,6 +71,8 @@ signals:
 
 private slots:
     void onReadyRead();
+
+    void sendHeartbeat();
 
 private:
     void processMessage(const QByteArray &data);

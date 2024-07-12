@@ -7,6 +7,7 @@
 #include <QListWidget>
 #include <QMessageBox>
 #include <QDialog>
+#include <QGraphicsDropShadowEffect>
 #include "newsdialog.h"
 #include "global.h"
 
@@ -25,6 +26,7 @@ public:
     ~NewsWidget();
     std::map<int,std::vector<QString>> monthNews;
     void updateNews();
+    void setShadowEffect(QLabel *l, int offset, int effect, QColor color);
 private slots:
     void onNewsItemClicked(QListWidgetItem *Item);
 

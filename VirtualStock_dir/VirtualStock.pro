@@ -5,11 +5,15 @@ QT       += network
 
 CONFIG += console
 CONFIG -= app_bundle
+
 LIBS += -lmysqlclient
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++17
+
+QMAKE_CXXFLAGS += -Wa,-mbig-obj
+# 允许编译更大的文件
 
 #win32:QMAKE_LFLAGS += -shared
 
@@ -108,10 +112,25 @@ DEPENDPATH += $$PWD/../_include
 
 RESOURCES += \
     GroupLogo.qrc \
+    Icon.qrc \
+    backPerson1.qrc \
+    communityIcon.qrc \
+    homeIcon.qrc \
     loginButton.qrc \
     loginPic.qrc \
     newsPic.qrc \
     newsPic2.qrc \
-    page1.qrc
+    page1.qrc \
+    peresonIcon.qrc \
+    rankIcon.qrc \
+    rechargeIcon.qrc \
+    ruleIcon.qrc \
+    trendIcon.qrc
+
+DISTFILES += \
+    photos/rank2.png \
+    photos/rankIcon.png \
+    photos/recharge.png \
+    photos/stockIcon.png
 
 
