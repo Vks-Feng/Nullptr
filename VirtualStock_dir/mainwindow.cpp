@@ -69,6 +69,31 @@ MainWindow::MainWindow(QWidget *parent) :
     shadow_effect6->setBlurRadius(30);
     ui->RuleFrame->setGraphicsEffect(shadow_effect6);
 
+    //stockPage页面设置阴影
+    QGraphicsDropShadowEffect *shadow_effect7= new QGraphicsDropShadowEffect(this);
+    shadow_effect7->setOffset(0, 0);
+    shadow_effect7->setColor(QColor(38, 78, 119, 127)); //阴影颜色
+    shadow_effect7->setBlurRadius(30);//阴影半径
+    ui->StockWidget_1->setGraphicsEffect(shadow_effect7);
+
+    QGraphicsDropShadowEffect *shadow_effect8= new QGraphicsDropShadowEffect(this);
+    shadow_effect8->setOffset(0, 0);
+    shadow_effect8->setColor(QColor(38, 78, 119, 127)); //阴影颜色
+    shadow_effect8->setBlurRadius(30);//阴影半径
+    ui->StockWidget_2->setGraphicsEffect(shadow_effect8);
+
+    QGraphicsDropShadowEffect *shadow_effect9= new QGraphicsDropShadowEffect(this);
+    shadow_effect9->setOffset(0, 0);
+    shadow_effect9->setColor(QColor(38, 78, 119, 127)); //阴影颜色
+    shadow_effect9->setBlurRadius(30);//阴影半径
+    ui->stockIntro_1->setGraphicsEffect(shadow_effect9);
+
+    QGraphicsDropShadowEffect *shadow_effect10= new QGraphicsDropShadowEffect(this);
+    shadow_effect10->setOffset(0, 0);
+    shadow_effect10->setColor(QColor(38, 78, 119, 127)); //阴影颜色
+    shadow_effect10->setBlurRadius(30);//阴影半径
+    ui->stockIntro_2->setGraphicsEffect(shadow_effect10);
+
 
     //设置跳转的槽函数
     connect(ui->firstbutton1,&QPushButton::clicked,this,[=](){
@@ -174,7 +199,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QWidget *placeholder_1 = ui->StockWidget_1;
     QWidget *placeholder_2 = ui->StockWidget_2;
 
-    ui->selectpage2->setLayout(ui->stock_total_layout);
+    // ui->selectpage2->setLayout(ui->stock_total_layout);
     //
 
     // 设置 chartspline 对象到占位部件的位置
