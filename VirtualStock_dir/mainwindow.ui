@@ -62,61 +62,6 @@ border-bottom-right-radius:10px;}</string>
      </property>
      <layout class="QVBoxLayout" name="MainChartsLayout"/>
     </widget>
-    <widget class="QWidget" name="layoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>460</x>
-       <y>10</y>
-       <width>421</width>
-       <height>321</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <widget class="QFrame" name="frame">
-        <property name="styleSheet">
-         <string notr="true">QFrame
-{
-background-color: rgb(255, 255, 255);
-border-radius:20px;
-border:1px rgb(231, 231, 231);
-box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.5);
-}
-</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QFrame" name="RuleFrame">
-        <property name="styleSheet">
-         <string notr="true">QFrame {
-    border-radius: 20px;
-    background-color: rgb(255, 255, 255);
-    /* 设置阴影 */
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5); /* 水平偏移，垂直偏移，模糊半径，阴影扩散 */
-    border-top: 5px solid qlineargradient(y0:0, y1:1,stop: 0 #ececef, stop: 1 white);
-    border-left: 5px solid qlineargradient(x0:0, x1:1,stop: 0 #ececef, stop: 1 white);
-    border-bottom: 5px solid qlineargradient(y0:0, y1:1,stop: 0 white, stop: 1  #ececef);
-    border-right: 5px solid qlineargradient(x0:0, x1:1,stop:  0 white, stop: 1 #ececef);
-}
-</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
     <widget class="QFrame" name="personageFrame">
      <property name="geometry">
       <rect>
@@ -299,9 +244,31 @@ border:1px rgb(231, 231, 231);
             <bold>false</bold>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true">QFrame
+{
+background-color: rgb(255, 255, 255);
+border-radius:20px;
+border:1px rgb(231, 231, 231);
+}
+</string>
+          </property>
          </widget>
         </item>
        </layout>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -360,66 +327,25 @@ border:1px rgb(231, 231, 231);
          <widget class="QPlainTextEdit" name="stockIntro_2">
           <property name="font">
            <font>
-            <family>Microsoft YaHei UI</family>
-            <pointsize>16</pointsize>
+            <family>Microsoft YaHei</family>
+            <pointsize>10</pointsize>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QFrame
+{
+background-color: rgb(255, 255, 255);
+border-radius:20px;
+border:1px rgb(231, 231, 231);
+}
+</string>
           </property>
          </widget>
         </item>
        </layout>
       </item>
      </layout>
-    </widget>
-    <widget class="QComboBox" name="ChooseWhichStock">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>0</y>
-       <width>93</width>
-       <height>26</height>
-      </rect>
-     </property>
-     <item>
-      <property name="text">
-       <string>Apple</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Amazon</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Google</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>IBM</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Intel</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>JetBlue</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Meta</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Microsoft</string>
-      </property>
-     </item>
     </widget>
    </widget>
    <widget class="QWidget" name="selectpage3">
@@ -916,15 +842,15 @@ border:1px rgb(231, 231, 231);
   </widget>
  </widget>
  <resources>
-  <include location="peresonIcon.qrc"/>
   <include location="homeIcon.qrc"/>
+  <include location="rechargeIcon.qrc"/>
+  <include location="peresonIcon.qrc"/>
+  <include location="GroupLogo.qrc"/>
+  <include location="trendIcon.qrc"/>
+  <include location="rankIcon.qrc"/>
+  <include location="Icon.qrc"/>
   <include location="communityIcon.qrc"/>
   <include location="ruleIcon.qrc"/>
-  <include location="Icon.qrc"/>
-  <include location="trendIcon.qrc"/>
-  <include location="GroupLogo.qrc"/>
-  <include location="rankIcon.qrc"/>
-  <include location="rechargeIcon.qrc"/>
  </resources>
  <connections/>
 </ui>
