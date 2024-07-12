@@ -42,7 +42,7 @@ public:
     //----------Basic Operations---------
 
     //Usually you use this default constructor instead of using the constructor directorly
-    BackDB();
+//    BackDB();
 
     //Input the formal query lines that can be used in MySql
     //and return a MYSQL_RES object

@@ -6,7 +6,7 @@
 #include <QChartView>
 #include <QSplineSeries>
 #include <QRandomGenerator>//获取随机数用
-#include <backdb.h>
+#include "global.h"
 
 
 namespace Ui {

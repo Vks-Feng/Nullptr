@@ -23,8 +23,8 @@ border-bottom-right-radius:10px;}</string>
   <widget class="QStackedWidget" name="selectpage">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>100</y>
+     <x>150</x>
+     <y>110</y>
      <width>861</width>
      <height>621</height>
     </rect>
@@ -33,7 +33,7 @@ border-bottom-right-radius:10px;}</string>
     <enum>QFrame::Panel</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>5</number>
    </property>
    <widget class="QWidget" name="selectpage1">
     <widget class="QWidget" name="layoutWidget">
@@ -340,6 +340,19 @@ border:1px rgb(231, 231, 231);
      </property>
     </widget>
    </widget>
+   <widget class="QWidget" name="selectpage6_trade">
+    <widget class="QWidget" name="verticalLayoutWidget_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>851</width>
+       <height>431</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="Trade_layout"/>
+    </widget>
+   </widget>
    <widget class="QWidget" name="selectpage3">
     <widget class="QWidget" name="verticalLayoutWidget_4">
      <property name="geometry">
@@ -449,6 +462,19 @@ T+0/T+1/T+2：不同市场有不同的清算交割制度。例如，美国市场
        </widget>
       </item>
      </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="selectpage5_forum">
+    <widget class="QWidget" name="verticalLayoutWidget_6">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>50</y>
+       <width>501</width>
+       <height>361</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="Forum_layout"/>
     </widget>
    </widget>
    <widget class="QWidget" name="selectpage5">
@@ -613,6 +639,9 @@ QPushButton:checked
        <property name="icon">
         <iconset resource="Icon.qrc">
          <normaloff>:/new/stock/photos/stockIcon.png</normaloff>:/new/stock/photos/stockIcon.png</iconset>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -834,15 +863,15 @@ border:1px rgb(231, 231, 231);
   </widget>
  </widget>
  <resources>
-  <include location="homeIcon.qrc"/>
-  <include location="rechargeIcon.qrc"/>
-  <include location="peresonIcon.qrc"/>
-  <include location="GroupLogo.qrc"/>
-  <include location="trendIcon.qrc"/>
-  <include location="rankIcon.qrc"/>
   <include location="Icon.qrc"/>
-  <include location="communityIcon.qrc"/>
   <include location="ruleIcon.qrc"/>
+  <include location="GroupLogo.qrc"/>
+  <include location="communityIcon.qrc"/>
+  <include location="rechargeIcon.qrc"/>
+  <include location="rankIcon.qrc"/>
+  <include location="peresonIcon.qrc"/>
+  <include location="trendIcon.qrc"/>
+  <include location="homeIcon.qrc"/>
  </resources>
  <connections/>
 </ui>

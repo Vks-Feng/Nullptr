@@ -33,28 +33,28 @@ BackDB::BackDB(const char* _host, const  char* _user, const  char* _password, co
 }
 
 //Usually you use these function instead of using the constructor directorly
-BackDB::BackDB()
-{
-    const char* host = "rm-n4a8f71b4zhg4w616co.mysql.cn-wuhan-lr.rds.aliyuncs.com"; // MySQL server host
-    const char* user = "visitor_1"; // MySQL username
-    const char* password = "Lin123456"; // MySQL password
-    const char* database = "stocks"; // MySQL database name
-    unsigned int port = 3306; // MySQL port (default is 3306)
-    const char* unix_socket = nullptr; // Unix socket (can be nullptr for TCP/IP)
-    unsigned long client_flag = 0; // Connection flags (usually 0)
+//BackDB::BackDB()
+//{
+//    const char* host = "rm-n4a8f71b4zhg4w616co.mysql.cn-wuhan-lr.rds.aliyuncs.com"; // MySQL server host
+//    const char* user = "visitor_1"; // MySQL username
+//    const char* password = "Lin123456"; // MySQL password
+//    const char* database = "stocks"; // MySQL database name
+//    unsigned int port = 3306; // MySQL port (default is 3306)
+//    const char* unix_socket = nullptr; // Unix socket (can be nullptr for TCP/IP)
+//    unsigned long client_flag = 0; // Connection flags (usually 0)
 
-    mysql_init(&mysql);
+//    mysql_init(&mysql);
 
-    // Connect to MySQL database using mysql_real_connect
-    if (mysql_real_connect(&mysql, host, user, password, database, port, unix_socket, client_flag)) {
-        std::cout << "Connected to MySQL database successfully!" << std::endl;
-        std::cout << "Database Name:" << database << std::endl;
+//    // Connect to MySQL database using mysql_real_connect
+//    if (mysql_real_connect(&mysql, host, user, password, database, port, unix_socket, client_flag)) {
+//        std::cout << "Connected to MySQL database successfully!" << std::endl;
+//        std::cout << "Database Name:" << database << std::endl;
 
-    }
-    else {
-        std::cerr << "Connection error: " << mysql_error(&mysql) << std::endl;
-    }
-}
+//    }
+//    else {
+//        std::cerr << "Connection error: " << mysql_error(&mysql) << std::endl;
+//    }
+//}
 
 //----------Constructor----------
 
