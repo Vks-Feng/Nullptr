@@ -21,6 +21,7 @@ public:
     explicit Personpage(QWidget *parent = nullptr);
 
     void openChargePage();
+    float lastcurrency();
 
     ~Personpage();
 

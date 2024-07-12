@@ -14,7 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">bacgroud-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(33, 84, 118, 255), stop:1 rgba(255, 255, 255, 255));
+   <string notr="true">
 </string>
   </property>
   <widget class="QPushButton" name="changeintroduction">

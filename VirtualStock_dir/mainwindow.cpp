@@ -264,6 +264,9 @@ MainWindow::MainWindow(QWidget *parent) :
     // this->resize(1700,700);
 
     forumOpen = false;
+
+    showCustomDialog();
+
 }
 
 MainWindow::~MainWindow()
@@ -384,9 +387,9 @@ void MainWindow::on_nextroundbutton_clicked()
             MainWindow* main= new MainWindow();
             this->close();
             news2.updateNews();
-            main->show();
+            main->show();showCustomDialog();
         }}
-    else{QMessageBox msg(QMessageBox::Question,"提示","您本轮还没有进行任何操作，是否进行到下一轮操作?",QMessageBox::Yes | QMessageBox::No,this);
+      else{QMessageBox msg(QMessageBox::Question,"提示","您本轮还没有进行任何操作，是否进行到下一轮操作?",QMessageBox::Yes | QMessageBox::No,this);
         int ret = msg.exec();
         if(ret==QMessageBox::Yes)
         {
@@ -401,10 +404,16 @@ void MainWindow::on_nextroundbutton_clicked()
             Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,months));
 
             NewsWidget news2;
+
+
+
+
+
             MainWindow* main= new MainWindow();
             this->close();
             news2.updateNews();
-            main->show();
+            main->show();showCustomDialog();
+
         }}}
 }
 
@@ -500,3 +509,8 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 {
     mouse_press = false;
 }
+void MainWindow::showCustomDialog() {
+    dialog dialog1;
+    dialog1.exec();
+}
+

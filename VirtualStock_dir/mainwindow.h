@@ -14,6 +14,7 @@
 #include "backdb.h"
 #include "record.h"
 #include "newswidget.h"
+#include "dialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -53,6 +54,7 @@ private slots:
     void PutCompanyName_1(int index);
 
     void PutCompanyName_2(int index);
+    void showCustomDialog();
 
 
 
