@@ -49,6 +49,7 @@ void buyin::on_PositionButton_clicked()
 
 void buyin::on_IncomeButton_clicked()
 {
+    incomePageUpdate();
     ui->stackedWidget->setCurrentIndex(4);
 }
 
@@ -219,14 +220,13 @@ void buyin::buyinNotification(QString msg){
 
 void buyin::setBuyInInfo(){
     int BuyInindex = ui->BuyInStockCodeBox->currentIndex() + 1;
+    setPicResource(BuyInindex);
     int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
     int year = Global::instance().getYear();
     int month = Global::instance().getGlobalDataBase()->getTime(userID);
-
     long BuyInPrice = Global::instance().getGlobalDataBase()->getStockInfo(BuyInindex,year,month)[0];
     int balanceValue = Global::instance().getGlobalDataBase()->GetBalance(userID);
     long maxBuyInNum =  balanceValue / BuyInPrice;
-
     setBuyInName(BuyInindex);
     ui->BuyInNameLine->setDisabled(true);
     ui->BuyInPriceLine->setText(QString::number(BuyInPrice));
@@ -241,6 +241,7 @@ void buyin::setBuyInInfo(){
 
 void buyin::setSellOutInfo(){
     int SellOutindex = ui->SellOutStockCodeBox->currentIndex() + 1;
+    setPicResource(SellOutindex);
     qDebug() << "SellOutindex:" << SellOutindex;
     int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
     int year = Global::instance().getYear();
@@ -326,4 +327,56 @@ void buyin::holdingTableUpdate(){
     iTotalValue = new QTableWidgetItem(QString::number(summaryValue));
     ui->holdingTable->setItem(7, 0, iHolding);
     ui->holdingTable->setItem(7, 1, iTotalValue);
+}
+
+void buyin::setPicResource(int index){
+    switch(index)
+    {
+    case 1:
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Apple.png);");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Apple.png);");
+        break;
+    case 2:
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Amazon.png);");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Amazon.png);");
+        break;
+    case 3:
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Google.png);");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Google.png);");
+        break;
+    case 4:
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/IBM.png);");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/IBM.png);");
+        break;
+    case 5:
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Intel.png);");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Intel.png);");
+
+        break;
+    case 6:
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/JetBlue.png);");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/JetBlue.png);");
+
+        break;
+    case 7:
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Meta.png);");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Meta.png);");
+        break;
+    case 8:
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Microsoft.png);");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Microsoft.png);");
+        break;
+    case 9:
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Apple.png);");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Apple.png);");
+        break;
+    default:
+        ui->selloutBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Apple.png);");
+        ui->buyinBrandIcon->setStyleSheet("background-image: url(:/new/logo/photos/Apple.png);");
+        break;
+    }
+}
+
+void buyin::incomePageUpdate(){
+
 }
