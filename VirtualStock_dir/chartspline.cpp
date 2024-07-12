@@ -5,7 +5,7 @@
 //#include <Qtime>
 #include <vector>
 
-const int YEARS=25;
+// const int YEARS=25;
 
 ChartSpline::ChartSpline(QWidget *parent) :
     QWidget(parent),
@@ -183,7 +183,9 @@ void ChartSpline::ChangeStock(int company_id)
 
         QChartView *chartView = new QChartView(this);
         chartView->setChart(chart);
+
 //        chartView->resize(QSize(500,300));              //重新设置chartView的大小
+
         chartView->setRenderHints(QPainter::Antialiasing);//消除边缘，看起来平滑一些
 
         // 清空当前容器中的所有小部件
@@ -196,7 +198,8 @@ void ChartSpline::ChangeStock(int company_id)
         ui->horizontalLayout->addWidget(chartView);    //把chartView放到水平布局中（在ui中拖一个水平布局）
         this->setLayout(ui->horizontalLayout);
 
-//        this->resize(700,500);
+        // this->resize(700,500);
+
 }
 
 //QString ChartSpline::CompanyIntroduction(int company_id)

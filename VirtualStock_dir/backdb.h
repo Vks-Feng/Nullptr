@@ -10,6 +10,7 @@
 #include <portfolio.h>
 #include <QRandomGenerator>
 #include <post.h>
+#include <QCryptographicHash>
 
 class BackDB
 {
@@ -34,7 +35,9 @@ public:
 
     //----------Tools---------
     //输入公司id，返回公司名(对应数据表中的公司名称缩写)
-     QString Id2Name(int id);
+    QString Id2Name(int id);
+
+    QString generateHash(const QString& input);
     //----------Tools---------
 
 

@@ -234,6 +234,8 @@ int BackDB::addUser(QString name, QString password)
 
     int user_id=this->CountUser()+1;
 
+    password=this->generateHash(password);
+
     QString queryStr = QString("INSERT INTO users (id, name, password, balance, ranking,user_time,introduction) "
                                "VALUES ('%1', '%2', '%3', '%4', '%5','%6','%7')")
                            .arg(user_id)
@@ -312,6 +314,8 @@ bool BackDB::isPasswordEqual(QString name, QString password)
     mysql_free_result(result);
 
     qDebug()<<"Come to end of isPasswordEqual Function"<<Qt::endl;
+
+    password=this->generateHash(password);
 
     return (storedPassword == password);
 }
@@ -537,9 +541,23 @@ QString BackDB::Id2Name(int company_id)
         company_name = "Unknown";
     }
 
-    qDebug() << "Selected company:" << company_name;
+//    qDebug() << "Selected company:" << company_name;
 
     return company_name;
+}
+
+QString BackDB::generateHash(const QString &input)
+{
+    // Function to generate hash from a given string using SHA-256
+    // Convert input string to QByteArray
+    QByteArray byteArray = input.toUtf8();
+    // Create a QCryptographicHash object with SHA-256 algorithm
+    QCryptographicHash hash(QCryptographicHash::Sha256);
+    // Add the data to the hash object
+    hash.addData(byteArray);
+    // Convert the hashed byte array to a hexadecimal string
+    QString hashedString = hash.result().toHex();
+    return hashedString;
 }
 
 //----------Tools----------
@@ -886,7 +904,7 @@ std::map<int, std::vector<QString>>& BackDB::getNews(int _month)
     MYSQL_ROW row;
     std::vector<QString>each;
 
-    qDebug()<<"Add month 12(last year)"<<Qt::endl;
+//    qDebug()<<"Add month 12(last year)"<<Qt::endl;
     while ((row = mysql_fetch_row(queryResult_12))) {
         QString content(row[1]);
         each.push_back(content);
@@ -916,7 +934,7 @@ std::map<int, std::vector<QString>>& BackDB::getNews(int _month)
 
         if(month==i+1)
         {
-            qDebug()<<"Add month "<<i+1<<Qt::endl;
+//            qDebug()<<"Add month "<<i+1<<Qt::endl;
 
             ReturnRecord->insert(std::make_pair(i+1, each));
             each.clear();

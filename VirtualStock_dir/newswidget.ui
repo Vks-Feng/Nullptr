@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>398</width>
-    <height>360</height>
+    <width>864</width>
+    <height>472</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,14 +15,13 @@
   </property>
   <property name="styleSheet">
    <string notr="true">border-radius:10px;
-backgroud-color:white;
 </string>
   </property>
   <widget class="QLabel" name="NewsLable">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>170</y>
+     <x>10</x>
+     <y>50</y>
      <width>221</width>
      <height>111</height>
     </rect>
@@ -44,16 +43,16 @@ backgroud-color:white;
   <widget class="QListWidget" name="NewsList">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>10</y>
-     <width>41</width>
-     <height>301</height>
+     <x>0</x>
+     <y>230</y>
+     <width>761</width>
+     <height>101</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Forte</family>
-     <pointsize>16</pointsize>
+     <pointsize>12</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -106,20 +105,19 @@ border:1px rgb(231, 231, 231);
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>200</y>
-     <width>311</width>
-     <height>111</height>
+     <y>170</y>
+     <width>761</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="newsPic.qrc">:/new/news/photos/news.jpg</pixmap>
+    <pixmap resource="newsPic3.qrc">:/new/news/photos/HomePage.jpg</pixmap>
    </property>
   </widget>
   <widget class="QLabel" name="NewsPic2">
@@ -127,13 +125,12 @@ border:1px rgb(231, 231, 231);
     <rect>
      <x>0</x>
      <y>10</y>
-     <width>311</width>
-     <height>181</height>
+     <width>761</width>
+     <height>151</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
@@ -145,10 +142,10 @@ border:1px rgb(231, 231, 231);
   <widget class="QFrame" name="Newsframe">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>770</x>
      <y>10</y>
-     <width>31</width>
-     <height>311</height>
+     <width>51</width>
+     <height>321</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -163,10 +160,10 @@ border:1px rgb(231, 231, 231);
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>0</y>
-      <width>31</width>
-      <height>311</height>
+      <width>51</width>
+      <height>321</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -175,7 +172,7 @@ border:1px rgb(231, 231, 231);
        <property name="font">
         <font>
          <family>华文行楷</family>
-         <pointsize>16</pointsize>
+         <pointsize>24</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -191,7 +188,7 @@ border:1px rgb(231, 231, 231);
        <property name="font">
         <font>
          <family>华文行楷</family>
-         <pointsize>16</pointsize>
+         <pointsize>24</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -207,7 +204,7 @@ border:1px rgb(231, 231, 231);
        <property name="font">
         <font>
          <family>华文行楷</family>
-         <pointsize>16</pointsize>
+         <pointsize>24</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -223,7 +220,7 @@ border:1px rgb(231, 231, 231);
        <property name="font">
         <font>
          <family>华文行楷</family>
-         <pointsize>16</pointsize>
+         <pointsize>24</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -239,7 +236,7 @@ border:1px rgb(231, 231, 231);
        <property name="font">
         <font>
          <family>华文行楷</family>
-         <pointsize>16</pointsize>
+         <pointsize>22</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -255,7 +252,7 @@ border:1px rgb(231, 231, 231);
        <property name="font">
         <font>
          <family>华文行楷</family>
-         <pointsize>16</pointsize>
+         <pointsize>24</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -271,7 +268,7 @@ border:1px rgb(231, 231, 231);
        <property name="font">
         <font>
          <family>华文行楷</family>
-         <pointsize>16</pointsize>
+         <pointsize>24</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -287,7 +284,7 @@ border:1px rgb(231, 231, 231);
        <property name="font">
         <font>
          <family>华文行楷</family>
-         <pointsize>16</pointsize>
+         <pointsize>24</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -308,7 +305,7 @@ border:1px rgb(231, 231, 231);
   <zorder>Newsframe</zorder>
  </widget>
  <resources>
-  <include location="newsPic.qrc"/>
+  <include location="newsPic3.qrc"/>
   <include location="newsPic2.qrc"/>
  </resources>
  <connections/>

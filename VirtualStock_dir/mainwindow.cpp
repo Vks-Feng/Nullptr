@@ -46,6 +46,13 @@ MainWindow::MainWindow(QWidget *parent) :
 //    }
 
     this->setWindowFlags(Qt::FramelessWindowHint);//无边框
+    // this->setAttribute(Qt::WA_TranslucentBackground);//透明背景
+    // QGraphicsDropShadowEffect *MainShadow = new QGraphicsDropShadowEffect;
+    // MainShadow->setBlurRadius(10);
+    // MainShadow->setColor(QColor(0,0,0,100));
+    // MainShadow->setOffset(0,0);
+    // setGraphicsEffect(MainShadow);
+
     ui->logo->setScaledContents(true);//logo自适应大小
 
 
@@ -81,16 +88,16 @@ MainWindow::MainWindow(QWidget *parent) :
     shadow_effect4->setBlurRadius(30);
     ui->chartsFrame->setGraphicsEffect(shadow_effect4);
     //另外两个frame
-    QGraphicsDropShadowEffect *shadow_effect5 = new QGraphicsDropShadowEffect(this);
-    shadow_effect5->setOffset(0, 0);
-    shadow_effect5->setColor(QColor(38, 78, 119, 127));
-    shadow_effect5->setBlurRadius(30);
-    ui->Homeframe1->setGraphicsEffect(shadow_effect5);
-    QGraphicsDropShadowEffect *shadow_effect6 = new QGraphicsDropShadowEffect(this);
-    shadow_effect6->setOffset(0, 0);
-    shadow_effect6->setColor(QColor(38, 78, 119, 127));
-    shadow_effect6->setBlurRadius(30);
-    ui->RuleFrame->setGraphicsEffect(shadow_effect6);
+    // QGraphicsDropShadowEffect *shadow_effect5 = new QGraphicsDropShadowEffect(this);
+    // shadow_effect5->setOffset(0, 0);
+    // shadow_effect5->setColor(QColor(38, 78, 119, 127));
+    // shadow_effect5->setBlurRadius(30);
+    // ui->Homeframe1->setGraphicsEffect(shadow_effect5);
+    // QGraphicsDropShadowEffect *shadow_effect6 = new QGraphicsDropShadowEffect(this);
+    // shadow_effect6->setOffset(0, 0);
+    // shadow_effect6->setColor(QColor(38, 78, 119, 127));
+    // shadow_effect6->setBlurRadius(30);
+    // ui->RuleFrame->setGraphicsEffect(shadow_effect6);
 
     //stockPage页面设置阴影
     QGraphicsDropShadowEffect *shadow_effect7= new QGraphicsDropShadowEffect(this);
@@ -119,12 +126,16 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     //设置跳转的槽函数
-    connect(ui->firstbutton1,&QPushButton::clicked,this,[=](){
-        ui->selectpage->setCurrentIndex(0);
+    connect(ui->Minimum_Button,&QPushButton::clicked,this,[=](){
+        this->showMinimized();
     });
 
     connect(ui->MainCloseButton,&QPushButton::clicked,this,[=](){
         this->close();
+    });
+
+    connect(ui->firstbutton1,&QPushButton::clicked,this,[=](){
+        ui->selectpage->setCurrentIndex(0);
     });
 
     connect(ui->stockbutton1,&QPushButton::clicked,this,[=](){
@@ -516,3 +527,16 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 {
     mouse_press = false;
 }
+
+// void MainWindow::paintEvent(QPaintEvent *event)
+// {
+//     QPainter painter(this);
+//     painter.setRenderHint(QPainter::Antialiasing);
+
+//     QPainterPath path;
+//     path.addRoundedRect(rect(),10,10);
+//     painter.setClipPath(path);
+//     painter.fillPath(path,Qt::white);
+
+//     this->paintEvent(event);
+// }
