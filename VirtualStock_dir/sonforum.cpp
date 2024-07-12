@@ -28,17 +28,20 @@ sonforum::sonforum(std::vector<Post>_load,QWidget *parent)
 
     // 创建输入文本框
     QLineEdit *lineEdit = new QLineEdit();
+    lineEdit->setFixedWidth(600);
     buttonLayout->addWidget(lineEdit, 0, 0); // 将文本框添加到第一行第一列
 
     // 创建提交按钮
     QPushButton *submitButton = new QPushButton("我要追帖");
+    submitButton->setFixedWidth(100);
     buttonLayout->addWidget(submitButton, 0, 1); // 将提交按钮添加到第一行第二列
 
     // 连接提交按钮的clicked信号到槽函数
     connect(submitButton, &QPushButton::clicked, this, &sonforum::onSubmitClicked);
 
     QPushButton *refreashButton = new QPushButton("刷新");
-    buttonLayout->addWidget(refreashButton, 0, 2); // 将提交按钮添加到第一行第三列
+    refreashButton->setFixedWidth(50);
+    buttonLayout->addWidget(refreashButton, 0, 2); // 将提交按钮添加到第一行第二列
     connect(refreashButton, &QPushButton::clicked, this, &sonforum::refreash);
 
 
@@ -49,7 +52,7 @@ sonforum::sonforum(std::vector<Post>_load,QWidget *parent)
         QTextEdit *textEdit = new QTextEdit(this);
         textEdit->setReadOnly(true); // 设置为只读
         textEdit->setFixedHeight(300);
-        buttonLayout->addWidget(textEdit, row+1,0);
+        buttonLayout->addWidget(textEdit, row+1,0,1,3);
         // 可以在这里设置文本显示框的内容
         QString temp;
         int num=load[row].getdate();
@@ -63,6 +66,7 @@ sonforum::sonforum(std::vector<Post>_load,QWidget *parent)
         textEdit->setStyleSheet("QTextEdit { font-size:20px }");
     }
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
 }
 
 sonforum::~sonforum()
