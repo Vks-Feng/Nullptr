@@ -44,16 +44,19 @@ forum::forum(QWidget *parent):QWidget(parent){
 
     // 创建输入文本框
     QLineEdit *lineEdit = new QLineEdit();
+    lineEdit->setFixedWidth(600);
     buttonLayout->addWidget(lineEdit, 0, 0); // 将文本框添加到第一行第一列
 
     // 创建提交按钮
     QPushButton *submitButton = new QPushButton("我要发新帖");
+    submitButton->setFixedWidth(100);
     buttonLayout->addWidget(submitButton, 0, 1); // 将提交按钮添加到第一行第二列
 
     // 连接提交按钮的clicked信号到槽函数
     connect(submitButton, &QPushButton::clicked, this, &forum::onSubmitClicked);
 
     QPushButton *refreashButton = new QPushButton("刷新");
+    refreashButton->setFixedWidth(50);
     buttonLayout->addWidget(refreashButton, 0, 2); // 将提交按钮添加到第一行第二列
     connect(refreashButton, &QPushButton::clicked, this, &forum::refresh);
 
@@ -81,6 +84,7 @@ forum::forum(QWidget *parent):QWidget(parent){
         }
         button = new QPushButton(temp+"\n"+"发帖人："+load[m-row-1].getid()+"\n"+fix+"\n"+ttemp, this);
         button->setFixedHeight(300);
+        button->setFixedWidth(780);
         button->setStyleSheet("QPushButton { font-size:32px}");
 
 
@@ -97,7 +101,7 @@ forum::forum(QWidget *parent):QWidget(parent){
     //--vks--
 
     ui->setupUi(this);
-    showMaximized();
+    this->setFixedSize(this->width(), this->height());
 }
 
 forum::~forum()
