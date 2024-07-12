@@ -23,9 +23,11 @@ border-bottom-right-radius:10px;}</string>
   <widget class="QStackedWidget" name="selectpage">
    <property name="geometry">
     <rect>
+
      <x>130</x>
      <y>100</y>
      <width>881</width>
+
      <height>621</height>
     </rect>
    </property>

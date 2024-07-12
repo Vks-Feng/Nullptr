@@ -1,8 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "chartspline.h"
-#include "buyin.h"
-#include <QPlainTextEdit>
 
 struct UserData {
     QString userName;
@@ -310,14 +307,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    Global::instance().getGlobalDataBase()->close();//关闭数据库
     delete ui;
 }
-
-//void MainWindow::on_TransactionButton_clicked()
-//{
-//    buyin *buy = new buyin();
-//    buy->show();
-//}
 
 QString MainWindow::CompanyIntro(int index)
 {
