@@ -51,7 +51,7 @@ void ChartSpline::ChangeStock(int company_id)
 //-------------------------Get the data of the IBM from database
 
 
-        BackDB test;
+        BackDB test = *Global::instance().getGlobalDataBase();
 
         QString queryStr = QString("SELECT YEAR(timestamp) AS year,\
                                     AVG((high + low) / 2) AS mean_value FROM stock_data_monthly \
@@ -183,7 +183,7 @@ void ChartSpline::ChangeStock(int company_id)
 
         QChartView *chartView = new QChartView(this);
         chartView->setChart(chart);
-        chartView->resize(QSize(500,300));              //重新设置chartView的大小
+//        chartView->resize(QSize(500,300));              //重新设置chartView的大小
         chartView->setRenderHints(QPainter::Antialiasing);//消除边缘，看起来平滑一些
 
         // 清空当前容器中的所有小部件
@@ -195,7 +195,8 @@ void ChartSpline::ChangeStock(int company_id)
 
         ui->horizontalLayout->addWidget(chartView);    //把chartView放到水平布局中（在ui中拖一个水平布局）
         this->setLayout(ui->horizontalLayout);
-        this->resize(700,500);
+
+//        this->resize(700,500);
 }
 
 //QString ChartSpline::CompanyIntroduction(int company_id)
