@@ -30,23 +30,25 @@ Personpage::Personpage(QWidget *parent) :
 
     //获取所有当月股票的交易记录
     int havestock[9]={0};
-    QString thismonth;
+
     for(int i=0;i<number;i++){
+        QString thismonth;
         thismonth+=load[i].GetDate()[5];
         thismonth+=load[i].GetDate()[6];
         int thistime=QString(thismonth).toInt();
-        if(thistime<time){qDebug()<<"continue";continue;}
-        else if(thistime>time){qDebug()<<"end";break;}
+        if(thistime<time){continue;}
+        else if(thistime>time){break;}
         else{
+            qDebug()<<thistime<<" ";
             if(load[i].GetTradeType()){
                 havestock[load[i].GetCompanyId()]+=load[i].GetVolume();
-
             }
             else{
                 havestock[load[i].GetCompanyId()]-=load[i].GetVolume();
             }
         }
-        thismonth.clear();
+        //thismonth="";
+        //thismonth.clear();
     }
 
 
@@ -54,6 +56,7 @@ Personpage::Personpage(QWidget *parent) :
     int stockcurrency[9];//所有股票价格
     //
     for(int i=1;i<9;i++){
+        qDebug()<<havestock[i];
     std::vector<long>& stockInfo1 = Global::instance().getGlobalDataBase()->getStockInfo(i, 2023, time-1);
     long stockPrice1 = stockInfo1[0]; // 获取股票上个月价格
     int number1=Global::instance().getGlobalDataBase()->getUserVolume(Global::instance().getGlobalUserManage()->GetUser(0)->GetId(),i);
@@ -64,7 +67,7 @@ Personpage::Personpage(QWidget *parent) :
     //number1-havestock[i]是上月末股票持有量
     //stockcurrency[i]就是该只股票带来的收益
 
-    lastvalue+=stockcurrency[i];
+    lastvalue+=stockcurrency[i];//上月总收益
     }
     //
 
