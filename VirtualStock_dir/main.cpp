@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
    Login* l = new Login();
    l->show();
 
+
 //    Kcharts test;
 //    test.ChangeStock(3);
 

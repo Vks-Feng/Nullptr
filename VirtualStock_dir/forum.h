@@ -35,13 +35,12 @@ public:
 private slots:
     void detail();
     void onSubmitClicked();
-    void refresh();
+//    void refresh();
 
 //vks
 protected:
 
 void closeEvent(QCloseEvent *event) override {
-    disconnect(Global::instance().getGlobalClient(),&ClientSocket::signal_Receive_Refresh , this, &forum::refresh);
     QWidget::closeEvent(event);
 }
 //vks

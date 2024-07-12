@@ -13,8 +13,7 @@
 #include "forum.h"
 #include "backdb.h"
 #include "record.h"
-#include "newswidget.h"
-#include "forum.h"
+
 
 namespace Ui {
 class MainWindow;
@@ -53,15 +52,13 @@ private slots:
 
     void PutCompanyName_2(int index);
 
-
-
+    void refreshForum();
 
 private:
     Ui::MainWindow *ui;
     QPoint mousePoint;
     bool mouse_press;
-
-    bool forumOpen;
+    forum* forum_widget;
 };
 
 #endif // MAINWINDOW_H

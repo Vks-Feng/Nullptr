@@ -58,7 +58,7 @@ forum::forum(QWidget *parent):QWidget(parent){
     QPushButton *refreashButton = new QPushButton("刷新");
     refreashButton->setFixedWidth(50);
     buttonLayout->addWidget(refreashButton, 0, 2); // 将提交按钮添加到第一行第二列
-    connect(refreashButton, &QPushButton::clicked, this, &forum::refresh);
+//    connect(refreashButton, &QPushButton::clicked, this, &forum::refresh);
 
     // 动态创建按钮并添加到布局中
 
@@ -92,9 +92,9 @@ forum::forum(QWidget *parent):QWidget(parent){
         connect(button, &QPushButton::clicked, this, &forum::detail);
     }
 
-    //--vks--
-    connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &forum::refresh);
-    //--vks--
+//    //--vks--
+//    connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &forum::refresh);
+//    //--vks--
 
     ui->setupUi(this);
     this->setFixedSize(this->width(), this->height());
@@ -102,7 +102,7 @@ forum::forum(QWidget *parent):QWidget(parent){
 
 forum::~forum()
 {
-    disconnect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &forum::refresh);
+//    disconnect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &forum::refresh);
     delete ui;
 }
 
@@ -183,11 +183,11 @@ void forum::display(int m){
     Sonforum->show();
 }
 
-void forum::refresh(){
-    forum*newforum=new forum();
-    newforum->show();
-    this->close();
-}
+//void forum::refresh(){
+//    forum*newforum=new forum();
+//    newforum->show();
+//    this->close();
+//}
 
 
 

@@ -33,7 +33,7 @@ border-bottom-right-radius:10px;}</string>
     <enum>QFrame::Panel</enum>
    </property>
    <property name="currentIndex">
-    <number>5</number>
+    <number>6</number>
    </property>
    <widget class="QWidget" name="selectpage1">
     <widget class="QWidget" name="layoutWidget">
@@ -481,10 +481,10 @@ T+0/T+1/T+2：不同市场有不同的清算交割制度。例如，美国市场
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>70</y>
-       <width>160</width>
-       <height>80</height>
+       <x>19</x>
+       <y>39</y>
+       <width>831</width>
+       <height>571</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="CommunityLayout"/>
@@ -863,15 +863,15 @@ border:1px rgb(231, 231, 231);
   </widget>
  </widget>
  <resources>
-  <include location="Icon.qrc"/>
-  <include location="ruleIcon.qrc"/>
-  <include location="GroupLogo.qrc"/>
   <include location="communityIcon.qrc"/>
   <include location="rechargeIcon.qrc"/>
-  <include location="rankIcon.qrc"/>
-  <include location="peresonIcon.qrc"/>
-  <include location="trendIcon.qrc"/>
   <include location="homeIcon.qrc"/>
+  <include location="ruleIcon.qrc"/>
+  <include location="trendIcon.qrc"/>
+  <include location="Icon.qrc"/>
+  <include location="peresonIcon.qrc"/>
+  <include location="GroupLogo.qrc"/>
+  <include location="rankIcon.qrc"/>
  </resources>
  <connections/>
 </ui>
