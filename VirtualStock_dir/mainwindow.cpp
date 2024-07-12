@@ -301,7 +301,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     forumOpen = false;
 
-    showCustomDialog();
+//    showCustomDialog();
 
 }
 

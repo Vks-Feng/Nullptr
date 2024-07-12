@@ -261,7 +261,7 @@ void BackDB::testUserAdd() {
 
 bool BackDB::isExist(QString name)
 {
-    qDebug()<<"Come to isExist Function"<<Qt::endl;
+//    qDebug()<<"Come to isExist Function"<<Qt::endl;
     QString queryStr = QString("SELECT COUNT(*) FROM users WHERE name = '%1';")
                            .arg(name);
 
@@ -271,14 +271,14 @@ bool BackDB::isExist(QString name)
 
     int count = atoi(row[0]); // Convert first column to integer
 
-    qDebug()<<"Come to end of isExist Function"<<Qt::endl;
+//    qDebug()<<"Come to end of isExist Function"<<Qt::endl;
 
     return count > 0;
 }
 
 bool BackDB::TotalValueIsExist(int User_id)
 {
-    qDebug()<<"Come to isExist Function"<<Qt::endl;
+//    qDebug()<<"Come to isExist Function"<<Qt::endl;
     QString queryStr = QString("SELECT COUNT(*) FROM total_value WHERE id = '%1';")
                            .arg(User_id);
 
@@ -288,7 +288,7 @@ bool BackDB::TotalValueIsExist(int User_id)
 
     int count = atoi(row[0]); // Convert first column to integer
 
-    qDebug()<<"Come to end of isExist Function"<<Qt::endl;
+//    qDebug()<<"Come to end of isExist Function"<<Qt::endl;
 
     return count > 0;
 }
@@ -297,7 +297,7 @@ bool BackDB::TotalValueIsExist(int User_id)
 //正确则返回true，错误返回false
 bool BackDB::isPasswordEqual(QString name, QString password)
 {
-    qDebug()<<"Come to isPasswordEqual Function"<<Qt::endl;
+//    qDebug()<<"Come to isPasswordEqual Function"<<Qt::endl;
 
     QString queryStr = QString("SELECT password FROM users WHERE name = '%1'")
                            .arg(name);
@@ -313,9 +313,9 @@ bool BackDB::isPasswordEqual(QString name, QString password)
 
     mysql_free_result(result);
 
-    qDebug()<<"Come to end of isPasswordEqual Function"<<Qt::endl;
+//    qDebug()<<"Come to end of isPasswordEqual Function"<<Qt::endl;
 
-    password=this->generateHash(password);
+    password=this->generateHash(password);//对密码进行hash加密
 
     return (storedPassword == password);
 }
