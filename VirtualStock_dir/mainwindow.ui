@@ -23,11 +23,9 @@ border-bottom-right-radius:10px;}</string>
   <widget class="QStackedWidget" name="selectpage">
    <property name="geometry">
     <rect>
-
      <x>130</x>
      <y>100</y>
      <width>881</width>
-
      <height>621</height>
     </rect>
    </property>
@@ -35,7 +33,7 @@ border-bottom-right-radius:10px;}</string>
     <enum>QFrame::Panel</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="selectpage1">
     <widget class="QWidget" name="layoutWidget">
@@ -401,12 +399,12 @@ border:1px rgb(231, 231, 231);
         </column>
         <column>
          <property name="text">
-          <string>当月盈利</string>
+          <string>总资产</string>
          </property>
         </column>
         <column>
          <property name="text">
-          <string>总盈利</string>
+          <string>盈利率</string>
          </property>
         </column>
        </widget>
@@ -902,7 +900,7 @@ border:1px rgb(231, 231, 231);
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>:/new/logo/photos/logo.jpg</pixmap>
+     <pixmap resource="GroupLogo.qrc">:/new/logo/photos/logo.jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -1052,14 +1050,15 @@ QPushButton:hover
   </widget>
  </widget>
  <resources>
-  <include location="homeIcon.qrc"/>
   <include location="rechargeIcon.qrc"/>
+  <include location="peresonIcon.qrc"/>
+  <include location="ruleIcon.qrc"/>
+  <include location="GroupLogo.qrc"/>
+  <include location="homeIcon.qrc"/>
+  <include location="rankIcon.qrc"/>
   <include location="trendIcon.qrc"/>
   <include location="communityIcon.qrc"/>
-  <include location="peresonIcon.qrc"/>
   <include location="Icon.qrc"/>
-  <include location="ruleIcon.qrc"/>
-  <include location="rankIcon.qrc"/>
  </resources>
  <connections/>
 </ui>
