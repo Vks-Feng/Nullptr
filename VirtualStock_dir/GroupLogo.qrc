@@ -4,10 +4,10 @@
         <file>photos/Amazon.png</file>
         <file>photos/Apple.png</file>
         <file>photos/Google.png</file>
-        <file>photos/IBMpng.png</file>
         <file>photos/Intel.png</file>
         <file>photos/JetBlue.png</file>
         <file>photos/Meta.png</file>
         <file>photos/Microsoft.png</file>
+        <file>photos/IBM.png</file>
     </qresource>
 </RCC>

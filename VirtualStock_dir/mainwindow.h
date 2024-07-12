@@ -5,7 +5,9 @@
 #include <QMessageBox>
 #include <QGraphicsDropShadowEffect>
 #include <QColor>
+#include <QPlainTextEdit>
 #include <QMouseEvent>
+
 #include "buyin.h"
 #include "personpage.h"
 #include "date.h"
@@ -14,7 +16,11 @@
 #include "backdb.h"
 #include "record.h"
 #include "newswidget.h"
+#include "dialog.h"
 #include "forum.h"
+#include "global.h"
+#include "chartspline.h"
+
 
 namespace Ui {
 class MainWindow;
@@ -26,7 +32,6 @@ class MainWindow : public QWidget
 
 
 private:
-
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
@@ -41,11 +46,7 @@ protected:
 
 private slots:
 
-    // void on_personpage1_clicked();
-
     void on_nextroundbutton_clicked();
-
-//    void on_TransactionButton_clicked();
 
     QString CompanyIntro(int index);
 
@@ -53,16 +54,15 @@ private slots:
 
     void PutCompanyName_2(int index);
 
-
-
+    void refreshForum();
+    void showCustomDialog();
 
 
 private:
     Ui::MainWindow *ui;
     QPoint mousePoint;
     bool mouse_press;
-
-    bool forumOpen;
+    forum* forum_widget;
 };
 
 #endif // MAINWINDOW_H

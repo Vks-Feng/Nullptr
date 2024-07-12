@@ -1,8 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "chartspline.h"
-#include "buyin.h"
-#include <QPlainTextEdit>
 
 struct UserData {
     QString userName;
@@ -24,6 +21,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //添加buyin
     buyin* buyin_widget=new buyin;
+    forum_widget = new forum;
+    ui->selectpage5_forum->setLayout(ui->Forum_layout);
+    ui->Forum_layout->addWidget(forum_widget);
 
 //    // 遍历所有子对象
 //    foreach (QObject *child, buyin_widget->children()) {
@@ -32,13 +32,13 @@ MainWindow::MainWindow(QWidget *parent) :
 //            button->setFlat(false);
 //        }
 //    }
-
+    ui->selectpage6_trade->setLayout(ui->Trade_layout);
     ui->Trade_layout->addWidget(buyin_widget);
 
+
     //添加forum
-    forum* forum_widget=new forum;
-    ui->selectpage5_forum->setLayout(ui->Forum_layout);
-    ui->Forum_layout->addWidget(forum_widget);
+    refreshForum();
+    connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &MainWindow::refreshForum);
 
 //    // 遍历所有子对象
 //    foreach (QObject *child, forum_widget->children()) {
@@ -151,6 +151,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->communitybutton1,&QPushButton::clicked,this,[=](){
         ui->selectpage->setCurrentIndex(5);
+
+        forum *a=new forum();
+        a->show();
     });//点击跳转到交易界面
 
 
@@ -284,7 +287,7 @@ MainWindow::MainWindow(QWidget *parent) :
 // ui->tableWidget->resizeColumnToContents(4);
     // for(int i=0;i<4;i++)
     // {
-        ui->userRankingList->resizeColumnsToContents();
+     ui->userRankingList->resizeColumnsToContents();
     // }
 
     //新闻窗口
@@ -295,26 +298,16 @@ MainWindow::MainWindow(QWidget *parent) :
     news->show();
     news->updateNews();
 
-    // int year=Global::instance().getGlobalUserManage()->GetUser(0)->GetDate()->getYear();
-    // int month=Global::instance().getGlobalDataBase().
 
-    // this->resize(1213,700);
+    showCustomDialog();
 
-    // this->resize(1700,700);
-
-    forumOpen = false;
 }
 
 MainWindow::~MainWindow()
 {
+    Global::instance().getGlobalDataBase()->close();//关闭数据库
     delete ui;
 }
-
-//void MainWindow::on_TransactionButton_clicked()
-//{
-//    buyin *buy = new buyin();
-//    buy->show();
-//}
 
 QString MainWindow::CompanyIntro(int index)
 {
@@ -423,10 +416,12 @@ void MainWindow::on_nextroundbutton_clicked()
             MainWindow* main= new MainWindow();
             this->close();
             news2.updateNews();
-            main->show();
+            main->show();showCustomDialog();
         }}
 
+
     else{QMessageBox msg(QMessageBox::Question,"提示","您本轮还没有进行任何操作，是否进行到下一轮操作?",QMessageBox::Yes | QMessageBox::No,this);
+
         int ret = msg.exec();
         if(ret==QMessageBox::Yes)
         {
@@ -441,10 +436,16 @@ void MainWindow::on_nextroundbutton_clicked()
             Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,months));
 
             NewsWidget news2;
+
+
+
+
+
             MainWindow* main= new MainWindow();
             this->close();
             news2.updateNews();
-            main->show();
+            main->show();showCustomDialog();
+
         }}}
 }
 
@@ -536,6 +537,19 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
     mouse_press = false;
 }
 
+void MainWindow::refreshForum(){
+    ui->Forum_layout->removeWidget(forum_widget);
+    forum_widget = new forum;
+    ui->selectpage5_forum->setLayout(ui->Forum_layout);
+    ui->Forum_layout->addWidget(forum_widget);
+}
+void MainWindow::showCustomDialog() {
+    dialog dialog1;
+    dialog1.exec();
+}
+
+
+
 // void MainWindow::paintEvent(QPaintEvent *event)
 // {
 //     QPainter painter(this);
@@ -548,3 +562,4 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 
 //     this->paintEvent(event);
 // }
+
