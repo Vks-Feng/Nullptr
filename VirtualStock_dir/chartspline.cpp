@@ -1,6 +1,6 @@
 #include "chartspline.h"
 #include "ui_chartspline.h"
-#include "backdb.h"
+
 
 //#include <Qtime>
 #include <vector>
@@ -74,7 +74,6 @@ void ChartSpline::ChangeStock(int company_id)
 
             // 设置 QLabel 的样式
             label->setStyleSheet("font-size: 18px; color: red;");
-
 
             ui->horizontalLayout->addWidget(label);
 
@@ -198,3 +197,8 @@ void ChartSpline::ChangeStock(int company_id)
         this->setLayout(ui->horizontalLayout);
         this->resize(700,500);
 }
+
+//QString ChartSpline::CompanyIntroduction(int company_id)
+//{
+
+//}

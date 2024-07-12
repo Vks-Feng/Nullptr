@@ -25,10 +25,12 @@ private:
     unsigned long client_flag = 0; // Connection flags (usually 0)
 
     //Constructor , the basic information is host+user+password+database
-    BackDB(const char* _host, const  char* _user, const  char* _password, const  char* _database,
-           unsigned int _port = 3306, const char* _unix_socket = nullptr, unsigned long _client_flag = 0);
+//    BackDB(const char* _host, const  char* _user, const  char* _password, const  char* _database,
+//           unsigned int _port = 3306, const char* _unix_socket = nullptr, unsigned long _client_flag = 0);
 
 public:
+    BackDB(const char* _host, const  char* _user, const  char* _password, const  char* _database,
+           unsigned int _port = 3306, const char* _unix_socket = nullptr, unsigned long _client_flag = 0);
 
     //----------Tools---------
     //输入公司id，返回公司名
@@ -128,7 +130,7 @@ public:
     //看你数据库的设计我默认为用户买入的时候才会添加portfolios数据，没买就不添加
 
     //所以：
-    //若找到,返回余量，若没找到，返回0
+    //若找到,返回余量，若没找到，返回-1(这里有一个bug，如果是0会新建，这里解决了)
     int getUserVolume(int userID, int companyID);
 
 

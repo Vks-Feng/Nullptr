@@ -10,8 +10,9 @@ UserManage::UserManage(){
 
 bool UserManage::UserAdd(User _user){
     //添加用户
+    qDebug() << "vks1-1";
     users.push_back(_user);
-    size++;
+    qDebug() << "vks1-2";
     return true;
 }
 

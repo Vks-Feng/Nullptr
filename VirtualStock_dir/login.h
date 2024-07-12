@@ -28,6 +28,10 @@ public:
 
     void loginErrorNotification(QString error);
 
+    void connectToDataBase(QString ip, QString password);
+
+    void readyToLogin();
+
 private slots:
     void on_LoginButton_clicked();
 

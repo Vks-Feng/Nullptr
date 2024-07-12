@@ -21,40 +21,17 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+
     this->setWindowFlags(Qt::FramelessWindowHint);//无边框
     ui->logo->setScaledContents(true);//logo自适应大小
 
 
-
     ui->selectpage4->setLayout(ui->RuleLayout);//规则介绍布局问题
-    ui->selectpage->setCurrentIndex(0);
-    //将页面切换逻辑使用按钮的click进行手动转换
-
+    ui->selectpage->setCurrentIndex(0);//将页面切换逻辑使用按钮的click进行手动转换
     ui->TransactionRule->setReadOnly(1);
-
-    //尝试将股票的信息挂载到股票界面的layout中
-    // 找到占位部件
-    ChartSpline *_chartSpline_1=new ChartSpline;
-    ChartSpline *_chartSpline_2=new ChartSpline;
-
-    _chartSpline_1->ChangeStock(0);
-//    connect(ui->ChangeStockShowBtn, &QPushButton::clicked, _chartSpline, &ChartSpline::ShowRandomStock);
-    // 在股票界面设置显示哪一只股票
-    connect(ui->ChooseWhichStock, QOverload<int>::of(&QComboBox::currentIndexChanged),
-            _chartSpline_1, &ChartSpline::ChangeStock);
-
-    QWidget *placeholder = ui->chartSplineWidget;
-
-    ui->selectpage3->setLayout(ui->RankingLayout);
-    //
 
     //固定大小
     this->setFixedSize(this->width(),this->height());
-    // 设置 chartspline 对象到占位部件的位置
-    QVBoxLayout *layout = new QVBoxLayout(placeholder);
-    layout->addWidget(_chartSpline_1);
-    layout->addWidget(_chartSpline_2);
-    placeholder->setLayout(layout);
 
     //设置Frame具体阴影
     QGraphicsDropShadowEffect *shadow_effect1 = new QGraphicsDropShadowEffect(this);
@@ -93,6 +70,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->RuleFrame->setGraphicsEffect(shadow_effect6);
 
 
+    //设置跳转的槽函数
     connect(ui->firstbutton1,&QPushButton::clicked,this,[=](){
         ui->selectpage->setCurrentIndex(0);
     });
@@ -106,6 +84,8 @@ MainWindow::MainWindow(QWidget *parent) :
     });
 
     connect(ui->rankbutton1,&QPushButton::clicked,this,[=](){
+        ui->userRankingList->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+        ui->userRankingList->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
         ui->selectpage->setCurrentIndex(2);
     });
 
@@ -116,8 +96,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->communitybutton1,&QPushButton::clicked,this,[=](){
         forum* Forum=new forum();
         Forum->show();
-
-
     });
 
     connect(ui->leavebutton1,&QPushButton::clicked,this,[=](){
@@ -148,7 +126,6 @@ MainWindow::MainWindow(QWidget *parent) :
     int monthss=currentDate.getMonth();
 
 
-
     if(monthss>12){
         ui->TransactionButton->setDisabled(true);
         ui->nextroundbutton->setDisabled(true);
@@ -156,20 +133,56 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     //首页添加折线图
-    // QVBoxLayout *layout_1 = new QVBoxLayout(ui->Chartsframe);
     ChartSpline* ch=new ChartSpline;
-    // ui->Chartsframe->setLayout(layout_1);
     ui->MainChartsLayout->addWidget(ch);
-    // ChartSpline* ch_2=new ChartSpline;
-
-    // QVBoxLayout *layout_1 = new QVBoxLayout(ui->Chartsframe);
-    // ChartSpline* ch=new ChartSpline;
-    // ui->Chartsframe->setLayout(layout_1);
-    // ui->MainChartsLayout->addWidget(ch);
-
 
     ui->selectpage1->setLayout(ui->Page1Layout);
     // Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,currentDate.getMonth()));
+
+
+    //股票界面相关
+    //尝试将股票的信息挂载到股票界面的layout中
+    // 找到占位部件
+    ChartSpline *_chartSpline_1=new ChartSpline;
+    ChartSpline *_chartSpline_2=new ChartSpline;
+
+    _chartSpline_1->ChangeStock(0);
+    _chartSpline_2->ChangeStock(1);
+    PutCompanyName_1(0);
+    PutCompanyName_2(1);
+    ui->stockIntro_1->setReadOnly(true);
+    ui->stockIntro_1->setReadOnly(true);
+
+    //    connect(ui->ChangeStockShowBtn, &QPushButton::clicked, _chartSpline, &ChartSpline::ShowRandomStock);
+    // 在股票界面设置显示哪一只股票
+    // 随机显示一家公司的股票
+
+    connect(ui->ChooseWhichStock_1, QOverload<int>::of(&QComboBox::currentIndexChanged),
+            _chartSpline_1, &ChartSpline::ChangeStock);
+
+    connect(ui->ChooseWhichStock_2, QOverload<int>::of(&QComboBox::currentIndexChanged),
+            _chartSpline_2, &ChartSpline::ChangeStock);
+
+    connect(ui->ChooseWhichStock_1, QOverload<int>::of(&QComboBox::currentIndexChanged),
+            this, &MainWindow::PutCompanyName_1);
+
+    connect(ui->ChooseWhichStock_2, QOverload<int>::of(&QComboBox::currentIndexChanged),
+            this,&MainWindow::PutCompanyName_2);
+
+    ui->ChooseWhichStock_2->setCurrentIndex(1);
+
+    QWidget *placeholder_1 = ui->StockWidget_1;
+    QWidget *placeholder_2 = ui->StockWidget_2;
+
+    ui->selectpage2->setLayout(ui->stock_total_layout);
+    //
+
+    // 设置 chartspline 对象到占位部件的位置
+    QVBoxLayout *layout_1 = new QVBoxLayout(placeholder_1);
+    QVBoxLayout *layout_2 = new QVBoxLayout(placeholder_2);
+    layout_1->addWidget(_chartSpline_1);
+    layout_2->addWidget(_chartSpline_2);
+    //    placeholder->setLayout(layout);
 
     //排行榜
     std::vector<QString> userNames=Global::instance().getGlobalDataBase()->getAllUserName();
@@ -193,23 +206,21 @@ MainWindow::MainWindow(QWidget *parent) :
     // 填充表格
     for (int i = 0; i < userData.size(); ++i) {
 
-        ui->tableWidget->insertRow(i);
+        ui->userRankingList->insertRow(i);
         QTableWidgetItem *idItem = new QTableWidgetItem(QString (userData[i].userName));
         QTableWidgetItem *assetsItem = new QTableWidgetItem(QString::number(userData[i].totalAssets));
         QTableWidgetItem *monthItem = new QTableWidgetItem(QString::number(userData[i].month));
-        ui->tableWidget->setItem(i, 0, idItem);
-        ui->tableWidget->setItem(i, 2, assetsItem);
-        ui->tableWidget->setItem(i, 1, monthItem);
+        ui->userRankingList->setItem(i, 0, idItem);
+        ui->userRankingList->setItem(i, 2, assetsItem);
+        ui->userRankingList->setItem(i, 1, monthItem);
     }
 // ui->tableWidget->resizeColumnToContents(4);
     // for(int i=0;i<4;i++)
     // {
-        ui->tableWidget->resizeColumnsToContents();
+        ui->userRankingList->resizeColumnsToContents();
     // }
 
     //新闻窗口
-
-
 
     NewsWidget *news = new NewsWidget(ui->selectpage1);
     ui->Page1Layout->addWidget(news);
@@ -221,10 +232,10 @@ MainWindow::MainWindow(QWidget *parent) :
     // int month=Global::instance().getGlobalDataBase().
 
     // this->resize(1213,700);
+
     // this->resize(1700,700);
 
-        ui->selectpage2->setLayout(ui->stockTotalLayout);
-
+    forumOpen = false;
 }
 
 MainWindow::~MainWindow()
@@ -236,6 +247,60 @@ void MainWindow::on_TransactionButton_clicked()
 {
     buyin *buy = new buyin();
     buy->show();
+}
+
+QString MainWindow::CompanyIntro(int index)
+{
+    QStringList company_profiles = {
+        "Apple Inc. (AAPL):\n"
+        "简介: 苹果公司成立于1976年，总部位于加利福尼亚州库比蒂诺。公司设计、开发和销售消费电子、计算机软件和在线服务。其知名产品包括 iPhone 智能手机、iPad 平板电脑、Mac 电脑、Apple Watch 智能手表和 Apple TV。苹果以其创新设计和高质量产品闻名。\n"
+        "股票相关: 苹果公司的股票在纳斯达克交易所上市，股票代码为 AAPL。苹果是全球市值最高的公司之一，吸引了大量投资者。该公司定期派发股息，并通过股票回购计划来增加股东价值。",
+
+        "Amazon.com, Inc. (AMZN):\n"
+        "简介: 亚马逊公司成立于1994年，总部位于华盛顿州西雅图。公司专注于电子商务、云计算、数字流媒体和人工智能。其业务涵盖广泛，包括在线零售、AWS（亚马逊网络服务）、Prime 会员服务和 Alexa 智能助手。\n"
+        "股票相关: 亚马逊公司的股票在纳斯达克交易所上市，股票代码为 AMZN。亚马逊是全球市值最高的公司之一，拥有强劲的增长前景和庞大的用户基础。尽管公司不定期派发股息，但其股票价格增长潜力吸引了许多投资者。",
+
+        "Alphabet Inc. (GOOGL):\n"
+        "简介: Alphabet Inc. 是谷歌的母公司，成立于2015年。谷歌是一家美国跨国科技公司，总部位于加利福尼亚州山景城，主要提供互联网相关的产品和服务，包括搜索引擎、在线广告、云计算和软件开发。公司的核心产品包括 Google Search、YouTube、Android 和 Google Cloud。\n"
+        "股票相关: Alphabet Inc. 的股票在纳斯达克交易所上市，分为两类：A 类普通股（股票代码 GOOGL）和 C 类普通股（股票代码 GOOG）。公司不派发股息，主要通过股票价格增长和公司业务扩展来回报股东。",
+
+        "International Business Machines Corporation (IBM):\n"
+        "简介: IBM 成立于1911年，总部位于纽约州阿蒙克。公司主要提供硬件、软件、云计算和人工智能解决方案。IBM 以其创新和研究实力著称，产品和服务涵盖从大型机到人工智能 Watson、区块链和混合云等多个领域。\n"
+        "股票相关: IBM 的股票在纽约证券交易所上市，股票代码为 IBM。公司定期派发股息，是投资者稳定收益的选择之一。尽管近年来公司面临挑战，但其转型战略和技术创新使其仍具投资吸引力。",
+
+        "Intel Corporation (INTC):\n"
+        "简介: 英特尔公司成立于1968年，总部位于加利福尼亚州圣克拉拉。公司主要设计和制造半导体芯片，是全球最大的半导体芯片制造商之一。其产品广泛应用于计算机和其他电子设备中，包括处理器、存储设备和网络接口。\n"
+        "股票相关: 英特尔公司的股票在纳斯达克交易所上市，股票代码为 INTC。公司定期派发股息，并通过股票回购计划增加股东价值。英特尔在半导体行业中的领导地位使其成为长期投资的选择之一。",
+
+        "JetBlue Airways Corporation (JBLU):\n"
+        "简介: 捷蓝航空公司成立于1998年，总部位于纽约市。公司提供主要在美国境内以及加勒比地区的航班服务，以其低票价和高服务质量著称。捷蓝航空以其创新的客户服务和舒适的飞行体验赢得了大量忠实客户。\n"
+        "股票相关: 捷蓝航空公司的股票在纳斯达克交易所上市，股票代码为 JBLU。尽管航空业具有波动性，但公司稳定的市场份额和客户基础使其股票具有一定的投资价值。",
+
+        "Meta Platforms, Inc. (META):\n"
+        "简介: Meta Platforms, Inc. 原名 Facebook, Inc.，成立于2004年，总部位于加利福尼亚州门洛帕克。公司主要提供社交媒体和社交网络服务，包括 Facebook、Instagram、WhatsApp 和 Oculus 等产品。Meta 专注于增强现实和虚拟现实技术的开发和应用。\n"
+        "股票相关: Meta 的股票在纳斯达克交易所上市，股票代码为 META。公司不派发股息，主要通过强劲的收入增长和技术创新来回报股东。Meta 在全球社交媒体领域的领导地位和不断扩展的技术前景使其成为投资者关注的焦点。",
+
+        "Microsoft Corporation (MSFT):\n"
+        "简介: 微软公司成立于1975年，总部位于华盛顿州雷德蒙德。公司主要开发、制造、许可和销售计算机软件、消费电子、个人计算机和相关服务。其知名产品包括 Windows 操作系统、Office 办公软件套件和 Azure 云计算平台。微软在企业和个人计算领域具有强大的市场影响力。\n"
+        "股票相关: 微软公司的股票在纳斯达克交易所上市，股票代码为 MSFT。公司定期派发股息，并通过股票回购计划增加股东价值。微软的强劲财务表现和持续创新能力使其成为稳健的投资选择。",
+
+        "Tesla, Inc. (TSLA):\n"
+        "简介: 特斯拉公司成立于2003年，总部位于加利福尼亚州帕洛阿尔托。公司主要设计、制造和销售电动汽车、电池储能系统和太阳能产品。特斯拉以其创新和环保科技著称，其产品包括 Model S、Model 3、Model X 和 Model Y 电动汽车，以及 Powerwall 和 Solar Roof 等能源解决方案。\n"
+        "股票相关: 特斯拉公司的股票在纳斯达克交易所上市，股票代码为 TSLA。特斯拉以其高增长潜力吸引了大量投资者，公司不定期派发股息，主要通过股票价格的快速增长回报股东。特斯拉在电动汽车和清洁能源领域的领先地位使其成为投资者关注的重点。"
+
+
+    };
+    return company_profiles[index];
+}
+
+void MainWindow::PutCompanyName_1(int index)
+{
+    ui->stockIntro_1->setPlainText(CompanyIntro(index));
+}
+
+void MainWindow::PutCompanyName_2(int index)
+{
+    ui->stockIntro_2->setPlainText(CompanyIntro(index));
 }
 
 
@@ -376,8 +441,6 @@ int MainWindow::totalcurrency(int userID,int months){
 }
 
 
-
-
 void MainWindow::on_communitybutton1_clicked()
 {
 
@@ -395,7 +458,6 @@ void MainWindow::mousePressEvent(QMouseEvent *event){
         this->close();
 
     }
-
 }
 
 void MainWindow::mouseMoveEvent(QMouseEvent* event)
