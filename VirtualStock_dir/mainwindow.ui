@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1008</width>
-    <height>732</height>
+    <width>1005</width>
+    <height>735</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,17 +23,17 @@ border-bottom-right-radius:10px;}</string>
   <widget class="QStackedWidget" name="selectpage">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>90</y>
-     <width>891</width>
-     <height>641</height>
+     <x>150</x>
+     <y>110</y>
+     <width>861</width>
+     <height>621</height>
     </rect>
    </property>
    <property name="frameShape">
     <enum>QFrame::Panel</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>5</number>
    </property>
    <widget class="QWidget" name="selectpage1">
     <widget class="QWidget" name="layoutWidget">
@@ -60,15 +60,44 @@ border-bottom-right-radius:10px;}</string>
        <height>311</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="MainChartsLayout"/>
+     <layout class="QVBoxLayout" name="MainChartsLayout">
+      <item>
+       <widget class="QFrame" name="chartsFrame">
+        <property name="styleSheet">
+         <string notr="true">QFrame
+{
+border-radius:5px;
+border:1px rgb(231, 231, 231);
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QWidget" name="verticalLayoutWidget_2">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>-20</y>
+           <width>411</width>
+           <height>281</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="MainChartsLayout"/>
+        </widget>
+       </widget>
+      </item>
+     </layout>
     </widget>
     <widget class="QFrame" name="personageFrame">
      <property name="geometry">
       <rect>
        <x>460</x>
        <y>350</y>
-       <width>411</width>
-       <height>281</height>
+       <width>391</width>
+       <height>261</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -85,40 +114,6 @@ border:1px rgb(231, 231, 231);
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-    </widget>
-    <widget class="QFrame" name="chartsFrame">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>340</y>
-       <width>431</width>
-       <height>301</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QFrame
-{
-border-radius:5px;
-border:1px rgb(231, 231, 231);
-}</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QWidget" name="verticalLayoutWidget_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>411</width>
-        <height>281</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="MainChartsLayout"/>
-     </widget>
     </widget>
     <widget class="QFrame" name="Homeframe1">
      <property name="geometry">
@@ -172,167 +167,177 @@ border:1px rgb(231, 231, 231);
     </widget>
    </widget>
    <widget class="QWidget" name="selectpage2">
-    <widget class="QWidget" name="verticalLayoutWidget_7">
+    <widget class="QPlainTextEdit" name="stockIntro_2">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>320</y>
+       <width>361</width>
+       <height>281</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei</family>
+       <pointsize>10</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame
+{
+background-color: rgb(255, 255, 255);
+border-radius:20px;
+border:1px rgb(231, 231, 231);
+}
+</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="stockIntro_1">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>0</y>
+       <width>361</width>
+       <height>281</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei UI</family>
+       <pointsize>10</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame
+{
+background-color: rgb(255, 255, 255);
+border-radius:20px;
+border:1px rgb(231, 231, 231);
+}
+</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="ChooseWhichStock_2">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>30</y>
-       <width>861</width>
-       <height>551</height>
+       <y>590</y>
+       <width>471</width>
+       <height>20</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="stock_total_layout">
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout">
-          <item>
-           <widget class="QWidget" name="StockWidget_1" native="true"/>
-          </item>
-          <item>
-           <widget class="QComboBox" name="ChooseWhichStock_1">
-            <item>
-             <property name="text">
-              <string>Apple</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Amazon</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Google</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>IBM</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Intel</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>JetBlue</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Meta</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Microsoft</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <widget class="QPlainTextEdit" name="stockIntro_1">
-          <property name="font">
-           <font>
-            <family>Microsoft YaHei UI</family>
-            <pointsize>16</pointsize>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QFrame
-{
-background-color: rgb(255, 255, 255);
-border-radius:20px;
-border:1px rgb(231, 231, 231);
-}
-</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <item>
-           <widget class="QWidget" name="StockWidget_2" native="true"/>
-          </item>
-          <item>
-           <widget class="QComboBox" name="ChooseWhichStock_2">
-            <item>
-             <property name="text">
-              <string>Apple</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Amazon</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Google</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>IBM</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Intel</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>JetBlue</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Meta</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Microsoft</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <widget class="QPlainTextEdit" name="stockIntro_2">
-          <property name="font">
-           <font>
-            <family>Microsoft YaHei</family>
-            <pointsize>10</pointsize>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QFrame
-{
-background-color: rgb(255, 255, 255);
-border-radius:20px;
-border:1px rgb(231, 231, 231);
-}
-</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
+     <item>
+      <property name="text">
+       <string>Apple</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Amazon</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Google</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>IBM</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Intel</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>JetBlue</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Meta</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Microsoft</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QWidget" name="StockWidget_2" native="true">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>320</y>
+       <width>461</width>
+       <height>261</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="ChooseWhichStock_1">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>280</y>
+       <width>471</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>Apple</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Amazon</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Google</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>IBM</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Intel</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>JetBlue</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Meta</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Microsoft</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QWidget" name="StockWidget_1" native="true">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>461</width>
+       <height>261</height>
+      </rect>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="selectpage6_trade">
@@ -457,6 +462,19 @@ T+0/T+1/T+2：不同市场有不同的清算交割制度。例如，美国市场
        </widget>
       </item>
      </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="selectpage5_forum">
+    <widget class="QWidget" name="verticalLayoutWidget_6">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>50</y>
+       <width>501</width>
+       <height>361</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="Forum_layout"/>
     </widget>
    </widget>
    <widget class="QWidget" name="selectpage5">
@@ -622,6 +640,9 @@ QPushButton:checked
         <iconset resource="Icon.qrc">
          <normaloff>:/new/stock/photos/stockIcon.png</normaloff>:/new/stock/photos/stockIcon.png</iconset>
        </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
       </widget>
      </item>
      <item>
@@ -697,9 +718,9 @@ QPushButton:checked
    <property name="geometry">
     <rect>
      <x>-20</x>
-     <y>0</y>
+     <y>-10</y>
      <width>1091</width>
-     <height>81</height>
+     <height>91</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -822,7 +843,7 @@ border:1px rgb(231, 231, 231);
     <property name="geometry">
      <rect>
       <x>1010</x>
-      <y>0</y>
+      <y>10</y>
       <width>20</width>
       <height>20</height>
      </rect>

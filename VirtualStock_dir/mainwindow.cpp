@@ -22,6 +22,31 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //添加buyin
+    buyin* buyin_widget=new buyin;
+
+//    // 遍历所有子对象
+//    foreach (QObject *child, buyin_widget->children()) {
+//        QPushButton *button = qobject_cast<QPushButton *>(child);
+//        if (button) {
+//            button->setFlat(false);
+//        }
+//    }
+
+    ui->Trade_layout->addWidget(buyin_widget);
+
+    //添加forum
+    forum* forum_widget=new forum;
+    ui->selectpage5_forum->setLayout(ui->Forum_layout);
+    ui->Forum_layout->addWidget(forum_widget);
+
+//    // 遍历所有子对象
+//    foreach (QObject *child, forum_widget->children()) {
+//        QPushButton *button = qobject_cast<QPushButton *>(child);
+//        if (button) {
+//            button->setFlat(false);
+//        }
+//    }
 
     this->setWindowFlags(Qt::FramelessWindowHint);//无边框
     ui->logo->setScaledContents(true);//logo自适应大小
@@ -70,6 +95,31 @@ MainWindow::MainWindow(QWidget *parent) :
     shadow_effect6->setBlurRadius(30);
     ui->RuleFrame->setGraphicsEffect(shadow_effect6);
 
+    //stockPage页面设置阴影
+    QGraphicsDropShadowEffect *shadow_effect7= new QGraphicsDropShadowEffect(this);
+    shadow_effect7->setOffset(0, 0);
+    shadow_effect7->setColor(QColor(38, 78, 119, 127)); //阴影颜色
+    shadow_effect7->setBlurRadius(30);//阴影半径
+    ui->StockWidget_1->setGraphicsEffect(shadow_effect7);
+
+    QGraphicsDropShadowEffect *shadow_effect8= new QGraphicsDropShadowEffect(this);
+    shadow_effect8->setOffset(0, 0);
+    shadow_effect8->setColor(QColor(38, 78, 119, 127)); //阴影颜色
+    shadow_effect8->setBlurRadius(30);//阴影半径
+    ui->StockWidget_2->setGraphicsEffect(shadow_effect8);
+
+    QGraphicsDropShadowEffect *shadow_effect9= new QGraphicsDropShadowEffect(this);
+    shadow_effect9->setOffset(0, 0);
+    shadow_effect9->setColor(QColor(38, 78, 119, 127)); //阴影颜色
+    shadow_effect9->setBlurRadius(30);//阴影半径
+    ui->stockIntro_1->setGraphicsEffect(shadow_effect9);
+
+    QGraphicsDropShadowEffect *shadow_effect10= new QGraphicsDropShadowEffect(this);
+    shadow_effect10->setOffset(0, 0);
+    shadow_effect10->setColor(QColor(38, 78, 119, 127)); //阴影颜色
+    shadow_effect10->setBlurRadius(30);//阴影半径
+    ui->stockIntro_2->setGraphicsEffect(shadow_effect10);
+
 
     //设置跳转的槽函数
     connect(ui->firstbutton1,&QPushButton::clicked,this,[=](){
@@ -85,11 +135,14 @@ MainWindow::MainWindow(QWidget *parent) :
     });
 
     connect(ui->TransactionButton,&QPushButton::clicked,this,[=](){
-        buyin* buyin_widget=new buyin;
-
-        ui->Trade_layout->addWidget(buyin_widget);
         ui->selectpage->setCurrentIndex(2);
     });//点击跳转到交易界面
+
+    connect(ui->communitybutton1,&QPushButton::clicked,this,[=](){
+        ui->selectpage->setCurrentIndex(5);
+    });//点击跳转到交易界面
+
+
 
     connect(ui->rankbutton1,&QPushButton::clicked,this,[=](){
         ui->userRankingList->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
@@ -99,11 +152,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->dealbutton1,&QPushButton::clicked,this,[=](){
         ui->selectpage->setCurrentIndex(4);
-    });
-
-    connect(ui->communitybutton1,&QPushButton::clicked,this,[=](){
-        forum* Forum=new forum();
-        Forum->show();
     });
 
     connect(ui->leavebutton1,&QPushButton::clicked,this,[=](){
@@ -180,8 +228,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QWidget *placeholder_1 = ui->StockWidget_1;
     QWidget *placeholder_2 = ui->StockWidget_2;
-
-    ui->selectpage2->setLayout(ui->stock_total_layout);
 
     // 设置 chartspline 对象到占位部件的位置
     QVBoxLayout *layout_1 = new QVBoxLayout(placeholder_1);
@@ -364,6 +410,7 @@ void MainWindow::on_nextroundbutton_clicked()
             news2.updateNews();
             main->show();
         }}
+
     else{QMessageBox msg(QMessageBox::Question,"提示","您本轮还没有进行任何操作，是否进行到下一轮操作?",QMessageBox::Yes | QMessageBox::No,this);
         int ret = msg.exec();
         if(ret==QMessageBox::Yes)
@@ -446,11 +493,6 @@ int MainWindow::totalcurrency(int userID,int months){
     return totalcurrency;
 }
 
-
-void MainWindow::on_communitybutton1_clicked()
-{
-
-}
 
 void MainWindow::mousePressEvent(QMouseEvent *event){
 

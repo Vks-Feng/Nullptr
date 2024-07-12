@@ -211,6 +211,9 @@
            <property name="text">
             <string>重填</string>
            </property>
+           <property name="flat">
+            <bool>false</bool>
+           </property>
           </widget>
          </item>
          <item>
