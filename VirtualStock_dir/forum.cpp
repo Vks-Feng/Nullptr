@@ -66,7 +66,6 @@ forum::forum(QWidget *parent):QWidget(parent){
     QPushButton *refreashButton = new QPushButton("刷新");
     refreashButton->setFixedWidth(50);
     leftLayout->addWidget(refreashButton, 0, 2);
-    connect(refreashButton, &QPushButton::clicked, this, &forum::refresh);
     // 创建输入文本框
     QLineEdit *lineEdit = new QLineEdit();
     lineEdit->setFixedHeight(800);

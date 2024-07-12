@@ -299,7 +299,7 @@ MainWindow::MainWindow(QWidget *parent) :
     news->updateNews();
 
 
-    showCustomDialog();
+    //showCustomDialog();
 
 }
 
