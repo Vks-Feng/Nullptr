@@ -1,8 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "chartspline.h"
-#include "buyin.h"
-#include <QPlainTextEdit>
 
 struct UserData {
     QString userName;
@@ -49,6 +46,13 @@ MainWindow::MainWindow(QWidget *parent) :
 //    }
 
     this->setWindowFlags(Qt::FramelessWindowHint);//无边框
+    // this->setAttribute(Qt::WA_TranslucentBackground);//透明背景
+    // QGraphicsDropShadowEffect *MainShadow = new QGraphicsDropShadowEffect;
+    // MainShadow->setBlurRadius(10);
+    // MainShadow->setColor(QColor(0,0,0,100));
+    // MainShadow->setOffset(0,0);
+    // setGraphicsEffect(MainShadow);
+
     ui->logo->setScaledContents(true);//logo自适应大小
 
 
@@ -84,16 +88,16 @@ MainWindow::MainWindow(QWidget *parent) :
     shadow_effect4->setBlurRadius(30);
     ui->chartsFrame->setGraphicsEffect(shadow_effect4);
     //另外两个frame
-    QGraphicsDropShadowEffect *shadow_effect5 = new QGraphicsDropShadowEffect(this);
-    shadow_effect5->setOffset(0, 0);
-    shadow_effect5->setColor(QColor(38, 78, 119, 127));
-    shadow_effect5->setBlurRadius(30);
-    ui->Homeframe1->setGraphicsEffect(shadow_effect5);
-    QGraphicsDropShadowEffect *shadow_effect6 = new QGraphicsDropShadowEffect(this);
-    shadow_effect6->setOffset(0, 0);
-    shadow_effect6->setColor(QColor(38, 78, 119, 127));
-    shadow_effect6->setBlurRadius(30);
-    ui->RuleFrame->setGraphicsEffect(shadow_effect6);
+    // QGraphicsDropShadowEffect *shadow_effect5 = new QGraphicsDropShadowEffect(this);
+    // shadow_effect5->setOffset(0, 0);
+    // shadow_effect5->setColor(QColor(38, 78, 119, 127));
+    // shadow_effect5->setBlurRadius(30);
+    // ui->Homeframe1->setGraphicsEffect(shadow_effect5);
+    // QGraphicsDropShadowEffect *shadow_effect6 = new QGraphicsDropShadowEffect(this);
+    // shadow_effect6->setOffset(0, 0);
+    // shadow_effect6->setColor(QColor(38, 78, 119, 127));
+    // shadow_effect6->setBlurRadius(30);
+    // ui->RuleFrame->setGraphicsEffect(shadow_effect6);
 
     //stockPage页面设置阴影
     QGraphicsDropShadowEffect *shadow_effect7= new QGraphicsDropShadowEffect(this);
@@ -122,12 +126,16 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     //设置跳转的槽函数
-    connect(ui->firstbutton1,&QPushButton::clicked,this,[=](){
-        ui->selectpage->setCurrentIndex(0);
+    connect(ui->Minimum_Button,&QPushButton::clicked,this,[=](){
+        this->showMinimized();
     });
 
     connect(ui->MainCloseButton,&QPushButton::clicked,this,[=](){
         this->close();
+    });
+
+    connect(ui->firstbutton1,&QPushButton::clicked,this,[=](){
+        ui->selectpage->setCurrentIndex(0);
     });
 
     connect(ui->stockbutton1,&QPushButton::clicked,this,[=](){
@@ -295,18 +303,16 @@ MainWindow::MainWindow(QWidget *parent) :
     // this->resize(1700,700);
 
     forumOpen = false;
+
+    showCustomDialog();
+
 }
 
 MainWindow::~MainWindow()
 {
+    Global::instance().getGlobalDataBase()->close();//关闭数据库
     delete ui;
 }
-
-//void MainWindow::on_TransactionButton_clicked()
-//{
-//    buyin *buy = new buyin();
-//    buy->show();
-//}
 
 QString MainWindow::CompanyIntro(int index)
 {
@@ -415,10 +421,12 @@ void MainWindow::on_nextroundbutton_clicked()
             MainWindow* main= new MainWindow();
             this->close();
             news2.updateNews();
-            main->show();
+            main->show();showCustomDialog();
         }}
 
+
     else{QMessageBox msg(QMessageBox::Question,"提示","您本轮还没有进行任何操作，是否进行到下一轮操作?",QMessageBox::Yes | QMessageBox::No,this);
+
         int ret = msg.exec();
         if(ret==QMessageBox::Yes)
         {
@@ -433,10 +441,16 @@ void MainWindow::on_nextroundbutton_clicked()
             Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,months));
 
             NewsWidget news2;
+
+
+
+
+
             MainWindow* main= new MainWindow();
             this->close();
             news2.updateNews();
-            main->show();
+            main->show();showCustomDialog();
+
         }}}
 }
 
@@ -527,3 +541,24 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 {
     mouse_press = false;
 }
+
+void MainWindow::showCustomDialog() {
+    dialog dialog1;
+    dialog1.exec();
+}
+
+
+
+// void MainWindow::paintEvent(QPaintEvent *event)
+// {
+//     QPainter painter(this);
+//     painter.setRenderHint(QPainter::Antialiasing);
+
+//     QPainterPath path;
+//     path.addRoundedRect(rect(),10,10);
+//     painter.setClipPath(path);
+//     painter.fillPath(path,Qt::white);
+
+//     this->paintEvent(event);
+// }
+
