@@ -47,13 +47,37 @@ void NewsWidget::updateNews(){
 
     ui->NewsList->clear();
 
+
+    QString newsARrray[13] =
+    {
+        " 2022年12月科技巨头股价表现分化：苹果、特斯拉逆势上涨，Meta、亚马逊等遭遇重挫",
+        "2023年1月科技股市综述：苹果、特斯拉领涨，IBM、英特尔及Alphabet稳健上扬",
+        "2023年2月科技股市亮点：苹果、特斯拉领涨，IBM与英特尔分红助力，亚马逊波动调整",
+        "2023年3月科技股市概览：苹果、谷歌、特斯拉领涨，IBM与英特尔小幅上扬",
+        "2023年4月科技股市回顾：苹果、谷歌稳步上扬，特斯拉波动中上涨，IBM转型受关注，英特尔分红支撑股价",
+        "2023年5月科技股市亮点：苹果、谷歌、特斯拉领涨，IBM与英特尔小幅上扬",
+        "2023年6月科技股市亮点：苹果、特斯拉领涨，IBM、英特尔与Alphabet各有表现",
+        "2023年7月科技股市回顾：苹果、谷歌、特斯拉表现强劲，IBM与英特尔稳步上扬",
+        "2023年8月科技股市概览：苹果、谷歌稳步前行，特斯拉股价波动中展现韧性，IBM与英特尔小幅调整",
+        "2023年9月科技股市回顾：苹果稳中求进，IBM与谷歌面临波动，英特尔分红支撑，特斯拉股价微降但潜力依旧",
+        "2023年10月科技股市回顾：苹果期待新品，IBM稳步转型，英特尔分红助力，谷歌微跌，特斯拉股价显著调整",
+        "2023年11月科技股市亮点：苹果、IBM、英特尔、谷歌与特斯拉齐头并进",
+        "2023年12月科技股市年终总结：苹果、IBM、英特尔、谷歌与特斯拉均展现强劲增长"
+    };
+
+
     //用指定月的新闻更新QListWidget
     for (auto& pair :newsMap) {
         int month = pair.first;
          std::vector<QString> newsVector = pair.second;
 
         // 只添加月份信息，不添加具体新闻内容到列表中
-        QString itemText = QString("%1").arg(month);
+
+
+         QString itemText = newsARrray[month];
+
+        // QString("%1").arg(month)+newsARrray;
+
         QListWidgetItem *item = new QListWidgetItem(itemText);
 
         // 使用 QVariant 存储月份信息，方便后续获取

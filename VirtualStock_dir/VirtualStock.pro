@@ -28,6 +28,7 @@ SOURCES += \
     chartspline.cpp \
     clientsocket.cpp \
     date.cpp \
+    dialog.cpp \
     enroll.cpp \
     forum.cpp \
     global.cpp \
@@ -56,6 +57,7 @@ HEADERS += \
     chartspline.h \
     clientsocket.h \
     date.h \
+    dialog.h \
     enroll.h \
     forum.h \
     global.h \
@@ -115,11 +117,13 @@ RESOURCES += \
     Icon.qrc \
     backPerson1.qrc \
     communityIcon.qrc \
+    forums.qrc \
     homeIcon.qrc \
     loginButton.qrc \
     loginPic.qrc \
     newsPic.qrc \
     newsPic2.qrc \
+    newsPic3.qrc \
     page1.qrc \
     peresonIcon.qrc \
     rankIcon.qrc \

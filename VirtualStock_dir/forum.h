@@ -18,7 +18,10 @@
 #include <QMessageBox>
 #include"sonforum.h"
 #include"global.h"
-#include<QScrollArea>
+#include <QScrollArea>
+#include <QLabel>
+#include <QRandomGenerator>
+
 namespace Ui {
 class forum;
 }

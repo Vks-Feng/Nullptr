@@ -5,7 +5,9 @@
 #include <QMessageBox>
 #include <QGraphicsDropShadowEffect>
 #include <QColor>
+#include <QPlainTextEdit>
 #include <QMouseEvent>
+
 #include "buyin.h"
 #include "personpage.h"
 #include "date.h"
@@ -13,6 +15,11 @@
 #include "forum.h"
 #include "backdb.h"
 #include "record.h"
+#include "newswidget.h"
+#include "dialog.h"
+#include "forum.h"
+#include "global.h"
+#include "chartspline.h"
 
 
 namespace Ui {
@@ -26,7 +33,6 @@ class MainWindow : public QWidget
 
 private:
 
-
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     int totalcurrency(int userID,int months);
@@ -36,15 +42,11 @@ protected:
     void mouseMoveEvent(QMouseEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
-
+    // void paintEvent(QPaintEvent *event) override;
 
 private slots:
 
-    // void on_personpage1_clicked();
-
     void on_nextroundbutton_clicked();
-
-//    void on_TransactionButton_clicked();
 
     QString CompanyIntro(int index);
 
@@ -53,6 +55,8 @@ private slots:
     void PutCompanyName_2(int index);
 
     void refreshForum();
+    void showCustomDialog();
+
 
 private:
     Ui::MainWindow *ui;

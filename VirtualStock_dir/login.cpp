@@ -23,6 +23,9 @@ Login::Login(QWidget *parent) :
     connect(ui->loginCloseButton,&QPushButton::clicked,[=](){
         this->close();
     });
+    connect(ui->loginMinimumButton,&QPushButton::clicked,[=](){
+        this->showMinimized();
+    });
 }
 
 Login::~Login()

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1005</width>
-    <height>735</height>
+    <width>1011</width>
+    <height>725</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,9 +23,11 @@ border-bottom-right-radius:10px;}</string>
   <widget class="QStackedWidget" name="selectpage">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>110</y>
-     <width>861</width>
+
+     <x>130</x>
+     <y>100</y>
+     <width>881</width>
+
      <height>621</height>
     </rect>
    </property>
@@ -33,16 +35,16 @@ border-bottom-right-radius:10px;}</string>
     <enum>QFrame::Panel</enum>
    </property>
    <property name="currentIndex">
-    <number>6</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="selectpage1">
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>10</y>
-       <width>411</width>
-       <height>321</height>
+       <y>0</y>
+       <width>851</width>
+       <height>331</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="ForNews">
@@ -57,7 +59,7 @@ border-bottom-right-radius:10px;}</string>
        <x>20</x>
        <y>349</y>
        <width>411</width>
-       <height>311</height>
+       <height>261</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="MainChartsLayout">
@@ -114,56 +116,68 @@ border:1px rgb(231, 231, 231);
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-    </widget>
-    <widget class="QFrame" name="Homeframe1">
-     <property name="geometry">
-      <rect>
-       <x>450</x>
-       <y>10</y>
-       <width>241</width>
-       <height>321</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QFrame
+     <widget class="QPlainTextEdit" name="RulesText">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>361</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>10</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame
 {
 background-color: rgb(255, 255, 255);
 border-radius:20px;
 border:1px rgb(231, 231, 231);
 }
 </string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-    </widget>
-    <widget class="QFrame" name="RuleFrame">
-     <property name="geometry">
-      <rect>
-       <x>720</x>
-       <y>20</y>
-       <width>141</width>
-       <height>311</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QFrame
-{
-background-color: rgb(255, 255, 255);
-border-radius:20px;
-border:1px rgb(231, 231, 231);
-}
-</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="plainText">
+       <string>首先，炒股有风险，入市需谨慎, 炒股有风险，入市需谨慎,炒股有风险，入市需谨慎,重要的事情说三遍。
+对于股市新手来说，入门并掌握基本知识是非常重要的。以下是一些关键的步骤和注意事项，帮助您开始股市投资之旅：
+1. 学习基础知识：首先，您需要了解基本的股票知识，例如K线图、股票类型、交易规则等。这些知识将为您在股市中的操作打下坚实的基础。
+2. 开户：要购买股票，您需要一个股票账户。现在开户很方便，可以通过网络进行。选择大型券商通常更安全，它们提供全面的业务和理财产品，以及用户友好的交易软件。
+3. 了解手续费：买卖股票需要支付手续费，包括印花税、佣金和过户费。虽然佣金占比较小，但选择合适的券商对于资金安全很重要。
+4. 选择股票和基金：选股和选基金是一项复杂的任务，需要您进行研究和分析。您可以学习如何分析财务报表，了解公司的业务运营和财务状况。
+5. 使用股票软件：股票软件分为看盘软件和交易软件。看盘软件用于分析市场动态，而交易软件用于实际买卖操作。电脑版本的软件通常提供更全面的信息和更好的交易体验。
+6. 掌握交易技巧：学习技术分析、基本面分析等实用技巧，将帮助您更好地把握市场动态，提高投资成功率。
+7. 心态管理：保持谨慎和耐心非常重要。股市充满不确定性，因此不要盲目跟风，要有自己的判断和决策。
+8. 了解股息：作为股东，您有权获得公司分配的利润，即股息。了解不同类型的股息（如现金股息、股票股息、特别股息）及其支付时间对于投资决策至关重要。
+    请记住，炒股不仅是一场金钱游戏，更是一种人生的修行。只要您始终保持谦虚、谨慎和耐心的态度，相信您会在股市中找到属于自己的成功之路。
+最后，炒股有风险，入市需谨慎，请永远谨记这一点。</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>54</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>温馨提醒</string>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QWidget" name="selectpage2">
@@ -372,6 +386,9 @@ border:1px rgb(231, 231, 231);
           <height>0</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
         <column>
          <property name="text">
           <string>用户名</string>
@@ -445,19 +462,7 @@ T+0/T+1/T+2：不同市场有不同的清算交割制度。例如，美国市场
 实时行情：交易所提供实时的股票价格和交易量信息。
 公告披露：上市公司需及时披露影响股票价格的重要信息，如财务报告、重大合同等
 
-
-首先，炒股有风险，入市需谨慎, 炒股有风险，入市需谨慎,炒股有风险，入市需谨慎,重要的事情说三遍。
-对于股市新手来说，入门并掌握基本知识是非常重要的。以下是一些关键的步骤和注意事项，帮助您开始股市投资之旅：
-1. 学习基础知识：首先，您需要了解基本的股票知识，例如K线图、股票类型、交易规则等。这些知识将为您在股市中的操作打下坚实的基础。
-2. 开户：要购买股票，您需要一个股票账户。现在开户很方便，可以通过网络进行。选择大型券商通常更安全，它们提供全面的业务和理财产品，以及用户友好的交易软件。
-3. 了解手续费：买卖股票需要支付手续费，包括印花税、佣金和过户费。虽然佣金占比较小，但选择合适的券商对于资金安全很重要。
-4. 选择股票和基金：选股和选基金是一项复杂的任务，需要您进行研究和分析。您可以学习如何分析财务报表，了解公司的业务运营和财务状况。
-5. 使用股票软件：股票软件分为看盘软件和交易软件。看盘软件用于分析市场动态，而交易软件用于实际买卖操作。电脑版本的软件通常提供更全面的信息和更好的交易体验。
-6. 掌握交易技巧：学习技术分析、基本面分析等实用技巧，将帮助您更好地把握市场动态，提高投资成功率。
-7. 心态管理：保持谨慎和耐心非常重要。股市充满不确定性，因此不要盲目跟风，要有自己的判断和决策。
-8. 了解股息：作为股东，您有权获得公司分配的利润，即股息。了解不同类型的股息（如现金股息、股票股息、特别股息）及其支付时间对于投资决策至关重要。
-    请记住，炒股不仅是一场金钱游戏，更是一种人生的修行。只要您始终保持谦虚、谨慎和耐心的态度，相信您会在股市中找到属于自己的成功之路。
-最后，炒股有风险，入市需谨慎，请永远谨记这一点。</string>
+</string>
         </property>
        </widget>
       </item>
@@ -494,8 +499,8 @@ T+0/T+1/T+2：不同市场有不同的清算交割制度。例如，美国市场
   <widget class="QFrame" name="siderBarFrame">
    <property name="geometry">
     <rect>
-     <x>-10</x>
-     <y>100</y>
+     <x>0</x>
+     <y>90</y>
      <width>131</width>
      <height>661</height>
     </rect>
@@ -518,7 +523,7 @@ border:1px rgb(231, 231, 231);
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>560</y>
+      <y>550</y>
       <width>101</width>
       <height>20</height>
      </rect>
@@ -527,6 +532,9 @@ border:1px rgb(231, 231, 231);
      <font>
       <pointsize>6</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>
@@ -544,174 +552,316 @@ border:1px rgb(231, 231, 231);
    <widget class="QPushButton" name="nextroundbutton">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>590</y>
       <width>80</width>
       <height>26</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="text">
      <string>下一轮</string>
     </property>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget_3">
+   <widget class="QPushButton" name="firstbutton1">
     <property name="geometry">
      <rect>
-      <x>-100</x>
-      <y>-10</y>
-      <width>331</width>
-      <height>491</height>
+      <x>-20</x>
+      <y>20</y>
+      <width>161</width>
+      <height>71</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout_3">
-     <item>
-      <widget class="QPushButton" name="firstbutton1">
-       <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
 {  
-	color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
     background:transparent; 
 }
 QPushButton:hover
 {
+	color: rgb(255, 255, 255);
     border-image: url(:/new/login/photos/button.png);
 }
 
 QPushButton:checked
 {
     border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
 }
 </string>
-       </property>
-       <property name="text">
-        <string>首页</string>
-       </property>
-       <property name="icon">
-        <iconset resource="homeIcon.qrc">
-         <normaloff>:/new/icon/photos/homePage.png</normaloff>:/new/icon/photos/homePage.png</iconset>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="stockbutton1">
-       <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:transparent;
+    </property>
+    <property name="text">
+     <string>首页</string>
+    </property>
+    <property name="icon">
+     <iconset resource="homeIcon.qrc">
+      <normaloff>:/new/icon/photos/homePage.png</normaloff>:/new/icon/photos/homePage.png</iconset>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="stockbutton1">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>110</y>
+      <width>151</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{  
+	color: rgb(0, 0, 0);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    border-image: url(:/new/login/photos/button.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
+}
 </string>
-       </property>
-       <property name="text">
-        <string>股票走势</string>
-       </property>
-       <property name="icon">
-        <iconset resource="trendIcon.qrc">
-         <normaloff>:/new/icon/photos/stockTrend.png</normaloff>:/new/icon/photos/stockTrend.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="TransactionButton">
-       <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>股票交易</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Icon.qrc">
-         <normaloff>:/new/stock/photos/stockIcon.png</normaloff>:/new/stock/photos/stockIcon.png</iconset>
-       </property>
-       <property name="flat">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="rankbutton1">
-       <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:transparent;
+    </property>
+    <property name="text">
+     <string>股票走势</string>
+    </property>
+    <property name="icon">
+     <iconset resource="trendIcon.qrc">
+      <normaloff>:/new/icon/photos/stockTrend.png</normaloff>:/new/icon/photos/stockTrend.png</iconset>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="TransactionButton">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>180</y>
+      <width>151</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{  
+	color: rgb(0, 0, 0);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    border-image: url(:/new/login/photos/button.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
+}
+
 </string>
-       </property>
-       <property name="text">
-        <string>排行榜</string>
-       </property>
-       <property name="icon">
-        <iconset resource="rankIcon.qrc">
-         <normaloff>:/new/icon/photos/rank2.png</normaloff>:/new/icon/photos/rank2.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="dealbutton1">
-       <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:transparent;
+    </property>
+    <property name="text">
+     <string>股票交易</string>
+    </property>
+    <property name="icon">
+     <iconset resource="Icon.qrc">
+      <normaloff>:/new/stock/photos/stockIcon.png</normaloff>:/new/stock/photos/stockIcon.png</iconset>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rankbutton1">
+    <property name="geometry">
+     <rect>
+      <x>-40</x>
+      <y>250</y>
+      <width>201</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{  
+	color: rgb(0, 0, 0);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    border-image: url(:/new/login/photos/button.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
+}
 </string>
-       </property>
-       <property name="text">
-        <string>交易规则</string>
-       </property>
-       <property name="icon">
-        <iconset resource="ruleIcon.qrc">
-         <normaloff>:/new/icon/photos/rule.png</normaloff>:/new/icon/photos/rule.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="communitybutton1">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:transparent;
+    </property>
+    <property name="text">
+     <string>排行榜</string>
+    </property>
+    <property name="icon">
+     <iconset resource="rankIcon.qrc">
+      <normaloff>:/new/icon/photos/rank2.png</normaloff>:/new/icon/photos/rank2.png</iconset>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="dealbutton1">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>320</y>
+      <width>151</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{  
+	color: rgb(0, 0, 0);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    border-image: url(:/new/login/photos/button.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
+}
 </string>
-       </property>
-       <property name="text">
-        <string>社区交流</string>
-       </property>
-       <property name="icon">
-        <iconset resource="communityIcon.qrc">
-         <normaloff>:/new/icon/photos/community.png</normaloff>:/new/icon/photos/community.png</iconset>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    </property>
+    <property name="text">
+     <string>交易规则</string>
+    </property>
+    <property name="icon">
+     <iconset resource="ruleIcon.qrc">
+      <normaloff>:/new/icon/photos/rule.png</normaloff>:/new/icon/photos/rule.png</iconset>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="communitybutton1">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>-20</x>
+      <y>390</y>
+      <width>161</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{  
+	color: rgb(0, 0, 0);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    border-image: url(:/new/login/photos/button.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>社区交流</string>
+    </property>
+    <property name="icon">
+     <iconset resource="communityIcon.qrc">
+      <normaloff>:/new/icon/photos/community.png</normaloff>:/new/icon/photos/community.png</iconset>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
    </widget>
   </widget>
   <widget class="QFrame" name="headNevagationFrame">
@@ -736,74 +886,6 @@ border:1px rgb(231, 231, 231);
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QWidget" name="horizontalLayoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>20</y>
-      <width>671</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="ChargeButton">
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>充值</string>
-       </property>
-       <property name="icon">
-        <iconset resource="rechargeIcon.qrc">
-         <normaloff>:/new/icon/photos/recharge.png</normaloff>:/new/icon/photos/recharge.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="personpageBtn">
-       <property name="styleSheet">
-        <string notr="true">background-color:transparent;
-</string>
-       </property>
-       <property name="text">
-        <string>个人主页</string>
-       </property>
-       <property name="icon">
-        <iconset resource="peresonIcon.qrc">
-         <normaloff>:/new/icon/photos/personage3.png</normaloff>:/new/icon/photos/personage3.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="leavebutton1">
-       <property name="styleSheet">
-        <string notr="true">background-color:transparent;
-</string>
-       </property>
-       <property name="text">
-        <string>退出登陆</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QLabel" name="logo">
     <property name="geometry">
      <rect>
@@ -813,27 +895,33 @@ border:1px rgb(231, 231, 231);
       <height>71</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="GroupLogo.qrc">:/new/logo/photos/logo.jpg</pixmap>
+     <pixmap>:/new/logo/photos/logo.jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>30</y>
-      <width>231</width>
-      <height>21</height>
+      <x>130</x>
+      <y>10</y>
+      <width>361</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Forte</family>
-      <pointsize>20</pointsize>
+      <pointsize>26</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>StockStimulator</string>
@@ -845,11 +933,12 @@ border:1px rgb(231, 231, 231);
       <x>1010</x>
       <y>10</y>
       <width>20</width>
-      <height>20</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <pointsize>12</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -860,17 +949,116 @@ border:1px rgb(231, 231, 231);
      <string>X</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="personpageBtn">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>30</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:transparent;
+</string>
+    </property>
+    <property name="text">
+     <string>个人主页</string>
+    </property>
+    <property name="icon">
+     <iconset resource="peresonIcon.qrc">
+      <normaloff>:/new/icon/photos/personage3.png</normaloff>:/new/icon/photos/personage3.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="leavebutton1">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>30</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:transparent;
+</string>
+    </property>
+    <property name="text">
+     <string>退出登陆</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ChargeButton">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>20</y>
+      <width>71</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{  
+	color: rgb(0, 0, 0);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    border-image: url(:/new/login/photos/button.png);
+}</string>
+    </property>
+    <property name="text">
+     <string>充值</string>
+    </property>
+    <property name="icon">
+     <iconset resource="rechargeIcon.qrc">
+      <normaloff>:/new/icon/photos/recharge.png</normaloff>:/new/icon/photos/recharge.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Minimum_Button">
+    <property name="geometry">
+     <rect>
+      <x>980</x>
+      <y>10</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 173, 226)</string>
+    </property>
+    <property name="text">
+     <string>—</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources>
-  <include location="communityIcon.qrc"/>
-  <include location="rechargeIcon.qrc"/>
   <include location="homeIcon.qrc"/>
-  <include location="ruleIcon.qrc"/>
+  <include location="rechargeIcon.qrc"/>
   <include location="trendIcon.qrc"/>
-  <include location="Icon.qrc"/>
+  <include location="communityIcon.qrc"/>
   <include location="peresonIcon.qrc"/>
-  <include location="GroupLogo.qrc"/>
+  <include location="Icon.qrc"/>
+  <include location="ruleIcon.qrc"/>
   <include location="rankIcon.qrc"/>
  </resources>
  <connections/>
