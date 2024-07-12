@@ -33,10 +33,10 @@ border-bottom-right-radius:10px;}</string>
     <enum>QFrame::Panel</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="selectpage1">
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -62,7 +62,7 @@ border-bottom-right-radius:10px;}</string>
      </property>
      <layout class="QVBoxLayout" name="MainChartsLayout"/>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>460</x>
@@ -279,7 +279,7 @@ box-shadow: 5px 5px 5px #888888;
      </property>
      <layout class="QVBoxLayout" name="RankingLayout">
       <item>
-       <widget class="QTableWidget" name="tableWidget">
+       <widget class="QTableWidget" name="userRankingList">
         <property name="minimumSize">
          <size>
           <width>579</width>

@@ -7,6 +7,7 @@ buyin::buyin(QWidget *parent)
     , ui(new Ui::buyin)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
     initBuyInSellOut();
 }
 
@@ -260,16 +261,18 @@ void buyin::setSellOutInfo(){
 }
 
 void buyin::recordTableUpdate(){
-    for(int i = 0; i < 5; i++){
-        ui->holdingTable->resizeColumnToContents(i);
-    }
+    ui->RecordTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->RecordTable->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+//    for(int i = 0; i < 5; i++){
+//        ui->holdingTable->resizeColumnToContents(i);
+//    }
     int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
     std::vector<Record> r = Global::instance().getGlobalDataBase()->getUserRecord(userID);
     ui->RecordTable->setRowCount(r.size());
     int row = ui->RecordTable->rowCount();
-    for(int i = 0; i < row; i++){
-        ui->holdingTable->resizeRowToContents(i);
-    }
+//    for(int i = 0; i < row; i++){
+//        ui->holdingTable->resizeRowToContents(i);
+//    }
     QTableWidgetItem* iDate;
     QTableWidgetItem* iStockID;
     QTableWidgetItem* iQuantity;
@@ -290,14 +293,16 @@ void buyin::recordTableUpdate(){
 }
 
 void buyin::holdingTableUpdate(){
-    for(int i = 0; i < 3; i++){
-        ui->holdingTable->resizeColumnToContents(0);
-        ui->holdingTable->resizeColumnToContents(1);
-        ui->holdingTable->resizeColumnToContents(2);
-    }
-    for(int i = 0; i < 8; i++){
-        ui->holdingTable->resizeRowToContents(i);
-    }
+    ui->holdingTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->holdingTable->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+//    for(int i = 0; i < 3; i++){
+//        ui->holdingTable->resizeColumnToContents(0);
+//        ui->holdingTable->resizeColumnToContents(1);
+//        ui->holdingTable->resizeColumnToContents(2);
+//    }
+//    for(int i = 0; i < 8; i++){
+//        ui->holdingTable->resizeRowToContents(i);
+//    }
     int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
     Portfolio* userHoldings = &Global::instance().getGlobalDataBase()->getUserPortfolio(userID);
     QTableWidgetItem* iHolding;

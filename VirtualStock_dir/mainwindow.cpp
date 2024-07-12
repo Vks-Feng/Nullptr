@@ -104,6 +104,8 @@ MainWindow::MainWindow(QWidget *parent) :
     });
 
     connect(ui->rankbutton1,&QPushButton::clicked,this,[=](){
+        ui->userRankingList->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+        ui->userRankingList->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
         ui->selectpage->setCurrentIndex(2);
     });
 
@@ -188,18 +190,18 @@ MainWindow::MainWindow(QWidget *parent) :
     // 填充表格
     for (int i = 0; i < userData.size(); ++i) {
 
-        ui->tableWidget->insertRow(i);
+        ui->userRankingList->insertRow(i);
         QTableWidgetItem *idItem = new QTableWidgetItem(QString (userData[i].userName));
         QTableWidgetItem *assetsItem = new QTableWidgetItem(QString::number(userData[i].totalAssets));
         QTableWidgetItem *monthItem = new QTableWidgetItem(QString::number(userData[i].month));
-        ui->tableWidget->setItem(i, 0, idItem);
-        ui->tableWidget->setItem(i, 2, assetsItem);
-        ui->tableWidget->setItem(i, 1, monthItem);
+        ui->userRankingList->setItem(i, 0, idItem);
+        ui->userRankingList->setItem(i, 2, assetsItem);
+        ui->userRankingList->setItem(i, 1, monthItem);
     }
 // ui->tableWidget->resizeColumnToContents(4);
     // for(int i=0;i<4;i++)
     // {
-        ui->tableWidget->resizeColumnsToContents();
+        ui->userRankingList->resizeColumnsToContents();
     // }
 
     //新闻窗口
@@ -387,7 +389,6 @@ void MainWindow::mousePressEvent(QMouseEvent *event){
         this->close();
 
     }
-
 }
 
 void MainWindow::mouseMoveEvent(QMouseEvent* event)
