@@ -23,6 +23,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     this->setWindowFlags(Qt::FramelessWindowHint);//无边框
+    // this->setAttribute(Qt::WA_TranslucentBackground);//透明背景
+    // QGraphicsDropShadowEffect *MainShadow = new QGraphicsDropShadowEffect;
+    // MainShadow->setBlurRadius(10);
+    // MainShadow->setColor(QColor(0,0,0,100));
+    // MainShadow->setOffset(0,0);
+    // setGraphicsEffect(MainShadow);
+
     ui->logo->setScaledContents(true);//logo自适应大小
 
 
@@ -96,12 +103,16 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     //设置跳转的槽函数
-    connect(ui->firstbutton1,&QPushButton::clicked,this,[=](){
-        ui->selectpage->setCurrentIndex(0);
+    connect(ui->Minimum_Button,&QPushButton::clicked,this,[=](){
+        this->showMinimized();
     });
 
     connect(ui->MainCloseButton,&QPushButton::clicked,this,[=](){
         this->close();
+    });
+
+    connect(ui->firstbutton1,&QPushButton::clicked,this,[=](){
+        ui->selectpage->setCurrentIndex(0);
     });
 
     connect(ui->stockbutton1,&QPushButton::clicked,this,[=](){
@@ -497,3 +508,16 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 {
     mouse_press = false;
 }
+
+// void MainWindow::paintEvent(QPaintEvent *event)
+// {
+//     QPainter painter(this);
+//     painter.setRenderHint(QPainter::Antialiasing);
+
+//     QPainterPath path;
+//     path.addRoundedRect(rect(),10,10);
+//     painter.setClipPath(path);
+//     painter.fillPath(path,Qt::white);
+
+//     this->paintEvent(event);
+// }

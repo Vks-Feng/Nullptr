@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1005</width>
-    <height>735</height>
+    <width>1011</width>
+    <height>725</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,8 +25,8 @@ border-bottom-right-radius:10px;}</string>
     <rect>
      <x>130</x>
      <y>100</y>
-     <width>861</width>
-     <height>621</height>
+     <width>881</width>
+     <height>611</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -57,7 +57,7 @@ border-bottom-right-radius:10px;}</string>
        <x>20</x>
        <y>349</y>
        <width>411</width>
-       <height>311</height>
+       <height>261</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="MainChartsLayout">
@@ -359,6 +359,9 @@ border:1px rgb(231, 231, 231);
           <height>0</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
         <column>
          <property name="text">
           <string>用户名</string>
@@ -468,8 +471,8 @@ T+0/T+1/T+2：不同市场有不同的清算交割制度。例如，美国市场
   <widget class="QFrame" name="siderBarFrame">
    <property name="geometry">
     <rect>
-     <x>-10</x>
-     <y>100</y>
+     <x>0</x>
+     <y>90</y>
      <width>131</width>
      <height>661</height>
     </rect>
@@ -492,7 +495,7 @@ border:1px rgb(231, 231, 231);
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>560</y>
+      <y>550</y>
       <width>101</width>
       <height>20</height>
      </rect>
@@ -501,6 +504,9 @@ border:1px rgb(231, 231, 231);
      <font>
       <pointsize>6</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>
@@ -518,171 +524,315 @@ border:1px rgb(231, 231, 231);
    <widget class="QPushButton" name="nextroundbutton">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>590</y>
       <width>80</width>
       <height>26</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="text">
      <string>下一轮</string>
     </property>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget_3">
+   <widget class="QPushButton" name="firstbutton1">
     <property name="geometry">
      <rect>
-      <x>-100</x>
-      <y>-10</y>
-      <width>331</width>
-      <height>491</height>
+      <x>-20</x>
+      <y>20</y>
+      <width>161</width>
+      <height>71</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout_3">
-     <item>
-      <widget class="QPushButton" name="firstbutton1">
-       <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
 {  
-	color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
     background:transparent; 
 }
 QPushButton:hover
 {
+	color: rgb(255, 255, 255);
     border-image: url(:/new/login/photos/button.png);
 }
 
 QPushButton:checked
 {
     border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
 }
 </string>
-       </property>
-       <property name="text">
-        <string>首页</string>
-       </property>
-       <property name="icon">
-        <iconset resource="homeIcon.qrc">
-         <normaloff>:/new/icon/photos/homePage.png</normaloff>:/new/icon/photos/homePage.png</iconset>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="stockbutton1">
-       <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:transparent;
+    </property>
+    <property name="text">
+     <string>首页</string>
+    </property>
+    <property name="icon">
+     <iconset resource="homeIcon.qrc">
+      <normaloff>:/new/icon/photos/homePage.png</normaloff>:/new/icon/photos/homePage.png</iconset>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="stockbutton1">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>130</y>
+      <width>151</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{  
+	color: rgb(0, 0, 0);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    border-image: url(:/new/login/photos/button.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
+}
 </string>
-       </property>
-       <property name="text">
-        <string>股票走势</string>
-       </property>
-       <property name="icon">
-        <iconset resource="trendIcon.qrc">
-         <normaloff>:/new/icon/photos/stockTrend.png</normaloff>:/new/icon/photos/stockTrend.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="TransactionButton">
-       <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>股票交易</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Icon.qrc">
-         <normaloff>:/new/stock/photos/stockIcon.png</normaloff>:/new/stock/photos/stockIcon.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="rankbutton1">
-       <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:transparent;
+    </property>
+    <property name="text">
+     <string>股票走势</string>
+    </property>
+    <property name="icon">
+     <iconset resource="trendIcon.qrc">
+      <normaloff>:/new/icon/photos/stockTrend.png</normaloff>:/new/icon/photos/stockTrend.png</iconset>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="TransactionButton">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>200</y>
+      <width>151</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{  
+	color: rgb(0, 0, 0);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    border-image: url(:/new/login/photos/button.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
+}
 </string>
-       </property>
-       <property name="text">
-        <string>排行榜</string>
-       </property>
-       <property name="icon">
-        <iconset resource="rankIcon.qrc">
-         <normaloff>:/new/icon/photos/rank2.png</normaloff>:/new/icon/photos/rank2.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="dealbutton1">
-       <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:transparent;
+    </property>
+    <property name="text">
+     <string>股票交易</string>
+    </property>
+    <property name="icon">
+     <iconset resource="Icon.qrc">
+      <normaloff>:/new/stock/photos/stockIcon.png</normaloff>:/new/stock/photos/stockIcon.png</iconset>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rankbutton1">
+    <property name="geometry">
+     <rect>
+      <x>-40</x>
+      <y>270</y>
+      <width>201</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{  
+	color: rgb(0, 0, 0);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    border-image: url(:/new/login/photos/button.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
+}
 </string>
-       </property>
-       <property name="text">
-        <string>交易规则</string>
-       </property>
-       <property name="icon">
-        <iconset resource="ruleIcon.qrc">
-         <normaloff>:/new/icon/photos/rule.png</normaloff>:/new/icon/photos/rule.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="communitybutton1">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:transparent;
+    </property>
+    <property name="text">
+     <string>排行榜</string>
+    </property>
+    <property name="icon">
+     <iconset resource="rankIcon.qrc">
+      <normaloff>:/new/icon/photos/rank2.png</normaloff>:/new/icon/photos/rank2.png</iconset>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="dealbutton1">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>340</y>
+      <width>151</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{  
+	color: rgb(0, 0, 0);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    border-image: url(:/new/login/photos/button.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
+}
 </string>
-       </property>
-       <property name="text">
-        <string>社区交流</string>
-       </property>
-       <property name="icon">
-        <iconset resource="communityIcon.qrc">
-         <normaloff>:/new/icon/photos/community.png</normaloff>:/new/icon/photos/community.png</iconset>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    </property>
+    <property name="text">
+     <string>交易规则</string>
+    </property>
+    <property name="icon">
+     <iconset resource="ruleIcon.qrc">
+      <normaloff>:/new/icon/photos/rule.png</normaloff>:/new/icon/photos/rule.png</iconset>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="communitybutton1">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>-20</x>
+      <y>410</y>
+      <width>161</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{  
+	color: rgb(0, 0, 0);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    border-image: url(:/new/login/photos/button.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>社区交流</string>
+    </property>
+    <property name="icon">
+     <iconset resource="communityIcon.qrc">
+      <normaloff>:/new/icon/photos/community.png</normaloff>:/new/icon/photos/community.png</iconset>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
    </widget>
   </widget>
   <widget class="QFrame" name="headNevagationFrame">
@@ -707,74 +857,6 @@ border:1px rgb(231, 231, 231);
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QWidget" name="horizontalLayoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>20</y>
-      <width>671</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="ChargeButton">
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>充值</string>
-       </property>
-       <property name="icon">
-        <iconset resource="rechargeIcon.qrc">
-         <normaloff>:/new/icon/photos/recharge.png</normaloff>:/new/icon/photos/recharge.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="personpageBtn">
-       <property name="styleSheet">
-        <string notr="true">background-color:transparent;
-</string>
-       </property>
-       <property name="text">
-        <string>个人主页</string>
-       </property>
-       <property name="icon">
-        <iconset resource="peresonIcon.qrc">
-         <normaloff>:/new/icon/photos/personage3.png</normaloff>:/new/icon/photos/personage3.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="leavebutton1">
-       <property name="styleSheet">
-        <string notr="true">background-color:transparent;
-</string>
-       </property>
-       <property name="text">
-        <string>退出登陆</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QLabel" name="logo">
     <property name="geometry">
      <rect>
@@ -783,6 +865,9 @@ border:1px rgb(231, 231, 231);
       <width>71</width>
       <height>71</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>
@@ -794,17 +879,20 @@ border:1px rgb(231, 231, 231);
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>30</y>
-      <width>231</width>
-      <height>21</height>
+      <x>130</x>
+      <y>10</y>
+      <width>361</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Forte</family>
-      <pointsize>20</pointsize>
+      <pointsize>26</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>StockStimulator</string>
@@ -816,11 +904,12 @@ border:1px rgb(231, 231, 231);
       <x>1010</x>
       <y>10</y>
       <width>20</width>
-      <height>20</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <pointsize>12</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -831,18 +920,118 @@ border:1px rgb(231, 231, 231);
      <string>X</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="personpageBtn">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>30</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:transparent;
+</string>
+    </property>
+    <property name="text">
+     <string>个人主页</string>
+    </property>
+    <property name="icon">
+     <iconset resource="peresonIcon.qrc">
+      <normaloff>:/new/icon/photos/personage3.png</normaloff>:/new/icon/photos/personage3.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="leavebutton1">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>30</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:transparent;
+</string>
+    </property>
+    <property name="text">
+     <string>退出登陆</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ChargeButton">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>20</y>
+      <width>71</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{  
+	color: rgb(0, 0, 0);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    border-image: url(:/new/login/photos/button.png);
+}</string>
+    </property>
+    <property name="text">
+     <string>充值</string>
+    </property>
+    <property name="icon">
+     <iconset resource="rechargeIcon.qrc">
+      <normaloff>:/new/icon/photos/recharge.png</normaloff>:/new/icon/photos/recharge.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Minimum_Button">
+    <property name="geometry">
+     <rect>
+      <x>980</x>
+      <y>10</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 173, 226)</string>
+    </property>
+    <property name="text">
+     <string>—</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources>
   <include location="homeIcon.qrc"/>
-  <include location="rechargeIcon.qrc"/>
-  <include location="peresonIcon.qrc"/>
-  <include location="GroupLogo.qrc"/>
-  <include location="trendIcon.qrc"/>
-  <include location="rankIcon.qrc"/>
-  <include location="Icon.qrc"/>
   <include location="communityIcon.qrc"/>
   <include location="ruleIcon.qrc"/>
+  <include location="rankIcon.qrc"/>
+  <include location="GroupLogo.qrc"/>
+  <include location="rechargeIcon.qrc"/>
+  <include location="peresonIcon.qrc"/>
+  <include location="Icon.qrc"/>
+  <include location="trendIcon.qrc"/>
  </resources>
  <connections/>
 </ui>

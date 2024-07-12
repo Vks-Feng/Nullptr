@@ -15,7 +15,6 @@
   </property>
   <property name="styleSheet">
    <string notr="true">border-radius:10px;
-backgroud-color:white;
 </string>
   </property>
   <widget class="QLabel" name="NewsLable">
@@ -112,8 +111,7 @@ border:1px rgb(231, 231, 231);
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
@@ -132,8 +130,7 @@ border:1px rgb(231, 231, 231);
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
