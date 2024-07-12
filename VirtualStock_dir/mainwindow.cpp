@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "chartspline.h"
+#include "buyin.h"
 #include <QPlainTextEdit>
 
 struct UserData {
@@ -21,6 +22,31 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //添加buyin
+    buyin* buyin_widget=new buyin;
+
+//    // 遍历所有子对象
+//    foreach (QObject *child, buyin_widget->children()) {
+//        QPushButton *button = qobject_cast<QPushButton *>(child);
+//        if (button) {
+//            button->setFlat(false);
+//        }
+//    }
+
+    ui->Trade_layout->addWidget(buyin_widget);
+
+    //添加forum
+    forum* forum_widget=new forum;
+    ui->selectpage5_forum->setLayout(ui->Forum_layout);
+    ui->Forum_layout->addWidget(forum_widget);
+
+//    // 遍历所有子对象
+//    foreach (QObject *child, forum_widget->children()) {
+//        QPushButton *button = qobject_cast<QPushButton *>(child);
+//        if (button) {
+//            button->setFlat(false);
+//        }
+//    }
 
     this->setWindowFlags(Qt::FramelessWindowHint);//无边框
     ui->logo->setScaledContents(true);//logo自适应大小
@@ -108,19 +134,24 @@ MainWindow::MainWindow(QWidget *parent) :
        ui->selectpage->setCurrentIndex(1);
     });
 
+    connect(ui->TransactionButton,&QPushButton::clicked,this,[=](){
+        ui->selectpage->setCurrentIndex(2);
+    });//点击跳转到交易界面
+
+    connect(ui->communitybutton1,&QPushButton::clicked,this,[=](){
+        ui->selectpage->setCurrentIndex(5);
+    });//点击跳转到交易界面
+
+
+
     connect(ui->rankbutton1,&QPushButton::clicked,this,[=](){
         ui->userRankingList->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
         ui->userRankingList->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-        ui->selectpage->setCurrentIndex(2);
-    });
-
-    connect(ui->dealbutton1,&QPushButton::clicked,this,[=](){
         ui->selectpage->setCurrentIndex(3);
     });
 
-    connect(ui->communitybutton1,&QPushButton::clicked,this,[=](){
-        forum* Forum=new forum();
-        Forum->show();
+    connect(ui->dealbutton1,&QPushButton::clicked,this,[=](){
+        ui->selectpage->setCurrentIndex(4);
     });
 
     connect(ui->leavebutton1,&QPushButton::clicked,this,[=](){
@@ -164,7 +195,6 @@ MainWindow::MainWindow(QWidget *parent) :
     //首页添加折线图
     ChartSpline* ch=new ChartSpline;
     ui->MainChartsLayout->addWidget(ch);
-
     ui->selectpage1->setLayout(ui->Page1Layout);
     // Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,currentDate.getMonth()));
 
@@ -202,9 +232,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QWidget *placeholder_1 = ui->StockWidget_1;
     QWidget *placeholder_2 = ui->StockWidget_2;
-
-    // ui->selectpage2->setLayout(ui->stock_total_layout);
-    //
 
     // 设置 chartspline 对象到占位部件的位置
     QVBoxLayout *layout_1 = new QVBoxLayout(placeholder_1);
@@ -272,11 +299,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_TransactionButton_clicked()
-{
-    buyin *buy = new buyin();
-    buy->show();
-}
+//void MainWindow::on_TransactionButton_clicked()
+//{
+//    buyin *buy = new buyin();
+//    buy->show();
+//}
 
 QString MainWindow::CompanyIntro(int index)
 {
@@ -387,6 +414,7 @@ void MainWindow::on_nextroundbutton_clicked()
             news2.updateNews();
             main->show();
         }}
+
     else{QMessageBox msg(QMessageBox::Question,"提示","您本轮还没有进行任何操作，是否进行到下一轮操作?",QMessageBox::Yes | QMessageBox::No,this);
         int ret = msg.exec();
         if(ret==QMessageBox::Yes)
@@ -469,11 +497,6 @@ int MainWindow::totalcurrency(int userID,int months){
     return totalcurrency;
 }
 
-
-void MainWindow::on_communitybutton1_clicked()
-{
-
-}
 
 void MainWindow::mousePressEvent(QMouseEvent *event){
 
