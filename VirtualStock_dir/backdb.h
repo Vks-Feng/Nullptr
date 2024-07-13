@@ -11,6 +11,7 @@
 #include <QRandomGenerator>
 #include <post.h>
 #include <QCryptographicHash>
+#include <QVector>
 
 class BackDB
 {
@@ -88,25 +89,33 @@ public:
     //传入id，价格totalPrice,在user表中balance上加去该数值
     void inclineBalance(int id, int totalPrice);
 
-    //返回用户余额
+    //返回用户活动资产
     int GetBalance(int user_id);
 
     //返回当前所有用户数量
     int CountUser();
 
+    //设置用户时间
     void setTime(int _useId,int montha);
+    //获取用户时间
     int getTime(int _userId);
 
+    //设置介绍说明
     void setIntroduction(int _userId, QString _content);
+    //获取自我介绍
+    QString getIntroduction(int _userId);//获取用户的个性签名,总资产得新建个表了
+    //设置排行
     void setRanking(int _userId, int _ranking);
 
-    QString getIntroduction(int _userId);//获取用户的个性签名,总资产得新建个表了
-    void setTotalvalue(int user_ID,int value);//设置用户的总资产
-    int getTotalvalue(int userid);//读取总资产
+
+    //设置用户的总资产
+    void setTotalvalue(int user_ID,int value);
+    //读取总资产
+    int getTotalvalue(int userid);
     //需求：：每个用户读取排行榜需要读取所有人的总资产
 
 //    排行榜需求
-//        需要在本机获取所有用户的用户名
+//    需要在本机获取所有用户的用户名
     std::vector<QString> getAllUserName();//返回一个数组存储所有的用户名
 
     //根据用户名把id返回出来,如果未找到，返回-1
@@ -122,19 +131,12 @@ public:
     //给portfolios表中添加成员
     void addPortfolios(int user_id,int company_id,int volume);
 
-    //每当切换SellOutStockBox的时候调用查询函数，传递参数用户id，股票id
-    //在portfolios中查询id对应股票的余量
-    //看你数据库的设计我默认为用户买入的时候才会添加portfolios数据，没买就不添加
-
-    //所以：
-    //若找到,返回余量，若没找到，返回-1(这里有一个bug，如果是0会新建，这里解决了)
+    //寻找该用户对应的股票雨量,返回余量，若没找到，返回-1(这里有一个bug，如果是0会新建，这里解决了)
     int getUserVolume(int userID, int companyID);
 
-
     //传入用户id，股票id，购买数量，在portfolio中添加股票对应数量
-    //若该用户id有对应id的股票，则在volumn字段上添加该数量
+    //若该用户id有对应id的股票记录(包括记录为0的情况)，则在volumn字段上添加该数量
     //若该用户id无对应id的股票，则在新建一条数据添加到表中
-
     void AddStock(int userID, int stockID, int volumn);
 
     //给传入一个用户id，查询portfolio表中该用户id对应的数据，并且构建一个根据这些数据构建好的Portfolio
@@ -173,8 +175,11 @@ public:
 
 
     //----------Forum---------
-    void addPost(Post post);//写入到Forum表格
-    std::vector<Post>  getforum();//获取所有post，形成一个vector<Post>
+    //写入到Forum表格
+    void addPost(Post post);
+
+    //获取所有post，形成一个vector<Post>
+    std::vector<Post>  getforum();
     //----------Forum---------
 
 
@@ -192,6 +197,10 @@ public:
     //----------comments-table---------
 
 
+
+    //----------KLines----------
+    // 从2022（之后绘图都从这个日期开始）,返还给我这段日期中每个时间点对应的四个数:open,close,lowest,highest
+    QVector<QVector<double>> getRawDatas(int company_id,int time);
 
     //----------test---------
     void test();
@@ -211,5 +220,6 @@ public:
     void testRecord();
     void testPortfolios();
     //----------test---------
+    BackDB();
 };
 

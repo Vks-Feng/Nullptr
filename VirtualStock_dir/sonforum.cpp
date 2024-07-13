@@ -92,6 +92,11 @@ sonforum::sonforum(std::vector<Post>_load,QWidget *parent)
         }
         textEdit->setStyleSheet("QTextEdit { font-size:20px }");
     }
+
+    //--vks--
+    connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_RefreshSonPost, this, &sonforum::refresh);
+    //--vks--
+
     ui->setupUi(this);
     this->setFixedSize(this->width(), this->height());
 }
@@ -126,10 +131,12 @@ void sonforum::onSubmitClicked() {
     QMessageBox msgBox;
     msgBox.setText("发帖成功");
     msgBox.exec();
-    refreash();
+    //vks
+    Global::instance().getGlobalClient()->write("RefreshSonPost:");
+    //vks
 }
 
-void sonforum::refreash(){
+void sonforum::refresh(){
     time=Global:: instance().getGlobalDataBase()->getTime(Global::instance().getGlobalUserManage()->GetUser(0)->GetId());
     std::vector<Post>_load;//这里应当重新获取数据库中的表格
     _load=Global::instance().getGlobalDataBase()->getforum();

@@ -7,6 +7,7 @@
 #include <QSplineSeries>
 #include <QRandomGenerator>//获取随机数用
 #include "global.h"
+//#include <QMouseEvent>
 
 
 namespace Ui {
@@ -20,6 +21,9 @@ class ChartSpline : public QWidget
 public:
     explicit ChartSpline(QWidget *parent = nullptr);
     ~ChartSpline();
+
+//protected:
+//    void mouseMoveEvent(QMouseEvent *event);
 
 public slots:
     void ShowRandomStock();//随机显示一支股票

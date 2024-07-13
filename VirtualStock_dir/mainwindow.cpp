@@ -154,8 +154,6 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->selectpage->setCurrentIndex(5);
     });//点击跳转到交易界面
 
-
-
     connect(ui->rankbutton1,&QPushButton::clicked,this,[=](){
         ui->userRankingList->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
         ui->userRankingList->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
@@ -177,8 +175,6 @@ MainWindow::MainWindow(QWidget *parent) :
         Personpage* aperson = new Personpage();
         aperson->show();
     });
-
-
 
     //时间初始化
     int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
