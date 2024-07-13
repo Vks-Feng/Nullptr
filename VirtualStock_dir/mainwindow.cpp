@@ -151,9 +151,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->communitybutton1,&QPushButton::clicked,this,[=](){
         ui->selectpage->setCurrentIndex(5);
-
-        forum *a=new forum();
-        a->show();
     });//点击跳转到交易界面
 
 
