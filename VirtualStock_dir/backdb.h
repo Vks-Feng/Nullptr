@@ -11,6 +11,7 @@
 #include <QRandomGenerator>
 #include <post.h>
 #include <QCryptographicHash>
+#include <QVector>
 
 class BackDB
 {
@@ -197,6 +198,10 @@ public:
 
 
 
+    //----------KLines----------
+    // 从2022（之后绘图都从这个日期开始）,返还给我这段日期中每个时间点对应的四个数:open,close,lowest,highest
+    QVector<QVector<double>> getRawDatas(int company_id,int time);
+
     //----------test---------
     void test();
     void testEnableUser();
@@ -215,5 +220,6 @@ public:
     void testRecord();
     void testPortfolios();
     //----------test---------
+    BackDB();
 };
 

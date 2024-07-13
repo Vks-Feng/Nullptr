@@ -11,6 +11,30 @@
 // The implement of backEndWithDataBase Class
 
 //----------Constructor----------
+//Usually you use these function instead of using the constructor directorly
+BackDB::BackDB()
+{
+    const char* host = "rm-n4a8f71b4zhg4w616co.mysql.cn-wuhan-lr.rds.aliyuncs.com"; // MySQL server host
+    const char* user = "visitor_1"; // MySQL username
+    const char* password = "Lin123456"; // MySQL password
+    const char* database = "stocks"; // MySQL database name
+    unsigned int port = 3306; // MySQL port (default is 3306)
+    const char* unix_socket = nullptr; // Unix socket (can be nullptr for TCP/IP)
+    unsigned long client_flag = 0; // Connection flags (usually 0)
+
+    mysql_init(&mysql);
+
+    // Connect to MySQL database using mysql_real_connect
+    if (mysql_real_connect(&mysql, host, user, password, database, port, unix_socket, client_flag)) {
+        std::cout << "Connected to MySQL database successfully!" << std::endl;
+        std::cout << "Database Name:" << database << std::endl;
+
+    }
+    else {
+        std::cerr << "Connection error: " << mysql_error(&mysql) << std::endl;
+    }
+}
+
 
 //Constructor , the basic information is host+user+password+database
 BackDB::BackDB(const char* _host, const  char* _user, const  char* _password, const  char* _database,
@@ -959,7 +983,62 @@ void BackDB::setComment(int user_id, QString _comment)
                                ('%1','%2'); ")
                                    .arg(user_id)
                                    .arg(_comment);
-                       this->query(queryStr);
+    this->query(queryStr);
+}
+
+// 从2022（之后绘图都从这个日期开始）,返还给我这段日期中每个时间点对应的四个数:open,close,lowest,highest
+QVector<QVector<double> > BackDB::getRawDatas(int company_id, int time)
+{
+    QString company_name=this->Id2Name(company_id);
+   QString queryStr = QString("SELECT MONTH(timestamp) AS Month, open, high, low, close, YEAR(timestamp) AS year\
+                               FROM stock_data_monthly \
+                                WHERE CompanyName = '%1' \
+                                 AND ((YEAR(timestamp) = 2022) \
+                               OR (YEAR(timestamp) = 2023 AND MONTH(timestamp) <= '%2')) \
+                                  ORDER BY year, Month;")
+                                   .arg(company_name)
+                           .arg(time);
+
+    MYSQL_RES* result=this->query(queryStr);
+
+   QVector<QVector<double>> ReturnResult;
+
+    //如果返回行数为空，也就是说没有查询到有效值的话
+    //那么将一个label放到原本图表的位置上
+    if (mysql_num_rows(result) == 0) { //此处绝对不能用==NULL进行判定
+        std::cerr << "Failed to get the result set in Spline" << std::endl;
+        return ReturnResult;
+    }
+
+    MYSQL_ROW row;
+
+    while ((row = mysql_fetch_row(result))) {
+        QVector<double> item;
+
+        QString qStr_0(row[0]);
+        int year = qStr_0.toInt();
+
+        QString qStr_1(row[1]);
+        double open = qStr_1.toDouble();
+
+        QString qStr_4(row[4]);
+        double close = qStr_4.toDouble();
+
+        QString qStr_3(row[3]);
+        double low = qStr_3.toDouble();
+
+        QString qStr_2(row[2]);
+        double high = qStr_2.toDouble();
+
+        item.push_back(open);
+        item.push_back(close);
+        item.push_back(low);
+        item.push_back(high);
+        //凡是带有小数点的数据表类型都需要用double类型进行读取
+
+        ReturnResult.push_back(item);
+    }
+    return ReturnResult;
 }
 
 void BackDB::setTime(int _userId, int month)
@@ -1182,6 +1261,14 @@ void BackDB::testAddStock()
 void BackDB::test()
 {
 //    qDebug()<<this->ta<<Qt::endl;
-    this->tableDesc("users");
+    QVector<QVector<double>> v=this->getRawDatas(4,7);
+    for(int i=0;i<v.size();i++)
+    {
+        for(int j=0;j<4;j++)
+        {
+            std::cout<<v[i][j]<<" ";
+        }
+        std::cout<<std::endl;
+    }
     std::cout<<"Done in test"<<std::endl;
 }
