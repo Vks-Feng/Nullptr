@@ -408,7 +408,8 @@ void MainWindow::on_nextroundbutton_clicked()
             MainWindow* main= new MainWindow();
             this->close();
             news2.updateNews();
-            main->show();showCustomDialog();
+            main->show();
+            showCustomDialog();
         }}
 
 
@@ -436,7 +437,8 @@ void MainWindow::on_nextroundbutton_clicked()
             MainWindow* main= new MainWindow();
             this->close();
             news2.updateNews();
-            main->show();showCustomDialog();
+            main->show();
+            showCustomDialog();
 
         }}}
 }

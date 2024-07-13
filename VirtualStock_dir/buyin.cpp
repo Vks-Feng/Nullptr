@@ -371,5 +371,84 @@ void buyin::setPicResource(int index){
 }
 
 void buyin::incomePageUpdate(){
+    int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
 
+    // QTableWidget *tableWidget = new QTableWidget(9, 7);
+    // QStringList headerLabels;
+    // headerLabels << "公司股票"<< "上月股价"<<"本月股价"<< "持有量"<<"上月总股价"<<"本月总股价"<<"盈亏";
+    // tableWidget->setHorizontalHeaderLabels(headerLabels);
+    Portfolio* userHoldings = &Global::instance().getGlobalDataBase()->getUserPortfolio(userID);
+    QTableWidgetItem* iHolding;
+    QTableWidgetItem* singlevalue;
+    QTableWidgetItem* lastsinglevalue;
+    QTableWidgetItem* iTotalValue;
+    QTableWidgetItem* lastiTotalValue;
+    QTableWidgetItem* Bep;
+    QTableWidgetItem* Rate;
+    long summaryHolding = 0;
+    long summaryValue = 0;
+    long summarylastValue=0;
+    // QStringList company_names = {
+    //                              "AAPL", "AMZN", "GOOGL", "IBM", "INTC",
+    //                              "JBLU", "META", "MSFT", "total"};
+    for(int i = 0; i < 8; i++){
+        int year = Global::instance().getYear();
+        int month = Global::instance().getGlobalDataBase()->getTime(userID);
+        // QTableWidgetItem* iStockID= new QTableWidgetItem(QString(company_names[i]));
+        int holdings = userHoldings->getHoldings(i+1);
+        int singleValue = Global::instance().getGlobalDataBase()->getStockInfo(i+1, year, month)[0];
+        int lastsingleValue;
+        int totalValue = holdings * singleValue;
+        if(month==1){
+            lastsingleValue=0;
+        }
+        else{
+            lastsingleValue = Global::instance().getGlobalDataBase()->getStockInfo(i+1, year, month-1)[0];}
+        int lastvalue = holdings * lastsingleValue;
+        int bep=totalValue-lastvalue;
+        int rate;
+        if(month==1){
+            rate=0;
+        }
+        else{rate=100*(singleValue-lastsingleValue)/lastsingleValue;}
+        singlevalue= new QTableWidgetItem(QString::number(singleValue));
+        lastsinglevalue= new QTableWidgetItem(QString::number(lastsingleValue));
+        iHolding = new QTableWidgetItem(QString::number(userHoldings->getHoldings(i+1)));
+        iTotalValue = new QTableWidgetItem(QString::number(totalValue));
+        lastiTotalValue = new QTableWidgetItem(QString::number(lastvalue));
+        Bep = new QTableWidgetItem(QString::number(bep));
+        Rate =new QTableWidgetItem(QString::number(rate)+"%");
+        // tableWidget->setItem(i,0,iStockID);
+        ui->incometable->setItem(i,0,lastsinglevalue);
+        ui->incometable->setItem(i,1,singlevalue);
+        ui->incometable->setItem(i, 2, iHolding);
+        ui->incometable->setItem(i, 3, lastiTotalValue);
+        ui->incometable->setItem(i, 4, iTotalValue);
+        ui->incometable->setItem(i, 5, Bep);
+        ui->incometable->setItem(i, 6, Rate);
+        summaryHolding += holdings;
+        summaryValue += totalValue;
+        summarylastValue+=lastvalue;
+    }
+    // QTableWidgetItem* iStockID= new QTableWidgetItem(QString(company_names[8]));
+    int totalbep= summaryValue-summarylastValue;
+    double totalrate;
+    if(summarylastValue==0){
+
+        totalrate=0;
+    }
+    else{
+        totalrate= 100*(summaryValue-summarylastValue)/summarylastValue;
+    }
+    iHolding = new QTableWidgetItem(QString::number(summaryHolding));
+    iTotalValue = new QTableWidgetItem(QString::number(summaryValue));
+    lastiTotalValue = new QTableWidgetItem(QString::number(summarylastValue));
+    Bep = new QTableWidgetItem(QString::number(totalbep));
+    Rate =new QTableWidgetItem(QString::number(totalrate)+"%");
+    // tableWidget->setItem(8,0,iStockID);
+    ui->incometable->setItem(8, 2, iHolding);
+    ui->incometable->setItem(8, 4, iTotalValue);
+    ui->incometable->setItem(8, 3, lastiTotalValue);
+    ui->incometable->setItem(8, 5, Bep);
+    ui->incometable->setItem(8, 6, Rate);
 }
