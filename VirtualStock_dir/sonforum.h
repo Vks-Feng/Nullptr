@@ -38,7 +38,14 @@ public:
 
 private slots:
     void onSubmitClicked();
-    void refreash();
+    void refresh();
+
+protected:
+
+void closeEvent(QCloseEvent *event) override {
+    disconnect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_RefreshSonPost, this, &sonforum::refresh);
+    QWidget::closeEvent(event);
+}
 
 private:
     int time;

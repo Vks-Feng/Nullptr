@@ -49,6 +49,9 @@ public:
     //处理服务器发来的刷新命令
     void handleCommand_Refresh();
 
+    //处理服务器发来的刷新字帖命令
+    void handleCommand_RefreshSonPost();
+
     //处理服务器发来的广播命令
     //void handleCommand_Broadcast(const QStringList &parameters);
 
@@ -66,6 +69,8 @@ signals:
     void signal_Receive_Relogin();
 
     void signal_Receive_Refresh();
+
+    void signal_Receive_RefreshSonPost();
 
     void signal_Receive_Broadcast(QString& userName, QString& content);
 
