@@ -1,7 +1,7 @@
 #include "widget.h"
 #include "login.h"
 #include "global.h"
-//#include "kcharts.h"
+//#include "backdb.h"
 #include <QApplication>
 
 UserManage* um = nullptr;
@@ -21,6 +21,9 @@ int main(int argc, char *argv[])
 
     Login* l = new Login();
     l->show();
+
+//    BackDB b;
+//    b.test();
 
     return a.exec();
 }
