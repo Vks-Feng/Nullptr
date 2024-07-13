@@ -154,8 +154,6 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->selectpage->setCurrentIndex(5);
     });//点击跳转到交易界面
 
-
-
     connect(ui->rankbutton1,&QPushButton::clicked,this,[=](){
         ui->userRankingList->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
         ui->userRankingList->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
@@ -170,8 +168,6 @@ MainWindow::MainWindow(QWidget *parent) :
         this->close();
     });
 
-
-
     Personpage* person = new Personpage();
     //需要解决个人主页点击不初始化的问题
     connect(ui->ChargeButton, &QPushButton::clicked, person, &Personpage::openChargePage);
@@ -179,8 +175,6 @@ MainWindow::MainWindow(QWidget *parent) :
         Personpage* aperson = new Personpage();
         aperson->show();
     });
-
-
 
     //时间初始化
     int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
@@ -299,7 +293,6 @@ MainWindow::MainWindow(QWidget *parent) :
     news->move(800,100);
     news->show();
     news->updateNews();
-
 }
 
 MainWindow::~MainWindow()
@@ -415,7 +408,8 @@ void MainWindow::on_nextroundbutton_clicked()
             MainWindow* main= new MainWindow();
             this->close();
             news2.updateNews();
-            main->show();showCustomDialog();
+            main->show();
+            showCustomDialog();
         }}
 
 
@@ -443,7 +437,8 @@ void MainWindow::on_nextroundbutton_clicked()
             MainWindow* main= new MainWindow();
             this->close();
             news2.updateNews();
-            main->show();showCustomDialog();
+            main->show();
+            showCustomDialog();
 
         }}}
 }

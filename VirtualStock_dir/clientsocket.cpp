@@ -91,7 +91,7 @@ void ClientSocket::handleCommand_fromServer(const QString &command){
     QStringList parameters = parametersString.split(',');
 
     // 根据请求类型调用相应的处理函数
-    if (commandType == "Refresh") {
+    if (commandType == "RefreshPost") {
         handleCommand_Refresh();
     } else if (commandType == "Relogin") {
         handleCommand_Relogin();;
@@ -99,6 +99,8 @@ void ClientSocket::handleCommand_fromServer(const QString &command){
         handleCommand_Login();
     } else if (commandType == "ConnectDB") {
         handleCommand_connectToDataBase(parameters);
+    } else if (commandType == "RefreshSonPost") {
+        handleCommand_RefreshSonPost();
     } else {
         handleCommand_Unknown();
     }
@@ -122,6 +124,11 @@ void ClientSocket::handleCommand_Relogin(){
 void ClientSocket::handleCommand_Refresh() {
     qDebug() << "vks-server: ready to refresh";
     emit signal_Receive_Refresh();
+}
+
+void ClientSocket::handleCommand_RefreshSonPost() {
+    qDebug() << "vks-server: ready to refresh son post";
+    emit signal_Receive_RefreshSonPost();
 }
 
 //void ClientSocket::handleCommand_Broadcast(const QStringList &parameters) {
