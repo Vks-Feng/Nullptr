@@ -15,9 +15,7 @@ Login::Login(QWidget *parent) :
 
     connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Login, this, &Login::readyToLogin);
 
-    connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Relogin, [=](){
-        loginErrorNotification("已在其他设备上登录");
-    });
+    connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Relogin, this, &Login::alreadyLogin);
 
 
     connect(ui->loginCloseButton,&QPushButton::clicked,[=](){
@@ -113,6 +111,10 @@ void Login::readyToLogin(){
     MainWindow* main = new MainWindow;
     main->show();
     this->close();
+}
+
+void Login::alreadyLogin(){
+    loginErrorNotification("已在其他设备上登录");
 }
 
 

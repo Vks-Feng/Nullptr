@@ -22,8 +22,6 @@ void buyin::initBuyInSellOut(){
     ui->stackedWidget->setCurrentIndex(0);
     Global::instance().getGlobalUserManage()->updateUser(0);
     setBuyInInfo();
-
-
 }
 
 void buyin::on_BuyInButton_clicked()
