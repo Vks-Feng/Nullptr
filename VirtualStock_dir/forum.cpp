@@ -43,13 +43,12 @@ forum::forum(QWidget *parent):QWidget(parent){
 
     // 创建一个布局并将滚动区域添加到主窗口中
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
-    mainLayout->addWidget(scrollArea);
 
-    // 创建一个分割器
 
     // 创建左侧布局和按钮
     QWidget *left=new QWidget();
-
+    mainLayout->addWidget(left);
+    mainLayout->addWidget(scrollArea);
     QGridLayout *leftLayout = new QGridLayout();
     left->setLayout(leftLayout);
     QLabel *imageLabel = new QLabel();//放图
@@ -61,15 +60,15 @@ forum::forum(QWidget *parent):QWidget(parent){
     // 创建提交刷新按钮
     QPushButton *submitButton = new QPushButton("我要发新帖");
     submitButton->setFixedWidth(100);
-    leftLayout->addWidget(submitButton, 0, 1); // 将提交按钮添加到第一行第二列
+    leftLayout->addWidget(submitButton, 0, 1);
     connect(submitButton, &QPushButton::clicked, this, &forum::onSubmitClicked);
     QPushButton *refreashButton = new QPushButton("刷新");
     refreashButton->setFixedWidth(50);
     leftLayout->addWidget(refreashButton, 0, 2);
     // 创建输入文本框
-    QLineEdit *lineEdit = new QLineEdit();
-    lineEdit->setFixedHeight(800);
-    leftLayout->addWidget(lineEdit, 1, 0,1,3); // 将文本框添加到第一行第一列
+    com = new QTextEdit();
+    com->setFixedHeight(400);
+    leftLayout->addWidget(com, 1, 0,1,3);
     // 动态创建按钮并添加到布局中
 
     QRandomGenerator randomGenerator;
@@ -117,12 +116,6 @@ forum::forum(QWidget *parent):QWidget(parent){
         connect(button, &QPushButton::clicked, this, &forum::detail);
     }
 
-    //splitter->addWidget(new QWidget()); // 添加一个占位符QWidget，以使左侧布局可调整大小
-    //splitter->addWidget(scrollArea);
-
-    // 将分割器添加到主布局中
-    mainLayout->addWidget(left);
-    mainLayout->addWidget(scrollArea);
 
 
 
@@ -136,7 +129,7 @@ forum::forum(QWidget *parent):QWidget(parent){
 
 forum::~forum()
 {
-//    disconnect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &forum::refresh);
+    // disconnect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &forum::refresh);
     delete ui;
 }
 
@@ -162,8 +155,8 @@ void forum::detail(){
 void forum::onSubmitClicked() {
 
     // 读取文本框中的内容
-    QLineEdit *lineEdit = qobject_cast<QLineEdit*>(sender()->parent()->findChild<QLineEdit*>());
-    QString temp = lineEdit->text();
+    QString temp = com->toPlainText();
+
     if(temp==""){
         QMessageBox msgBox;
         msgBox.setText("发帖内容不能为空");
@@ -198,7 +191,7 @@ void forum::onSubmitClicked() {
 
     Post add(time,temp,id,allnumber,allnumber);
     Global::instance().getGlobalDataBase()->addPost(add);
-    //这里放上那个发帖链数据库的函数
+
 
     //vks
     Global::instance().getGlobalClient()->write("Refresh:");

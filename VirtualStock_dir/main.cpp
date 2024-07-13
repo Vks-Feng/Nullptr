@@ -10,17 +10,17 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-   UserManage* um = new UserManage;
-   Global::instance().setGlobalUserManage(um);
+    UserManage* um = new UserManage;
+    Global::instance().setGlobalUserManage(um);
 
-   ClientSocket* client = new ClientSocket();
-   client->connectToHost("120.26.82.216", 12345);
-   client->setSocketOption(QAbstractSocket::KeepAliveOption, 1);
-   Global::instance().setGlobalClient(client);
-   Global::instance().getGlobalClient()->write("ConnectDB:");
+    ClientSocket* client = new ClientSocket();
+    client->connectToHost("120.26.82.216", 12345);
+    client->setSocketOption(QAbstractSocket::KeepAliveOption, 1);
+    Global::instance().setGlobalClient(client);
+    Global::instance().getGlobalClient()->write("ConnectDB:");
 
-   Login* l = new Login();
-   l->show();
-   
+    Login* l = new Login();
+    l->show();
+
     return a.exec();
 }

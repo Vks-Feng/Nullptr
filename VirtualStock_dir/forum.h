@@ -56,6 +56,7 @@ private:
     std::vector<int>number;//父帖id，便于查询
     std::vector<std::vector<Post>>son;//对应的子帖
     QGridLayout *buttonLayout;
+    QTextEdit *com;
 };
 
 #endif // FORUM_H
