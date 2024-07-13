@@ -21,6 +21,9 @@
 #include"global.h"
 #include"post.h"
 #include<QScrollArea>
+#include <QScrollArea>
+#include <QLabel>
+#include <QRandomGenerator>
 namespace Ui {
 class sonforum;
 }
@@ -34,7 +37,6 @@ public:
     ~sonforum();
 
 private slots:
-    void onnameButtonClicked() ;
     void onSubmitClicked();
     void refreash();
 
@@ -44,6 +46,7 @@ private:
     std::vector<Post>load;
     Ui::sonforum *ui;
     QGridLayout *buttonLayout;
+    QTextEdit *com;
 };
 
 #endif // SONFORUM_H
