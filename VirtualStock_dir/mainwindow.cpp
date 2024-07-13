@@ -5,8 +5,9 @@ struct UserData {
     QString userName;
     double totalAssets;
     int month;
-    UserData(const QString& userName, double totalAssets , int month )
-        : userName(userName), totalAssets(totalAssets), month(month) {}
+    double totalAssetsrate;
+    UserData(const QString& userName, double totalAssets , int month, double totalAssetsrate )
+        : userName(userName), totalAssets(totalAssets), month(month) ,totalAssetsrate(totalAssetsrate){}
 };
 
 bool compareByAssets(const UserData &a, const UserData &b) {
@@ -260,8 +261,9 @@ MainWindow::MainWindow(QWidget *parent) :
         int userID=Global::instance().getGlobalDataBase()->getUserId(userName);
         int totalcurrency=Global::instance().getGlobalDataBase()->getTotalvalue(userID);
         int month=Global::instance().getGlobalDataBase()->getTime(userID);
+        double totalrate=100*(totalcurrency-64800)/64800;
         if(month>12){month--;}
-        userData.emplace_back(userName,totalcurrency,month);
+        userData.emplace_back(userName,totalcurrency,month,totalrate);
     }
 
 
@@ -276,12 +278,15 @@ MainWindow::MainWindow(QWidget *parent) :
     for (int i = 0; i < userData.size(); ++i) {
 
         ui->userRankingList->insertRow(i);
+        QString percentageString = QString::number(userData[i].totalAssetsrate) + "%";
         QTableWidgetItem *idItem = new QTableWidgetItem(QString (userData[i].userName));
         QTableWidgetItem *assetsItem = new QTableWidgetItem(QString::number(userData[i].totalAssets));
         QTableWidgetItem *monthItem = new QTableWidgetItem(QString::number(userData[i].month));
+        QTableWidgetItem *percentItem = new QTableWidgetItem(QString (percentageString));
         ui->userRankingList->setItem(i, 0, idItem);
         ui->userRankingList->setItem(i, 2, assetsItem);
         ui->userRankingList->setItem(i, 1, monthItem);
+        ui->userRankingList->setItem(i, 3, percentItem);
     }
 // ui->tableWidget->resizeColumnToContents(4);
     // for(int i=0;i<4;i++)
@@ -298,7 +303,6 @@ MainWindow::MainWindow(QWidget *parent) :
     news->updateNews();
 
 
-    // showCustomDialog();
 
 }
 
