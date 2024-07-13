@@ -215,6 +215,3 @@ void forum::display(int m){
 //    newforum->show();
 //    this->close();
 //}
-
-
-

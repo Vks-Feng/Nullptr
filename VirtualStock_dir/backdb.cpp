@@ -349,7 +349,7 @@ User BackDB::enableUser(QString name)
 
     MYSQL_ROW row = mysql_fetch_row(result);
     if (row == nullptr) {
-        std::cerr << "No user found with name " << name.toStdString() << std::endl;
+        std::cerr << "No user found with name !!!" << name.toStdString() << std::endl;
         mysql_free_result(result);
         // Return a default or invalid User object
         return User();

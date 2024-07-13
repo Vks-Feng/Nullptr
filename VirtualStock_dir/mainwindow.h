@@ -57,12 +57,20 @@ private slots:
     void refreshForum();
     void showCustomDialog();
 
+protected:
+
+void closeEvent(QCloseEvent *event) override {
+    disconnect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &MainWindow::refreshForum);
+
+    QWidget::closeEvent(event);
+}
 
 private:
     Ui::MainWindow *ui;
     QPoint mousePoint;
     bool mouse_press;
     forum* forum_widget;
+    buyin* buyin_widget;
 };
 
 #endif // MAINWINDOW_H

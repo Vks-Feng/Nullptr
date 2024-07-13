@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     //添加buyin
-    buyin* buyin_widget=new buyin;
+    buyin_widget=new buyin;
     forum_widget = new forum;
     ui->selectpage5_forum->setLayout(ui->Forum_layout);
     ui->Forum_layout->addWidget(forum_widget);
@@ -147,12 +147,13 @@ MainWindow::MainWindow(QWidget *parent) :
     });
 
     connect(ui->TransactionButton,&QPushButton::clicked,this,[=](){
+        buyin_widget->initBuyInSellOut();
         ui->selectpage->setCurrentIndex(2);
     });//点击跳转到交易界面
 
     connect(ui->communitybutton1,&QPushButton::clicked,this,[=](){
         ui->selectpage->setCurrentIndex(5);
-    });//点击跳转到交易界面
+    });//点击跳转到社区交流界面
 
     connect(ui->rankbutton1,&QPushButton::clicked,this,[=](){
         ui->userRankingList->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
@@ -537,6 +538,7 @@ void MainWindow::refreshForum(){
     ui->selectpage5_forum->setLayout(ui->Forum_layout);
     ui->Forum_layout->addWidget(forum_widget);
 }
+
 void MainWindow::showCustomDialog() {
     dialog dialog1;
     dialog1.exec();

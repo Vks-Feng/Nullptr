@@ -32,6 +32,21 @@ public:
 
     void readyToLogin();
 
+    void alreadyLogin();
+
+protected:
+
+void closeEvent(QCloseEvent *event) override {
+
+    disconnect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_connectToDataBase, this, &Login::connectToDataBase);
+
+    disconnect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Login, this, &Login::readyToLogin);
+
+    disconnect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Relogin, this, &Login::alreadyLogin);
+
+    QWidget::closeEvent(event);
+}
+
 private slots:
     void on_LoginButton_clicked();
 

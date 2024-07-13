@@ -24,6 +24,7 @@ public:
 
     ~ChargePage();
 
+
 private:
     Ui::ChargePage *ui;
 };
