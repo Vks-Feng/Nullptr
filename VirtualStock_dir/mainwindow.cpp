@@ -279,6 +279,7 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->userRankingList->setItem(i, 2, assetsItem);
         ui->userRankingList->setItem(i, 1, monthItem);
         ui->userRankingList->setItem(i, 3, percentItem);
+        Global::instance().getGlobalDataBase()->setRanking(Global::instance().getGlobalDataBase()->getUserId(userData[i].userName),i+1);
     }
 // ui->tableWidget->resizeColumnToContents(4);
     // for(int i=0;i<4;i++)
@@ -402,7 +403,7 @@ void MainWindow::on_nextroundbutton_clicked()
             buyini.setBuyInInfo();
             buyini.setSellOutInfo();
 
-            Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,months));
+            Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,currentDate.getMonth()+1));
 
             NewsWidget news2;
             MainWindow* main= new MainWindow();

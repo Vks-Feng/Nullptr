@@ -21,7 +21,6 @@ Personpage::Personpage(QWidget *parent) :
     //设置右侧文本
     //当月资产计算
     int thisall=Global::instance().getGlobalDataBase()->getTotalvalue(Global::instance().getGlobalUserManage()->GetUser(0)->GetId());//本月总资产
-    // Personpage person;
     int lastvalue=lastcurrency();
     int lo=lastvalue*10000/thisall;
     ui->profitRateMonthContent->setText(QString::number(lo)+"%%");
