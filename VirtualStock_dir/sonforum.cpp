@@ -22,37 +22,64 @@ sonforum::sonforum(std::vector<Post>_load,QWidget *parent)
     scrollArea->setWidget(scrollAreaWidgetContents);
 
     // 创建一个布局并将滚动区域添加到主窗口中
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    QHBoxLayout *mainLayout = new QHBoxLayout(this);
+    mainLayout->addWidget(scrollArea);
+    // 创建左侧布局和按钮
+    QWidget *left=new QWidget();
+
+    QGridLayout *leftLayout = new QGridLayout();
+    left->setLayout(leftLayout);
+    QLabel *imageLabel = new QLabel();//放图
+    imageLabel->setFixedSize(50,50);
+    // 加载本地图片
+    imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/conan.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+    leftLayout->addWidget(imageLabel,0,0);
+
+    // 创建提交刷新按钮
+    QPushButton *submitButton = new QPushButton("我要追帖");
+    submitButton->setFixedWidth(100);
+    leftLayout->addWidget(submitButton, 0, 1); // 将提交按钮添加到第一行第二列
+    connect(submitButton, &QPushButton::clicked, this, &sonforum::onSubmitClicked);
+    QPushButton *refreashButton = new QPushButton("刷新");
+    refreashButton->setFixedWidth(50);
+    leftLayout->addWidget(refreashButton, 0, 2);
+    // 创建输入文本框
+    com = new QTextEdit();
+    com->setFixedHeight(400);
+    leftLayout->addWidget(com, 1, 0,1,3); // 将文本框添加到第一行第一列
+    // 动态创建按钮并添加到布局中
+    mainLayout->addWidget(left);
     mainLayout->addWidget(scrollArea);
 
 
-    // 创建输入文本框
-    QLineEdit *lineEdit = new QLineEdit();
-    lineEdit->setFixedWidth(600);
-    buttonLayout->addWidget(lineEdit, 0, 0); // 将文本框添加到第一行第一列
-
-    // 创建提交按钮
-    QPushButton *submitButton = new QPushButton("我要追帖");
-    submitButton->setFixedWidth(100);
-    buttonLayout->addWidget(submitButton, 0, 1); // 将提交按钮添加到第一行第二列
-
-    // 连接提交按钮的clicked信号到槽函数
-    connect(submitButton, &QPushButton::clicked, this, &sonforum::onSubmitClicked);
-
-    QPushButton *refreashButton = new QPushButton("刷新");
-    refreashButton->setFixedWidth(50);
-    buttonLayout->addWidget(refreashButton, 0, 2); // 将提交按钮添加到第一行第二列
-    connect(refreashButton, &QPushButton::clicked, this, &sonforum::refreash);
-
-
     // 动态创建按钮并添加到布局中
+    QRandomGenerator randomGenerator;
     int m=load.size();
     for (int row = 0; row < m; ++row) {
+        QLabel *imageLabel = new QLabel();
+        imageLabel->setFixedSize(50,50);
+        unsigned int r = randomGenerator.generate();
+        if(r%4==0){
+            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black1.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+            buttonLayout->addWidget(imageLabel,2*row,0);
+        }
+        else if(r%4==1){
+            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black2.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+            buttonLayout->addWidget(imageLabel,2*row,0);
+        }
+        else if(r%4==2){
+            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black3.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+            buttonLayout->addWidget(imageLabel,2*row,0);
+        }
+        else if(r%4==3){
+            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black4.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+            buttonLayout->addWidget(imageLabel,2*row,0);
+        }
         // 创建文本显示框
         QTextEdit *textEdit = new QTextEdit(this);
         textEdit->setReadOnly(true); // 设置为只读
         textEdit->setFixedHeight(300);
-        buttonLayout->addWidget(textEdit, row+1,0,1,3);
+        buttonLayout->addWidget(textEdit, 2*row+1,0,1,3);
         // 可以在这里设置文本显示框的内容
         QString temp;
         int num=load[row].getdate();
@@ -73,19 +100,11 @@ sonforum::~sonforum()
 {
     delete ui;
 }
-void sonforum::onnameButtonClicked() {
-    // sender()方法返回信号发送者对象的指针，这里就是被点击的按钮
-    QPushButton *button = qobject_cast<QPushButton*>(sender());
-    if (button) {
-        // 在这里处理点击事件
-    }
-
-}
 
 void sonforum::onSubmitClicked() {
     // 读取文本框中的内容
-    QLineEdit *lineEdit = qobject_cast<QLineEdit*>(sender()->parent()->findChild<QLineEdit*>());
-    QString temp = lineEdit->text();
+
+    QString temp = com->toPlainText();
     QString id = Global::instance().getGlobalUserManage()->GetUser(0)->GetName();
     int fatherid=load[0].getthisid();
 
