@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+
     //主窗口设置阴影、圆角化
     // setAttribute(Qt::WA_TranslucentBackground);//透明化
     this->setWindowFlags(Qt::FramelessWindowHint);//无边框

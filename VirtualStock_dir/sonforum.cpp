@@ -32,13 +32,15 @@ sonforum::sonforum(std::vector<Post>_load,QWidget *parent)
     QLabel *imageLabel = new QLabel();//放图
     imageLabel->setFixedSize(50,50);
     // 加载本地图片
-    imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/conan.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+    imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/conan.png); background-position:center;background-repeat:no-repeat;}");
     leftLayout->addWidget(imageLabel,0,0);
+
 
     // 创建提交刷新按钮
     QPushButton *submitButton = new QPushButton("我要追帖");
     submitButton->setFixedWidth(100);
     leftLayout->addWidget(submitButton, 0, 1); // 将提交按钮添加到第一行第二列
+
     connect(submitButton, &QPushButton::clicked, this, &sonforum::onSubmitClicked);
     QPushButton *refreashButton = new QPushButton("刷新");
     refreashButton->setFixedWidth(50);
@@ -60,19 +62,19 @@ sonforum::sonforum(std::vector<Post>_load,QWidget *parent)
         imageLabel->setFixedSize(50,50);
         unsigned int r = randomGenerator.generate();
         if(r%4==0){
-            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black1.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black1.png); background-position:center;background-repeat:no-repeat;}");
             buttonLayout->addWidget(imageLabel,2*row,0);
         }
         else if(r%4==1){
-            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black2.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black2.png); background-position:center;background-repeat:no-repeat;}");
             buttonLayout->addWidget(imageLabel,2*row,0);
         }
         else if(r%4==2){
-            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black3.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black3.png); background-position:center;background-repeat:no-repeat;}");
             buttonLayout->addWidget(imageLabel,2*row,0);
         }
         else if(r%4==3){
-            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black4.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black4.png); background-position:center;background-repeat:no-repeat;}");
             buttonLayout->addWidget(imageLabel,2*row,0);
         }
         // 创建文本显示框

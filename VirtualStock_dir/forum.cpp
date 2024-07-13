@@ -54,7 +54,7 @@ forum::forum(QWidget *parent):QWidget(parent){
     QLabel *imageLabel = new QLabel();//放图
     imageLabel->setFixedSize(50,50);
     // 加载本地图片
-    imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/conan.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+    imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/conan.png); background-position:center;background-repeat:no-repeat;}");
     leftLayout->addWidget(imageLabel,0,0);
 
     // 创建提交刷新按钮
@@ -80,19 +80,19 @@ forum::forum(QWidget *parent):QWidget(parent){
         unsigned int r = randomGenerator.generate();
         if(r%4==0){
         // 加载本地图片
-            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black1.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black1.png); background-position:center;background-repeat:no-repeat;}");
             buttonLayout->addWidget(imageLabel,2*row,0);
         }
         else if(r%4==1){
-            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black2.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black2.png); background-position:center;background-repeat:no-repeat;}");
             buttonLayout->addWidget(imageLabel,2*row,0);
         }
         else if(r%4==2){
-            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black3.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black3.png); background-position:center;background-repeat:no-repeat;}");
             buttonLayout->addWidget(imageLabel,2*row,0);
         }
         else if(r%4==3){
-            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black4.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black4.png); background-position:center;background-repeat:no-repeat;}");
             buttonLayout->addWidget(imageLabel,2*row,0);
         }
 

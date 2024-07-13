@@ -9,6 +9,7 @@
 #include <QMouseEvent>
 #include <QPainter>
 #include <QStyleOption>
+#include <QApplication>
 
 #include "buyin.h"
 #include "personpage.h"

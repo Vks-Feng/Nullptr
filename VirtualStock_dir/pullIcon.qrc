@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/new/icon">
+        <file>photos/pullIcon.png</file>
+        <file>photos/pullIcon2.png</file>
+    </qresource>
+</RCC>

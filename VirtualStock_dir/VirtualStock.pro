@@ -121,11 +121,14 @@ RESOURCES += \
     homeIcon.qrc \
     loginButton.qrc \
     loginPic.qrc \
+    microsoft2.qrc \
+    news4.qrc \
     newsPic.qrc \
     newsPic2.qrc \
     newsPic3.qrc \
     page1.qrc \
     peresonIcon.qrc \
+    pullIcon.qrc \
     rankIcon.qrc \
     rechargeIcon.qrc \
     ruleIcon.qrc \
