@@ -19,6 +19,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //主窗口设置阴影、圆角化
+    // setAttribute(Qt::WA_TranslucentBackground);//透明化
+    this->setWindowFlags(Qt::FramelessWindowHint);//无边框
+
     //添加buyin
     buyin* buyin_widget=new buyin;
     forum_widget = new forum;
@@ -48,13 +52,8 @@ MainWindow::MainWindow(QWidget *parent) :
 //        }
 //    }
 
-    this->setWindowFlags(Qt::FramelessWindowHint);//无边框
-    // this->setAttribute(Qt::WA_TranslucentBackground);//透明背景
-    // QGraphicsDropShadowEffect *MainShadow = new QGraphicsDropShadowEffect;
-    // MainShadow->setBlurRadius(10);
-    // MainShadow->setColor(QColor(0,0,0,100));
-    // MainShadow->setOffset(0,0);
-    // setGraphicsEffect(MainShadow);
+
+
 
     ui->logo->setScaledContents(true);//logo自适应大小
 
@@ -299,7 +298,7 @@ MainWindow::MainWindow(QWidget *parent) :
     news->updateNews();
 
 
-    showCustomDialog();
+    // showCustomDialog();
 
 }
 
@@ -561,5 +560,15 @@ void MainWindow::showCustomDialog() {
 //     painter.fillPath(path,Qt::white);
 
 //     this->paintEvent(event);
+// }
+
+
+// void MainWindow::paintEvent(QPaintEvent *event)
+// {
+//     QStyleOption opt;
+//     opt.initFrom(this);
+//     QPainter painter(this);
+//     style()->drawPrimitive(QStyle::PE_Widget,&opt,&painter,this);
+
 // }
 

@@ -7,6 +7,8 @@
 #include <QColor>
 #include <QPlainTextEdit>
 #include <QMouseEvent>
+#include <QPainter>
+#include <QStyleOption>
 
 #include "buyin.h"
 #include "personpage.h"
@@ -56,6 +58,8 @@ private slots:
 
     void refreshForum();
     void showCustomDialog();
+
+    // virtual void paintEvent(QPaintEvent *event) override;//绘制窗口
 
 
 private:

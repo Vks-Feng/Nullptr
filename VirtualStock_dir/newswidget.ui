@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>864</width>
+    <width>855</width>
     <height>472</height>
    </rect>
   </property>
@@ -45,8 +45,8 @@
     <rect>
      <x>0</x>
      <y>230</y>
-     <width>761</width>
-     <height>101</height>
+     <width>791</width>
+     <height>81</height>
     </rect>
    </property>
    <property name="font">
@@ -106,7 +106,7 @@ border:1px rgb(231, 231, 231);
     <rect>
      <x>0</x>
      <y>170</y>
-     <width>761</width>
+     <width>791</width>
      <height>51</height>
     </rect>
    </property>
@@ -125,7 +125,7 @@ border:1px rgb(231, 231, 231);
     <rect>
      <x>0</x>
      <y>10</y>
-     <width>761</width>
+     <width>791</width>
      <height>151</height>
     </rect>
    </property>
@@ -142,10 +142,10 @@ border:1px rgb(231, 231, 231);
   <widget class="QFrame" name="Newsframe">
    <property name="geometry">
     <rect>
-     <x>770</x>
+     <x>800</x>
      <y>10</y>
      <width>51</width>
-     <height>321</height>
+     <height>301</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -163,7 +163,7 @@ border:1px rgb(231, 231, 231);
       <x>10</x>
       <y>0</y>
       <width>51</width>
-      <height>321</height>
+      <height>301</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -305,8 +305,8 @@ border:1px rgb(231, 231, 231);
   <zorder>Newsframe</zorder>
  </widget>
  <resources>
-  <include location="newsPic3.qrc"/>
   <include location="newsPic2.qrc"/>
+  <include location="newsPic3.qrc"/>
  </resources>
  <connections/>
 </ui>

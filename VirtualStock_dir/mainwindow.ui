@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1011</width>
-    <height>725</height>
+    <width>991</width>
+    <height>663</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,12 +23,10 @@ border-bottom-right-radius:10px;}</string>
   <widget class="QStackedWidget" name="selectpage">
    <property name="geometry">
     <rect>
-
-     <x>130</x>
-     <y>100</y>
+     <x>120</x>
+     <y>80</y>
      <width>881</width>
-
-     <height>621</height>
+     <height>581</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -41,10 +39,10 @@ border-bottom-right-radius:10px;}</string>
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>0</x>
        <y>0</y>
-       <width>851</width>
-       <height>331</height>
+       <width>871</width>
+       <height>291</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="ForNews">
@@ -56,9 +54,9 @@ border-bottom-right-radius:10px;}</string>
     <widget class="QWidget" name="verticalLayoutWidget_2">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>349</y>
-       <width>411</width>
+       <x>0</x>
+       <y>310</y>
+       <width>421</width>
        <height>261</height>
       </rect>
      </property>
@@ -82,9 +80,9 @@ border:1px rgb(231, 231, 231);
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-20</y>
-           <width>411</width>
-           <height>281</height>
+           <y>0</y>
+           <width>421</width>
+           <height>261</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="MainChartsLayout"/>
@@ -96,9 +94,9 @@ border:1px rgb(231, 231, 231);
     <widget class="QFrame" name="personageFrame">
      <property name="geometry">
       <rect>
-       <x>460</x>
-       <y>350</y>
-       <width>391</width>
+       <x>450</x>
+       <y>310</y>
+       <width>411</width>
        <height>261</height>
       </rect>
      </property>
@@ -116,13 +114,32 @@ border:1px rgb(231, 231, 231);
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>54</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>温馨提醒</string>
+      </property>
+     </widget>
      <widget class="QPlainTextEdit" name="RulesText">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>10</y>
-        <width>361</width>
-        <height>281</height>
+        <x>10</x>
+        <y>20</y>
+        <width>401</width>
+        <height>241</height>
        </rect>
       </property>
       <property name="font">
@@ -159,25 +176,6 @@ border:1px rgb(231, 231, 231);
 最后，炒股有风险，入市需谨慎，请永远谨记这一点。</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>0</y>
-        <width>54</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>温馨提醒</string>
-      </property>
-     </widget>
     </widget>
    </widget>
    <widget class="QWidget" name="selectpage2">
@@ -185,9 +183,9 @@ border:1px rgb(231, 231, 231);
      <property name="geometry">
       <rect>
        <x>500</x>
-       <y>320</y>
+       <y>300</y>
        <width>361</width>
-       <height>281</height>
+       <height>261</height>
       </rect>
      </property>
      <property name="font">
@@ -213,7 +211,7 @@ border:1px rgb(231, 231, 231);
        <x>500</x>
        <y>0</y>
        <width>361</width>
-       <height>281</height>
+       <height>271</height>
       </rect>
      </property>
      <property name="font">
@@ -237,7 +235,7 @@ border:1px rgb(231, 231, 231);
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>590</y>
+       <y>540</y>
        <width>471</width>
        <height>20</height>
       </rect>
@@ -287,17 +285,17 @@ border:1px rgb(231, 231, 231);
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>320</y>
+       <y>300</y>
        <width>461</width>
-       <height>261</height>
+       <height>241</height>
       </rect>
      </property>
     </widget>
     <widget class="QComboBox" name="ChooseWhichStock_1">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>280</y>
+       <x>20</x>
+       <y>260</y>
        <width>471</width>
        <height>20</height>
       </rect>
@@ -349,7 +347,7 @@ border:1px rgb(231, 231, 231);
        <x>20</x>
        <y>10</y>
        <width>461</width>
-       <height>261</height>
+       <height>241</height>
       </rect>
      </property>
     </widget>
@@ -486,9 +484,9 @@ T+0/T+1/T+2：不同市场有不同的清算交割制度。例如，美国市场
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>19</x>
-       <y>39</y>
-       <width>831</width>
+       <x>0</x>
+       <y>10</y>
+       <width>871</width>
        <height>571</height>
       </rect>
      </property>
@@ -499,10 +497,10 @@ T+0/T+1/T+2：不同市场有不同的清算交割制度。例如，美国市场
   <widget class="QFrame" name="siderBarFrame">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-10</x>
      <y>90</y>
-     <width>131</width>
-     <height>661</height>
+     <width>121</width>
+     <height>641</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -522,8 +520,8 @@ border:1px rgb(231, 231, 231);
    <widget class="QLabel" name="timelabel">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>550</y>
+      <x>10</x>
+      <y>510</y>
       <width>101</width>
       <height>20</height>
      </rect>
@@ -553,7 +551,7 @@ border:1px rgb(231, 231, 231);
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>590</y>
+      <y>530</y>
       <width>80</width>
       <height>26</height>
      </rect>
@@ -571,7 +569,7 @@ border:1px rgb(231, 231, 231);
       <x>-20</x>
       <y>20</y>
       <width>161</width>
-      <height>71</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
@@ -589,7 +587,7 @@ border:1px rgb(231, 231, 231);
 QPushButton:hover
 {
 	color: rgb(255, 255, 255);
-    border-image: url(:/new/login/photos/button.png);
+    background-color: rgb(100, 190, 223);
 }
 
 QPushButton:checked
@@ -640,7 +638,7 @@ QPushButton:checked
 QPushButton:hover
 {
 	color: rgb(255, 255, 255);
-    border-image: url(:/new/login/photos/button.png);
+background-color: rgb(100, 190, 223);
 }
 
 QPushButton:checked
@@ -691,7 +689,7 @@ QPushButton:checked
 QPushButton:hover
 {
 	color: rgb(255, 255, 255);
-    border-image: url(:/new/login/photos/button.png);
+background-color: rgb(100, 190, 223);
 }
 
 QPushButton:checked
@@ -740,7 +738,7 @@ QPushButton:checked
 QPushButton:hover
 {
 	color: rgb(255, 255, 255);
-    border-image: url(:/new/login/photos/button.png);
+  background-color: rgb(100, 190, 223);
 }
 
 QPushButton:checked
@@ -788,7 +786,7 @@ QPushButton:checked
 QPushButton:hover
 {
 	color: rgb(255, 255, 255);
-    border-image: url(:/new/login/photos/button.png);
+background-color: rgb(100, 190, 223);
 }
 
 QPushButton:checked
@@ -839,7 +837,7 @@ QPushButton:checked
 QPushButton:hover
 {
 	color: rgb(255, 255, 255);
-    border-image: url(:/new/login/photos/button.png);
+background-color: rgb(100, 190, 223);
 }
 
 QPushButton:checked
@@ -870,7 +868,7 @@ QPushButton:checked
      <x>-20</x>
      <y>-10</y>
      <width>1091</width>
-     <height>91</height>
+     <height>81</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -902,13 +900,13 @@ border:1px rgb(231, 231, 231);
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>:/new/logo/photos/logo.jpg</pixmap>
+     <pixmap resource="GroupLogo.qrc">:/new/logo/photos/logo.jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>120</x>
       <y>10</y>
       <width>361</width>
       <height>71</height>
@@ -930,7 +928,7 @@ border:1px rgb(231, 231, 231);
    <widget class="QPushButton" name="MainCloseButton">
     <property name="geometry">
      <rect>
-      <x>1010</x>
+      <x>990</x>
       <y>10</y>
       <width>20</width>
       <height>21</height>
@@ -1030,7 +1028,7 @@ QPushButton:hover
    <widget class="QPushButton" name="Minimum_Button">
     <property name="geometry">
      <rect>
-      <x>980</x>
+      <x>960</x>
       <y>10</y>
       <width>31</width>
       <height>20</height>
@@ -1053,13 +1051,14 @@ QPushButton:hover
  </widget>
  <resources>
   <include location="homeIcon.qrc"/>
-  <include location="rechargeIcon.qrc"/>
-  <include location="trendIcon.qrc"/>
   <include location="communityIcon.qrc"/>
-  <include location="peresonIcon.qrc"/>
-  <include location="Icon.qrc"/>
   <include location="ruleIcon.qrc"/>
   <include location="rankIcon.qrc"/>
+  <include location="peresonIcon.qrc"/>
+  <include location="Icon.qrc"/>
+  <include location="GroupLogo.qrc"/>
+  <include location="trendIcon.qrc"/>
+  <include location="rechargeIcon.qrc"/>
  </resources>
  <connections/>
 </ui>
