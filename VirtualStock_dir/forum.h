@@ -18,7 +18,10 @@
 #include <QMessageBox>
 #include"sonforum.h"
 #include"global.h"
-#include<QScrollArea>
+#include <QScrollArea>
+#include <QLabel>
+#include <QRandomGenerator>
+
 namespace Ui {
 class forum;
 }
@@ -35,13 +38,12 @@ public:
 private slots:
     void detail();
     void onSubmitClicked();
-    void refresh();
+//    void refresh();
 
 //vks
 protected:
 
 void closeEvent(QCloseEvent *event) override {
-    disconnect(Global::instance().getGlobalClient(),&ClientSocket::signal_Receive_Refresh , this, &forum::refresh);
     QWidget::closeEvent(event);
 }
 //vks

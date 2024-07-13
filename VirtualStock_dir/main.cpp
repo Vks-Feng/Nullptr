@@ -21,8 +21,6 @@ int main(int argc, char *argv[])
 
    Login* l = new Login();
    l->show();
-
-//    Global::instance().getGlobalDataBase()->test();
-//    Global::instance().getGlobalDataBase()->close();//关闭数据库
+   
     return a.exec();
 }

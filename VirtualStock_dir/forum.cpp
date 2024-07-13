@@ -23,9 +23,12 @@ forum::forum(QWidget *parent):QWidget(parent){
             }
         }
     }
+
+
+
+
     // 创建一个QGridLayout来管理按钮布局
     buttonLayout = new QGridLayout(this);
-
 
     //创建滚动
     QScrollArea *scrollArea = new QScrollArea();
@@ -39,62 +42,93 @@ forum::forum(QWidget *parent):QWidget(parent){
     scrollArea->setWidget(scrollAreaWidgetContents);
 
     // 创建一个布局并将滚动区域添加到主窗口中
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->addWidget(scrollArea);
 
-    // 创建输入文本框
-    QLineEdit *lineEdit = new QLineEdit();
-    lineEdit->setFixedWidth(600);
-    buttonLayout->addWidget(lineEdit, 0, 0); // 将文本框添加到第一行第一列
+    // 创建一个分割器
 
-    // 创建提交按钮
+    // 创建左侧布局和按钮
+    QWidget *left=new QWidget();
+
+    QGridLayout *leftLayout = new QGridLayout();
+    left->setLayout(leftLayout);
+    QLabel *imageLabel = new QLabel();//放图
+    imageLabel->setFixedSize(50,50);
+    // 加载本地图片
+    imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/conan.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+    leftLayout->addWidget(imageLabel,0,0);
+
+    // 创建提交刷新按钮
     QPushButton *submitButton = new QPushButton("我要发新帖");
     submitButton->setFixedWidth(100);
-    buttonLayout->addWidget(submitButton, 0, 1); // 将提交按钮添加到第一行第二列
-
-    // 连接提交按钮的clicked信号到槽函数
+    leftLayout->addWidget(submitButton, 0, 1); // 将提交按钮添加到第一行第二列
     connect(submitButton, &QPushButton::clicked, this, &forum::onSubmitClicked);
-
     QPushButton *refreashButton = new QPushButton("刷新");
     refreashButton->setFixedWidth(50);
-    buttonLayout->addWidget(refreashButton, 0, 2); // 将提交按钮添加到第一行第二列
-    connect(refreashButton, &QPushButton::clicked, this, &forum::refresh);
-
+    leftLayout->addWidget(refreashButton, 0, 2);
+    // 创建输入文本框
+    QLineEdit *lineEdit = new QLineEdit();
+    lineEdit->setFixedHeight(800);
+    leftLayout->addWidget(lineEdit, 1, 0,1,3); // 将文本框添加到第一行第一列
     // 动态创建按钮并添加到布局中
 
-
+    QRandomGenerator randomGenerator;
     int m=number.size();
     for (int row = 0; row < m; ++row) {
+        QLabel *imageLabel = new QLabel();//放图
+        // 加载本地图片
+        imageLabel->setFixedSize(50,50);
+        unsigned int r = randomGenerator.generate();
+        if(r%4==0){
+        // 加载本地图片
+            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black1.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+            buttonLayout->addWidget(imageLabel,2*row,0);
+        }
+        else if(r%4==1){
+            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black2.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+            buttonLayout->addWidget(imageLabel,2*row,0);
+        }
+        else if(r%4==2){
+            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black3.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+            buttonLayout->addWidget(imageLabel,2*row,0);
+        }
+        else if(r%4==3){
+            imageLabel->setStyleSheet("QLabel{ background-image: url(:/photos/black4.png); background-size: contain;background-position:center;background-repeat:no-repeat;}");
+            buttonLayout->addWidget(imageLabel,2*row,0);
+        }
+
+
         // 创建按钮
         QPushButton *button ;
         QString temp="显示"+QString::number(m-row)+"号帖子详情";
-        QString ttemp;
-
-        int num=load[m-row-1].getdate();
-        if(num!=13){
-            ttemp="本帖发布时间为2023年"+QString::number(num)+"月";}
-        else{
-            ttemp="本帖发布时间为用户模拟结束后";}
 
         QString fix;
         int l=load[m-row-1].getcontent().size();
-        for(int i=0;i<l;i+=40){
-            fix+=load[m-row-1].getcontent().mid(i,40);
+        for(int i=0;i<l;i+=30){
+            fix+=load[m-row-1].getcontent().mid(i,30);
             fix+="\n";
         }
-        button = new QPushButton(temp+"\n"+"发帖人："+load[m-row-1].getid()+"\n"+fix+"\n"+ttemp, this);
-        button->setFixedHeight(300);
-        button->setFixedWidth(780);
-        button->setStyleSheet("QPushButton { font-size:32px}");
-
-        buttonLayout->addWidget(button, row+1, 0,1,3);
-        // 连接clicked信号到对应的槽函数
+        button = new QPushButton(temp+"\n"+"发帖人："+load[m-row-1].getid()+"\n"+fix, this);
+        button->setFixedHeight(100);
+        button->setFixedWidth(350);
+        button->setStyleSheet("QPushButton { font-size:16px}");
+        button->setStyleSheet("QPushButton { text-align: left; }");
+        buttonLayout->addWidget(button, 2*row+1, 0);
         connect(button, &QPushButton::clicked, this, &forum::detail);
     }
 
-    //--vks--
-    connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &forum::refresh);
-    //--vks--
+    //splitter->addWidget(new QWidget()); // 添加一个占位符QWidget，以使左侧布局可调整大小
+    //splitter->addWidget(scrollArea);
+
+    // 将分割器添加到主布局中
+    mainLayout->addWidget(left);
+    mainLayout->addWidget(scrollArea);
+
+
+
+    // //--vks--
+    // connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &forum::refresh);
+    // //--vks--
 
     ui->setupUi(this);
     this->setFixedSize(this->width(), this->height());
@@ -102,7 +136,7 @@ forum::forum(QWidget *parent):QWidget(parent){
 
 forum::~forum()
 {
-    disconnect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &forum::refresh);
+//    disconnect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &forum::refresh);
     delete ui;
 }
 
@@ -183,11 +217,11 @@ void forum::display(int m){
     Sonforum->show();
 }
 
-void forum::refresh(){
-    forum*newforum=new forum();
-    newforum->show();
-    this->close();
-}
+//void forum::refresh(){
+//    forum*newforum=new forum();
+//    newforum->show();
+//    this->close();
+//}
 
 
 

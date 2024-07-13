@@ -5,8 +5,9 @@ struct UserData {
     QString userName;
     double totalAssets;
     int month;
-    UserData(const QString& userName, double totalAssets , int month )
-        : userName(userName), totalAssets(totalAssets), month(month) {}
+    double totalAssetsrate;
+    UserData(const QString& userName, double totalAssets , int month, double totalAssetsrate )
+        : userName(userName), totalAssets(totalAssets), month(month) ,totalAssetsrate(totalAssetsrate){}
 };
 
 bool compareByAssets(const UserData &a, const UserData &b) {
@@ -21,6 +22,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //添加buyin
     buyin* buyin_widget=new buyin;
+    forum_widget = new forum;
+    ui->selectpage5_forum->setLayout(ui->Forum_layout);
+    ui->Forum_layout->addWidget(forum_widget);
 
 //    // 遍历所有子对象
 //    foreach (QObject *child, buyin_widget->children()) {
@@ -29,13 +33,13 @@ MainWindow::MainWindow(QWidget *parent) :
 //            button->setFlat(false);
 //        }
 //    }
-
+    ui->selectpage6_trade->setLayout(ui->Trade_layout);
     ui->Trade_layout->addWidget(buyin_widget);
 
+
     //添加forum
-    forum* forum_widget=new forum;
-    ui->selectpage5_forum->setLayout(ui->Forum_layout);
-    ui->Forum_layout->addWidget(forum_widget);
+    refreshForum();
+    connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &MainWindow::refreshForum);
 
 //    // 遍历所有子对象
 //    foreach (QObject *child, forum_widget->children()) {
@@ -148,6 +152,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->communitybutton1,&QPushButton::clicked,this,[=](){
         ui->selectpage->setCurrentIndex(5);
+
+        forum *a=new forum();
+        a->show();
     });//点击跳转到交易界面
 
 
@@ -255,8 +262,9 @@ MainWindow::MainWindow(QWidget *parent) :
         int userID=Global::instance().getGlobalDataBase()->getUserId(userName);
         int totalcurrency=Global::instance().getGlobalDataBase()->getTotalvalue(userID);
         int month=Global::instance().getGlobalDataBase()->getTime(userID);
+        double totalrate=100*(totalcurrency-64800)/64800;
         if(month>12){month--;}
-        userData.emplace_back(userName,totalcurrency,month);
+        userData.emplace_back(userName,totalcurrency,month,totalrate);
     }
 
 
@@ -271,17 +279,20 @@ MainWindow::MainWindow(QWidget *parent) :
     for (int i = 0; i < userData.size(); ++i) {
 
         ui->userRankingList->insertRow(i);
+        QString percentageString = QString::number(userData[i].totalAssetsrate) + "%";
         QTableWidgetItem *idItem = new QTableWidgetItem(QString (userData[i].userName));
         QTableWidgetItem *assetsItem = new QTableWidgetItem(QString::number(userData[i].totalAssets));
         QTableWidgetItem *monthItem = new QTableWidgetItem(QString::number(userData[i].month));
+        QTableWidgetItem *percentItem = new QTableWidgetItem(QString (percentageString));
         ui->userRankingList->setItem(i, 0, idItem);
         ui->userRankingList->setItem(i, 2, assetsItem);
         ui->userRankingList->setItem(i, 1, monthItem);
+        ui->userRankingList->setItem(i, 3, percentItem);
     }
 // ui->tableWidget->resizeColumnToContents(4);
     // for(int i=0;i<4;i++)
     // {
-        ui->userRankingList->resizeColumnsToContents();
+     ui->userRankingList->resizeColumnsToContents();
     // }
 
     //新闻窗口
@@ -291,17 +302,6 @@ MainWindow::MainWindow(QWidget *parent) :
     news->move(800,100);
     news->show();
     news->updateNews();
-
-    // int year=Global::instance().getGlobalUserManage()->GetUser(0)->GetDate()->getYear();
-    // int month=Global::instance().getGlobalDataBase().
-
-    // this->resize(1213,700);
-
-    // this->resize(1700,700);
-
-    forumOpen = false;
-
-//    showCustomDialog();
 
 }
 
@@ -539,6 +539,12 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
     mouse_press = false;
 }
 
+void MainWindow::refreshForum(){
+    ui->Forum_layout->removeWidget(forum_widget);
+    forum_widget = new forum;
+    ui->selectpage5_forum->setLayout(ui->Forum_layout);
+    ui->Forum_layout->addWidget(forum_widget);
+}
 void MainWindow::showCustomDialog() {
     dialog dialog1;
     dialog1.exec();

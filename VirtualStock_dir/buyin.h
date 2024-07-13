@@ -52,10 +52,6 @@ private slots:
 
     void on_IncomeButton_clicked();
 
-    void on_RecommendButton_clicked();
-
-    void on_returnbutton_clicked();
-
     void on_BuyResetButton_clicked();
 
     void on_BuyComfirmButton_clicked();
