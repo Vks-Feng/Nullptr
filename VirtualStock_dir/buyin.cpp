@@ -155,6 +155,9 @@ void buyin::on_BuyComfirmButton_clicked()
         int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
         //判断用户的账户余额是否能够完成交易（钱够不够）
         if(Global::instance().getGlobalDataBase()->GetBalance(userID) > totalPrice){
+            if(totalPrice > 0.6 * Global::instance().getGlobalDataBase()->GetBalance(userID)){
+                //提示当前花钱过多，上方0.6可改为任意倍率
+            }
             //用户余额减少，更新用户
             Global::instance().getGlobalDataBase()->declineBalance(userID, totalPrice);
             //读取该笔交易的数据，构建出一条Record
