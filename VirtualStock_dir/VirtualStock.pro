@@ -41,6 +41,7 @@ SOURCES += \
     portfolio.cpp \
     post.cpp \
     record.cpp \
+    risknotice.cpp \
     sonforum.cpp \
     stock.cpp \
     user.cpp \
@@ -71,6 +72,7 @@ HEADERS += \
     portfolio.h \
     post.h \
     record.h \
+    risknotice.h \
     sonforum.h \
     stock.h \
     user.h \
@@ -89,6 +91,7 @@ FORMS += \
     mainwindow.ui \
     newsdialog.ui \
     personpage.ui \
+    risknotice.ui \
     sonforum.ui \
     widget.ui \
     newswidget.ui
