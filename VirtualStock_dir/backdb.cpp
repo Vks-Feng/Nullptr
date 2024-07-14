@@ -554,7 +554,7 @@ QString BackDB::Id2Name(int company_id)
 {
     QStringList company_names = {
         "AAPL", "AMZN", "GOOGL", "IBM", "INTC",
-        "JBLU", "META", "MSFT", "TSLA"
+        "JBLU", "META", "MSFT"
     };
 
     QString company_name;
@@ -993,7 +993,7 @@ QVector<QVector<double> > BackDB::getRawDatas(int company_id, int time)
    QString queryStr = QString("SELECT MONTH(timestamp) AS Month, open, high, low, close, YEAR(timestamp) AS year\
                                FROM stock_data_monthly \
                                 WHERE CompanyName = '%1' \
-                                 AND ((YEAR(timestamp) = 2022) \
+                                 AND ((YEAR(timestamp) = 2022 AND MONTH(timestamp) >= 8) \
                                OR (YEAR(timestamp) = 2023 AND MONTH(timestamp) <= '%2')) \
                                   ORDER BY year, Month;")
                                    .arg(company_name)

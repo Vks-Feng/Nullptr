@@ -9,6 +9,9 @@ buyin::buyin(QWidget *parent)
     ui->setupUi(this);
     this->setFixedSize(this->width(), this->height());
     initBuyInSellOut();
+
+    IstmCharts* item=new IstmCharts;
+    ui->verticalLayout->addWidget(item);
 }
 
 buyin::~buyin()

@@ -3,6 +3,7 @@
 #include "global.h"
 //#include "backdb.h"
 #include <QApplication>
+#include "istmcharts.h"
 
 UserManage* um = nullptr;
 
@@ -24,6 +25,9 @@ int main(int argc, char *argv[])
 
 //    BackDB b;
 //    b.test();
+
+//    IstmCharts test;
+//    test.show();
 
     return a.exec();
 }

@@ -5,6 +5,7 @@
 #include "global.h"
 #include<QString>
 #include <QMessageBox>
+#include "istmcharts.h"
 
     namespace Ui {
     class buyin;

@@ -1,70 +1,26 @@
-#include "chartspline.h"
-#include "ui_chartspline.h"
+#include "istmcharts.h"
+#include "ui_istmcharts.h"
 
-
-//#include <Qtime>
-#include <vector>
-
-// const int YEARS=25;
-
-ChartSpline::ChartSpline(QWidget *parent) :
+IstmCharts::IstmCharts(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::ChartSpline)
+    ui(new Ui::IstmCharts)
 {
-    std::cout<<"Hello , in spline "<<std::endl;
+    std::cout<<"Hello , in istm "<<std::endl;
     ui->setupUi(this);
     this->setStyleSheet("background-color:white");
     ShowRandomStock();
 }
 
-ChartSpline::~ChartSpline()
+void IstmCharts::ShowRandomStock()
 {
-    delete ui;
+    // 获取1到9之间的随机数
+    int randomNumber = QRandomGenerator::global()->bounded(0, 7);
+    ChangeStock(randomNumber);
 }
 
-//class CustomChartView : public QChartView {
-//    Q_OBJECT
-
-//public:
-//    CustomChartView(QChart *chart, QWidget *parent = nullptr) : QChartView(chart, parent) {}
-
-//protected:
-//    void mouseMoveEvent(QMouseEvent *event)
-//    {
-//        QChartView::mouseMoveEvent(event);
-
-//        QPointF chartPoint = chart()->mapToValue(event->pos());
-
-//        // 假设我们只有一个系列
-//        QLineSeries *series = qobject_cast<QLineSeries *>(chart()->series().at(0));
-//        if (!series) return;
-
-//        // 简单的线性搜索来找到最接近的点（对于大量数据点，可能需要更高效的算法）
-//        qreal minDistance = std::numeric_limits<qreal>::max();
-//        QPointF closestPoint;
-//        for (const QPointF &point : series->points()) {
-//            qreal distance = QVector2D(point - chartPoint).lengthSquared();
-//            if (distance < minDistance) {
-//                minDistance = distance;
-//                closestPoint = point;
-//            }
-//        }
-
-//        QString info = QString("X: %1, Y: %2").arg(closestPoint.x()).arg(closestPoint.y());
-//        QToolTip::showText(event->globalPos(), info, this);
-//    }
-//};
-
-
-void ChartSpline::ShowRandomStock()
+void IstmCharts::ChangeStock(int company_id)
 {
-        // 获取1到9之间的随机数
-        int randomNumber = QRandomGenerator::global()->bounded(0, 7);
-        ChangeStock(randomNumber);
-}
-
-void ChartSpline::ChangeStock(int company_id)
-{
+    qDebug()<<"Enter change stock";
         QStringList company_names = {
             "AAPL", "AMZN", "GOOGL", "IBM", "INTC",
             "JBLU", "META", "MSFT"
@@ -72,34 +28,40 @@ void ChartSpline::ChangeStock(int company_id)
 
         QString company_name;
 
-        if (company_id >= 0 && company_id < company_names.size()) {
+        if (company_id >= 0 && company_id < company_names.size())
+        {
             company_name = company_names[company_id];
-        } else {
+        }
+        else {
             company_name = "Unknown";
         }
 
         qDebug() << "Selected company:" << company_name;
 
-        std::vector<double> data;
+
 
 //-------------------------Get the data of the IBM from database
 
 
-        BackDB test = *Global::instance().getGlobalDataBase();
+//        BackDB test = *Global::instance().getGlobalDataBase();
 
-        QString queryStr = QString("SELECT YEAR(timestamp) AS year,\
-                                    AVG((high + low) / 2) AS mean_value FROM stock_data_monthly \
-                                    WHERE CompanyName = '%1'AND MONTH(timestamp) = 1 \
-                                    GROUP BY YEAR(timestamp) ORDER BY year;")
+        BackDB test;
+
+        QString queryStr = QString("SELECT month, value FROM lstm_predict \
+                                    WHERE company_name = '%1' \
+                                    ORDER BY month;")
                                .arg(company_name);
 
         MYSQL_RES* result=test.query(queryStr);
+
+            qDebug()<<"Finish the query sentence";
 
         //如果返回行数为空，也就是说没有查询到有效值的话
         //那么将一个label放到原本图表的位置上
 
         if (mysql_num_rows(result) == 0) { //此处绝对不能用==NULL进行判定
-            std::cout << "Failed to get the result set in Spline" << std::endl;
+
+            std::cerr << "Failed to get the result set in Spline" << std::endl;
 
             QLabel* label=new QLabel;
 
@@ -112,7 +74,6 @@ void ChartSpline::ChangeStock(int company_id)
             ui->horizontalLayout->addWidget(label);
 
             this->setLayout(ui->horizontalLayout);
-//            this->resize(700,500);
 
             return ;
 
@@ -120,52 +81,33 @@ void ChartSpline::ChangeStock(int company_id)
 
 
         MYSQL_ROW row;
-
-        int start_year;//从哪一年开始
-        int years_num=0;// 标记是否为第二行，也就是最早年的开始
+        std::vector<double> data;
 
         while ((row = mysql_fetch_row(result))) {
 
-            QString qStr(row[1]);
+            QString qStr_0(row[0]);
+            QString qStr_1(row[1]);
+
             bool ok;
-            double number = qStr.toDouble(&ok);
+//            int month= qStr_0.toInt(&ok);
+            double value = qStr_1.toDouble(&ok);
 
 //            std::cout<<ok<<std::endl;
             if (!ok) {
-                qDebug() << "Cannot Converted number:" << number;
+                qDebug() << "Cannot Converted number:" << qStr_0 <<" OR "<<qStr_1;
             }
             else
             {
-//                std::cout<<number<<std::endl;
-                data.push_back(number);
-//                std::cout<<data.size()<<std::endl;
-                years_num++;
+                std::cout<<value<<std::endl;
+                data.push_back(value);
+                std::cout<<data.size()<<std::endl;
             }
-
-            if(years_num==1)
-            {
-                QString qStr(row[0]);
-                start_year = qStr.toInt(&ok);
-            }//将初始年份设置好
-
-//            std::cout << row[1]<<std::endl;
-            //因为第一个数值是年份，dirge数值才是平均值
-            //大体结果 2010 145.5050000000
         }
-
-        years_num-=2; //因为是从2023年开始，所以往回退两年
-
-
-
-//-------------------------------
-
-//        connect(ui->QuitSpline,SIGNAL(clicked(bool)),this,SLOT(close()));
-
 
         auto lineseries = new QLineSeries;
         //lineseries->setName("总和");
 
-        for(int i=0;i<years_num;i++)
+        for(int i=0;i<data.size();i++)
         {
             lineseries->append(QPoint(i, data[i]));
         }
@@ -173,13 +115,13 @@ void ChartSpline::ChangeStock(int company_id)
         auto chart = new QChart;
 
         chart->addSeries(lineseries);
-        chart->setTitle(company_name + " 公司: " + QString::number(start_year) + "-" +
-               QString::number(start_year + years_num-1) + "年股票单价行情");
+        chart->setTitle(company_name + " 公司: " + "-" +
+                "Istm 模型股票预测价格");
 
 
         QStringList categories;
-        for(int i=0;i<years_num;i++){
-            categories << QString::number(start_year+i-2000);
+        for(int i=0;i<data.size();i++){
+            categories << QString::number(i+1)+" 月 ";
         }
 
             auto axisX = new QBarCategoryAxis;
@@ -258,10 +200,15 @@ void ChartSpline::ChangeStock(int company_id)
                     break;
                 }
             }
-
         }
     });
+
+        qDebug()<<"Drop out of the istmcharts";
 }
 
 
-\
+
+IstmCharts::~IstmCharts()
+{
+    delete ui;
+}
