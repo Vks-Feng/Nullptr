@@ -3,12 +3,12 @@
 //默认构造函数
 User::User(){
     ID = 1;
-    name = "vks";
+    name = "test_1";
     password = "123";
     currentdate=Date(2023,12);
 }
 
-User::User(int _id,QString  _userName,QString _password,int _balance,int _ranking)
+User::User(int _id, QString  _userName,QString _password,int _balance,int _ranking)
 {
     ID=_id;
     name=_userName;

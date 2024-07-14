@@ -194,7 +194,7 @@ void forum::onSubmitClicked() {
 
 
     //vks
-    Global::instance().getGlobalClient()->write("Refresh:");
+    Global::instance().getGlobalClient()->write("RefreshPost:");
     //vks
 
 //    QMessageBox msgBox;
@@ -215,6 +215,3 @@ void forum::display(int m){
 //    newforum->show();
 //    this->close();
 //}
-
-
-

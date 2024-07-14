@@ -33,7 +33,7 @@
     <enum>QFrame::NoFrame</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>4</number>
    </property>
    <widget class="QWidget" name="BuyinPage">
     <widget class="QLabel" name="buyinBrandIcon">
@@ -633,7 +633,98 @@
      </column>
     </widget>
    </widget>
-   <widget class="QWidget" name="IncomePage"/>
+   <widget class="QWidget" name="IncomePage">
+    <widget class="QTableWidget" name="incometable">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>791</width>
+       <height>531</height>
+      </rect>
+     </property>
+     <row>
+      <property name="text">
+       <string>Apple</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>Amazon</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>Google</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>IBM</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>Intel</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>JetBlue</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>META</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>Microsoft</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>Summary</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>上月股价</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>本月股价</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>持有量</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>上月总股价</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>本月总股价</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>盈亏</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>收益率</string>
+      </property>
+     </column>
+    </widget>
+   </widget>
    <widget class="QWidget" name="RecommendPage">
     <widget class="QLabel" name="label_6">
      <property name="geometry">

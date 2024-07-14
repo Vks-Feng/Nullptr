@@ -19,8 +19,42 @@ ChartSpline::ChartSpline(QWidget *parent) :
 
 ChartSpline::~ChartSpline()
 {
-        delete ui;
+    delete ui;
 }
+
+//class CustomChartView : public QChartView {
+//    Q_OBJECT
+
+//public:
+//    CustomChartView(QChart *chart, QWidget *parent = nullptr) : QChartView(chart, parent) {}
+
+//protected:
+//    void mouseMoveEvent(QMouseEvent *event)
+//    {
+//        QChartView::mouseMoveEvent(event);
+
+//        QPointF chartPoint = chart()->mapToValue(event->pos());
+
+//        // 假设我们只有一个系列
+//        QLineSeries *series = qobject_cast<QLineSeries *>(chart()->series().at(0));
+//        if (!series) return;
+
+//        // 简单的线性搜索来找到最接近的点（对于大量数据点，可能需要更高效的算法）
+//        qreal minDistance = std::numeric_limits<qreal>::max();
+//        QPointF closestPoint;
+//        for (const QPointF &point : series->points()) {
+//            qreal distance = QVector2D(point - chartPoint).lengthSquared();
+//            if (distance < minDistance) {
+//                minDistance = distance;
+//                closestPoint = point;
+//            }
+//        }
+
+//        QString info = QString("X: %1, Y: %2").arg(closestPoint.x()).arg(closestPoint.y());
+//        QToolTip::showText(event->globalPos(), info, this);
+//    }
+//};
+
 
 void ChartSpline::ShowRandomStock()
 {
@@ -201,6 +235,7 @@ void ChartSpline::ChangeStock(int company_id)
         // this->resize(700,500);
 
 }
+
 
 //QString ChartSpline::CompanyIntroduction(int company_id)
 //{

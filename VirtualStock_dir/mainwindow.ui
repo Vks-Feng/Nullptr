@@ -1249,6 +1249,7 @@ QPushButton:checked
   </widget>
  </widget>
  <resources>
+
   <include location="peresonIcon.qrc"/>
   <include location="rechargeIcon.qrc"/>
   <include location="homeIcon.qrc"/>
@@ -1258,6 +1259,7 @@ QPushButton:checked
   <include location="GroupLogo.qrc"/>
   <include location="trendIcon.qrc"/>
   <include location="rankIcon.qrc"/>
+
  </resources>
  <connections/>
 </ui>
