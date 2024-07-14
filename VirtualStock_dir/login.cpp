@@ -65,6 +65,8 @@ void Login::on_LoginButton_clicked()
             QString msg = QString("Login:%1").arg(userID);
             Global::instance().getGlobalClient()->write(msg.toUtf8());
             Global::instance().getGlobalClient()->waitForBytesWritten();
+            ui->LoginButton->setDisabled(true);
+            ui->LoginButton->setText("登录中……");
             break;
         }
         default:

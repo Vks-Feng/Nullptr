@@ -2,9 +2,10 @@
 #define BUYIN_H
 
 #include <QWidget>
-#include "global.h"
 #include<QString>
 #include <QMessageBox>
+#include "global.h"
+#include "risknotice.h"
 
     namespace Ui {
     class buyin;
@@ -65,7 +66,6 @@ private slots:
     void on_SellOutStockCodeBox_currentIndexChanged(int index);
 
 private:
-
 };
 
 #endif // BUYIN_H
