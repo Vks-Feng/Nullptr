@@ -73,7 +73,7 @@
    <property name="geometry">
     <rect>
      <x>550</x>
-     <y>410</y>
+     <y>440</y>
      <width>401</width>
      <height>51</height>
     </rect>
@@ -105,7 +105,7 @@
    <property name="geometry">
     <rect>
      <x>650</x>
-     <y>310</y>
+     <y>300</y>
      <width>211</width>
      <height>41</height>
     </rect>
@@ -243,6 +243,19 @@ color:white;</string>
    </property>
    <property name="text">
     <string>—</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LoginingXiaoBa">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>360</y>
+     <width>70</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>

@@ -388,6 +388,8 @@ void buyin::setPicResource(int index){
 }
 
 void buyin::incomePageUpdate(){
+    ui->incometable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->incometable->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
 
     // QTableWidget *tableWidget = new QTableWidget(9, 7);
@@ -399,6 +401,7 @@ void buyin::incomePageUpdate(){
     QTableWidgetItem* singlevalue;
     QTableWidgetItem* lastsinglevalue;
     QTableWidgetItem* iTotalValue;
+    QTableWidgetItem* iPlaceHolder;
     QTableWidgetItem* lastiTotalValue;
     QTableWidgetItem* Bep;
     QTableWidgetItem* Rate;
@@ -459,10 +462,12 @@ void buyin::incomePageUpdate(){
     }
     iHolding = new QTableWidgetItem(QString::number(summaryHolding));
     iTotalValue = new QTableWidgetItem(QString::number(summaryValue));
+    iPlaceHolder = new QTableWidgetItem("/");
     lastiTotalValue = new QTableWidgetItem(QString::number(summarylastValue));
     Bep = new QTableWidgetItem(QString::number(totalbep));
     Rate =new QTableWidgetItem(QString::number(totalrate)+"%");
-    // tableWidget->setItem(8,0,iStockID);
+    ui->incometable->setItem(8, 0, iPlaceHolder);
+    ui->incometable->setItem(8, 1, iPlaceHolder);
     ui->incometable->setItem(8, 2, iHolding);
     ui->incometable->setItem(8, 4, iTotalValue);
     ui->incometable->setItem(8, 3, lastiTotalValue);
