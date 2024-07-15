@@ -404,7 +404,8 @@ void MainWindow::on_nextroundbutton_clicked()
             buyini.setBuyInInfo();
             buyini.setSellOutInfo();
 
-            Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,currentDate.getMonth()+1));
+
+            Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,currentDate.getMonth()));
 
             NewsWidget news2;
             MainWindow* main= new MainWindow();
@@ -428,7 +429,7 @@ void MainWindow::on_nextroundbutton_clicked()
             buyini.setBuyInInfo();
             buyini.setSellOutInfo();
 
-            Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,months));
+            Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,currentDate.getMonth()));
 
             NewsWidget news2;
 
