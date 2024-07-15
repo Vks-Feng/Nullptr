@@ -413,7 +413,8 @@ void MainWindow::on_nextroundbutton_clicked()
             buyini.setBuyInInfo();
             buyini.setSellOutInfo();
 
-            Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,currentDate.getMonth()+1));
+
+            Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,currentDate.getMonth()));
 
             NewsWidget news2;
             MainWindow* main= new MainWindow();
@@ -437,7 +438,7 @@ void MainWindow::on_nextroundbutton_clicked()
             buyini.setBuyInInfo();
             buyini.setSellOutInfo();
 
-            Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,months));
+            Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,currentDate.getMonth()));
 
             NewsWidget news2;
 
@@ -548,7 +549,7 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 }
 
 void MainWindow::refreshForum(){
-    ui->Forum_layout->removeWidget(forum_widget);
+    forum_widget->close();
     forum_widget = new forum;
     ui->selectpage5_forum->setLayout(ui->Forum_layout);
     ui->Forum_layout->addWidget(forum_widget);

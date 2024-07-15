@@ -39,13 +39,8 @@ background-color:transparent;</string>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
    </property>
-<!--<<<<<<< HEAD-->
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
-<!--=======
-   <property name="currentIndex">
-    <number>0</number>
->>>>>>> 40b5d189bac3d18d61b4bad55ed502fd642d6944-->
    </property>
    <widget class="QFrame" name="frame_3">
     <property name="geometry">
@@ -608,53 +603,70 @@ QComboBox QAbstractItemView:item:hover {
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">QScrollArea{
-border-radius: 5px;
-	}
-QScrollBar:vertical
-{	width: 10px;
-	border:0px solid;
-	margin : 0px,0px,0px,0px;
-	background:#e1f0fa;}
+           <string notr="true">QTableWidget {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.4); /* 设置透明度为0.9 */
+    border: 1px solid #242424;
+    alternate-background-color: #E0F7FA;
+    gridline-color: #242424;
+    font-size: 16px;
+}
 
-QScrollBar:vertical:hover{
-	width: 10px;
-    border:0px solid;
-	margin: 0px,0px,0px,0px;
-	background:#e1f0fa;}
+QTableWidget::item:selected {
+    color: black;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #B3E5FC, stop:1 #81D4FA);
+}
 
-QScrollBar::handle:vertical{
-	width:10px;
-	background:#c0ddee;
-    border-radius: 5px;height: 40px;}
+QTableWidget::item:hover {
+    background: #B3E5FC;
+}
 
-QScrollBar::handle:vertical:hover{
-background:#c0ddee;
-border-radius: 5px;}
+QTableWidget::item:selected {
+    color: black;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #B3E5FC, stop:1 #81D4FA);
+}
 
+QHeaderView::section {
+    text-align: center;
+    background: #9fcce5;
+    padding: 3px;
+    margin: 0px;
+    color: white;
+    border: 1px solid #242424;
+    border-left-width: 0;
+    font-size: 16px;
+}
 
- QScrollBar::add-line:vertical{height:11px;
-subcontrol-position:bottom;border:0px solid;
-   border-radius: 5px;}
+QScrollBar:vertical {
+    background: #E0F7FA;
+    padding: 0px;
+    border-radius: 6px;
+    max-width: 12px;
+}
 
-ScrollBar::sub-line:vertical{height:11px;
-             subcontrol-position:top;
-border:0px solid;border-radius: 5px;}
+QScrollBar::handle:vertical {
+    background: #81D4FA;
+}
 
-QScrollBar::add-page:vertical{ 
-          border:0px solid;
-		border-radius: 5px;}
+QScrollBar::handle:hover:vertical, QScrollBar::handle:pressed:vertical {
+    background: #4FC3F7;
+}
 
-QScrollBar::sub-page:vertical{
-		color:#e1f0fa;
-        border:0px solid;
-		border-radius: 5px;}
+QScrollBar::sub-page:vertical {
+    background: #ffffff;
+}
 
-QScrollBar::up-arrow:vertical{
-        border:0px solid;border-radius: 3px;}
-                                              
-QScrollBar::down-arrow:vertical 
-{border:0px solid;border-radius: 3px;}
+QScrollBar::add-page:vertical {
+    background: #E0F7FA;
+}
+
+QScrollBar::add-line:vertical {
+    background: none;
+}
+
+QScrollBar::sub-line:vertical {
+    background: none;
+}
 </string>
           </property>
           <column>
@@ -1339,30 +1351,16 @@ QPushButton:checked
   </widget>
  </widget>
  <resources>
-
-
-<!--<<<<<<< HEAD-->
   <include location="homeIcon.qrc"/>
-  <include location="communityIcon.qrc"/>
   <include location="ruleIcon.qrc"/>
   <include location="trendIcon.qrc"/>
-  <include location="rankIcon.qrc"/>
-  <include location="Icon.qrc"/>
+  <include location="communityIcon.qrc"/>
   <include location="peresonIcon.qrc"/>
-  <include location="GroupLogo.qrc"/>
+  <include location="Icon.qrc"/>
   <include location="rechargeIcon.qrc"/>
   <include location="back.qrc"/>
-<!--=======
-  <include location="trendIcon.qrc"/>
-  <include location="peresonIcon.qrc"/>
-  <include location="rechargeIcon.qrc"/>
-  <include location="Icon.qrc"/>
-  <include location="communityIcon.qrc"/>
   <include location="rankIcon.qrc"/>
-  <include location="ruleIcon.qrc"/>
   <include location="GroupLogo.qrc"/>
-  <include location="homeIcon.qrc"/>
->>>>>>> 40b5d189bac3d18d61b4bad55ed502fd642d6944-->
  </resources>
  <connections/>
 </ui>

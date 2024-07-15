@@ -24,6 +24,8 @@ Login::Login(QWidget *parent) :
     connect(ui->loginMinimumButton,&QPushButton::clicked,[=](){
         this->showMinimized();
     });
+
+    ui->LoginingXiaoBa->hide();
 }
 
 Login::~Login()
@@ -39,6 +41,10 @@ void Login::loginErrorNotification(QString error){
 
 void Login::on_LoginButton_clicked()
 {
+    if(Global::instance().getGlobalClient()->state() != QAbstractSocket::ConnectedState){
+        loginErrorNotification("网络异常，请稍后重试");
+        return;
+    }
     qDebug() << "0";
     if (ui->UserNameInput->text().isEmpty() || ui->UserPasswordInput->text().isEmpty()) {
         loginErrorNotification("用户名或密码不能为空");
@@ -47,7 +53,7 @@ void Login::on_LoginButton_clicked()
         switch (LoginResult) {
         case 0:
         {
-            loginErrorNotification("vks：该用户名不存在，而且老子暂时懒得设计所以你tm必须给老子注册去");
+            loginErrorNotification("该用户名不存在，请先注册！");
             enroll* en = new enroll(); // 设置父对象为当前窗口
             this->close();
             en->show();
@@ -106,6 +112,7 @@ void Login::connectToDataBase(QString ip, QString _password){
     BackDB* db = new BackDB(host, user, password, database, port, unix_socket, client_flag);
     Global::instance().setGlobalDataBase(db);
     qDebug() << "vks database";
+
 }
 
 void Login::readyToLogin(){
@@ -116,6 +123,9 @@ void Login::readyToLogin(){
 }
 
 void Login::alreadyLogin(){
+    ui->LoginButton->setDisabled(false);
+    ui->LoginButton->setText("登录");
+    ui->LoginingXiaoBa->hide();
     loginErrorNotification("已在其他设备上登录");
 }
 
