@@ -37,7 +37,7 @@
       </font>
      </property>
      <property name="text">
-      <string>该笔交易总金额已超过总资产的80%</string>
+      <string>该笔交易总金额已超过活动资产80%</string>
      </property>
     </widget>
    </item>
@@ -54,19 +54,6 @@
      </property>
     </spacer>
    </item>
-   <item row="2" column="1">
-    <widget class="QLabel" name="label_2">
-     <property name="font">
-      <font>
-       <family>华文新魏</family>
-       <pointsize>18</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>是否确认交易</string>
-     </property>
-    </widget>
-   </item>
    <item row="0" column="1">
     <spacer name="verticalSpacer_2">
      <property name="orientation">
@@ -79,6 +66,19 @@
       </size>
      </property>
     </spacer>
+   </item>
+   <item row="2" column="1" colspan="2">
+    <widget class="QLabel" name="label_2">
+     <property name="font">
+      <font>
+       <family>华文新魏</family>
+       <pointsize>18</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>是否确认交易</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
