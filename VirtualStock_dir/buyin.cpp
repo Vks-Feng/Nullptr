@@ -11,12 +11,22 @@ buyin::buyin(QWidget *parent)
     this->setFixedSize(this->width(), this->height());
     initBuyInSellOut();
 
-    IstmCharts* item=new IstmCharts;
-    ui->verticalLayout->addWidget(item);
-    item->ChangeStock(0);
+    IstmCharts* item_1=new IstmCharts;
+    ui->verticalLayout->addWidget(item_1);
+    item_1->ChangeStock(0);
+
+
+    QVBoxLayout *_layout = new QVBoxLayout(ui->selloutBroadChart);
+    IstmCharts* item_2=new IstmCharts;
+    _layout->addWidget(item_2);
+    item_2->ChangeStock(0);
 
     connect(ui->BuyInStockCodeBox, QOverload<int>::of(&QComboBox::currentIndexChanged),
-            item, &IstmCharts::ChangeStock);
+            item_1, &IstmCharts::ChangeStock);
+
+    connect(ui->SellOutStockCodeBox, QOverload<int>::of(&QComboBox::currentIndexChanged),
+            item_1, &IstmCharts::ChangeStock);
+
 }
 
 buyin::~buyin()
