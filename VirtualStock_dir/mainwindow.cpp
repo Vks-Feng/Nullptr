@@ -20,8 +20,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+
+    //主窗口设置阴影、圆角化
+    // setAttribute(Qt::WA_TranslucentBackground);//透明化
+    this->setWindowFlags(Qt::FramelessWindowHint);//无边框
+
     //添加buyin
-    buyin* buyin_widget=new buyin;
+    buyin_widget=new buyin;
     forum_widget = new forum;
     ui->selectpage5_forum->setLayout(ui->Forum_layout);
     ui->Forum_layout->addWidget(forum_widget);
@@ -49,13 +54,8 @@ MainWindow::MainWindow(QWidget *parent) :
 //        }
 //    }
 
-    this->setWindowFlags(Qt::FramelessWindowHint);//无边框
-    // this->setAttribute(Qt::WA_TranslucentBackground);//透明背景
-    // QGraphicsDropShadowEffect *MainShadow = new QGraphicsDropShadowEffect;
-    // MainShadow->setBlurRadius(10);
-    // MainShadow->setColor(QColor(0,0,0,100));
-    // MainShadow->setOffset(0,0);
-    // setGraphicsEffect(MainShadow);
+
+
 
     ui->logo->setScaledContents(true);//logo自适应大小
 
@@ -147,12 +147,13 @@ MainWindow::MainWindow(QWidget *parent) :
     });
 
     connect(ui->TransactionButton,&QPushButton::clicked,this,[=](){
+        buyin_widget->initBuyInSellOut();
         ui->selectpage->setCurrentIndex(2);
     });//点击跳转到交易界面
 
     connect(ui->communitybutton1,&QPushButton::clicked,this,[=](){
         ui->selectpage->setCurrentIndex(5);
-    });//点击跳转到交易界面
+    });//点击跳转到社区交流界面
 
     connect(ui->rankbutton1,&QPushButton::clicked,this,[=](){
         ui->userRankingList->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
@@ -279,6 +280,7 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->userRankingList->setItem(i, 2, assetsItem);
         ui->userRankingList->setItem(i, 1, monthItem);
         ui->userRankingList->setItem(i, 3, percentItem);
+        Global::instance().getGlobalDataBase()->setRanking(Global::instance().getGlobalDataBase()->getUserId(userData[i].userName),i+1);
     }
 // ui->tableWidget->resizeColumnToContents(4);
     // for(int i=0;i<4;i++)
@@ -402,7 +404,7 @@ void MainWindow::on_nextroundbutton_clicked()
             buyini.setBuyInInfo();
             buyini.setSellOutInfo();
 
-            Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,months));
+            Global::instance().getGlobalDataBase()->setTotalvalue(userID,totalcurrency(userID,currentDate.getMonth()+1));
 
             NewsWidget news2;
             MainWindow* main= new MainWindow();
@@ -430,10 +432,6 @@ void MainWindow::on_nextroundbutton_clicked()
 
             NewsWidget news2;
 
-
-
-
-
             MainWindow* main= new MainWindow();
             this->close();
             news2.updateNews();
@@ -453,49 +451,58 @@ int MainWindow::totalcurrency(int userID,int months){
     std::vector<long>& stockInfo1 = Global::instance().getGlobalDataBase()->getStockInfo(1, 2023, currentDate.getMonth());
     long stockPrice1 = stockInfo1[0]; // 获取股票价格
     std::cout << "Stock Price: " << stockPrice1 << std::endl;
+
     int number1=Global::instance().getGlobalDataBase()->getUserVolume(userID,1);
+    if(number1==-1){number1++;}
     int stockcurrency1=stockPrice1*number1;
 
     std::vector<long>& stockInfo2 = Global::instance().getGlobalDataBase()->getStockInfo(2, 2023, currentDate.getMonth());
     long stockPrice2 = stockInfo2[0]; // 获取股票价格
     std::cout << "Stock Price: " << stockPrice2 << std::endl;
     int number2=Global::instance().getGlobalDataBase()->getUserVolume(userID,2);
+    if(number2==-1){number2++;}
     int stockcurrency2=stockPrice2*number2;
 
     std::vector<long>& stockInfo3 = Global::instance().getGlobalDataBase()->getStockInfo(3, 2023, currentDate.getMonth());
     long stockPrice3 = stockInfo3[0]; // 获取股票价格
     std::cout << "Stock Price: " << stockPrice3 << std::endl;
     int number3=Global::instance().getGlobalDataBase()->getUserVolume(userID,3);
+    if(number3==-1){number3++;}
     int stockcurrency3=stockPrice3*number3;
 
     std::vector<long>& stockInfo4 = Global::instance().getGlobalDataBase()->getStockInfo(4, 2023, currentDate.getMonth());
     long stockPrice4 = stockInfo4[0]; // 获取股票价格
     std::cout << "Stock Price: " << stockPrice4 << std::endl;
     int number4=Global::instance().getGlobalDataBase()->getUserVolume(userID,4);
+    if(number4==-1){number4++;}
     int stockcurrency4=stockPrice4*number4;
 
     std::vector<long>& stockInfo5 = Global::instance().getGlobalDataBase()->getStockInfo(5, 2023, currentDate.getMonth());
     long stockPrice5 = stockInfo5[0]; // 获取股票价格
     std::cout << "Stock Price: " << stockPrice5 << std::endl;
     int number5=Global::instance().getGlobalDataBase()->getUserVolume(userID,5);
+    if(number5==-1){number5++;}
     int stockcurrency5=stockPrice5*number5;
 
     std::vector<long>& stockInfo6 = Global::instance().getGlobalDataBase()->getStockInfo(6, 2023, currentDate.getMonth());
     long stockPrice6 = stockInfo6[0]; // 获取股票价格
     std::cout << "Stock Price: " << stockPrice6 << std::endl;
     int number6=Global::instance().getGlobalDataBase()->getUserVolume(userID,6);
+    if(number6==-1){number6++;}
     int stockcurrency6=stockPrice6*number6;
 
     std::vector<long>& stockInfo7 = Global::instance().getGlobalDataBase()->getStockInfo(7, 2023, currentDate.getMonth());
     long stockPrice7 = stockInfo7[0]; // 获取股票价格
     std::cout << "Stock Price: " << stockPrice7 << std::endl;
     int number7=Global::instance().getGlobalDataBase()->getUserVolume(userID,7);
+    if(number7==-1){number7++;}
     int stockcurrency7=stockPrice7*number7;
 
     std::vector<long>& stockInfo8 = Global::instance().getGlobalDataBase()->getStockInfo(8, 2023, currentDate.getMonth());
     long stockPrice8 = stockInfo8[0]; // 获取股票价格
     std::cout << "Stock Price: " << stockPrice8 << std::endl;
     int number8=Global::instance().getGlobalDataBase()->getUserVolume(userID,8);
+    if(number8==-1){number8++;}
     int stockcurrency8=stockPrice8*number8;
 
     int totalcurrency=activecurrency+stockcurrency1+stockcurrency2+stockcurrency3+stockcurrency4+stockcurrency5+stockcurrency6+stockcurrency7+stockcurrency8;
@@ -537,6 +544,7 @@ void MainWindow::refreshForum(){
     ui->selectpage5_forum->setLayout(ui->Forum_layout);
     ui->Forum_layout->addWidget(forum_widget);
 }
+
 void MainWindow::showCustomDialog() {
     dialog dialog1;
     dialog1.exec();
@@ -555,5 +563,15 @@ void MainWindow::showCustomDialog() {
 //     painter.fillPath(path,Qt::white);
 
 //     this->paintEvent(event);
+// }
+
+
+// void MainWindow::paintEvent(QPaintEvent *event)
+// {
+//     QStyleOption opt;
+//     opt.initFrom(this);
+//     QPainter painter(this);
+//     style()->drawPrimitive(QStyle::PE_Widget,&opt,&painter,this);
+
 // }
 

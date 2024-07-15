@@ -7,6 +7,9 @@
 #include <QColor>
 #include <QPlainTextEdit>
 #include <QMouseEvent>
+#include <QPainter>
+#include <QStyleOption>
+#include <QApplication>
 
 #include "buyin.h"
 #include "personpage.h"
@@ -58,11 +61,20 @@ private slots:
     void showCustomDialog();
 
 
+protected:
+
+void closeEvent(QCloseEvent *event) override {
+    disconnect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_Refresh, this, &MainWindow::refreshForum);
+
+    QWidget::closeEvent(event);
+}
+
 private:
     Ui::MainWindow *ui;
     QPoint mousePoint;
     bool mouse_press;
     forum* forum_widget;
+    buyin* buyin_widget;
 };
 
 #endif // MAINWINDOW_H

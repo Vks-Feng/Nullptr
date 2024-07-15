@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1011</width>
-    <height>725</height>
+    <width>991</width>
+    <height>663</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,10 +23,10 @@ border-bottom-right-radius:10px;}</string>
   <widget class="QStackedWidget" name="selectpage">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>100</y>
+     <x>120</x>
+     <y>80</y>
      <width>881</width>
-     <height>621</height>
+     <height>581</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -39,10 +39,10 @@ border-bottom-right-radius:10px;}</string>
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>0</x>
        <y>0</y>
-       <width>851</width>
-       <height>331</height>
+       <width>871</width>
+       <height>291</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="ForNews">
@@ -54,9 +54,9 @@ border-bottom-right-radius:10px;}</string>
     <widget class="QWidget" name="verticalLayoutWidget_2">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>349</y>
-       <width>411</width>
+       <x>0</x>
+       <y>310</y>
+       <width>421</width>
        <height>261</height>
       </rect>
      </property>
@@ -80,9 +80,9 @@ border:1px rgb(231, 231, 231);
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-20</y>
-           <width>411</width>
-           <height>281</height>
+           <y>0</y>
+           <width>421</width>
+           <height>261</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="MainChartsLayout"/>
@@ -94,9 +94,9 @@ border:1px rgb(231, 231, 231);
     <widget class="QFrame" name="personageFrame">
      <property name="geometry">
       <rect>
-       <x>460</x>
-       <y>350</y>
-       <width>391</width>
+       <x>450</x>
+       <y>310</y>
+       <width>411</width>
        <height>261</height>
       </rect>
      </property>
@@ -114,49 +114,6 @@ border:1px rgb(231, 231, 231);
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QPlainTextEdit" name="RulesText">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>10</y>
-        <width>361</width>
-        <height>281</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Microsoft YaHei UI</family>
-        <pointsize>10</pointsize>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QFrame
-{
-background-color: rgb(255, 255, 255);
-border-radius:20px;
-border:1px rgb(231, 231, 231);
-}
-</string>
-      </property>
-      <property name="readOnly">
-       <bool>true</bool>
-      </property>
-      <property name="plainText">
-       <string>首先，炒股有风险，入市需谨慎, 炒股有风险，入市需谨慎,炒股有风险，入市需谨慎,重要的事情说三遍。
-对于股市新手来说，入门并掌握基本知识是非常重要的。以下是一些关键的步骤和注意事项，帮助您开始股市投资之旅：
-1. 学习基础知识：首先，您需要了解基本的股票知识，例如K线图、股票类型、交易规则等。这些知识将为您在股市中的操作打下坚实的基础。
-2. 开户：要购买股票，您需要一个股票账户。现在开户很方便，可以通过网络进行。选择大型券商通常更安全，它们提供全面的业务和理财产品，以及用户友好的交易软件。
-3. 了解手续费：买卖股票需要支付手续费，包括印花税、佣金和过户费。虽然佣金占比较小，但选择合适的券商对于资金安全很重要。
-4. 选择股票和基金：选股和选基金是一项复杂的任务，需要您进行研究和分析。您可以学习如何分析财务报表，了解公司的业务运营和财务状况。
-5. 使用股票软件：股票软件分为看盘软件和交易软件。看盘软件用于分析市场动态，而交易软件用于实际买卖操作。电脑版本的软件通常提供更全面的信息和更好的交易体验。
-6. 掌握交易技巧：学习技术分析、基本面分析等实用技巧，将帮助您更好地把握市场动态，提高投资成功率。
-7. 心态管理：保持谨慎和耐心非常重要。股市充满不确定性，因此不要盲目跟风，要有自己的判断和决策。
-8. 了解股息：作为股东，您有权获得公司分配的利润，即股息。了解不同类型的股息（如现金股息、股票股息、特别股息）及其支付时间对于投资决策至关重要。
-    请记住，炒股不仅是一场金钱游戏，更是一种人生的修行。只要您始终保持谦虚、谨慎和耐心的态度，相信您会在股市中找到属于自己的成功之路。
-最后，炒股有风险，入市需谨慎，请永远谨记这一点。</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
@@ -176,6 +133,92 @@ border:1px rgb(231, 231, 231);
        <string>温馨提醒</string>
       </property>
      </widget>
+     <widget class="QPlainTextEdit" name="RulesText">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>401</width>
+        <height>231</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>10</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QScrollArea{
+border-radius: 5px;
+	}
+QScrollBar:vertical
+{	width: 10px;
+	border:0px solid;
+	margin : 0px,0px,0px,0px;
+	background:#e1f0fa;}
+
+QScrollBar:vertical:hover{
+	width: 10px;
+    border:0px solid;
+	margin: 0px,0px,0px,0px;
+	background:#e1f0fa;}
+
+QScrollBar::handle:vertical{
+	width:10px;
+	background:#c0ddee;
+    border-radius: 5px;height: 40px;}
+
+QScrollBar::handle:vertical:hover{
+background:#c0ddee;
+border-radius: 5px;}
+
+
+ QScrollBar::add-line:vertical{height:11px;
+subcontrol-position:bottom;border:0px solid;
+   border-radius: 5px;}
+
+ScrollBar::sub-line:vertical{height:11px;
+             subcontrol-position:top;
+border:0px solid;border-radius: 5px;}
+
+QScrollBar::add-page:vertical{ 
+          border:0px solid;
+		border-radius: 5px;}
+
+QScrollBar::sub-page:vertical{
+		color:#e1f0fa;
+        border:0px solid;
+		border-radius: 5px;}
+
+QScrollBar::up-arrow:vertical{
+        border:0px solid;border-radius: 3px;}
+                                              
+QScrollBar::down-arrow:vertical 
+{border:0px solid;border-radius: 3px;}
+</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="plainText">
+       <string>       首先，炒股有风险，入市需谨慎, 炒股有风险，入市需谨慎,炒股有风险，入市需谨慎,重要的事情说三遍。
+对于股市新手来说，入门并掌握基本知识是非常重要的。以下是一些关键的步骤和注意事项，帮助您开始股市投资之旅：
+1. 学习基础知识：首先，您需要了解基本的股票知识，例如K线图、股票类型、交易规则等。这些知识将为您在股市中的操作打下坚实的基础。
+2. 开户：要购买股票，您需要一个股票账户。现在开户很方便，可以通过网络进行。选择大型券商通常更安全，它们提供全面的业务和理财产品，以及用户友好的交易软件。
+3. 了解手续费：买卖股票需要支付手续费，包括印花税、佣金和过户费。虽然佣金占比较小，但选择合适的券商对于资金安全很重要。
+4. 选择股票和基金：选股和选基金是一项复杂的任务，需要您进行研究和分析。您可以学习如何分析财务报表，了解公司的业务运营和财务状况。
+5. 使用股票软件：股票软件分为看盘软件和交易软件。看盘软件用于分析市场动态，而交易软件用于实际买卖操作。电脑版本的软件通常提供更全面的信息和更好的交易体验。
+6. 掌握交易技巧：学习技术分析、基本面分析等实用技巧，将帮助您更好地把握市场动态，提高投资成功率。
+7. 心态管理：保持谨慎和耐心非常重要。股市充满不确定性，因此不要盲目跟风，要有自己的判断和决策。
+8. 了解股息：作为股东，您有权获得公司分配的利润，即股息。了解不同类型的股息（如现金股息、股票股息、特别股息）及其支付时间对于投资决策至关重要。
+    请记住，炒股不仅是一场金钱游戏，更是一种人生的修行。只要您始终保持谦虚、谨慎和耐心的态度，相信您会在股市中找到属于自己的成功之路。
+最后，炒股有风险，入市需谨慎，请永远谨记这一点。</string>
+      </property>
+     </widget>
+     <zorder>RulesText</zorder>
+     <zorder>label_2</zorder>
     </widget>
    </widget>
    <widget class="QWidget" name="selectpage2">
@@ -183,9 +226,9 @@ border:1px rgb(231, 231, 231);
      <property name="geometry">
       <rect>
        <x>500</x>
-       <y>320</y>
+       <y>300</y>
        <width>361</width>
-       <height>281</height>
+       <height>261</height>
       </rect>
      </property>
      <property name="font">
@@ -211,7 +254,7 @@ border:1px rgb(231, 231, 231);
        <x>500</x>
        <y>0</y>
        <width>361</width>
-       <height>281</height>
+       <height>271</height>
       </rect>
      </property>
      <property name="font">
@@ -235,10 +278,58 @@ border:1px rgb(231, 231, 231);
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>590</y>
+       <y>540</y>
        <width>471</width>
-       <height>20</height>
+       <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QComboBox{border: 3px solid  #c0ddee;
+border-radius: 8px;
+padding : 1px 18px 1px 3px;
+min-width: 100px;}
+
+
+QComboBox：editable{
+	background:  #e1f0fa;
+}
+
+
+
+
+/* 下拉按钮 */
+ QComboBox::drop-down {
+  subcontrol-origin: padding;
+ 
+    /* 按钮位置,右上角 */
+     subcontrol-position: top right;
+
+    /* 按钮宽度 */
+   width: 25px;
+
+    /* 一条边框线控制 */
+ 
+
+     /* 倒角 */
+    border-top-right-radius: 3px;
+     border-bottom-right-radius: 3px;
+ }
+ 
+ /* 下拉按钮图片 */
+ QComboBox::down-arrow {
+   border-image:url(:/new/icon/photos/pullIcon2.png);
+	width:20px;
+	height: 20px;
+
+}
+
+ /* 下拉按钮位移 */
+ QComboBox::down-arrow:on {
+     top: 1px;
+   left: 1px;
+}
+
+</string>
      </property>
      <item>
       <property name="text">
@@ -285,20 +376,68 @@ border:1px rgb(231, 231, 231);
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>320</y>
+       <y>300</y>
        <width>461</width>
-       <height>261</height>
+       <height>241</height>
       </rect>
      </property>
     </widget>
     <widget class="QComboBox" name="ChooseWhichStock_1">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>280</y>
+       <x>20</x>
+       <y>259</y>
        <width>471</width>
-       <height>20</height>
+       <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QComboBox{border: 3px solid  #c0ddee;
+border-radius: 8px;
+padding : 1px 18px 1px 3px;
+min-width: 100px;}
+
+
+QComboBox：editable{
+	background:  #e1f0fa;
+}
+
+
+
+
+/* 下拉按钮 */
+ QComboBox::drop-down {
+  subcontrol-origin: padding;
+ 
+    /* 按钮位置,右上角 */
+     subcontrol-position: top right;
+
+    /* 按钮宽度 */
+   width: 25px;
+
+    /* 一条边框线控制 */
+ 
+
+     /* 倒角 */
+    border-top-right-radius: 3px;
+     border-bottom-right-radius: 3px;
+ }
+ 
+ /* 下拉按钮图片 */
+ QComboBox::down-arrow {
+   border-image: url(:/new/icon/photos/pullIcon.png);
+	width:20px;
+	height: 20px;
+
+}
+
+ /* 下拉按钮位移 */
+ QComboBox::down-arrow:on {
+     top: 1px;
+   left: 1px;
+}
+
+</string>
      </property>
      <item>
       <property name="text">
@@ -347,7 +486,7 @@ border:1px rgb(231, 231, 231);
        <x>20</x>
        <y>10</y>
        <width>461</width>
-       <height>261</height>
+       <height>241</height>
       </rect>
      </property>
     </widget>
@@ -484,9 +623,9 @@ T+0/T+1/T+2：不同市场有不同的清算交割制度。例如，美国市场
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>19</x>
-       <y>39</y>
-       <width>831</width>
+       <x>0</x>
+       <y>10</y>
+       <width>871</width>
        <height>571</height>
       </rect>
      </property>
@@ -497,10 +636,10 @@ T+0/T+1/T+2：不同市场有不同的清算交割制度。例如，美国市场
   <widget class="QFrame" name="siderBarFrame">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-10</x>
      <y>90</y>
-     <width>131</width>
-     <height>661</height>
+     <width>121</width>
+     <height>641</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -520,8 +659,8 @@ border:1px rgb(231, 231, 231);
    <widget class="QLabel" name="timelabel">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>550</y>
+      <x>10</x>
+      <y>510</y>
       <width>101</width>
       <height>20</height>
      </rect>
@@ -551,16 +690,38 @@ border:1px rgb(231, 231, 231);
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>590</y>
+      <y>530</y>
       <width>80</width>
       <height>26</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">QPushButton
+{  
+	color: rgb(0, 0, 0);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    background-color: rgb(100, 190, 223);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
+}
+</string>
     </property>
     <property name="text">
      <string>下一轮</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="firstbutton1">
@@ -569,7 +730,7 @@ border:1px rgb(231, 231, 231);
       <x>-20</x>
       <y>20</y>
       <width>161</width>
-      <height>71</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
@@ -587,7 +748,7 @@ border:1px rgb(231, 231, 231);
 QPushButton:hover
 {
 	color: rgb(255, 255, 255);
-    border-image: url(:/new/login/photos/button.png);
+    background-color: rgb(100, 190, 223);
 }
 
 QPushButton:checked
@@ -638,7 +799,7 @@ QPushButton:checked
 QPushButton:hover
 {
 	color: rgb(255, 255, 255);
-    border-image: url(:/new/login/photos/button.png);
+background-color: rgb(100, 190, 223);
 }
 
 QPushButton:checked
@@ -689,7 +850,7 @@ QPushButton:checked
 QPushButton:hover
 {
 	color: rgb(255, 255, 255);
-    border-image: url(:/new/login/photos/button.png);
+background-color: rgb(100, 190, 223);
 }
 
 QPushButton:checked
@@ -738,7 +899,7 @@ QPushButton:checked
 QPushButton:hover
 {
 	color: rgb(255, 255, 255);
-    border-image: url(:/new/login/photos/button.png);
+  background-color: rgb(100, 190, 223);
 }
 
 QPushButton:checked
@@ -786,7 +947,7 @@ QPushButton:checked
 QPushButton:hover
 {
 	color: rgb(255, 255, 255);
-    border-image: url(:/new/login/photos/button.png);
+background-color: rgb(100, 190, 223);
 }
 
 QPushButton:checked
@@ -837,7 +998,7 @@ QPushButton:checked
 QPushButton:hover
 {
 	color: rgb(255, 255, 255);
-    border-image: url(:/new/login/photos/button.png);
+background-color: rgb(100, 190, 223);
 }
 
 QPushButton:checked
@@ -868,7 +1029,7 @@ QPushButton:checked
      <x>-20</x>
      <y>-10</y>
      <width>1091</width>
-     <height>91</height>
+     <height>81</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -906,7 +1067,7 @@ border:1px rgb(231, 231, 231);
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>120</x>
       <y>10</y>
       <width>361</width>
       <height>71</height>
@@ -928,7 +1089,7 @@ border:1px rgb(231, 231, 231);
    <widget class="QPushButton" name="MainCloseButton">
     <property name="geometry">
      <rect>
-      <x>1010</x>
+      <x>990</x>
       <y>10</y>
       <width>20</width>
       <height>21</height>
@@ -950,9 +1111,9 @@ border:1px rgb(231, 231, 231);
    <widget class="QPushButton" name="personpageBtn">
     <property name="geometry">
      <rect>
-      <x>780</x>
+      <x>810</x>
       <y>30</y>
-      <width>121</width>
+      <width>91</width>
       <height>31</height>
      </rect>
     </property>
@@ -962,7 +1123,22 @@ border:1px rgb(231, 231, 231);
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:transparent;
+     <string notr="true">QPushButton
+{  
+	color: rgb(0, 0, 0);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    background-color: rgb(100, 190, 223);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
+}
 </string>
     </property>
     <property name="text">
@@ -976,14 +1152,30 @@ border:1px rgb(231, 231, 231);
    <widget class="QPushButton" name="leavebutton1">
     <property name="geometry">
      <rect>
-      <x>910</x>
+      <x>920</x>
       <y>30</y>
-      <width>81</width>
+      <width>71</width>
       <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:transparent;
+     <string notr="true">
+QPushButton
+{  
+	color: rgb(0, 0, 0);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    background-color: rgb(100, 190, 223);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
+}
 </string>
     </property>
     <property name="text">
@@ -1014,8 +1206,15 @@ border:1px rgb(231, 231, 231);
 QPushButton:hover
 {
 	color: rgb(255, 255, 255);
+    background-color: rgb(100, 190, 223);
+}
+
+QPushButton:checked
+{
     border-image: url(:/new/login/photos/button.png);
-}</string>
+	color: rgb(255, 255, 255);
+}
+</string>
     </property>
     <property name="text">
      <string>充值</string>
@@ -1028,7 +1227,7 @@ QPushButton:hover
    <widget class="QPushButton" name="Minimum_Button">
     <property name="geometry">
      <rect>
-      <x>980</x>
+      <x>960</x>
       <y>10</y>
       <width>31</width>
       <height>20</height>
@@ -1050,14 +1249,14 @@ QPushButton:hover
   </widget>
  </widget>
  <resources>
-  <include location="Icon.qrc"/>
-  <include location="ruleIcon.qrc"/>
-  <include location="communityIcon.qrc"/>
-  <include location="GroupLogo.qrc"/>
-  <include location="rankIcon.qrc"/>
+  <include location="trendIcon.qrc"/>
   <include location="peresonIcon.qrc"/>
   <include location="rechargeIcon.qrc"/>
-  <include location="trendIcon.qrc"/>
+  <include location="Icon.qrc"/>
+  <include location="communityIcon.qrc"/>
+  <include location="rankIcon.qrc"/>
+  <include location="ruleIcon.qrc"/>
+  <include location="GroupLogo.qrc"/>
   <include location="homeIcon.qrc"/>
  </resources>
  <connections/>

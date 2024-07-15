@@ -2,6 +2,7 @@
 #include "ui_buyin.h"
 #include "mainwindow.h"
 
+
 buyin::buyin(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::buyin)
@@ -12,6 +13,10 @@ buyin::buyin(QWidget *parent)
 
     IstmCharts* item=new IstmCharts;
     ui->verticalLayout->addWidget(item);
+    item->ChangeStock(0);
+
+    connect(ui->BuyInStockCodeBox, QOverload<int>::of(&QComboBox::currentIndexChanged),
+            item, &IstmCharts::ChangeStock);
 }
 
 buyin::~buyin()
@@ -25,12 +30,11 @@ void buyin::initBuyInSellOut(){
     ui->stackedWidget->setCurrentIndex(0);
     Global::instance().getGlobalUserManage()->updateUser(0);
     setBuyInInfo();
-
-
 }
 
 void buyin::on_BuyInButton_clicked()
 {
+    setBuyInInfo();
     ui->stackedWidget->setCurrentIndex(0);
 }
 
@@ -141,7 +145,7 @@ void buyin::on_SellOutStockCodeBox_currentIndexChanged(int index){
 void buyin::on_BuyResetButton_clicked()
 {
     ui->SellOutStockCodeBox->setCurrentIndex(0);
-    initBuyInSellOut();
+    setBuyInInfo();
 }
 
 void buyin::on_BuyComfirmButton_clicked()
@@ -159,7 +163,17 @@ void buyin::on_BuyComfirmButton_clicked()
         //获取用户id
         int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
         //判断用户的账户余额是否能够完成交易（钱够不够）
-        if(Global::instance().getGlobalDataBase()->GetBalance(userID) > totalPrice){
+        if(Global::instance().getGlobalDataBase()->GetBalance(userID) >= totalPrice){
+            bool highRisk = totalPrice > 0.6 * Global::instance().getGlobalDataBase()->GetBalance(userID);
+            if(highRisk){
+                //显示风险提示对话框
+                RiskNotice warningDialog;
+                if(warningDialog.exec() == QDialog::Rejected){
+                    //用户取消交易
+                    buyinNotification("交易取消");
+                    return;
+                }
+            }
             //用户余额减少，更新用户
             Global::instance().getGlobalDataBase()->declineBalance(userID, totalPrice);
             //读取该笔交易的数据，构建出一条Record

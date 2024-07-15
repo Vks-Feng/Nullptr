@@ -173,7 +173,9 @@ void ChartSpline::ChangeStock(int company_id)
         auto chart = new QChart;
 
         chart->addSeries(lineseries);
-        chart->setTitle(company_name + " 公司: " + QString::number(start_year) + "-" +
+//      chart->setTitle(company_name + " 公司: " + QString::number(start_year) + "-" +
+//               QString::number(start_year + years_num-1) + "年股票单价行情");
+        lineseries->setName(company_name + " 公司: " + QString::number(start_year) + "-" +
                QString::number(start_year + years_num-1) + "年股票单价行情");
 
 

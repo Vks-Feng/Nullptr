@@ -1,5 +1,6 @@
 #include "istmcharts.h"
 #include "ui_istmcharts.h"
+#include "global.h"
 
 IstmCharts::IstmCharts(QWidget *parent) :
     QWidget(parent),
@@ -98,37 +99,58 @@ void IstmCharts::ChangeStock(int company_id)
             }
             else
             {
-                std::cout<<value<<std::endl;
+//                std::cout<<value<<std::endl;
                 data.push_back(value);
-                std::cout<<data.size()<<std::endl;
+//                std::cout<<data.size()<<std::endl;
             }
         }
 
+        auto chart = new QChart;
         auto lineseries = new QLineSeries;
+        QStringList categories;
         //lineseries->setName("总和");
 
-        for(int i=0;i<data.size();i++)
+        int time=Global:: instance().getGlobalDataBase()->getTime(Global::instance().getGlobalUserManage()->GetUser(0)->GetId());
+
+        if(time>=1&&time<=6)
         {
-            lineseries->append(QPoint(i, data[i]));
+            for(int i=0;i<6;i++)
+            {
+                lineseries->append(QPoint(i, data[i]));
+            }
+            lineseries->setName(company_name+ "-" +
+                                "Istm 1~6月 预测价格");
+
+            for(int i=1;i<=6;i++){
+                categories << QString::number(i);
+            }
+        }
+        else
+        {
+            for(int i=6;i<12;i++)
+            {
+                lineseries->append(QPoint(i-6, data[i]));//QPoint固定从0开始
+            }
+            lineseries->setName(company_name+ "-" +
+                                "Istm 7~12月 预测价格");
+
+
+            for(int i=7;i<=12;i++)
+            {
+                categories << QString::number(i);
+            }
         }
 
-        auto chart = new QChart;
+
 
         chart->addSeries(lineseries);
-        chart->setTitle(company_name + " 公司: " + "-" +
-                "Istm 模型股票预测价格");
 
-
-        QStringList categories;
-        for(int i=0;i<data.size();i++){
-            categories << QString::number(i+1)+" 月 ";
-        }
-
-            auto axisX = new QBarCategoryAxis;
+        auto axisX = new QBarCategoryAxis;
         axisX->append(categories);
 
         chart->addAxis(axisX, Qt::AlignBottom);
         lineseries->attachAxis(axisX);
+
 
         auto axisY = new QValueAxis;
         chart->addAxis(axisY, Qt::AlignLeft);
@@ -152,7 +174,6 @@ void IstmCharts::ChangeStock(int company_id)
         int randomIndex = QRandomGenerator::global()->bounded(static_cast<int>(colors.size()));
         selectedColor = colors[randomIndex];
 
-        // QPen pen(QColor(255, 165, 0));  // 使用橙色
         QPen pen(selectedColor);
         pen.setWidth(3);
         lineseries->setPen(pen);

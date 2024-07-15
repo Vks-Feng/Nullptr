@@ -373,7 +373,7 @@ User BackDB::enableUser(QString name)
 
     MYSQL_ROW row = mysql_fetch_row(result);
     if (row == nullptr) {
-        std::cerr << "No user found with name " << name.toStdString() << std::endl;
+        std::cerr << "No user found with name !!!" << name.toStdString() << std::endl;
         mysql_free_result(result);
         // Return a default or invalid User object
         return User();
@@ -909,7 +909,7 @@ void BackDB::testAddPost()
 void BackDB::testGetForum()
 {
     std::vector<Post> resulr=this->getforum();
-    for(int i=0;i<resulr.size();i++)
+    for(size_t i=0;i<resulr.size();i++)
     {
         qDebug()<<resulr[i].getcontent()<<Qt::endl;
     }
@@ -1015,8 +1015,8 @@ QVector<QVector<double> > BackDB::getRawDatas(int company_id, int time)
     while ((row = mysql_fetch_row(result))) {
         QVector<double> item;
 
-        QString qStr_0(row[0]);
-        int year = qStr_0.toInt();
+//        QString qStr_0(row[0]);
+//        int year = qStr_0.toInt();
 
         QString qStr_1(row[1]);
         double open = qStr_1.toDouble();
@@ -1230,7 +1230,7 @@ void BackDB::testGetNews()
     std::map<int, std::vector<QString>> test=this->getNews(12);
 
     qDebug()<<test[12].size()<<Qt::endl;
-    for(int i=0;i<test[12].size();i++)
+    for(size_t i=0;i<test[12].size();i++)
     {
         qDebug()<<test[12][i]<<Qt::endl;
     }
@@ -1240,7 +1240,7 @@ void BackDB::testGetUserRecord()
 {
     std::vector<Record> RecordSet=this->getUserRecord(1);
 //    std::cout<<"SIZE:"<<RecordSet.size()<<std::endl;
-    for(int i=0;i<RecordSet.size();i++) std::cout<<RecordSet[i].GetTotalPrice()<<std::endl;
+    for(size_t i=0;i<RecordSet.size();i++) std::cout<<RecordSet[i].GetTotalPrice()<<std::endl;
 }
 
 

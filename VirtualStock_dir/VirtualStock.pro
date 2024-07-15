@@ -42,6 +42,7 @@ SOURCES += \
     portfolio.cpp \
     post.cpp \
     record.cpp \
+    risknotice.cpp \
     sonforum.cpp \
     stock.cpp \
     user.cpp \
@@ -73,6 +74,7 @@ HEADERS += \
     portfolio.h \
     post.h \
     record.h \
+    risknotice.h \
     sonforum.h \
     stock.h \
     user.h \
@@ -92,6 +94,7 @@ FORMS += \
     mainwindow.ui \
     newsdialog.ui \
     personpage.ui \
+    risknotice.ui \
     sonforum.ui \
     widget.ui \
     newswidget.ui
@@ -124,11 +127,14 @@ RESOURCES += \
     homeIcon.qrc \
     loginButton.qrc \
     loginPic.qrc \
+    microsoft2.qrc \
+    news4.qrc \
     newsPic.qrc \
     newsPic2.qrc \
     newsPic3.qrc \
     page1.qrc \
     peresonIcon.qrc \
+    pullIcon.qrc \
     rankIcon.qrc \
     rechargeIcon.qrc \
     ruleIcon.qrc \
