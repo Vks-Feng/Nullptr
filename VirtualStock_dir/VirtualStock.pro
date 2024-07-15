@@ -12,8 +12,13 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++17
 
-QMAKE_CXXFLAGS += -Wa,-mbig-obj
+#QMAKE_CXXFLAGS += -Wa,-mbig-obj
 # 允许编译更大的文件
+
+#unix {
+#    QMAKE_CXXFLAGS -= -mbig-obj
+#}
+#取消编译选项特定于 Windows 上的 MinGW 工具链的
 
 #win32:QMAKE_LFLAGS += -shared
 
