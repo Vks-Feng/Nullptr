@@ -53,6 +53,7 @@ SOURCES += \
 HEADERS += \
     LoginCreate.h \
     backdb.h \
+    blurredFrame.h \
     buyin.h \
     chargepage.h \
     chartspline.h \
@@ -118,6 +119,7 @@ DEPENDPATH += $$PWD/../_include
 RESOURCES += \
     GroupLogo.qrc \
     Icon.qrc \
+    back.qrc \
     backPerson1.qrc \
     communityIcon.qrc \
     forums.qrc \
@@ -132,12 +134,15 @@ RESOURCES += \
     page1.qrc \
     peresonIcon.qrc \
     pullIcon.qrc \
+    pullIcon3.qrc \
+    pullIcon4.qrc \
     rankIcon.qrc \
     rechargeIcon.qrc \
     ruleIcon.qrc \
     trendIcon.qrc
 
 DISTFILES += \
+    photos/pullIcon3.png \
     photos/rank2.png \
     photos/rankIcon.png \
     photos/recharge.png \

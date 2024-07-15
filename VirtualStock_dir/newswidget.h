@@ -6,6 +6,9 @@
 #include <QListWidgetItem>
 #include <QListWidget>
 #include <QMessageBox>
+#include <QApplication>
+#include <QVBoxLayout>
+#include <QScrollArea>
 #include <QDialog>
 #include <QGraphicsDropShadowEffect>
 #include "newsdialog.h"
