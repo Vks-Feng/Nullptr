@@ -25,6 +25,15 @@ MainWindow::MainWindow(QWidget *parent) :
     // setAttribute(Qt::WA_TranslucentBackground);//透明化
     this->setWindowFlags(Qt::FramelessWindowHint);//无边框
 
+    //毛玻璃实现；浮在widget表面，失败
+    // ui->selectpage->setParent(ui->frame_3);
+    // ui->selectpage->setAttribute(Qt::WA_TranslucentBackground, false);
+    // ui->selectpage->raise();  // 手动提升 ui->selectpage 控件的层级
+    // QGraphicsBlurEffect *blur = new QGraphicsBlurEffect(ui->selectpage);
+    // blur->setBlurRadius(10);
+    // ui->selectpage->setGraphicsEffect(blur);
+    // ui->selectpage->setAttribute(Qt::WA_TranslucentBackground,true);
+
     //添加buyin
     buyin_widget=new buyin;
     forum_widget = new forum;
@@ -68,17 +77,17 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setFixedSize(this->width(),this->height());
 
     //设置Frame具体阴影
-    QGraphicsDropShadowEffect *shadow_effect1 = new QGraphicsDropShadowEffect(this);
-    shadow_effect1->setOffset(0, 0);
-    shadow_effect1->setColor(QColor(38, 78, 119, 127)); //阴影颜色
-    shadow_effect1->setBlurRadius(30);//阴影半径
-    ui->headNevagationFrame->setGraphicsEffect(shadow_effect1);
+    // QGraphicsDropShadowEffect *shadow_effect1 = new QGraphicsDropShadowEffect(this);
+    // shadow_effect1->setOffset(0, 0);
+    // shadow_effect1->setColor(QColor(38, 78, 119, 127)); //阴影颜色
+    // shadow_effect1->setBlurRadius(30);//阴影半径
+    // ui->headNevagationFrame->setGraphicsEffect(shadow_effect1);
     //侧导航栏阴影
-    QGraphicsDropShadowEffect *shadow_effect2 = new QGraphicsDropShadowEffect(this);
-    shadow_effect2->setOffset(0, 0);
-    shadow_effect2->setColor(QColor(38, 78, 119, 127));
-    shadow_effect2->setBlurRadius(30);
-    ui->siderBarFrame->setGraphicsEffect(shadow_effect2);
+    // QGraphicsDropShadowEffect *shadow_effect2 = new QGraphicsDropShadowEffect(this);
+    // shadow_effect2->setOffset(0, 0);
+    // shadow_effect2->setColor(QColor(38, 78, 119, 127));
+    // shadow_effect2->setBlurRadius(30);
+    // ui->siderBarFrame->setGraphicsEffect(shadow_effect2);
     //首页个人模块阴影
     QGraphicsDropShadowEffect *shadow_effect3 = new QGraphicsDropShadowEffect(this);
     shadow_effect3->setOffset(0, 0);
@@ -569,10 +578,14 @@ void MainWindow::showCustomDialog() {
 
 // void MainWindow::paintEvent(QPaintEvent *event)
 // {
-//     QStyleOption opt;
-//     opt.initFrom(this);
-//     QPainter painter(this);
-//     style()->drawPrimitive(QStyle::PE_Widget,&opt,&painter,this);
+//     QPainter custompainter(this);
+//     custompainter.setRenderHint(QPainter::Antialiasing, true);
+//     QPainterPath path;
+//     path.addRoundedRect(rect(),25,25);
+//     QRegion maskRegion(path.toFillPolygon().toPolygon());
+//     setMask(maskRegion);
+
+//     custompainter.fillRect(rect(),Qt::white);
 
 // }
 

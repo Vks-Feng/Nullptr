@@ -12,8 +12,13 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++17
 
-QMAKE_CXXFLAGS += -Wa,-mbig-obj
+#QMAKE_CXXFLAGS += -Wa,-mbig-obj
 # 允许编译更大的文件
+
+#unix {
+#    QMAKE_CXXFLAGS -= -mbig-obj
+#}
+#取消编译选项特定于 Windows 上的 MinGW 工具链的
 
 #win32:QMAKE_LFLAGS += -shared
 
@@ -54,6 +59,7 @@ SOURCES += \
 HEADERS += \
     LoginCreate.h \
     backdb.h \
+    blurredFrame.h \
     buyin.h \
     chargepage.h \
     chartspline.h \
@@ -121,6 +127,7 @@ DEPENDPATH += $$PWD/../_include
 RESOURCES += \
     GroupLogo.qrc \
     Icon.qrc \
+    back.qrc \
     backPerson1.qrc \
     communityIcon.qrc \
     forums.qrc \
@@ -135,12 +142,15 @@ RESOURCES += \
     page1.qrc \
     peresonIcon.qrc \
     pullIcon.qrc \
+    pullIcon3.qrc \
+    pullIcon4.qrc \
     rankIcon.qrc \
     rechargeIcon.qrc \
     ruleIcon.qrc \
     trendIcon.qrc
 
 DISTFILES += \
+    photos/pullIcon3.png \
     photos/rank2.png \
     photos/rankIcon.png \
     photos/recharge.png \
