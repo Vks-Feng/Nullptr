@@ -22,7 +22,6 @@ RUN apt-get update \
                           qt6-base-dev-tools \
                           qt6-charts-dev \
                           libmysqlclient-dev \   
-			      
     && rm -rf /var/lib/apt/lists/*
 
 # 复制你的项目文件到工作目录

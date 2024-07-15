@@ -35,7 +35,7 @@ public:
 
 
     //----------Tools---------
-    //输入公司id，返回公司名(对应数据表中的公司名称缩写)
+    //输入公司id，返回公司名(对应数据表中的公司名称缩写)(1-8)
     QString Id2Name(int id);
 
     QString generateHash(const QString& input);

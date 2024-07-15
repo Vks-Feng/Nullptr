@@ -32,6 +32,7 @@ SOURCES += \
     enroll.cpp \
     forum.cpp \
     global.cpp \
+    istmcharts.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -53,6 +54,7 @@ SOURCES += \
 HEADERS += \
     LoginCreate.h \
     backdb.h \
+    blurredFrame.h \
     buyin.h \
     chargepage.h \
     chartspline.h \
@@ -62,6 +64,7 @@ HEADERS += \
     enroll.h \
     forum.h \
     global.h \
+    istmcharts.h \
     login.h \
     mainwindow.h \
     mainwindow.h \
@@ -87,6 +90,7 @@ FORMS += \
     chartspline.ui \
     enroll.ui \
     forum.ui \
+    istmcharts.ui \
     login.ui \
     mainwindow.ui \
     newsdialog.ui \
@@ -118,23 +122,30 @@ DEPENDPATH += $$PWD/../_include
 RESOURCES += \
     GroupLogo.qrc \
     Icon.qrc \
+    back.qrc \
     backPerson1.qrc \
     communityIcon.qrc \
     forums.qrc \
     homeIcon.qrc \
     loginButton.qrc \
     loginPic.qrc \
+    microsoft2.qrc \
+    news4.qrc \
     newsPic.qrc \
     newsPic2.qrc \
     newsPic3.qrc \
     page1.qrc \
     peresonIcon.qrc \
+    pullIcon.qrc \
+    pullIcon3.qrc \
+    pullIcon4.qrc \
     rankIcon.qrc \
     rechargeIcon.qrc \
     ruleIcon.qrc \
     trendIcon.qrc
 
 DISTFILES += \
+    photos/pullIcon3.png \
     photos/rank2.png \
     photos/rankIcon.png \
     photos/recharge.png \

@@ -7,6 +7,10 @@
 #include <QColor>
 #include <QPlainTextEdit>
 #include <QMouseEvent>
+#include <QPainter>
+#include <QStyleOption>
+#include <QApplication>
+#include <QGraphicsBlurEffect>
 
 #include "buyin.h"
 #include "personpage.h"
@@ -20,6 +24,7 @@
 #include "forum.h"
 #include "global.h"
 #include "chartspline.h"
+
 
 
 namespace Ui {
@@ -56,6 +61,7 @@ private slots:
 
     void refreshForum();
     void showCustomDialog();
+
 
 protected:
 

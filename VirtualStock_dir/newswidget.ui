@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>864</width>
+    <width>862</width>
     <height>472</height>
    </rect>
   </property>
@@ -20,8 +20,8 @@
   <widget class="QLabel" name="NewsLable">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>50</y>
+     <x>20</x>
+     <y>110</y>
      <width>221</width>
      <height>111</height>
     </rect>
@@ -29,7 +29,7 @@
    <property name="font">
     <font>
      <family>Forte</family>
-     <pointsize>18</pointsize>
+     <pointsize>24</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -44,9 +44,9 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>230</y>
-     <width>761</width>
-     <height>101</height>
+     <y>215</y>
+     <width>841</width>
+     <height>103</height>
     </rect>
    </property>
    <property name="font">
@@ -56,36 +56,71 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QListWidget::item:selected{
-	background-color:rgba(33, 84, 118, 100);
+    <string notr="true">QListWidget {
+    
+	background-image: url(:/new/back/photos/back/back4.jpg);
+    border: 1px solid rgb(231, 231, 231);
 }
-QListWidget::item:hover { background-color: rgb(255, 221, 233); }
- // 设置垂直滚动条基本样式
-QScrollBar:vertical
-{
-    width:8px;
-    background:rgba(0,0,0,0%);
-    margin:0px,0px,0px,0px;
-    padding-top:9px;   // 留出9px给上面和下面的箭头
-    padding-bottom:9px;
+
+QScrollArea {
+    border-radius: 5px;
 }
-QScrollBar::handle:vertical
-{
-    width:8px;
-    background:rgba(0,0,0,25%);
-    border-radius:4px;   // 滚动条两端变成椭圆
-    min-height:20;
+
+QScrollBar:vertical {
+    width: 10px;
+    border: 0px solid;
+    margin: 0px;
+    background: #e1f0fa;
 }
-QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   // 当滚动条滚动的时候，上面的部分和下面的部分
-{
-    background:rgba(0,0,0,10%);
-    border-radius:4px;
+
+QScrollBar:vertical:hover {
+    width: 10px;
+    border: 0px solid;
+    margin: 0px;
+    background: #e1f0fa;
 }
-QListWidget
-{
-background-color: rgb(15, 172, 220);
-border-radius:20px;
-border:1px rgb(231, 231, 231);
+
+QScrollBar::handle:vertical {
+    width: 10px;
+    background: #c0ddee;
+    border-radius: 5px;
+    height: 40px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #c0ddee;
+    border-radius: 5px;
+}
+
+QScrollBar::add-line:vertical {
+    height: 11px;
+    width: 10px;
+    subcontrol-position: bottom;
+    border: 0px solid;
+    border-radius: 5px;
+}
+
+QScrollBar::sub-line:vertical {
+    height: 11px;
+    width: 10px;
+    subcontrol-position: top;
+    border: 0px solid;
+    border-radius: 5px;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: #e1f0fa;
+    border-radius: 5px;
+}
+
+QScrollBar::up-arrow:vertical {
+    border: 0px solid;
+    border-radius: 3px;
+}
+
+QScrollBar::down-arrow:vertical {
+    border: 0px solid;
+    border-radius: 3px;
 }
 </string>
    </property>
@@ -100,33 +135,54 @@ border:1px rgb(231, 231, 231);
      </font>
     </property>
    </item>
-  </widget>
-  <widget class="QLabel" name="NewsPicLabel">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>170</y>
-     <width>761</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true"/>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="newsPic3.qrc">:/new/news/photos/HomePage.jpg</pixmap>
-   </property>
+   <item>
+    <property name="text">
+     <string>新建项目</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>新建项目</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>新建项目</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>新建项目</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>新建项目</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>新建项目</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>新建项目</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>新建项目</string>
+    </property>
+   </item>
   </widget>
   <widget class="QLabel" name="NewsPic2">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>10</y>
-     <width>761</width>
-     <height>151</height>
+     <y>0</y>
+     <width>831</width>
+     <height>201</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -139,173 +195,11 @@ border:1px rgb(231, 231, 231);
     <pixmap resource="newsPic2.qrc">:/new/news/photos/f6.jpg</pixmap>
    </property>
   </widget>
-  <widget class="QFrame" name="Newsframe">
-   <property name="geometry">
-    <rect>
-     <x>770</x>
-     <y>10</y>
-     <width>51</width>
-     <height>321</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: qradialgradient(spread:repeat, cx:0.5, cy:0.5, radius:0.077, fx:0.5, fy:0.5, stop:0 rgba(213, 241, 255, 76), stop:0.497326 rgba(178, 181, 182, 71), stop:1 rgba(137, 215, 255, 129));</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>51</width>
-      <height>321</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="font">
-        <font>
-         <family>华文行楷</family>
-         <pointsize>24</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgba(255, 9, 9, 227);</string>
-       </property>
-       <property name="text">
-        <string>热</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_2">
-       <property name="font">
-        <font>
-         <family>华文行楷</family>
-         <pointsize>24</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgba(255, 9, 9, 227);</string>
-       </property>
-       <property name="text">
-        <string>股</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_3">
-       <property name="font">
-        <font>
-         <family>华文行楷</family>
-         <pointsize>24</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgba(255, 9, 9, 227);</string>
-       </property>
-       <property name="text">
-        <string>新</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_4">
-       <property name="font">
-        <font>
-         <family>华文行楷</family>
-         <pointsize>24</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgba(255, 9, 9, 227);</string>
-       </property>
-       <property name="text">
-        <string>闻</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_5">
-       <property name="font">
-        <font>
-         <family>华文行楷</family>
-         <pointsize>22</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgba(255, 9, 9, 227);</string>
-       </property>
-       <property name="text">
-        <string>一</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_6">
-       <property name="font">
-        <font>
-         <family>华文行楷</family>
-         <pointsize>24</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgba(255, 9, 9, 227);</string>
-       </property>
-       <property name="text">
-        <string>点</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_7">
-       <property name="font">
-        <font>
-         <family>华文行楷</family>
-         <pointsize>24</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgba(255, 9, 9, 227);</string>
-       </property>
-       <property name="text">
-        <string>即</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_8">
-       <property name="font">
-        <font>
-         <family>华文行楷</family>
-         <pointsize>24</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgba(255, 9, 9, 227);</string>
-       </property>
-       <property name="text">
-        <string>有</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-  </widget>
   <zorder>NewsPic2</zorder>
-  <zorder>NewsPicLabel</zorder>
   <zorder>NewsLable</zorder>
   <zorder>NewsList</zorder>
-  <zorder>Newsframe</zorder>
  </widget>
  <resources>
-  <include location="newsPic3.qrc"/>
   <include location="newsPic2.qrc"/>
  </resources>
  <connections/>

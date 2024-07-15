@@ -2,8 +2,9 @@
 #define BUYIN_H
 
 #include <QWidget>
-#include<QString>
+#include <QString>
 #include <QMessageBox>
+#include "istmcharts.h"
 #include "global.h"
 #include "risknotice.h"
 

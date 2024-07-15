@@ -6,16 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>553</width>
-    <height>555</height>
+    <width>544</width>
+    <height>542</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">
-</string>
+   <string notr="true"/>
   </property>
   <widget class="QPushButton" name="changeintroduction">
    <property name="geometry">
@@ -49,8 +48,8 @@
   <widget class="QTextEdit" name="personalDescribeEdit">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>110</y>
+     <x>120</x>
+     <y>50</y>
      <width>281</width>
      <height>31</height>
     </rect>
@@ -404,8 +403,8 @@ color:white;</string>
   <widget class="QLabel" name="personBaclabel">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>-100</y>
+     <x>-10</x>
+     <y>-110</y>
      <width>811</width>
      <height>761</height>
     </rect>

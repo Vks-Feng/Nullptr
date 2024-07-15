@@ -2,6 +2,7 @@
 #include "ui_buyin.h"
 #include "mainwindow.h"
 
+
 buyin::buyin(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::buyin)
@@ -9,6 +10,13 @@ buyin::buyin(QWidget *parent)
     ui->setupUi(this);
     this->setFixedSize(this->width(), this->height());
     initBuyInSellOut();
+
+    IstmCharts* item=new IstmCharts;
+    ui->verticalLayout->addWidget(item);
+    item->ChangeStock(0);
+
+    connect(ui->BuyInStockCodeBox, QOverload<int>::of(&QComboBox::currentIndexChanged),
+            item, &IstmCharts::ChangeStock);
 }
 
 buyin::~buyin()
