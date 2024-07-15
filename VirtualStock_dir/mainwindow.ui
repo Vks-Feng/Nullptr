@@ -66,8 +66,8 @@ background-color: rgba(206, 225, 240, 150);</string>
     <widget class="QStackedWidget" name="selectpage">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>-10</y>
+       <x>0</x>
+       <y>0</y>
        <width>851</width>
        <height>641</height>
       </rect>
@@ -80,7 +80,7 @@ background-color: rgba(206, 225, 240, 150);</string>
       <enum>QFrame::Panel</enum>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="selectpage1">
       <widget class="QWidget" name="verticalLayoutWidget_2">
@@ -559,7 +559,7 @@ QComboBox QAbstractItemView:item:hover {
         </property>
        </item>
       </widget>
-      <widget class="QWidget" name="StockWidget_1" native="true">
+      <widget class="QCustomPlot" name="StockWidget_1" native="true">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1350,17 +1350,25 @@ QPushButton:checked
    <zorder>ChargeButton</zorder>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header location="global">qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
+  <include location="rankIcon.qrc"/>
   <include location="homeIcon.qrc"/>
+  <include location="rechargeIcon.qrc"/>
+  <include location="back.qrc"/>
+  <include location="GroupLogo.qrc"/>
   <include location="ruleIcon.qrc"/>
+  <include location="Icon.qrc"/>
   <include location="trendIcon.qrc"/>
   <include location="communityIcon.qrc"/>
   <include location="peresonIcon.qrc"/>
-  <include location="Icon.qrc"/>
-  <include location="rechargeIcon.qrc"/>
-  <include location="back.qrc"/>
-  <include location="rankIcon.qrc"/>
-  <include location="GroupLogo.qrc"/>
  </resources>
  <connections/>
 </ui>

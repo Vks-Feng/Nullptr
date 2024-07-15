@@ -12,7 +12,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++17
 
-#QMAKE_CXXFLAGS += -Wa,-mbig-obj
+QMAKE_CXXFLAGS += -Wa,-mbig-obj
 # 允许编译更大的文件
 
 #unix {
@@ -46,6 +46,7 @@ SOURCES += \
     personpage.cpp \
     portfolio.cpp \
     post.cpp \
+    qcustomplot.cpp \
     record.cpp \
     risknotice.cpp \
     sonforum.cpp \
@@ -79,6 +80,7 @@ HEADERS += \
     personpage.h \
     portfolio.h \
     post.h \
+    qcustomplot.h \
     record.h \
     risknotice.h \
     sonforum.h \

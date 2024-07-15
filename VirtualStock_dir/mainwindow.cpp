@@ -218,10 +218,10 @@ MainWindow::MainWindow(QWidget *parent) :
     //股票界面相关
     //尝试将股票的信息挂载到股票界面的layout中
     // 找到占位部件
-    ChartSpline *_chartSpline_1=new ChartSpline;
+    // ChartSpline *_chartSpline_1=new ChartSpline;
     ChartSpline *_chartSpline_2=new ChartSpline;
 
-    _chartSpline_1->ChangeStock(0);
+    // _chartSpline_1->ChangeStock(0);
     _chartSpline_2->ChangeStock(1);
     PutCompanyName_1(0);
     PutCompanyName_2(1);
@@ -232,8 +232,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // 在股票界面设置显示哪一只股票
     // 随机显示一家公司的股票
 
-    connect(ui->ChooseWhichStock_1, QOverload<int>::of(&QComboBox::currentIndexChanged),
-            _chartSpline_1, &ChartSpline::ChangeStock);
+   // connect(ui->ChooseWhichStock_1, QOverload<int>::of(&QComboBox::currentIndexChanged),_chartSpline_1, &ChartSpline::ChangeStock);
 
     connect(ui->ChooseWhichStock_2, QOverload<int>::of(&QComboBox::currentIndexChanged),
             _chartSpline_2, &ChartSpline::ChangeStock);
@@ -252,7 +251,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // 设置 chartspline 对象到占位部件的位置
     QVBoxLayout *layout_1 = new QVBoxLayout(placeholder_1);
     QVBoxLayout *layout_2 = new QVBoxLayout(placeholder_2);
-    layout_1->addWidget(_chartSpline_1);
+    // layout_1->addWidget(_chartSpline_1);
     layout_2->addWidget(_chartSpline_2);
     //    placeholder->setLayout(layout);
 
@@ -560,7 +559,119 @@ void MainWindow::showCustomDialog() {
     dialog1.exec();
 }
 
+void MainWindow::setnew(int company_id){
+    ui->StockWidget_1->clearGraphs();
+    ui->StockWidget_1->clearItems();
+    ui->StockWidget_1->clearPlottables();
+    ui->StockWidget_1->clearMask();
+    ui->StockWidget_1->clearFocus();
+    customPlot=ui->StockWidget_1;
+    int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
+    int months=Global::instance().getGlobalDataBase()->getTime(userID);
+    QColor BrushPositive("#ec0000");
+    QColor PenPositive("#8a0000");
+    QColor BrushNegative("#00da3c");
+    QColor PenNegative("#008f28");
 
+    QVector<QString> rawTimes = {
+        "1","2","3","4","5"
+    };
+    for(int i=0;i<months;i++){
+        rawTimes.push_back(QString::number(i+6));
+    }
+
+    // 数据意义：开盘(open)，收盘(close)，最低(lowest)，最高(highest)
+
+    QVector<QVector<double>> rawDatas =Global::instance().getGlobalDataBase()->getRawDatas(company_id+1,months);
+    QSharedPointer<QCPAxisTickerText> textTicker(new MyAxisTickerText);     // 文字轴
+    textTicker->setTickCount(10);
+    QCPDataContainer<QCPFinancialData> datas;
+    QVector<double> timeDatas, MA5Datas, MA10Datas, MA20Datas, MA30Datas;
+
+    MA5Datas = calculateMA(rawDatas, 5);
+    MA10Datas = calculateMA(rawDatas, 10);
+    MA20Datas = calculateMA(rawDatas, 20);
+    MA30Datas = calculateMA(rawDatas, 30);
+
+    for (int i = 0; i < rawTimes.size(); ++i) {
+        timeDatas.append(i);
+
+        QCPFinancialData data;
+        data.key = i;
+        data.open = rawDatas.at(i).at(0);
+        data.close = rawDatas.at(i).at(1);
+        data.low = rawDatas.at(i).at(2);
+        data.high = rawDatas.at(i).at(3);
+        datas.add(data);
+
+        textTicker->addTick(i, rawTimes.at(i));
+
+    }
+
+
+    QCPFinancial *financial = new QCPFinancial(customPlot->xAxis, customPlot->yAxis);
+    financial->setName("日K");
+    financial->setBrushPositive(BrushPositive);
+    financial->setPenPositive(PenPositive);
+    financial->setBrushNegative(BrushNegative);
+    financial->setPenNegative(PenNegative);
+    financial->data()->set(datas);
+
+    QVector<QColor> ColorOptions = {
+        "#c23531", "#2f4554", "#61a0a8", "#d48265"
+    };
+
+    QCPGraph *graph = customPlot->addGraph();
+
+    graph->setName("MA5");
+    graph->setData(timeDatas, MA5Datas);
+    graph->setPen(ColorOptions.at(0));
+    graph->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, QPen(ColorOptions.at(0), 2), QBrush(Qt::white), 8));
+
+    graph = customPlot->addGraph();
+    graph->setName("MA10");
+    graph->setData(timeDatas, MA10Datas);
+    graph->setPen(ColorOptions.at(1));
+    graph->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, QPen(ColorOptions.at(1), 2), QBrush(Qt::white), 8));
+    graph = customPlot->addGraph();
+    graph->setName("MA20");
+    graph->setData(timeDatas, MA20Datas);
+    graph->setPen(ColorOptions.at(2));
+    graph->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, QPen(ColorOptions.at(2), 2), QBrush(Qt::white), 8));
+
+    graph = customPlot->addGraph();
+    graph->setName("MA30");
+    graph->setData(timeDatas, MA30Datas);
+    graph->setPen(ColorOptions.at(3));
+    graph->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, QPen(ColorOptions.at(3), 2), QBrush(Qt::white), 8));
+
+    customPlot->xAxis->setTicker(textTicker);
+    customPlot->rescaleAxes();
+    customPlot->xAxis->scaleRange(1.05, customPlot->xAxis->range().center());
+    customPlot->yAxis->scaleRange(1.05, customPlot->yAxis->range().center());
+    customPlot->legend->setVisible(false);
+    customPlot->replot();
+
+}
+
+
+QVector<double> MainWindow::calculateMA(const QVector<QVector<double> > &v, int dayCount)
+{
+    auto func = [](double result, const QVector<double> &v2){
+        return result + v2[1];
+    };
+
+    QVector<double> result;
+    for (int i = 0; i < v.size(); ++i) {
+        if (i < dayCount) {
+            result.append(qQNaN());
+        } else {
+            double sum = std::accumulate(v.begin() + i - dayCount + 1, v.begin() + i + 1, 0.0, func);
+            result.append(sum / dayCount);
+        }
+    }
+    return result;
+}
 
 // void MainWindow::paintEvent(QPaintEvent *event)
 // {
@@ -588,4 +699,10 @@ void MainWindow::showCustomDialog() {
 //     custompainter.fillRect(rect(),Qt::white);
 
 // }
+
+
+void MainWindow::on_ChooseWhichStock_1_currentIndexChanged(int index)
+{
+    setnew(index);
+}
 
