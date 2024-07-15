@@ -39,8 +39,13 @@ background-color:transparent;</string>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
    </property>
+<!--<<<<<<< HEAD-->
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
+<!--=======
+   <property name="currentIndex">
+    <number>0</number>
+>>>>>>> 40b5d189bac3d18d61b4bad55ed502fd642d6944-->
    </property>
    <widget class="QFrame" name="frame_3">
     <property name="geometry">
@@ -1334,6 +1339,9 @@ QPushButton:checked
   </widget>
  </widget>
  <resources>
+
+
+<!--<<<<<<< HEAD-->
   <include location="homeIcon.qrc"/>
   <include location="communityIcon.qrc"/>
   <include location="ruleIcon.qrc"/>
@@ -1344,6 +1352,17 @@ QPushButton:checked
   <include location="GroupLogo.qrc"/>
   <include location="rechargeIcon.qrc"/>
   <include location="back.qrc"/>
+<!--=======
+  <include location="trendIcon.qrc"/>
+  <include location="peresonIcon.qrc"/>
+  <include location="rechargeIcon.qrc"/>
+  <include location="Icon.qrc"/>
+  <include location="communityIcon.qrc"/>
+  <include location="rankIcon.qrc"/>
+  <include location="ruleIcon.qrc"/>
+  <include location="GroupLogo.qrc"/>
+  <include location="homeIcon.qrc"/>
+>>>>>>> 40b5d189bac3d18d61b4bad55ed502fd642d6944-->
  </resources>
  <connections/>
 </ui>

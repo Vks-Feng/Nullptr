@@ -41,8 +41,8 @@
       <rect>
        <x>440</x>
        <y>10</y>
-       <width>351</width>
-       <height>221</height>
+       <width>331</width>
+       <height>191</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -50,19 +50,6 @@
      </property>
      <property name="text">
       <string/>
-     </property>
-    </widget>
-    <widget class="QWidget" name="buyinBrandChart" native="true">
-     <property name="geometry">
-      <rect>
-       <x>439</x>
-       <y>240</y>
-       <width>351</width>
-       <height>210</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
     <widget class="QWidget" name="layoutWidget">
@@ -284,6 +271,17 @@
      <property name="text">
       <string>确定下单</string>
      </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>200</y>
+       <width>361</width>
+       <height>201</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout"/>
     </widget>
    </widget>
    <widget class="QWidget" name="SellOutPage">

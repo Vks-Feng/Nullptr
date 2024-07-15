@@ -32,6 +32,7 @@ SOURCES += \
     enroll.cpp \
     forum.cpp \
     global.cpp \
+    istmcharts.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -63,6 +64,7 @@ HEADERS += \
     enroll.h \
     forum.h \
     global.h \
+    istmcharts.h \
     login.h \
     mainwindow.h \
     mainwindow.h \
@@ -88,6 +90,7 @@ FORMS += \
     chartspline.ui \
     enroll.ui \
     forum.ui \
+    istmcharts.ui \
     login.ui \
     mainwindow.ui \
     newsdialog.ui \
