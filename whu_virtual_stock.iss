@@ -21,6 +21,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
+Source: "C:\Program Files\MySQL\MySQL Server 8.0\lib\libmysql.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\VirtualStock.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\*.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\generic\*"; DestDir: "{app}\generic"; Flags: ignoreversion recursesubdirs createallsubdirs
@@ -31,6 +32,7 @@ Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFold
 Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\styles\*"; DestDir: "{app}\styles"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\tls\*"; DestDir: "{app}\tls"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\translations\*"; DestDir: "{app}\translations"; Flags: ignoreversion recursesubdirs createallsubdirs
+
 
 [Icons]
 Name: "{group}\VirtualStock"; Filename: "{app}\VirtualStock.exe"
