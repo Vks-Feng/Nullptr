@@ -1222,9 +1222,6 @@ int BackDB::getUserId(QString name)
 }
 
 
-
-
-
 void BackDB::testGetNews()
 {
     std::map<int, std::vector<QString>> test=this->getNews(12);
