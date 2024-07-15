@@ -549,7 +549,7 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 }
 
 void MainWindow::refreshForum(){
-    ui->Forum_layout->removeWidget(forum_widget);
+    forum_widget->close();
     forum_widget = new forum;
     ui->selectpage5_forum->setLayout(ui->Forum_layout);
     ui->Forum_layout->addWidget(forum_widget);
