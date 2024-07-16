@@ -27,7 +27,7 @@ buyin::buyin(QWidget *parent)
             item_1, &IstmCharts::ChangeStock);
 
     connect(ui->SellOutStockCodeBox, QOverload<int>::of(&QComboBox::currentIndexChanged),
-            item_1, &IstmCharts::ChangeStock);
+            item_2, &IstmCharts::ChangeStock);
 }
 
 buyin::~buyin()
