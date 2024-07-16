@@ -142,5 +142,7 @@ float Personpage::lastcurrency(){
             lastvalue+=stockcurrency[i];//上月总收益
             return lastvalue;
         }}
+
+    return lastvalue;
 }
 
