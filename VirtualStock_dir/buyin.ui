@@ -33,7 +33,7 @@
     <enum>QFrame::NoFrame</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="BuyinPage">
     <widget class="QLabel" name="buyinBrandIcon">
@@ -965,6 +965,11 @@ QScrollBar::sub-line:vertical {
      <row>
       <property name="text">
        <string>JetBlue</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>Meta</string>
       </property>
      </row>
      <row>

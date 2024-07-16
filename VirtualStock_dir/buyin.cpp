@@ -318,14 +318,6 @@ void buyin::recordTableUpdate(){
 void buyin::holdingTableUpdate(){
     ui->holdingTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->holdingTable->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-//    for(int i = 0; i < 3; i++){
-//        ui->holdingTable->resizeColumnToContents(0);
-//        ui->holdingTable->resizeColumnToContents(1);
-//        ui->holdingTable->resizeColumnToContents(2);
-//    }
-//    for(int i = 0; i < 8; i++){
-//        ui->holdingTable->resizeRowToContents(i);
-//    }
     int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
     Portfolio* userHoldings = &Global::instance().getGlobalDataBase()->getUserPortfolio(userID);
     QTableWidgetItem* iHolding;
