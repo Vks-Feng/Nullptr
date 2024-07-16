@@ -44,9 +44,7 @@ void IstmCharts::ChangeStock(int company_id)
 //-------------------------Get the data of the IBM from database
 
 
-//        BackDB test = *Global::instance().getGlobalDataBase();
-
-        BackDB test;
+        BackDB test = *Global::instance().getGlobalDataBase();
 
         QString queryStr = QString("SELECT month, value FROM lstm_predict \
                                     WHERE company_name = '%1' \
