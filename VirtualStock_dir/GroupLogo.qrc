@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/new/logo">
+        <file>photos/logo.jpg</file>
+        <file>photos/Amazon.png</file>
+        <file>photos/Apple.png</file>
+        <file>photos/Google.png</file>
+        <file>photos/Intel.png</file>
+        <file>photos/JetBlue.png</file>
+        <file>photos/Meta.png</file>
+        <file>photos/IBM.png</file>
+        <file>photos/Microsoft.png</file>
+    </qresource>
+</RCC>

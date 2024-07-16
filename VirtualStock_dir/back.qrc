@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/new/back">
+        <file>photos/back/back2.jpg</file>
+        <file>photos/back/back3.jpg</file>
+        <file>photos/back/back4.jpg</file>
+        <file>photos/back/back5.jpg</file>
+        <file>photos/back/back6.jpg</file>
+        <file>photos/back/back7.jpg</file>
+        <file>photos/back/back8.jpg</file>
+        <file>photos/back/sForumBack.png</file>
+    </qresource>
+</RCC>

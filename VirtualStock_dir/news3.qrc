@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/new/news3">
+        <file>photos/HomePage.jpg</file>
+    </qresource>
+    <qresource prefix="/new/news"/>
+</RCC>

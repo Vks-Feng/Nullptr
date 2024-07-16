@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/new/login">
+        <file>photos/button.png</file>
+    </qresource>
+</RCC>

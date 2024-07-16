@@ -1,0 +1,22 @@
+在本文件夹中，LF创建了两个新的文件夹
+
+1. lib 用于存放 mysqlclient.lib （原本存放在mysql的路径之下）
+2. _include（直接用include会因为是关键字从而导致无法识别） ，是 mysql对应的实现目录（也将其复制过来）
+
+最终对应.pro文件中
+--------------------------------------
+### 1. Add the llibmysql
+win32: LIBS += -L$$PWD/../lib/ -llibmysql
+
+INCLUDEPATH += $$PWD/../_include
+DEPENDPATH += $$PWD/../_include
+
+
+### 2. Add the libmysqlclient
+win32: LIBS += -L$$PWD/../lib/ -lmysqlclient
+
+INCLUDEPATH += $$PWD/../_include
+DEPENDPATH += $$PWD/../_include
+---------------------------------------
+
+部分
