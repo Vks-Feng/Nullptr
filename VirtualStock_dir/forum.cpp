@@ -60,14 +60,18 @@ forum::forum(QWidget *parent):QWidget(parent){
     // 创建提交刷新按钮
     QPushButton *submitButton = new QPushButton("我要发新帖");
     submitButton->setFixedWidth(100);
+    submitButton->setStyleSheet("background-color:rgba(118, 163, 203, 100);");
     leftLayout->addWidget(submitButton, 0, 1);
     connect(submitButton, &QPushButton::clicked, this, &forum::onSubmitClicked);
     QPushButton *refreashButton = new QPushButton("刷新");
+    refreashButton->setStyleSheet("background-color:rgba(118, 163, 203, 100)");
     refreashButton->setFixedWidth(50);
     leftLayout->addWidget(refreashButton, 0, 2);
     // 创建输入文本框
     com = new QTextEdit();
     com->setFixedHeight(400);
+    com->setStyleSheet("background-color:rgba(118, 163, 203, 50)");
+
     leftLayout->addWidget(com, 1, 0,1,3);
     // 动态创建按钮并添加到布局中
 
@@ -111,7 +115,7 @@ forum::forum(QWidget *parent):QWidget(parent){
         button->setFixedHeight(150);
         button->setFixedWidth(350);
         button->setStyleSheet("QPushButton { font-size:16px}");
-        button->setStyleSheet("QPushButton { text-align: left; }");
+        button->setStyleSheet("QPushButton { text-align: left;background-color:rgba(118, 163, 203, 50) ; }");
         buttonLayout->addWidget(button, 2*row+1, 0);
         connect(button, &QPushButton::clicked, this, &forum::detail);
     }

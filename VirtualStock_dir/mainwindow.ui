@@ -80,7 +80,7 @@ background-color: rgba(206, 225, 240, 150);</string>
       <enum>QFrame::Panel</enum>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="selectpage1">
       <widget class="QWidget" name="verticalLayoutWidget_2">
@@ -118,7 +118,26 @@ border:1px rgb(231, 231, 231);
              <height>271</height>
             </rect>
            </property>
-           <layout class="QVBoxLayout" name="MainChartsLayout"/>
+           <layout class="QVBoxLayout" name="MainChartsLayout">
+            <item>
+             <widget class="QFrame" name="chartsFrame_3">
+              <property name="styleSheet">
+               <string notr="true">QFrame
+{
+background-color: rgba(206, 225, 240, 200);
+border-radius:10px;
+border:1px rgb(231, 231, 231);
+}</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </widget>
         </item>
@@ -695,59 +714,278 @@ QScrollBar::sub-line:vertical {
       </widget>
      </widget>
      <widget class="QWidget" name="selectpage4">
-      <widget class="QWidget" name="horizontalLayoutWidget">
+      <widget class="QLabel" name="label_9">
        <property name="geometry">
         <rect>
-         <x>9</x>
-         <y>9</y>
-         <width>511</width>
-         <height>231</height>
+         <x>0</x>
+         <y>10</y>
+         <width>111</width>
+         <height>41</height>
         </rect>
        </property>
-       <layout class="QHBoxLayout" name="RuleLayout">
-        <item>
-         <widget class="QPlainTextEdit" name="TransactionRule">
-          <property name="font">
-           <font>
-            <family>宋体</family>
-            <pointsize>11</pointsize>
-           </font>
-          </property>
-          <property name="plainText">
-           <string>1. 订单类型
-市价单：按当前市场价格立即买入或卖出股票。
-限价单：设定一个特定的价格买入或卖出股票，只有当市场价格达到设定价格时，订单才会被执行。
-止损单：在股票价格达到预定的触发价格时，按市价卖出，以限制损失。
-止盈单：在股票价格达到预定的触发价格时，按市价卖出，以确保获利。
-2. 交易规则
-竞价交易：股票买卖通过公开竞价进行，买方出价与卖方出价匹配时交易达成。
-涨跌停板：大多数股票市场设有涨跌停板限制，单日股票价格的波动不得超过一定百分比。例如，中国A股市场的日涨跌幅限制通常为10%。
-撮合机制：订单通过撮合机制成交，撮合机制通常有连续竞价和集合竞价两种方式。
-连续竞价：在交易时段内，系统实时撮合买卖订单。
-集合竞价：在开盘和收盘时段，系统集中撮合买卖订单。
-3. 交易费用
-佣金：证券公司收取的交易手续费，通常为交易金额的一定百分比。
-印花税：政府收取的税费，通常由卖方支付。
-过户费：股票过户时收取的费用。
-4. 交易数量
-最低交易单位：通常为一手，即100股。某些市场和股票可能有不同的规定。
-大宗交易：一次性交易大数量股票的交易方式，通常需要达到一定的交易金额或数量。
-5. 清算与交割
-T+0/T+1/T+2：不同市场有不同的清算交割制度。例如，美国市场通常采用T+2制度，即交易后两个工作日完成清算交割。
-结算：股票买卖完成后，通过结算机构进行资金和股票的交割。
-6. 交易限制
-短线交易：某些市场对频繁买卖同一只股票有一定限制。
-停牌：在某些情况下，股票可能会被临时停止交易，例如重大新闻发布或市场波动过大时。
-7. 信息披露
-实时行情：交易所提供实时的股票价格和交易量信息。
-公告披露：上市公司需及时披露影响股票价格的重要信息，如财务报告、重大合同等
-
-</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>16</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>时间系统</string>
+       </property>
       </widget>
+      <widget class="QPlainTextEdit" name="plainTextEdit_5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>721</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+       <property name="plainText">
+        <string>每个用户拥有自己的单独时间，从2023年1月到2023年12月是您的可操作时间段，当您每个月各种操作结束时，可以在主页点击下一轮按钮进入下一个月（如果您本月没有操作会提示），然后您可以看到一个报表，显示您这一轮各个股票为您带来的收益。</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="stockIntro_9">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>751</width>
+         <height>101</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Microsoft YaHei</family>
+         <pointsize>10</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">/*QFrame
+{
+background-color: rgba(206, 225, 240, 150);
+border-radius:10px;
+border:1px rgb(231, 231, 231);
+}*/
+background-color:rgba(255, 255, 255, 100);</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>160</y>
+         <width>121</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>16</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>股票买入</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="stockIntro_10">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>200</y>
+         <width>751</width>
+         <height>101</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Microsoft YaHei</family>
+         <pointsize>10</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:rgba(255, 255, 255, 100);</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="plainTextEdit_6">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>200</y>
+         <width>711</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+       <property name="plainText">
+        <string>在主界面的股票交易界面，可以选择买入股票，在这里选择公司id,会根据当前这只股票的当前股价和当前活动资产来显示最大买入量，然后可以填入自己的买入量点击交易即可。如果消耗的虚拟资产多于当前活动资产的80%，会报出一个风险提示，提醒您仔细思考</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>310</y>
+         <width>121</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>16</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>股票卖出</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="stockIntro_11">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>350</y>
+         <width>751</width>
+         <height>101</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Microsoft YaHei</family>
+         <pointsize>10</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">/*QFrame
+{
+background-color: rgba(206, 225, 240, 150);
+border-radius:10px;
+border:1px rgb(231, 231, 231);
+}*/
+background-color:rgba(255, 255, 255, 100);</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="plainTextEdit_7">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>350</y>
+         <width>731</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+       <property name="plainText">
+        <string>在主界面的股票交易界面，可以选择卖出股票，在这里选择公司id，会根据当前这支股票的股价和您当前这支股票的持有量来显示最大卖出量，然后可以填入自己的卖出量点击交易即可。</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>460</y>
+         <width>121</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>16</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>社区交流</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="plainTextEdit_8">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>520</y>
+         <width>731</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+       <property name="plainText">
+        <string>所有人只能看到自己的时间及之前轮数的帖子，如果小明在自己的10月发帖，还在6月的小刚是看不到这条帖子的
+</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="stockIntro_12">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>500</y>
+         <width>751</width>
+         <height>101</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Microsoft YaHei</family>
+         <pointsize>10</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:rgba(255, 255, 255, 100);</string>
+       </property>
+      </widget>
+      <zorder>label_9</zorder>
+      <zorder>stockIntro_9</zorder>
+      <zorder>plainTextEdit_5</zorder>
+      <zorder>label_10</zorder>
+      <zorder>stockIntro_10</zorder>
+      <zorder>plainTextEdit_6</zorder>
+      <zorder>label_11</zorder>
+      <zorder>stockIntro_11</zorder>
+      <zorder>plainTextEdit_7</zorder>
+      <zorder>label_12</zorder>
+      <zorder>stockIntro_12</zorder>
+      <zorder>plainTextEdit_8</zorder>
      </widget>
      <widget class="QWidget" name="selectpage5_forum">
       <widget class="QWidget" name="verticalLayoutWidget_6">
@@ -845,7 +1083,7 @@ QPushButton:checked
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="LogoLabel">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -1341,7 +1579,7 @@ QPushButton:checked
    <zorder>frame_3</zorder>
    <zorder>nextroundbutton</zorder>
    <zorder>timelabel</zorder>
-   <zorder>label</zorder>
+   <zorder>LogoLabel</zorder>
    <zorder>logo</zorder>
    <zorder>MainCloseButton</zorder>
    <zorder>Minimum_Button</zorder>
@@ -1369,6 +1607,16 @@ QPushButton:checked
   <include location="trendIcon.qrc"/>
   <include location="communityIcon.qrc"/>
   <include location="peresonIcon.qrc"/>
+  <include location="back.qrc"/>
+  <include location="trendIcon.qrc"/>
+  <include location="rechargeIcon.qrc"/>
+  <include location="rankIcon.qrc"/>
+  <include location="GroupLogo.qrc"/>
+  <include location="peresonIcon.qrc"/>
+  <include location="ruleIcon.qrc"/>
+  <include location="homeIcon.qrc"/>
+  <include location="communityIcon.qrc"/>
+  <include location="Icon.qrc"/>
  </resources>
  <connections/>
 </ui>

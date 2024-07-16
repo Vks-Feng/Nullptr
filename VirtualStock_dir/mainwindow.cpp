@@ -69,9 +69,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->logo->setScaledContents(true);//logo自适应大小
 
 
-    ui->selectpage4->setLayout(ui->RuleLayout);//规则介绍布局问题
+    //ui->selectpage4->setLayout(ui->RuleLayout);//规则介绍布局问题
     ui->selectpage->setCurrentIndex(0);//将页面切换逻辑使用按钮的click进行手动转换
-    ui->TransactionRule->setReadOnly(1);
+    //ui->TransactionRule->setReadOnly(1);
 
     //固定大小
     this->setFixedSize(this->width(),this->height());
@@ -137,6 +137,11 @@ MainWindow::MainWindow(QWidget *parent) :
     shadow_effect10->setBlurRadius(30);//阴影半径
     ui->stockIntro_2->setGraphicsEffect(shadow_effect10);
 
+    QGraphicsDropShadowEffect *shadow_effect11= new QGraphicsDropShadowEffect(this);
+    shadow_effect11->setOffset(0, 0);
+    shadow_effect11->setColor(QColor(38, 78, 119, 127)); //阴影颜色
+    shadow_effect11->setBlurRadius(30);//阴影半径
+    ui->LogoLabel->setGraphicsEffect(shadow_effect11);
 
     //设置跳转的槽函数
     connect(ui->Minimum_Button,&QPushButton::clicked,this,[=](){
@@ -407,7 +412,6 @@ void MainWindow::on_nextroundbutton_clicked()
        ui->timelabel->setText("模拟已结束");
        ui->TransactionButton->setDisabled(true);
        ui->nextroundbutton->setDisabled(true);
-
        ui->stockbutton1->setDisabled(true);
        ui->personpageBtn->setDisabled(true);
    }
@@ -539,11 +543,11 @@ void MainWindow::mousePressEvent(QMouseEvent *event){
         mousePoint = event->globalPos() - this->pos();
         //        event->accept();
     }
-    else if(event->button() == Qt::RightButton){
-        //如果是右键
-        this->close();
+    // else if(event->button() == Qt::RightButton){
+    //     //如果是右键
+    //     this->close();
 
-    }
+    // }
 }
 
 void MainWindow::mouseMoveEvent(QMouseEvent* event)
@@ -567,7 +571,6 @@ void MainWindow::refreshForum(){
 }
 
 void MainWindow::showCustomDialog() {
-
     Report* dialog1 = new Report;
     dialog1->exec();
 }
@@ -665,7 +668,7 @@ void MainWindow::setnew(int company_id){
     customPlot->yAxis->scaleRange(1.05, customPlot->yAxis->range().center());
     customPlot->legend->setVisible(false);
     customPlot->replot();
-
+    ui->StockWidget_1->setBackground(QColor(255,255,255,0));
 }
 
 

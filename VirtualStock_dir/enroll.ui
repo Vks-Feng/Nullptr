@@ -131,7 +131,31 @@ background-color:rgb(33, 84, 118);</string>
     <bool>false</bool>
    </property>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>-220</x>
+     <y>-10</y>
+     <width>791</width>
+     <height>311</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="back.qrc">:/new/back/photos/back/back4.jpg</pixmap>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>LoginTitle</zorder>
+  <zorder>line</zorder>
+  <zorder>verticalLayoutWidget</zorder>
+  <zorder>verticalLayoutWidget_2</zorder>
+  <zorder>registerButton</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="back.qrc"/>
+ </resources>
  <connections/>
 </ui>

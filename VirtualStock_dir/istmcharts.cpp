@@ -8,7 +8,7 @@ IstmCharts::IstmCharts(QWidget *parent) :
 {
     std::cout<<"Hello , in istm "<<std::endl;
     ui->setupUi(this);
-    this->setStyleSheet("background-color:white");
+    this->setStyleSheet("background-color:transparent;");
     ShowRandomStock();
 }
 
@@ -108,6 +108,7 @@ void IstmCharts::ChangeStock(int company_id)
         auto chart = new QChart;
         auto lineseries = new QLineSeries;
         QStringList categories;
+          chart->setBackgroundVisible(false);
         //lineseries->setName("总和");
 
         int time=Global:: instance().getGlobalDataBase()->getTime(Global::instance().getGlobalUserManage()->GetUser(0)->GetId());
@@ -146,6 +147,7 @@ void IstmCharts::ChangeStock(int company_id)
         chart->addSeries(lineseries);
 
         auto axisX = new QBarCategoryAxis;
+        axisX->setGridLineColor(QColor(255,255,255));
         axisX->append(categories);
 
         chart->addAxis(axisX, Qt::AlignBottom);
@@ -153,6 +155,7 @@ void IstmCharts::ChangeStock(int company_id)
 
 
         auto axisY = new QValueAxis;
+        axisY->setGridLineColor(QColor(255,255,255));
         chart->addAxis(axisY, Qt::AlignLeft);
         lineseries->attachAxis(axisY);
 

@@ -1,7 +1,7 @@
 <RCC>
-<<<<<<< HEAD
-    <qresource prefix="/new"/>
-=======
+<!--<<<<<<< HEAD-->
+<!--    <qresource prefix="/new"/>-->
+<!--=======-->
     <qresource prefix="/new/buyin"/>
->>>>>>> 7ab17b351c1a35c340611c3d60b45e0a5437bf9f
+<!-->>>>>>> 7ab17b351c1a35c340611c3d60b45e0a5437bf9f-->
 </RCC>

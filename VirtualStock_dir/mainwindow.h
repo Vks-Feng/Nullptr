@@ -28,7 +28,6 @@
 #include "report.h"
 
 
-
 namespace Ui {
 class MainWindow;
 }

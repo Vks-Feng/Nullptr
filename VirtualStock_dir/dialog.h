@@ -3,9 +3,7 @@
 #include <QDialog>
 #include <QTableWidget>
 #include <QTableWidgetItem>
-
 #include <QHeaderView>
-
 #include <QVBoxLayout>
 #include <QPushButton>
 #include "global.h"
@@ -15,8 +13,6 @@ public:
     dialog(QWidget *parent = nullptr) : QDialog(parent) {
         auto *layout = new QVBoxLayout(this);
         int userID = Global::instance().getGlobalUserManage()->GetUser(0)->GetId();
-
-
         QStringList headerLabels;
         headerLabels << "公司股票"<< "上月股价"<<"本月股价"<< "持有量"<<"上月总股价"<<"本月总股价"<<"盈亏"<<"盈利率";
         tableWidget->setHorizontalHeaderLabels(headerLabels);

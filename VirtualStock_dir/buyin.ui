@@ -33,7 +33,7 @@
     <enum>QFrame::NoFrame</enum>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="BuyinPage">
     <widget class="QLabel" name="buyinBrandIcon">
@@ -357,32 +357,44 @@ QComboBox QAbstractItemView:item:hover {
       <string>确定下单</string>
      </property>
     </widget>
+    <widget class="QPlainTextEdit" name="stockIntro_3">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>230</y>
+       <width>351</width>
+       <height>221</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei</family>
+       <pointsize>10</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame
+{
+background-color: rgba(206, 225, 240, 150);
+border-radius:10px;
+border:1px rgb(231, 231, 231);
+}</string>
+     </property>
+    </widget>
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
        <x>440</x>
-       <y>240</y>
-       <width>361</width>
-       <height>201</height>
+       <y>230</y>
+       <width>351</width>
+       <height>221</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout"/>
     </widget>
    </widget>
    <widget class="QWidget" name="SellOutPage">
-    <widget class="QWidget" name="selloutBroadChart" native="true">
-     <property name="geometry">
-      <rect>
-       <x>439</x>
-       <y>240</y>
-       <width>351</width>
-       <height>210</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="selloutBrandIcon">
      <property name="geometry">
       <rect>
@@ -701,6 +713,42 @@ QComboBox QAbstractItemView:item:hover {
       <string>重填</string>
      </property>
     </widget>
+    <widget class="QPlainTextEdit" name="stockIntro_2">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>230</y>
+       <width>351</width>
+       <height>221</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei</family>
+       <pointsize>10</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame
+{
+background-color: rgba(206, 225, 240, 150);
+border-radius:10px;
+border:1px rgb(231, 231, 231);
+}</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>441</x>
+       <y>229</y>
+       <width>351</width>
+       <height>221</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_5"/>
+    </widget>
    </widget>
    <widget class="QWidget" name="RecordPage">
     <widget class="QTableWidget" name="RecordTable">
@@ -921,6 +969,11 @@ QScrollBar::sub-line:vertical {
      </row>
      <row>
       <property name="text">
+       <string>Meta</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
        <string>Microsoft</string>
       </property>
      </row>
@@ -1137,10 +1190,10 @@ QScrollBar::sub-line:vertical {
    <widget class="QPushButton" name="BuyInButton">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>119</width>
-      <height>51</height>
+      <x>30</x>
+      <y>0</y>
+      <width>121</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
@@ -1151,7 +1204,24 @@ QScrollBar::sub-line:vertical {
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);</string>
+     <string notr="true">QPushButton
+{  
+	color: rgb(255, 255, 255);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    background-color: rgb(100, 190, 223);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
+}
+
+</string>
     </property>
     <property name="text">
      <string>买入</string>
@@ -1163,10 +1233,10 @@ QScrollBar::sub-line:vertical {
    <widget class="QPushButton" name="IncomeButton">
     <property name="geometry">
      <rect>
-      <x>660</x>
-      <y>10</y>
+      <x>670</x>
+      <y>0</y>
       <width>119</width>
-      <height>51</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
@@ -1177,7 +1247,25 @@ QScrollBar::sub-line:vertical {
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);</string>
+     <string notr="true">QPushButton
+{  
+	color: rgb(255, 255, 255);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    background-color: rgb(100, 190, 223);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
+}
+
+
+</string>
     </property>
     <property name="text">
      <string>收益</string>
@@ -1189,10 +1277,10 @@ QScrollBar::sub-line:vertical {
    <widget class="QPushButton" name="PositionButton">
     <property name="geometry">
      <rect>
-      <x>500</x>
-      <y>10</y>
+      <x>510</x>
+      <y>0</y>
       <width>119</width>
-      <height>51</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
@@ -1203,7 +1291,24 @@ QScrollBar::sub-line:vertical {
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);</string>
+     <string notr="true">QPushButton
+{  
+	color: rgb(255, 255, 255);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    background-color: rgb(100, 190, 223);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
+}
+
+</string>
     </property>
     <property name="text">
      <string>持仓股票</string>
@@ -1215,10 +1320,10 @@ QScrollBar::sub-line:vertical {
    <widget class="QPushButton" name="TradingRecordButton">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>10</y>
+      <x>350</x>
+      <y>0</y>
       <width>119</width>
-      <height>51</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
@@ -1230,7 +1335,24 @@ QScrollBar::sub-line:vertical {
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);</string>
+     <string notr="true">QPushButton
+{  
+	color: rgb(255, 255, 255);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    background-color: rgb(100, 190, 223);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
+}
+
+</string>
     </property>
     <property name="text">
      <string>交易记录</string>
@@ -1242,10 +1364,10 @@ QScrollBar::sub-line:vertical {
    <widget class="QPushButton" name="SellOutButton">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>10</y>
+      <x>190</x>
+      <y>0</y>
       <width>119</width>
-      <height>51</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
@@ -1256,7 +1378,24 @@ QScrollBar::sub-line:vertical {
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);</string>
+     <string notr="true">QPushButton
+{  
+	color: rgb(255, 255, 255);
+    background:transparent; 
+}
+QPushButton:hover
+{
+	color: rgb(255, 255, 255);
+    background-color: rgb(100, 190, 223);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/new/login/photos/button.png);
+	color: rgb(255, 255, 255);
+}
+
+</string>
     </property>
     <property name="text">
      <string>卖出</string>
