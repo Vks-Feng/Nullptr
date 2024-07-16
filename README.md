@@ -40,7 +40,7 @@
 - **名称寓意**：队员个性随和，相处融洽
 
 - **团队logo**：
-
+![GroupLogo](https://github.com/Vks-Feng/Nullptr/blob/main/buxiangqiming.png)
 
 - **Logo寓意**：像牛马一样的我们。寓意我们勤勤恳恳，认真工作，绝不抱怨（vks：logo为ai生成，同时寓意着我们积极拥抱新技术，投身专业领域发展浪潮）
 
