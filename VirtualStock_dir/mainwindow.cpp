@@ -205,6 +205,8 @@ MainWindow::MainWindow(QWidget *parent) :
     if(monthss>12){
         ui->TransactionButton->setDisabled(true);
         ui->nextroundbutton->setDisabled(true);
+        ui->stockbutton1->setDisabled(true);
+        ui->personpageBtn->setDisabled(true);
     }
 
 
@@ -399,6 +401,8 @@ void MainWindow::on_nextroundbutton_clicked()
        ui->timelabel->setText("模拟已结束");
        ui->TransactionButton->setDisabled(true);
        ui->nextroundbutton->setDisabled(true);
+       ui->stockbutton1->setDisabled(true);
+       ui->personpageBtn->setDisabled(true);
    }
    else{
        if (found) {QMessageBox msg(QMessageBox::Question,"提示","是否进行到下一轮操作?",QMessageBox::Yes | QMessageBox::No,this);
@@ -556,8 +560,8 @@ void MainWindow::refreshForum(){
 }
 
 void MainWindow::showCustomDialog() {
-    dialog dialog1;
-    dialog1.exec();
+    Report* dialog1 = new Report;
+    dialog1->exec();
 }
 
 

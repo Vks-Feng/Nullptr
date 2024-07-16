@@ -104,7 +104,7 @@ forum::forum(QWidget *parent):QWidget(parent){
         QString fix;
         int l=load[m-row-1].getcontent().size();
         for(int i=0;i<l;i+=30){
-            fix+=load[m-row-1].getcontent().mid(i,30);
+            fix+=load[m-row-1].getcontent().mid(i,28);
             fix+="\n";
         }
         button = new QPushButton(temp+"\n"+"发帖人："+load[m-row-1].getid()+"\n"+fix, this);

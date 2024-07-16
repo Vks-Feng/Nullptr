@@ -24,7 +24,7 @@
 #include "forum.h"
 #include "global.h"
 #include "chartspline.h"
-
+#include "report.h"
 
 
 namespace Ui {
