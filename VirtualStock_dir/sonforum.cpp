@@ -4,9 +4,20 @@
 sonforum::sonforum(std::vector<Post>_load,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::sonforum)
-{   time=Global:: instance().getGlobalDataBase()->getTime(Global::instance().getGlobalUserManage()->GetUser(0)->GetId());
+{   /*time=Global:: instance().getGlobalDataBase()->getTime(Global::instance().getGlobalUserManage()->GetUser(0)->GetId());
     allnumber=_load.size();
-    load=_load;
+    load=_load;*/
+    time=Global:: instance().getGlobalDataBase()->getTime(Global::instance().getGlobalUserManage()->GetUser(0)->GetId());
+    std::vector<Post>__load;//这里应当重新获取数据库中的表格
+    __load=Global::instance().getGlobalDataBase()->getforum();
+    allnumber=__load.size();
+    int labal=_load[0].getthisid();
+    load.clear();
+    for(int i =0;i<allnumber;i++){
+        if(__load[i].getfatherid()==labal&&__load[i].getdate()<=time){
+            load.push_back(__load[i]);
+        }
+    }
     // 创建一个QGridLayout来管理按钮布局
     buttonLayout = new QGridLayout(this);
 
