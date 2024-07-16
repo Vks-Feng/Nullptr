@@ -3,7 +3,7 @@ QT       += charts
 QT       += sql
 QT       += network
 
-CONFIG += console
+#CONFIG += console
 CONFIG -= app_bundle
 
 LIBS += -lmysqlclient

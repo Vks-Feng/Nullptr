@@ -8,7 +8,8 @@ Login::Login(QWidget *parent) :
     this->setFixedSize(this->width(),this->height());
     this->setWindowFlags(Qt::FramelessWindowHint);
     connect(ui->DetailButton,&QPushButton::clicked,[=](){
-        QMessageBox::information(this,"详情","敬请期待");
+//        QMessageBox::information(this,"详情","敬请期待");
+         loginErrorNotification("开发团队:王子安 林帆 冯官晟 李卓优 郭静怡(◍ ´꒳` ◍)");
     });
 
     //connect(Global::instance().getGlobalClient(), &ClientSocket::signal_Receive_connectToDataBase, this, &Login::connectToDataBase);
