@@ -33,10 +33,7 @@ Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFold
 Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\tls\*"; DestDir: "{app}\tls"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\translations\*"; DestDir: "{app}\translations"; Flags: ignoreversion recursesubdirs createallsubdirs
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 416b36b40662d2044ca3f8f303de6ca4cf1e0002
 [Icons]
 Name: "{group}\VirtualStock"; Filename: "{app}\VirtualStock.exe"
 Name: "{group}\{cm:UninstallProgram,VirtualStock}"; Filename: "{uninstallexe}"
