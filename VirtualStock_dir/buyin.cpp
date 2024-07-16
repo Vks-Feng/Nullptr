@@ -19,7 +19,7 @@ buyin::buyin(QWidget *parent)
 
     // QVBoxLayout *_layout = new QVBoxLayout(ui->selloutBroadChart);
     IstmCharts* item_2=new IstmCharts;
-     ui->verticalLayout_5->addWidget(item_2);
+    ui->verticalLayout_5->addWidget(item_2);
     // _layout->addWidget(item_2);
     item_2->ChangeStock(0);
 

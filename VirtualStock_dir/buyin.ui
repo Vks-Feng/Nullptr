@@ -33,7 +33,7 @@
     <enum>QFrame::NoFrame</enum>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="BuyinPage">
     <widget class="QLabel" name="buyinBrandIcon">
@@ -357,47 +357,42 @@ QComboBox QAbstractItemView:item:hover {
       <string>确定下单</string>
      </property>
     </widget>
+    <widget class="QPlainTextEdit" name="stockIntro_3">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>230</y>
+       <width>351</width>
+       <height>221</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei</family>
+       <pointsize>10</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame
+{
+background-color: rgba(206, 225, 240, 150);
+border-radius:10px;
+border:1px rgb(231, 231, 231);
+}</string>
+     </property>
+    </widget>
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
        <x>440</x>
        <y>230</y>
        <width>351</width>
-       <height>211</height>
+       <height>221</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout"/>
     </widget>
-    <widget class="QFrame" name="frame_2">
-     <property name="geometry">
-      <rect>
-       <x>440</x>
-       <y>230</y>
-       <width>351</width>
-       <height>209</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QFrame
-{
-background-color: rgba(206, 225, 240, 100);
-border-radius:10px;
-border:1px rgb(231, 231, 231);
-}</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-    </widget>
-    <zorder>frame_2</zorder>
-    <zorder>buyinBrandIcon</zorder>
-    <zorder>layoutWidget</zorder>
-    <zorder>BuyResetButton</zorder>
-    <zorder>BuyComfirmButton</zorder>
-    <zorder>verticalLayoutWidget</zorder>
    </widget>
    <widget class="QWidget" name="SellOutPage">
     <widget class="QLabel" name="selloutBrandIcon">
@@ -718,40 +713,41 @@ QComboBox QAbstractItemView:item:hover {
       <string>重填</string>
      </property>
     </widget>
-    <widget class="QFrame" name="frame_3">
+    <widget class="QPlainTextEdit" name="stockIntro_2">
      <property name="geometry">
       <rect>
        <x>440</x>
        <y>230</y>
        <width>351</width>
-       <height>209</height>
+       <height>221</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei</family>
+       <pointsize>10</pointsize>
+       <bold>false</bold>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">QFrame
 {
-background-color: rgba(206, 225, 240, 100);
+background-color: rgba(206, 225, 240, 150);
 border-radius:10px;
 border:1px rgb(231, 231, 231);
 }</string>
      </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>441</x>
+       <y>229</y>
+       <width>351</width>
+       <height>221</height>
+      </rect>
      </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QWidget" name="verticalLayoutWidget_2">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>351</width>
-        <height>211</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_5"/>
-     </widget>
+     <layout class="QVBoxLayout" name="verticalLayout_5"/>
     </widget>
    </widget>
    <widget class="QWidget" name="RecordPage">
@@ -1189,23 +1185,23 @@ QScrollBar::sub-line:vertical {
    <widget class="QPushButton" name="BuyInButton">
     <property name="geometry">
      <rect>
-      <x>-2</x>
-      <y>-10</y>
-      <width>141</width>
-      <height>91</height>
+      <x>30</x>
+      <y>0</y>
+      <width>121</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>华文行楷</family>
+      <family>方正舒体</family>
       <pointsize>24</pointsize>
-      <bold>false</bold>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton
 {  
-	color: white;
+	color: rgb(255, 255, 255);
     background:transparent; 
 }
 QPushButton:hover
@@ -1219,6 +1215,7 @@ QPushButton:checked
     border-image: url(:/new/login/photos/button.png);
 	color: rgb(255, 255, 255);
 }
+
 </string>
     </property>
     <property name="text">
@@ -1231,23 +1228,23 @@ QPushButton:checked
    <widget class="QPushButton" name="IncomeButton">
     <property name="geometry">
      <rect>
-      <x>638</x>
+      <x>670</x>
       <y>0</y>
-      <width>181</width>
+      <width>119</width>
       <height>71</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>华文行楷</family>
-      <pointsize>24</pointsize>
-      <bold>false</bold>
+      <family>方正舒体</family>
+      <pointsize>22</pointsize>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton
 {  
-	color: white;
+	color: rgb(255, 255, 255);
     background:transparent; 
 }
 QPushButton:hover
@@ -1261,6 +1258,8 @@ QPushButton:checked
     border-image: url(:/new/login/photos/button.png);
 	color: rgb(255, 255, 255);
 }
+
+
 </string>
     </property>
     <property name="text">
@@ -1273,23 +1272,23 @@ QPushButton:checked
    <widget class="QPushButton" name="PositionButton">
     <property name="geometry">
      <rect>
-      <x>460</x>
+      <x>510</x>
       <y>0</y>
-      <width>181</width>
+      <width>119</width>
       <height>71</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>华文行楷</family>
-      <pointsize>24</pointsize>
-      <bold>false</bold>
+      <family>方正舒体</family>
+      <pointsize>22</pointsize>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton
 {  
-	color: white;
+	color: rgb(255, 255, 255);
     background:transparent; 
 }
 QPushButton:hover
@@ -1303,6 +1302,7 @@ QPushButton:checked
     border-image: url(:/new/login/photos/button.png);
 	color: rgb(255, 255, 255);
 }
+
 </string>
     </property>
     <property name="text">
@@ -1315,24 +1315,24 @@ QPushButton:checked
    <widget class="QPushButton" name="TradingRecordButton">
     <property name="geometry">
      <rect>
-      <x>290</x>
+      <x>350</x>
       <y>0</y>
-      <width>171</width>
-      <height>81</height>
+      <width>119</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>华文行楷</family>
-      <pointsize>24</pointsize>
+      <family>方正舒体</family>
+      <pointsize>22</pointsize>
       <italic>false</italic>
-      <bold>false</bold>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton
 {  
-	color: white;
+	color: rgb(255, 255, 255);
     background:transparent; 
 }
 QPushButton:hover
@@ -1346,6 +1346,7 @@ QPushButton:checked
     border-image: url(:/new/login/photos/button.png);
 	color: rgb(255, 255, 255);
 }
+
 </string>
     </property>
     <property name="text">
@@ -1358,23 +1359,23 @@ QPushButton:checked
    <widget class="QPushButton" name="SellOutButton">
     <property name="geometry">
      <rect>
-      <x>138</x>
-      <y>-10</y>
-      <width>161</width>
-      <height>91</height>
+      <x>190</x>
+      <y>0</y>
+      <width>119</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>华文行楷</family>
-      <pointsize>24</pointsize>
-      <bold>false</bold>
+      <family>方正舒体</family>
+      <pointsize>22</pointsize>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton
 {  
-	color: white;
+	color: rgb(255, 255, 255);
     background:transparent; 
 }
 QPushButton:hover
@@ -1388,6 +1389,7 @@ QPushButton:checked
     border-image: url(:/new/login/photos/button.png);
 	color: rgb(255, 255, 255);
 }
+
 </string>
     </property>
     <property name="text">
