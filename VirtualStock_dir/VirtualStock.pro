@@ -141,6 +141,7 @@ RESOURCES += \
     newsPic3.qrc \
     page1.qrc \
     peresonIcon.qrc \
+    personIcon.qrc \
     pullIcon.qrc \
     pullIcon3.qrc \
     pullIcon4.qrc \

@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/new/icon">
+        <file>photos/ActiveAssets.png</file>
+        <file>photos/EarningsRate.png</file>
+        <file>photos/EarningsRate2.png</file>
+        <file>photos/ProfitandLoss.png</file>
+        <file>photos/TotalAsset.png</file>
+        <file>photos/totalProfitandLoss.png</file>
+    </qresource>
+</RCC>

@@ -6,7 +6,16 @@ Personpage::Personpage(QWidget *parent) :
     ui(new Ui::Personpage)
 {
     ui->setupUi(this);
+
+    //标签插图，自适应大小
     ui->userPicLabel->setScaledContents(true);
+    ui->active_Label->setScaledContents(true);
+    ui->total_Label->setScaledContents(true);
+    ui->month_Label->setScaledContents(true);
+    ui->monthProfit_Label->setScaledContents(true);
+    ui->totalRate_Label->setScaledContents(true);
+    ui->totalProfit_Label->setScaledContents(true);
+
     Global::instance().getGlobalUserManage()->updateUser(0);
     ui->userName->setText(Global::instance().getGlobalUserManage()->GetUser(0)->GetName());
     ui->userName->setDisabled(true);
@@ -37,6 +46,7 @@ Personpage::Personpage(QWidget *parent) :
     ui->balanceTotalContent->setText(QString::number(thisall));
     ui->balanceTotalContent->setDisabled(true);
     this->setAttribute(Qt::WA_DeleteOnClose, true);
+    this->setWindowTitle("个人主页");
 }
 
 void Personpage::openChargePage(){

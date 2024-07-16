@@ -44,9 +44,9 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>215</y>
+     <y>217</y>
      <width>841</width>
-     <height>103</height>
+     <height>101</height>
     </rect>
    </property>
    <property name="font">
@@ -58,7 +58,7 @@
    <property name="styleSheet">
     <string notr="true">QListWidget {
     
-	background-image: url(:/new/back/photos/back/back4.jpg);
+	background-image: url(:/new/back/photos/back/back3.jpg);
     border: 1px solid rgb(231, 231, 231);
 }
 
@@ -182,7 +182,7 @@ QScrollBar::down-arrow:vertical {
      <x>0</x>
      <y>0</y>
      <width>831</width>
-     <height>201</height>
+     <height>191</height>
     </rect>
    </property>
    <property name="styleSheet">

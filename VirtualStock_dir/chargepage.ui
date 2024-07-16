@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(229, 250, 255);</string>
+  </property>
   <widget class="QLabel" name="ChargeTitle">
    <property name="geometry">
     <rect>
@@ -47,13 +50,17 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:white;
+border: 5px transparent;</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
      <x>60</x>
      <y>120</y>
-     <width>71</width>
+     <width>81</width>
      <height>31</height>
     </rect>
    </property>
@@ -78,8 +85,18 @@
    </property>
    <property name="font">
     <font>
-     <family>Microsoft YaHei</family>
+     <family>微软雅黑</family>
+     <pointsize>14</pointsize>
+     <italic>false</italic>
+     <bold>true</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(62, 105, 133);
+border-radius: 5px;
+color:white;
+font: 700 14pt &quot;微软雅黑&quot;;
+border: 1px solid rgb(25, 64, 90);</string>
    </property>
    <property name="text">
     <string>确认充值</string>
