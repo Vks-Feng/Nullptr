@@ -714,7 +714,8 @@ std::vector<Record> &BackDB::getUserRecord(int userID)//----------------
     MYSQL_RES* queryResult = this->query(strQuery);
 
     if (mysql_num_rows(queryResult) == 0) { //此处绝对不能用==NULL进行判定
-        std::cerr<<"Error: No UserRecord"<<std::endl;
+        std::cerr<<"1-Error: No UserRecord"<<std::endl;
+
         return *ReturnRecord;
     }
 
@@ -770,7 +771,7 @@ Portfolio &BackDB::getUserPortfolio(int userID)//-------------
     MYSQL_RES* queryResult = this->query(strQuery);
 
     if (mysql_num_rows(queryResult) == 0) { //此处绝对不能用==NULL进行判定
-        std::cerr<<"Error: No UserRecord"<<std::endl;
+        std::cerr<<"2-Error: No UserRecord"<<std::endl;
     }
 
     //获取实际数据
@@ -858,7 +859,7 @@ std::vector<Post> BackDB::getforum()
     MYSQL_RES* queryResult=this->query(strQuery);
 
     if (mysql_num_rows(queryResult) == 0) { //此处绝对不能用==NULL进行判定
-        std::cerr<<"Error: No UserRecord"<<std::endl;
+        std::cerr<<"3-Error: No UserRecord"<<std::endl;
         return ReturnRecord;
     }
 
@@ -943,7 +944,7 @@ std::map<int, std::vector<QString>>& BackDB::getNews(int _month)
 //    this->showQuery(strQuery);
 
     if (mysql_num_rows(queryResult) == 0) { //此处绝对不能用==NULL进行判定
-        std::cerr<<"Error: No UserRecord"<<std::endl;
+        std::cerr<<"4-Error: No UserRecord"<<std::endl;
         return *ReturnRecord;
     }
 
@@ -1062,7 +1063,7 @@ int BackDB::getTime(int _userId)
                        //    this->showQuery(strQuery);
 
                        if (mysql_num_rows(queryResult) == 0) { //此处绝对不能用==NULL进行判定
-        std::cerr<<"Error: No UserRecord"<<std::endl;
+        std::cerr<<"5-Error: No UserRecord"<<std::endl;
         return -1;
                        }
 

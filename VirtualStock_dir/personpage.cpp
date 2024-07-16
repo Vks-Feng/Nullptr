@@ -85,15 +85,16 @@ void Personpage::on_changeintroduction_clicked()
         }
     }
 }
+
 float Personpage::lastcurrency(){
     int thisall=Global::instance().getGlobalDataBase()->getTotalvalue(Global::instance().getGlobalUserManage()->GetUser(0)->GetId());//本月总资产
     int lastvalue = 0;//lastvalue是盈利钱数
     int time=Global::instance().getGlobalDataBase()->getTime(Global::instance().getGlobalUserManage()->GetUser(0)->GetId());
     if(time==1){lastvalue=0;}
     else{
+
         std::vector<Record>load=Global::instance().getGlobalDataBase()->getUserRecord(Global::instance().getGlobalUserManage()->GetUser(0)->GetId());
         int number=load.size();
-
         //获取所有当月股票的交易记录
         int havestock[9]={0};
 
@@ -140,7 +141,9 @@ float Personpage::lastcurrency(){
             //stockcurrency[i]就是该只股票带来的收益
 
             lastvalue+=stockcurrency[i];//上月总收益
-            return lastvalue;
-        }}
+
+        }
+    }
+    return lastvalue;
 }
 
