@@ -295,6 +295,8 @@ MainWindow::MainWindow(QWidget *parent) :
     // {
      ui->userRankingList->resizeColumnsToContents();
     // }
+     //k线
+     setnew(0);
 
     //新闻窗口
 
@@ -352,6 +354,7 @@ QString MainWindow::CompanyIntro(int index)
 
 
     };
+
     return company_profiles[index];
 }
 
