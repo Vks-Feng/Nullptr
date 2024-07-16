@@ -21,6 +21,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
+Source: "C:\Program Files\MySQL\MySQL Server 8.0\lib\libmysql.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\VirtualStock.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\*.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\generic\*"; DestDir: "{app}\generic"; Flags: ignoreversion recursesubdirs createallsubdirs
