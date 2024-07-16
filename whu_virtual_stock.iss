@@ -21,7 +21,10 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
+<<<<<<< HEAD
 Source: "C:\Program Files\MySQL\MySQL Server 8.0\lib\libmysql.dll"; DestDir: "{app}"; Flags: ignoreversion
+=======
+>>>>>>> 416b36b40662d2044ca3f8f303de6ca4cf1e0002
 Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\VirtualStock.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\*.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\generic\*"; DestDir: "{app}\generic"; Flags: ignoreversion recursesubdirs createallsubdirs
@@ -33,7 +36,10 @@ Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFold
 Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\tls\*"; DestDir: "{app}\tls"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "D:\2024SummerProject\2024SummerVirtualStokes\Version3\WindowsOutPutFolder\translations\*"; DestDir: "{app}\translations"; Flags: ignoreversion recursesubdirs createallsubdirs
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 416b36b40662d2044ca3f8f303de6ca4cf1e0002
 [Icons]
 Name: "{group}\VirtualStock"; Filename: "{app}\VirtualStock.exe"
 Name: "{group}\{cm:UninstallProgram,VirtualStock}"; Filename: "{uninstallexe}"

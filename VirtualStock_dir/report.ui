@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Report</class>
+ <widget class="QDialog" name="Report">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>854</width>
+    <height>507</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>841</width>
+     <height>441</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTableWidget {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.4); /* 设置透明度为0.9 */
+    border: 1px solid #242424;
+    alternate-background-color: #E0F7FA;
+    gridline-color: #242424;
+    font-size: 16px;
+}
+
+QTableWidget::item:selected {
+    color: black;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #B3E5FC, stop:1 #81D4FA);
+}
+
+QTableWidget::item:hover {
+    background: #B3E5FC;
+}
+
+QTableWidget::item:selected {
+    color: black;
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #B3E5FC, stop:1 #81D4FA);
+}
+
+QHeaderView::section {
+    text-align: center;
+    background: #9fcce5;
+    padding: 3px;
+    margin: 0px;
+    color: white;
+    border: 1px solid #242424;
+    border-left-width: 0;
+    font-size: 16px;
+}
+
+QScrollBar:vertical {
+    background: #E0F7FA;
+    padding: 0px;
+    border-radius: 6px;
+    max-width: 12px;
+}
+
+QScrollBar::handle:vertical {
+    background: #81D4FA;
+}
+
+QScrollBar::handle:hover:vertical, QScrollBar::handle:pressed:vertical {
+    background: #4FC3F7;
+}
+
+QScrollBar::sub-page:vertical {
+    background: #ffffff;
+}
+
+QScrollBar::add-page:vertical {
+    background: #E0F7FA;
+}
+
+QScrollBar::add-line:vertical {
+    background: none;
+}
+
+QScrollBar::sub-line:vertical {
+    background: none;
+}</string>
+   </property>
+   <column>
+    <property name="text">
+     <string>公司股票</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>上月股价</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>本月股价</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>持有量</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>新建列</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>上月总股价</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>盈亏</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>盈利率</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QPushButton" name="button">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>470</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>确认</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

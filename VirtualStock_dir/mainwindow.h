@@ -25,11 +25,14 @@
 #include "global.h"
 #include "chartspline.h"
 #include "qcustomplot.h"
+#include "report.h"
+
 
 
 namespace Ui {
 class MainWindow;
 }
+
 
 class MyAxisTickerText : public QCPAxisTickerText
 {
@@ -77,8 +80,10 @@ protected:
     void mouseMoveEvent(QMouseEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
+
     void setnew(int company_id);
     QVector<double> calculateMA(const QVector<QVector<double> > &v, int dayCount);
+
     // void paintEvent(QPaintEvent *event) override;
 
 private slots:
@@ -111,7 +116,9 @@ private:
     bool mouse_press;
     forum* forum_widget;
     buyin* buyin_widget;
+
     QCustomPlot* customPlot;
+
 };
 
 #endif // MAINWINDOW_H

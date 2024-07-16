@@ -103,12 +103,12 @@ forum::forum(QWidget *parent):QWidget(parent){
 
         QString fix;
         int l=load[m-row-1].getcontent().size();
-        for(int i=0;i<l;i+=30){
-            fix+=load[m-row-1].getcontent().mid(i,30);
+        for(int i=0;i<l;i+=28){
+            fix+=load[m-row-1].getcontent().mid(i,28);
             fix+="\n";
         }
         button = new QPushButton(temp+"\n"+"发帖人："+load[m-row-1].getid()+"\n"+fix, this);
-        button->setFixedHeight(100);
+        button->setFixedHeight(150);
         button->setFixedWidth(350);
         button->setStyleSheet("QPushButton { font-size:16px}");
         button->setStyleSheet("QPushButton { text-align: left; }");

@@ -205,6 +205,8 @@ MainWindow::MainWindow(QWidget *parent) :
     if(monthss>12){
         ui->TransactionButton->setDisabled(true);
         ui->nextroundbutton->setDisabled(true);
+        ui->stockbutton1->setDisabled(true);
+        ui->personpageBtn->setDisabled(true);
     }
 
 
@@ -251,7 +253,9 @@ MainWindow::MainWindow(QWidget *parent) :
     // 设置 chartspline 对象到占位部件的位置
     QVBoxLayout *layout_1 = new QVBoxLayout(placeholder_1);
     QVBoxLayout *layout_2 = new QVBoxLayout(placeholder_2);
+
     // layout_1->addWidget(_chartSpline_1);
+
     layout_2->addWidget(_chartSpline_2);
     //    placeholder->setLayout(layout);
 
@@ -295,8 +299,10 @@ MainWindow::MainWindow(QWidget *parent) :
     // {
      ui->userRankingList->resizeColumnsToContents();
     // }
+
      //k线
      setnew(0);
+
 
     //新闻窗口
 
@@ -401,6 +407,9 @@ void MainWindow::on_nextroundbutton_clicked()
        ui->timelabel->setText("模拟已结束");
        ui->TransactionButton->setDisabled(true);
        ui->nextroundbutton->setDisabled(true);
+
+       ui->stockbutton1->setDisabled(true);
+       ui->personpageBtn->setDisabled(true);
    }
    else{
        if (found) {QMessageBox msg(QMessageBox::Question,"提示","是否进行到下一轮操作?",QMessageBox::Yes | QMessageBox::No,this);
@@ -558,9 +567,11 @@ void MainWindow::refreshForum(){
 }
 
 void MainWindow::showCustomDialog() {
-    dialog dialog1;
-    dialog1.exec();
+
+    Report* dialog1 = new Report;
+    dialog1->exec();
 }
+
 
 void MainWindow::setnew(int company_id){
     ui->StockWidget_1->clearGraphs();
@@ -709,3 +720,4 @@ void MainWindow::on_ChooseWhichStock_1_currentIndexChanged(int index)
     setnew(index);
 }
 
+\

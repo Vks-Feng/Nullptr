@@ -66,8 +66,8 @@ background-color: rgba(206, 225, 240, 150);</string>
     <widget class="QStackedWidget" name="selectpage">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>0</y>
+       <x>10</x>
+       <y>-10</y>
        <width>851</width>
        <height>641</height>
       </rect>
@@ -80,7 +80,7 @@ background-color: rgba(206, 225, 240, 150);</string>
       <enum>QFrame::Panel</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="selectpage1">
       <widget class="QWidget" name="verticalLayoutWidget_2">
