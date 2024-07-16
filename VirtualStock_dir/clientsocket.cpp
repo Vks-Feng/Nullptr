@@ -71,7 +71,7 @@ void ClientSocket::sendRequest_Refresh(){
 void ClientSocket::processMessage(const QByteArray &data)
 {
     QString message = QString::fromUtf8(data);
-    qDebug() << "server: " << message;
+    // qDebug() << "server: " << message;
     handleCommand_fromServer(message);
 }
 
