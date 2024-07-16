@@ -13,7 +13,7 @@ ChartSpline::ChartSpline(QWidget *parent) :
 {
     std::cout<<"Hello , in spline "<<std::endl;
     ui->setupUi(this);
-    this->setStyleSheet("background-color:white");
+    // this->setStyleSheet("background-color:white");
     ShowRandomStock();
 }
 
@@ -172,6 +172,8 @@ void ChartSpline::ChangeStock(int company_id)
 
         auto chart = new QChart;
 
+        chart->setBackgroundVisible(false);
+
         chart->addSeries(lineseries);
 //      chart->setTitle(company_name + " 公司: " + QString::number(start_year) + "-" +
 //               QString::number(start_year + years_num-1) + "年股票单价行情");
@@ -184,13 +186,17 @@ void ChartSpline::ChangeStock(int company_id)
             categories << QString::number(start_year+i-2000);
         }
 
-            auto axisX = new QBarCategoryAxis;
+        auto axisX = new QBarCategoryAxis;
+        axisX->setGridLineVisible(true);
+        axisX->setGridLineColor(Qt::white);
         axisX->append(categories);
 
         chart->addAxis(axisX, Qt::AlignBottom);
         lineseries->attachAxis(axisX);
 
         auto axisY = new QValueAxis;
+        axisY->setGridLineVisible(true);
+        axisY->setGridLineColor(Qt::white);
         chart->addAxis(axisY, Qt::AlignLeft);
         lineseries->attachAxis(axisY);
 
@@ -206,7 +212,7 @@ void ChartSpline::ChangeStock(int company_id)
         std::vector<QColor> colors;
 
         // 随机给出颜色
-        colors = { QColor(Qt::red), QColor(Qt::green), QColor(Qt::blue), QColor(255,165,0) };
+        colors = { QColor(Qt::red), QColor(230,255,0), QColor(0,255,247), QColor(255,165,0) };
 
         // Select a random color using QRandomGenerator
         int randomIndex = QRandomGenerator::global()->bounded(static_cast<int>(colors.size()));

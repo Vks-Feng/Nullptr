@@ -18,15 +18,68 @@ sonforum::sonforum(std::vector<Post>_load,QWidget *parent)
             load.push_back(__load[i]);
         }
     }
+
+    QLabel *backLabel = new QLabel();
+    // backLabel->setStyleSheet("background-image:url(:/new/back/photos/back/back3.jpg);background-color:transparent;");
+    backLabel->setStyleSheet("background-color:transparent;");
+    backLabel->setFixedSize(400,400);
+    //backLabel->lower();
+
+
     // 创建一个QGridLayout来管理按钮布局
     buttonLayout = new QGridLayout(this);
 
     //创建滚动
     QScrollArea *scrollArea = new QScrollArea();
     scrollArea->setWidgetResizable(true); // 设置滚动区域可以调整大小
+    scrollArea->setStyleSheet("QScrollArea {"
+                              "    border-radius: 5px;"
+                              "background-color: rgba(118, 163, 203, 50);"
+                              "}"
+                              "QScrollBar:vertical {"
+                              "    width: 10px;"
+                              "    border: 0px solid;"
+                              "    margin: 0px;"
+                              "    background: #e1f0fa;"
+                              "}"
+                              "QScrollBar:vertical:hover {"
+                              "    background: #e1f0fa;"
+                              "}"
+                              "QScrollBar::handle:vertical {"
+                              "    width: 10px;"
+                              "    background:  #79b1de;"
+                              "    border-radius: 5px;"
+                              "    height: 40px;"
+                              "}"
+                              "QScrollBar::handle:vertical:hover {"
+                              "    background: #c0ddee;"
+                              "}"
+                              "QScrollBar::add-line:vertical {"
+                              "    height: 11px;"
+                              "    subcontrol-position: bottom;"
+                              "    border: 0px solid;"
+                              "    border-radius: 5px;"
+                              "}"
+                              "QScrollBar::sub-line:vertical {"
+                              "    height: 11px;"
+                              "    subcontrol-position: top;"
+                              "    border: 0px solid;"
+                              "    border-radius: 5px;"
+                              "}"
+                              "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {"
+                              "    border: 0px solid;"
+                              "    border-radius: 5px;"
+                              "}"
+                              "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {"
+                              "    border: 0px solid;"
+                              "    border-radius: 3px;"
+                              "}");
+
 
     // 创建一个QWidget作为滚动区域的子窗口
     QWidget *scrollAreaWidgetContents = new QWidget();
+    scrollAreaWidgetContents->setStyleSheet("background-color:transparent;");
+    scrollArea->setWidgetResizable(true); // 设置滚动区域可以调整大小
     scrollAreaWidgetContents->setLayout(buttonLayout); // 将网格布局设置到这个QWidget上
 
     // 将QWidget设置到滚动区域中
@@ -37,6 +90,7 @@ sonforum::sonforum(std::vector<Post>_load,QWidget *parent)
     mainLayout->addWidget(scrollArea);
     // 创建左侧布局和按钮
     QWidget *left=new QWidget();
+    left->setStyleSheet("background-color: transparent;");
 
     QGridLayout *leftLayout = new QGridLayout();
     left->setLayout(leftLayout);
@@ -49,18 +103,23 @@ sonforum::sonforum(std::vector<Post>_load,QWidget *parent)
 
     // 创建提交刷新按钮
     QPushButton *submitButton = new QPushButton("我要追帖");
+
     submitButton->setFixedWidth(100);
+    submitButton->setStyleSheet("background-color:rgba(118, 163, 203, 200);");
     leftLayout->addWidget(submitButton, 0, 1); // 将提交按钮添加到第一行第二列
 
     connect(submitButton, &QPushButton::clicked, this, &sonforum::onSubmitClicked);
     QPushButton *refreashButton = new QPushButton("刷新");
     refreashButton->setFixedWidth(50);
+        refreashButton->setStyleSheet("background-color:rgba(118, 163, 203, 200);");
     leftLayout->addWidget(refreashButton, 0, 2);
     // 创建输入文本框
     com = new QTextEdit();
     com->setFixedHeight(400);
-    leftLayout->addWidget(com, 1, 0,1,3); // 将文本框添加到第一行第一列
-    // 动态创建按钮并添加到布局中
+    com->setStyleSheet("background-color:rgba(118, 163, 203, 100);"
+                       "border: 5px;");
+    com->raise();
+     leftLayout->addWidget(com, 1, 0,1,3); // 将文本框添加到第一行第一列
     mainLayout->addWidget(left);
     mainLayout->addWidget(scrollArea);
 
@@ -92,6 +151,7 @@ sonforum::sonforum(std::vector<Post>_load,QWidget *parent)
         QTextEdit *textEdit = new QTextEdit(this);
         textEdit->setReadOnly(true); // 设置为只读
         textEdit->setFixedHeight(300);
+        textEdit->setStyleSheet("background-color:rgba(118, 163, 203, 50)");
         buttonLayout->addWidget(textEdit, 2*row+1,0,1,3);
         // 可以在这里设置文本显示框的内容
         QString temp;
@@ -112,6 +172,12 @@ sonforum::sonforum(std::vector<Post>_load,QWidget *parent)
 
     ui->setupUi(this);
     this->setFixedSize(this->width(), this->height());
+
+    QFrame *backFrame = new QFrame(this);
+
+    backFrame->setStyleSheet("background-image:url(:/new/back/photos/back/sForumBack.png);");
+    backFrame->setGeometry(this->rect());
+    backFrame->lower();
 }
 
 sonforum::~sonforum()

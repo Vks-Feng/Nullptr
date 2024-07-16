@@ -6,16 +6,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>441</width>
     <height>198</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(235, 250, 255);</string>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="4" column="2">
     <widget class="QPushButton" name="confirmButton">
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(33, 84, 118);
+color:white;</string>
+     </property>
      <property name="text">
       <string>确认交易</string>
      </property>
@@ -23,6 +30,10 @@
    </item>
    <item row="4" column="0">
     <widget class="QPushButton" name="cancelButton">
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(33, 84, 118);
+color:white;</string>
+     </property>
      <property name="text">
       <string>取消交易</string>
      </property>
